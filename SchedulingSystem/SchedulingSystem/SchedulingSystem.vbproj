@@ -94,13 +94,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SecondUserControl.Designer.vb">
+      <DependentUpon>SecondUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SecondUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestUserControl1.Designer.vb">
+      <DependentUpon>TestUserControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TestUserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondUserControl.resx">
+      <DependentUpon>SecondUserControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestUserControl1.resx">
+      <DependentUpon>TestUserControl1.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
