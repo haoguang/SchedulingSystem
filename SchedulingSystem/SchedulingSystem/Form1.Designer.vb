@@ -29,6 +29,7 @@ Partial Class Form1
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Panel1.Location = New System.Drawing.Point(-1, 59)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(498, 269)
@@ -45,6 +46,7 @@ Partial Class Form1
         '
         'Button2
         '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(115, 30)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(87, 23)
