@@ -1,13 +1,13 @@
 ﻿Public Class Form1
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnSchedule_Click(sender As Object, e As EventArgs) Handles btnSchedule.Click
         Dim UserCtrl1 As New TestUserControl1
-        Panel1.Controls.Clear()
-        Panel1.Controls.Add(UserCtrl1)
+        ContentPanel.Controls.Clear()
+        ContentPanel.Controls.Add(UserCtrl1)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub btnAppointment_Click(sender As Object, e As EventArgs) Handles btnAppointment.Click
         Dim UserCtrl2 As New SecondUserControl
-        Panel1.Controls.Clear()
-        Panel1.Controls.Add(UserCtrl2)
+        ContentPanel.Controls.Clear()
+        ContentPanel.Controls.Add(UserCtrl2)
     End Sub
 End Class
