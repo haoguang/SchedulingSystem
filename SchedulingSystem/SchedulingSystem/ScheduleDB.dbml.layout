@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.375, 10.125" name="ScheduleDB">
+  <DataContextMoniker Name="/ScheduleDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0ab07572-43b9-479e-9eda-2f7fc4192b07" absoluteBounds="0.5, 2.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ScheduleDBDataContext/Friend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ed3e86e-d9aa-4f24-9b27-de66529b2f87" absoluteBounds="0.51500000000000012, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c534db51-f0a3-4b99-b1c8-bb8af377a01a" absoluteBounds="3.875, 3, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/ScheduleDBDataContext/Member" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58e433dc-04f4-48c0-a595-88d779814ea4" absoluteBounds="3.8900000000000006, 3.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ffe79676-a699-4d53-b44a-fa607b1186c0" absoluteBounds="6.75, 6.75, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/ScheduleDBDataContext/Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7226a49-8476-45c7-b84f-01d22c36d562" absoluteBounds="6.765, 7.2100000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="faaa7354-0439-4c60-8057-97d44ed59b88" absoluteBounds="10.125, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ScheduleDBDataContext/Participle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d027684e-89f4-4382-afb4-dea8a86079d0" absoluteBounds="10.14, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ddfbd281-5cb9-4609-b7f5-bf3913e474cc" absoluteBounds="13.125, 7, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ScheduleDBDataContext/Reminder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebcb2e7f-4ace-4592-88dc-eb7e8009764a" absoluteBounds="13.14, 7.4600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 3.60179768880208); (2.5 : 3.60179768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_Friend" />
+      <nodes>
+        <classShapeMoniker Id="c534db51-f0a3-4b99-b1c8-bb8af377a01a" />
+        <classShapeMoniker Id="0ab07572-43b9-479e-9eda-2f7fc4192b07" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 3.23839884440104); (2.5 : 3.23839884440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_Friend1" />
+      <nodes>
+        <classShapeMoniker Id="c534db51-f0a3-4b99-b1c8-bb8af377a01a" />
+        <classShapeMoniker Id="0ab07572-43b9-479e-9eda-2f7fc4192b07" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 4.42009951660156); (10.125 : 4.42009951660156)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_Participle" />
+      <nodes>
+        <classShapeMoniker Id="c534db51-f0a3-4b99-b1c8-bb8af377a01a" />
+        <classShapeMoniker Id="faaa7354-0439-4c60-8057-97d44ed59b88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 6.75); (7.75 : 4.96809994710286); (10.125 : 4.96809994710286)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ScheduleDBDataContext/Schedule/Schedule_Participle" />
+      <nodes>
+        <classShapeMoniker Id="ffe79676-a699-4d53-b44a-fa607b1186c0" />
+        <classShapeMoniker Id="faaa7354-0439-4c60-8057-97d44ed59b88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 7.69314697265625); (13.125 : 7.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ScheduleDBDataContext/Schedule/Schedule_Reminder" />
+      <nodes>
+        <classShapeMoniker Id="ffe79676-a699-4d53-b44a-fa607b1186c0" />
+        <classShapeMoniker Id="ddfbd281-5cb9-4609-b7f5-bf3913e474cc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
