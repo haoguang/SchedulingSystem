@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ScheduleDB" Class="ScheduleDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ScheduleDB.mdf;Integrated Security=True" SettingsObjectName="SchedulingSystem.My.MySettings" SettingsPropertyName="ScheduleDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ScheduleDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="SchedulingSystem.My.MySettings" SettingsPropertyName="ScheduleDBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Friend" Member="Friends">
     <Type Name="Friend">
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -28,24 +28,6 @@
       <Association Name="Member_Participle" Member="Participles" ThisKey="MemberID" OtherKey="MemberID" Type="Participle" />
     </Type>
   </Table>
-  <Table Name="dbo.Schedule" Member="Schedules">
-    <Type Name="Schedule">
-      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="RepeatDue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="RepeatBehavior" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Venue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Schedule_Participle" Member="Participles" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Participle" />
-      <Association Name="Schedule_Reminder" Member="Reminders" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Reminder" />
-    </Type>
-  </Table>
   <Table Name="dbo.Participles" Member="Participles">
     <Type Name="Participle">
       <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -62,6 +44,22 @@
       <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MinutesBefore" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Schedule_Reminder" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedule" Member="Schedules">
+    <Type Name="Schedule">
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ScheduleStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ScheduleEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RepeatDue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RepeatBehavior" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Venue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Schedule_Participle" Member="Participles" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Participle" />
+      <Association Name="Schedule_Reminder" Member="Reminders" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Reminder" />
     </Type>
   </Table>
 </Database>

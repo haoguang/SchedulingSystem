@@ -38,7 +38,7 @@ Partial Class MainForm
         '
         'HeaderPanel
         '
-        Me.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(185, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(83, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.HeaderPanel.Controls.Add(Me.btnFriends)
         Me.HeaderPanel.Controls.Add(Me.btnNotification)
         Me.HeaderPanel.Controls.Add(Me.btnAppointment)
@@ -53,6 +53,7 @@ Partial Class MainForm
         '
         Me.btnFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(83, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnFriends.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnFriends.FlatAppearance.BorderSize = 0
         Me.btnFriends.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFriends.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFriends.ForeColor = System.Drawing.SystemColors.Control
@@ -72,6 +73,7 @@ Partial Class MainForm
         '
         Me.btnNotification.BackColor = System.Drawing.Color.FromArgb(CType(CType(83, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnNotification.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnNotification.FlatAppearance.BorderSize = 0
         Me.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNotification.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotification.ForeColor = System.Drawing.SystemColors.Control
@@ -91,6 +93,7 @@ Partial Class MainForm
         '
         Me.btnAppointment.BackColor = System.Drawing.Color.FromArgb(CType(CType(83, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnAppointment.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnAppointment.FlatAppearance.BorderSize = 0
         Me.btnAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAppointment.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAppointment.ForeColor = System.Drawing.SystemColors.Control
@@ -110,6 +113,7 @@ Partial Class MainForm
         '
         Me.btnSchedule.BackColor = System.Drawing.Color.FromArgb(CType(CType(83, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.btnSchedule.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnSchedule.FlatAppearance.BorderSize = 0
         Me.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSchedule.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSchedule.ForeColor = System.Drawing.SystemColors.Control
@@ -169,6 +173,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.HeaderPanel)
         Me.Name = "MainForm"
         Me.Text = "Personal Scheduling System"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.HeaderPanel.ResumeLayout(False)
         Me.SidePanel.ResumeLayout(False)
         Me.ResumeLayout(False)

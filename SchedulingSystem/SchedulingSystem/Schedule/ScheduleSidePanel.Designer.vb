@@ -30,6 +30,7 @@ Partial Class ScheduleSidePanel
         '
         Me.btnMySchedule.BackColor = System.Drawing.Color.Transparent
         Me.btnMySchedule.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnMySchedule.FlatAppearance.BorderSize = 0
         Me.btnMySchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMySchedule.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMySchedule.ForeColor = System.Drawing.Color.DarkCyan
@@ -44,6 +45,7 @@ Partial Class ScheduleSidePanel
         '
         Me.btnAddSchedule.BackColor = System.Drawing.Color.Transparent
         Me.btnAddSchedule.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnAddSchedule.FlatAppearance.BorderSize = 0
         Me.btnAddSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddSchedule.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddSchedule.ForeColor = System.Drawing.Color.DarkCyan

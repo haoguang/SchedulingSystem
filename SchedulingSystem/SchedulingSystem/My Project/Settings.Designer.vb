@@ -64,6 +64,17 @@ Namespace My
                 Return CType(Me("ScheduleDBConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ScheduleDB.md"& _ 
+            "f;Integrated Security=True;Connect Timeout=30")>  _
+        Public ReadOnly Property ScheduleDBConnectionString1() As String
+            Get
+                Return CType(Me("ScheduleDBConnectionString1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
