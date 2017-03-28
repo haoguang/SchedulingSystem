@@ -29,9 +29,9 @@ Partial Class MainForm
         Me.btnAppointment = New System.Windows.Forms.Button()
         Me.btnSchedule = New System.Windows.Forms.Button()
         Me.SidePanel = New System.Windows.Forms.Panel()
-        Me.ContentPanel = New System.Windows.Forms.Panel()
-        Me.TimeSidePanel = New System.Windows.Forms.Panel()
         Me.SideContentPanel = New System.Windows.Forms.Panel()
+        Me.TimeSidePanel = New System.Windows.Forms.Panel()
+        Me.ContentPanel = New System.Windows.Forms.Panel()
         Me.HeaderPanel.SuspendLayout()
         Me.SidePanel.SuspendLayout()
         Me.SuspendLayout()
@@ -125,39 +125,39 @@ Partial Class MainForm
         '
         'SidePanel
         '
-        Me.SidePanel.BackColor = System.Drawing.Color.SpringGreen
+        Me.SidePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.SidePanel.Controls.Add(Me.SideContentPanel)
         Me.SidePanel.Controls.Add(Me.TimeSidePanel)
         Me.SidePanel.Dock = System.Windows.Forms.DockStyle.Left
         Me.SidePanel.Location = New System.Drawing.Point(0, 69)
         Me.SidePanel.Name = "SidePanel"
-        Me.SidePanel.Size = New System.Drawing.Size(281, 442)
+        Me.SidePanel.Size = New System.Drawing.Size(300, 442)
         Me.SidePanel.TabIndex = 1
-        '
-        'ContentPanel
-        '
-        Me.ContentPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ContentPanel.Location = New System.Drawing.Point(281, 69)
-        Me.ContentPanel.Name = "ContentPanel"
-        Me.ContentPanel.Size = New System.Drawing.Size(537, 442)
-        Me.ContentPanel.TabIndex = 2
-        '
-        'TimeSidePanel
-        '
-        Me.TimeSidePanel.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TimeSidePanel.Location = New System.Drawing.Point(0, 0)
-        Me.TimeSidePanel.Name = "TimeSidePanel"
-        Me.TimeSidePanel.Size = New System.Drawing.Size(281, 64)
-        Me.TimeSidePanel.TabIndex = 0
         '
         'SideContentPanel
         '
         Me.SideContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SideContentPanel.Location = New System.Drawing.Point(0, 64)
         Me.SideContentPanel.Name = "SideContentPanel"
-        Me.SideContentPanel.Size = New System.Drawing.Size(281, 378)
+        Me.SideContentPanel.Size = New System.Drawing.Size(300, 378)
         Me.SideContentPanel.TabIndex = 1
+        '
+        'TimeSidePanel
+        '
+        Me.TimeSidePanel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TimeSidePanel.Location = New System.Drawing.Point(0, 0)
+        Me.TimeSidePanel.Name = "TimeSidePanel"
+        Me.TimeSidePanel.Size = New System.Drawing.Size(300, 64)
+        Me.TimeSidePanel.TabIndex = 0
+        '
+        'ContentPanel
+        '
+        Me.ContentPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ContentPanel.Location = New System.Drawing.Point(300, 69)
+        Me.ContentPanel.Name = "ContentPanel"
+        Me.ContentPanel.Size = New System.Drawing.Size(518, 442)
+        Me.ContentPanel.TabIndex = 2
         '
         'MainForm
         '

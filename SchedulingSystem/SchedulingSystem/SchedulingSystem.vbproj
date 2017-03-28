@@ -116,6 +116,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
+      <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SecondUserControl.Designer.vb">
       <DependentUpon>SecondUserControl.vb</DependentUpon>
     </Compile>
@@ -142,6 +148,9 @@
     <None Include="ScheduleDB.dbml.layout">
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Schedule\ScheduleSidePanel.resx">
+      <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecondUserControl.resx">
       <DependentUpon>SecondUserControl.vb</DependentUpon>
     </EmbeddedResource>
@@ -170,7 +179,6 @@
     <Folder Include="Appointment\" />
     <Folder Include="Friend\" />
     <Folder Include="Notification\" />
-    <Folder Include="Schedule\" />
     <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>

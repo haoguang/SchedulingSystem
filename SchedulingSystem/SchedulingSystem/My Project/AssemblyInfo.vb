@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("SchedulingSystem")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("This is a personal scheduling system to help manage personal activity.")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("SchedulingSystem")>
 <Assembly: AssemblyCopyright("Copyright ©  2017")>
