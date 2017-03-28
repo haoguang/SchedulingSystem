@@ -190,13 +190,6 @@
     <None Include="Resources\Appointment.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\warning.png" />
-    <Content Include="ScheduleDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ScheduleDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>ScheduleDB.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
