@@ -89,6 +89,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Appointment\AppointmentSidePanel.Designer.vb">
+      <DependentUpon>AppointmentSidePanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\AppointmentSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Appointment\CreateAppointment.Designer.vb">
+      <DependentUpon>CreateAppointment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\CreateAppointment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +154,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Appointment\AppointmentSidePanel.resx">
+      <DependentUpon>AppointmentSidePanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointment\CreateAppointment.resx">
+      <DependentUpon>CreateAppointment.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -185,7 +203,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Appointment\" />
     <Folder Include="Friend\" />
     <Folder Include="Notification\" />
     <Folder Include="User\" />
