@@ -90,6 +90,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Appointment\AppointmentSidePanel.Designer.vb">
+      <DependentUpon>AppointmentSidePanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\AppointmentSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Appointment\CreateAppointment.Designer.vb">
+      <DependentUpon>CreateAppointment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\CreateAppointment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Friend\SearchnewFriend.Designer.vb">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
     </Compile>
@@ -129,6 +141,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Schedule\ActivityRegister.Designer.vb">
+      <DependentUpon>ActivityRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ActivityRegister.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
     </Compile>
@@ -155,6 +173,12 @@
     <EmbeddedResource Include="Friend\FriendSidePanel.resx">
       <DependentUpon>FriendSidePanel.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Appointment\AppointmentSidePanel.resx">
+      <DependentUpon>AppointmentSidePanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointment\CreateAppointment.resx">
+      <DependentUpon>CreateAppointment.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +191,9 @@
     <None Include="ScheduleDB.dbml.layout">
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Schedule\ActivityRegister.resx">
+      <DependentUpon>ActivityRegister.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ScheduleSidePanel.resx">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +222,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Friend\" />
     <Folder Include="Appointment\" />
     <Folder Include="Notification\" />
     <Folder Include="User\" />
@@ -219,6 +247,15 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ScheduleDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ScheduleDB_log.ldf">
+      <DependentUpon>ScheduleDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
