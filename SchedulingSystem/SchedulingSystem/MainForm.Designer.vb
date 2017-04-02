@@ -156,7 +156,8 @@ Partial Class MainForm
         '
         'ContentPanel
         '
-        Me.ContentPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.ContentPanel.AutoScroll = True
+        Me.ContentPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ContentPanel.Location = New System.Drawing.Point(300, 69)
         Me.ContentPanel.Name = "ContentPanel"

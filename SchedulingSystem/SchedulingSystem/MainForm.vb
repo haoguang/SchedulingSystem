@@ -1,6 +1,6 @@
 ﻿Public Class MainForm
     Private Sub btnSchedule_Click(sender As Object, e As EventArgs) Handles btnSchedule.Click
-        Dim UserCtrl1 As New ActivityRegister
+        Dim UserCtrl1 As New DayScheduleViewer
         Dim SideContent As New ScheduleSidePanel
         ContentPanel.Controls.Clear()
         ContentPanel.Controls.Add(UserCtrl1)
