@@ -45,8 +45,9 @@ Partial Class MainForm
         Me.HeaderPanel.Controls.Add(Me.btnSchedule)
         Me.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.HeaderPanel.Location = New System.Drawing.Point(0, 0)
+        Me.HeaderPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.HeaderPanel.Name = "HeaderPanel"
-        Me.HeaderPanel.Size = New System.Drawing.Size(818, 69)
+        Me.HeaderPanel.Size = New System.Drawing.Size(1091, 85)
         Me.HeaderPanel.TabIndex = 0
         '
         'btnFriends
@@ -59,10 +60,11 @@ Partial Class MainForm
         Me.btnFriends.ForeColor = System.Drawing.SystemColors.Control
         Me.btnFriends.Image = Global.SchedulingSystem.My.Resources.Resources.user
         Me.btnFriends.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFriends.Location = New System.Drawing.Point(501, 0)
+        Me.btnFriends.Location = New System.Drawing.Point(669, 0)
+        Me.btnFriends.Margin = New System.Windows.Forms.Padding(4)
         Me.btnFriends.Name = "btnFriends"
-        Me.btnFriends.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnFriends.Size = New System.Drawing.Size(167, 69)
+        Me.btnFriends.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
+        Me.btnFriends.Size = New System.Drawing.Size(223, 85)
         Me.btnFriends.TabIndex = 2
         Me.btnFriends.Text = "  Friends"
         Me.btnFriends.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -79,10 +81,11 @@ Partial Class MainForm
         Me.btnNotification.ForeColor = System.Drawing.SystemColors.Control
         Me.btnNotification.Image = Global.SchedulingSystem.My.Resources.Resources.warning
         Me.btnNotification.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNotification.Location = New System.Drawing.Point(334, 0)
+        Me.btnNotification.Location = New System.Drawing.Point(446, 0)
+        Me.btnNotification.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNotification.Name = "btnNotification"
-        Me.btnNotification.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnNotification.Size = New System.Drawing.Size(167, 69)
+        Me.btnNotification.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
+        Me.btnNotification.Size = New System.Drawing.Size(223, 85)
         Me.btnNotification.TabIndex = 2
         Me.btnNotification.Text = "  Notification"
         Me.btnNotification.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -99,10 +102,11 @@ Partial Class MainForm
         Me.btnAppointment.ForeColor = System.Drawing.SystemColors.Control
         Me.btnAppointment.Image = CType(resources.GetObject("btnAppointment.Image"), System.Drawing.Image)
         Me.btnAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAppointment.Location = New System.Drawing.Point(167, 0)
+        Me.btnAppointment.Location = New System.Drawing.Point(223, 0)
+        Me.btnAppointment.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAppointment.Name = "btnAppointment"
-        Me.btnAppointment.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnAppointment.Size = New System.Drawing.Size(167, 69)
+        Me.btnAppointment.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
+        Me.btnAppointment.Size = New System.Drawing.Size(223, 85)
         Me.btnAppointment.TabIndex = 2
         Me.btnAppointment.Text = "  Appointment"
         Me.btnAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -119,9 +123,10 @@ Partial Class MainForm
         Me.btnSchedule.ForeColor = System.Drawing.SystemColors.Control
         Me.btnSchedule.Image = CType(resources.GetObject("btnSchedule.Image"), System.Drawing.Image)
         Me.btnSchedule.Location = New System.Drawing.Point(0, 0)
+        Me.btnSchedule.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSchedule.Name = "btnSchedule"
-        Me.btnSchedule.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnSchedule.Size = New System.Drawing.Size(167, 69)
+        Me.btnSchedule.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
+        Me.btnSchedule.Size = New System.Drawing.Size(223, 85)
         Me.btnSchedule.TabIndex = 2
         Me.btnSchedule.Text = "  Schedule"
         Me.btnSchedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -133,44 +138,49 @@ Partial Class MainForm
         Me.SidePanel.Controls.Add(Me.SideContentPanel)
         Me.SidePanel.Controls.Add(Me.TimeSidePanel)
         Me.SidePanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.SidePanel.Location = New System.Drawing.Point(0, 69)
+        Me.SidePanel.Location = New System.Drawing.Point(0, 85)
+        Me.SidePanel.Margin = New System.Windows.Forms.Padding(4)
         Me.SidePanel.Name = "SidePanel"
-        Me.SidePanel.Size = New System.Drawing.Size(300, 442)
+        Me.SidePanel.Size = New System.Drawing.Size(400, 544)
         Me.SidePanel.TabIndex = 1
         '
         'SideContentPanel
         '
         Me.SideContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideContentPanel.Location = New System.Drawing.Point(0, 64)
+        Me.SideContentPanel.Location = New System.Drawing.Point(0, 79)
+        Me.SideContentPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.SideContentPanel.Name = "SideContentPanel"
-        Me.SideContentPanel.Size = New System.Drawing.Size(300, 378)
+        Me.SideContentPanel.Size = New System.Drawing.Size(400, 465)
         Me.SideContentPanel.TabIndex = 1
         '
         'TimeSidePanel
         '
         Me.TimeSidePanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TimeSidePanel.Location = New System.Drawing.Point(0, 0)
+        Me.TimeSidePanel.Margin = New System.Windows.Forms.Padding(4)
         Me.TimeSidePanel.Name = "TimeSidePanel"
-        Me.TimeSidePanel.Size = New System.Drawing.Size(300, 64)
+        Me.TimeSidePanel.Size = New System.Drawing.Size(400, 79)
         Me.TimeSidePanel.TabIndex = 0
         '
         'ContentPanel
         '
         Me.ContentPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ContentPanel.Location = New System.Drawing.Point(300, 69)
+        Me.ContentPanel.Location = New System.Drawing.Point(400, 85)
+        Me.ContentPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.ContentPanel.Name = "ContentPanel"
-        Me.ContentPanel.Size = New System.Drawing.Size(518, 442)
+        Me.ContentPanel.Size = New System.Drawing.Size(691, 544)
         Me.ContentPanel.TabIndex = 2
         '
         'MainForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(818, 511)
+        Me.ClientSize = New System.Drawing.Size(1091, 629)
         Me.Controls.Add(Me.ContentPanel)
         Me.Controls.Add(Me.SidePanel)
         Me.Controls.Add(Me.HeaderPanel)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MainForm"
         Me.Text = "Personal Scheduling System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

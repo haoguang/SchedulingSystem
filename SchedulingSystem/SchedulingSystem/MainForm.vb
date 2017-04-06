@@ -17,4 +17,21 @@
         SideContentPanel.Controls.Add(AppointmentSideContent)
 
     End Sub
+
+    Private Sub ContentPanel_Paint(sender As Object, e As PaintEventArgs) Handles ContentPanel.Paint
+
+    End Sub
+
+    Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
+        Dim FriendSidePanel As New FriendSidePanel
+
+        ContentPanel.Controls.Clear()
+        SideContentPanel.Controls.Clear()
+
+        SideContentPanel.Controls.Add(FriendSidePanel)
+    End Sub
+
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

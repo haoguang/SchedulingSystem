@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ScheduleDB" Class="ScheduleDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ScheduleDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="SchedulingSystem.My.MySettings" SettingsPropertyName="ScheduleDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ScheduleDB.mdf;Integrated Security=True" SettingsObjectName="SchedulingSystem.My.MySettings" SettingsPropertyName="ScheduleDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Friend" Member="Friends">
     <Type Name="Friend">
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -10,32 +10,14 @@
       <Association Name="Member_Friend1" Member="Member1" ThisKey="UserID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Member" Member="Members">
-    <Type Name="Member">
-      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Occupation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ContactNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Picture" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Nickname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="DateJoin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Role" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Member_Friend" Member="Friends" ThisKey="MemberID" OtherKey="FriendID" Type="Friend" />
-      <Association Name="Member_Friend1" Member="Friends1" ThisKey="MemberID" OtherKey="UserID" Type="Friend" />
-      <Association Name="Member_Participle" Member="Participles" ThisKey="MemberID" OtherKey="MemberID" Type="Participle" />
-    </Type>
-  </Table>
   <Table Name="dbo.Participles" Member="Participles">
     <Type Name="Participle">
       <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ParticiplesRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Member_Participle" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
       <Association Name="Schedule_Participle" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
+      <Association Name="Member_Participle" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Reminder" Member="Reminders">
@@ -60,6 +42,25 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Schedule_Participle" Member="Participles" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Participle" />
       <Association Name="Schedule_Reminder" Member="Reminders" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Reminder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Member" Member="Members">
+    <Type Name="Member">
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Occupation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Picture" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Nickname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="DateJoin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hobby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Member_Friend" Member="Friends" ThisKey="MemberID" OtherKey="FriendID" Type="Friend" />
+      <Association Name="Member_Friend1" Member="Friends1" ThisKey="MemberID" OtherKey="UserID" Type="Friend" />
+      <Association Name="Member_Participle" Member="Participles" ThisKey="MemberID" OtherKey="MemberID" Type="Participle" />
     </Type>
   </Table>
 </Database>

@@ -222,8 +222,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Friend\" />
-    <Folder Include="Appointment\" />
     <Folder Include="Notification\" />
     <Folder Include="User\" />
   </ItemGroup>
