@@ -11,20 +11,15 @@
       <Association Name="Member_Friend1" Member="Member1" ThisKey="UserID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Schedule" Member="Schedules">
-    <Type Name="Schedule">
+  <Table Name="dbo.Participles" Member="Participles">
+    <Type Name="Participle">
       <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ScheduleStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ScheduleEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="RepeatDue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="RepeatBehavior" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Venue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParticiplesRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Schedule_Participle" Member="Participles" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Participle" />
-      <Association Name="Schedule_Reminder" Member="Reminders" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Reminder" />
+      <Column Name="GenerateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Member_Participle" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
+      <Association Name="Schedule_Participle" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Member" Member="Members">
@@ -40,20 +35,35 @@
       <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="DateJoin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Role" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hobby" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Member_Friend" Member="Friends" ThisKey="MemberID" OtherKey="FriendID" Type="Friend" />
       <Association Name="Member_Friend1" Member="Friends1" ThisKey="MemberID" OtherKey="UserID" Type="Friend" />
       <Association Name="Member_Participle" Member="Participles" ThisKey="MemberID" OtherKey="MemberID" Type="Participle" />
     </Type>
   </Table>
-  <Table Name="dbo.Participles" Member="Participles">
-    <Type Name="Participle">
+  <Table Name="dbo.Schedule" Member="Schedules">
+    <Type Name="Schedule">
       <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ParticiplesRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RepeatDue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RepeatBehavior" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Venue" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="GenerateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Member_Participle" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
-      <Association Name="Schedule_Participle" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
+      <Association Name="Schedule_Participle" Member="Participles" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Participle" />
+      <Association Name="Schedule_ScheduleTime" Member="ScheduleTimes" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="ScheduleTime" />
+      <Association Name="Schedule_Reminder" Member="Reminders" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Reminder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScheduleTime" Member="ScheduleTimes">
+    <Type Name="ScheduleTime">
+      <Column Name="ScheduleTimeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ScheduleEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InitialTime" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Schedule_ScheduleTime" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Reminder" Member="Reminders">
@@ -61,6 +71,7 @@
       <Column Name="ReminderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MinutesBefore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReminderDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Schedule_Reminder" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" />
     </Type>
   </Table>

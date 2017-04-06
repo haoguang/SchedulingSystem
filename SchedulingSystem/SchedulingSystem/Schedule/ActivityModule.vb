@@ -1,6 +1,7 @@
 ﻿Module ActivityModule
-    Friend Const MAX_HEIGHT As Integer = 1250
+    Friend Const MAX_HEIGHT As Integer = 1203
     Friend Const MINS_ONE_DAY As Integer = 1440
+    Friend Const TOP_PADDING As Integer = 5
 
     Friend Function calActivityHeight(startTime As DateTime, endTime As DateTime) As Double
         Return (calTimeDiffInMin(startTime, endTime) / MINS_ONE_DAY) * MAX_HEIGHT
@@ -12,7 +13,8 @@
 
     Friend Function calActivityPosition(startTime As DateTime) As Double
         Dim time As TimeSpan = startTime.TimeOfDay
-        Return (time).TotalMinutes / MINS_ONE_DAY * MAX_HEIGHT
+        Return TOP_PADDING + (time.TotalMinutes / MINS_ONE_DAY * MAX_HEIGHT)
+
     End Function
 
 End Module

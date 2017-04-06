@@ -17,4 +17,12 @@
         SideContentPanel.Controls.Add(AppointmentSideContent)
 
     End Sub
+
+    Private Sub ContentPanel_MouseEnter(sender As Object, e As EventArgs) Handles ContentPanel.MouseEnter
+        ContentPanel.Focus()
+    End Sub
+
+    Private Sub SidePanel_MouseEnter(sender As Object, e As EventArgs) Handles SidePanel.MouseEnter
+        SidePanel.Focus()
+    End Sub
 End Class

@@ -22,6 +22,8 @@ Partial Class ActivityRegister
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"abc"}, -1, System.Drawing.Color.Empty, System.Drawing.SystemColors.InactiveCaption, Nothing)
+        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Cab")
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -40,9 +42,12 @@ Partial Class ActivityRegister
         Me.cboBehavior = New System.Windows.Forms.ComboBox()
         Me.gbGeneral = New System.Windows.Forms.GroupBox()
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
-        Me.btnComplete = New System.Windows.Forms.Button()
+        Me.btnDone = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblStartTitle
@@ -234,20 +239,45 @@ Partial Class ActivityRegister
         Me.gbRepeat.TabStop = False
         Me.gbRepeat.Text = "Repeatation"
         '
-        'btnComplete
+        'btnDone
         '
-        Me.btnComplete.Location = New System.Drawing.Point(186, 408)
-        Me.btnComplete.Name = "btnComplete"
-        Me.btnComplete.Size = New System.Drawing.Size(75, 23)
-        Me.btnComplete.TabIndex = 9
-        Me.btnComplete.Text = "Complete"
-        Me.btnComplete.UseVisualStyleBackColor = True
+        Me.btnDone.Location = New System.Drawing.Point(149, 429)
+        Me.btnDone.Name = "btnDone"
+        Me.btnDone.Size = New System.Drawing.Size(75, 23)
+        Me.btnDone.TabIndex = 9
+        Me.btnDone.Text = "Done"
+        Me.btnDone.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.ListView1)
+        Me.GroupBox1.Location = New System.Drawing.Point(423, 13)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(277, 371)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Participles"
+        '
+        'ListView1
+        '
+        Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.HideSelection = False
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2})
+        Me.ListView1.Location = New System.Drawing.Point(3, 16)
+        Me.ListView1.MultiSelect = False
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(271, 352)
+        Me.ListView1.TabIndex = 0
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Tile
         '
         'ActivityRegister
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.btnComplete)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.gbRepeat)
         Me.Controls.Add(Me.gbGeneral)
         Me.Name = "ActivityRegister"
@@ -256,6 +286,7 @@ Partial Class ActivityRegister
         Me.gbGeneral.PerformLayout()
         Me.gbRepeat.ResumeLayout(False)
         Me.gbRepeat.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -278,5 +309,7 @@ Partial Class ActivityRegister
     Friend WithEvents cboBehavior As ComboBox
     Friend WithEvents gbGeneral As GroupBox
     Friend WithEvents gbRepeat As GroupBox
-    Friend WithEvents btnComplete As Button
+    Friend WithEvents btnDone As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents ListView1 As ListView
 End Class

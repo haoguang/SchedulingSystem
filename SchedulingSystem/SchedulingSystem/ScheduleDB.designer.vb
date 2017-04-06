@@ -37,11 +37,11 @@ Partial Public Class ScheduleDBDataContext
     End Sub
   Partial Private Sub DeleteFriend(instance As [Friend])
     End Sub
-  Partial Private Sub InsertSchedule(instance As Schedule)
+  Partial Private Sub InsertParticiple(instance As Participle)
     End Sub
-  Partial Private Sub UpdateSchedule(instance As Schedule)
+  Partial Private Sub UpdateParticiple(instance As Participle)
     End Sub
-  Partial Private Sub DeleteSchedule(instance As Schedule)
+  Partial Private Sub DeleteParticiple(instance As Participle)
     End Sub
   Partial Private Sub InsertMember(instance As Member)
     End Sub
@@ -49,11 +49,17 @@ Partial Public Class ScheduleDBDataContext
     End Sub
   Partial Private Sub DeleteMember(instance As Member)
     End Sub
-  Partial Private Sub InsertParticiple(instance As Participle)
+  Partial Private Sub InsertSchedule(instance As Schedule)
     End Sub
-  Partial Private Sub UpdateParticiple(instance As Participle)
+  Partial Private Sub UpdateSchedule(instance As Schedule)
     End Sub
-  Partial Private Sub DeleteParticiple(instance As Participle)
+  Partial Private Sub DeleteSchedule(instance As Schedule)
+    End Sub
+  Partial Private Sub InsertScheduleTime(instance As ScheduleTime)
+    End Sub
+  Partial Private Sub UpdateScheduleTime(instance As ScheduleTime)
+    End Sub
+  Partial Private Sub DeleteScheduleTime(instance As ScheduleTime)
     End Sub
   Partial Private Sub InsertReminder(instance As Reminder)
     End Sub
@@ -94,9 +100,9 @@ Partial Public Class ScheduleDBDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property Schedules() As System.Data.Linq.Table(Of Schedule)
+	Public ReadOnly Property Participles() As System.Data.Linq.Table(Of Participle)
 		Get
-			Return Me.GetTable(Of Schedule)
+			Return Me.GetTable(Of Participle)
 		End Get
 	End Property
 	
@@ -106,9 +112,15 @@ Partial Public Class ScheduleDBDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property Participles() As System.Data.Linq.Table(Of Participle)
+	Public ReadOnly Property Schedules() As System.Data.Linq.Table(Of Schedule)
 		Get
-			Return Me.GetTable(Of Participle)
+			Return Me.GetTable(Of Schedule)
+		End Get
+	End Property
+	
+	Public ReadOnly Property ScheduleTimes() As System.Data.Linq.Table(Of ScheduleTime)
+		Get
+			Return Me.GetTable(Of ScheduleTime)
 		End Get
 	End Property
 	
@@ -339,664 +351,6 @@ Partial Public Class [Friend]
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Schedule")>  _
-Partial Public Class Schedule
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _ScheduleID As Integer
-	
-	Private _ScheduleStart As System.Nullable(Of Date)
-	
-	Private _ScheduleEnd As System.Nullable(Of Date)
-	
-	Private _RepeatDue As System.Nullable(Of Date)
-	
-	Private _RepeatBehavior As System.Data.Linq.Binary
-	
-	Private _Title As String
-	
-	Private _Description As String
-	
-	Private _Venue As String
-	
-	Private _Type As String
-	
-	Private _Status As String
-	
-	Private _Participles As EntitySet(Of Participle)
-	
-	Private _Reminders As EntitySet(Of Reminder)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnScheduleIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnScheduleIDChanged()
-    End Sub
-    Partial Private Sub OnScheduleStartChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnScheduleStartChanged()
-    End Sub
-    Partial Private Sub OnScheduleEndChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnScheduleEndChanged()
-    End Sub
-    Partial Private Sub OnRepeatDueChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnRepeatDueChanged()
-    End Sub
-    Partial Private Sub OnRepeatBehaviorChanging(value As System.Data.Linq.Binary)
-    End Sub
-    Partial Private Sub OnRepeatBehaviorChanged()
-    End Sub
-    Partial Private Sub OnTitleChanging(value As String)
-    End Sub
-    Partial Private Sub OnTitleChanged()
-    End Sub
-    Partial Private Sub OnDescriptionChanging(value As String)
-    End Sub
-    Partial Private Sub OnDescriptionChanged()
-    End Sub
-    Partial Private Sub OnVenueChanging(value As String)
-    End Sub
-    Partial Private Sub OnVenueChanged()
-    End Sub
-    Partial Private Sub OnTypeChanging(value As String)
-    End Sub
-    Partial Private Sub OnTypeChanged()
-    End Sub
-    Partial Private Sub OnStatusChanging(value As String)
-    End Sub
-    Partial Private Sub OnStatusChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._Participles = New EntitySet(Of Participle)(AddressOf Me.attach_Participles, AddressOf Me.detach_Participles)
-		Me._Reminders = New EntitySet(Of Reminder)(AddressOf Me.attach_Reminders, AddressOf Me.detach_Reminders)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property ScheduleID() As Integer
-		Get
-			Return Me._ScheduleID
-		End Get
-		Set
-			If ((Me._ScheduleID = value)  _
-						= false) Then
-				Me.OnScheduleIDChanging(value)
-				Me.SendPropertyChanging
-				Me._ScheduleID = value
-				Me.SendPropertyChanged("ScheduleID")
-				Me.OnScheduleIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleStart", DbType:="DateTime")>  _
-	Public Property ScheduleStart() As System.Nullable(Of Date)
-		Get
-			Return Me._ScheduleStart
-		End Get
-		Set
-			If (Me._ScheduleStart.Equals(value) = false) Then
-				Me.OnScheduleStartChanging(value)
-				Me.SendPropertyChanging
-				Me._ScheduleStart = value
-				Me.SendPropertyChanged("ScheduleStart")
-				Me.OnScheduleStartChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleEnd", DbType:="DateTime")>  _
-	Public Property ScheduleEnd() As System.Nullable(Of Date)
-		Get
-			Return Me._ScheduleEnd
-		End Get
-		Set
-			If (Me._ScheduleEnd.Equals(value) = false) Then
-				Me.OnScheduleEndChanging(value)
-				Me.SendPropertyChanging
-				Me._ScheduleEnd = value
-				Me.SendPropertyChanged("ScheduleEnd")
-				Me.OnScheduleEndChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RepeatDue", DbType:="Date")>  _
-	Public Property RepeatDue() As System.Nullable(Of Date)
-		Get
-			Return Me._RepeatDue
-		End Get
-		Set
-			If (Me._RepeatDue.Equals(value) = false) Then
-				Me.OnRepeatDueChanging(value)
-				Me.SendPropertyChanging
-				Me._RepeatDue = value
-				Me.SendPropertyChanged("RepeatDue")
-				Me.OnRepeatDueChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RepeatBehavior", DbType:="Binary(50)", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property RepeatBehavior() As System.Data.Linq.Binary
-		Get
-			Return Me._RepeatBehavior
-		End Get
-		Set
-			If (Object.Equals(Me._RepeatBehavior, value) = false) Then
-				Me.OnRepeatBehaviorChanging(value)
-				Me.SendPropertyChanging
-				Me._RepeatBehavior = value
-				Me.SendPropertyChanged("RepeatBehavior")
-				Me.OnRepeatBehaviorChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Title", DbType:="VarChar(50)")>  _
-	Public Property Title() As String
-		Get
-			Return Me._Title
-		End Get
-		Set
-			If (String.Equals(Me._Title, value) = false) Then
-				Me.OnTitleChanging(value)
-				Me.SendPropertyChanging
-				Me._Title = value
-				Me.SendPropertyChanged("Title")
-				Me.OnTitleChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Description", DbType:="VarChar(50)")>  _
-	Public Property Description() As String
-		Get
-			Return Me._Description
-		End Get
-		Set
-			If (String.Equals(Me._Description, value) = false) Then
-				Me.OnDescriptionChanging(value)
-				Me.SendPropertyChanging
-				Me._Description = value
-				Me.SendPropertyChanged("Description")
-				Me.OnDescriptionChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Venue", DbType:="VarChar(50)")>  _
-	Public Property Venue() As String
-		Get
-			Return Me._Venue
-		End Get
-		Set
-			If (String.Equals(Me._Venue, value) = false) Then
-				Me.OnVenueChanging(value)
-				Me.SendPropertyChanging
-				Me._Venue = value
-				Me.SendPropertyChanged("Venue")
-				Me.OnVenueChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Type", DbType:="VarChar(50)")>  _
-	Public Property Type() As String
-		Get
-			Return Me._Type
-		End Get
-		Set
-			If (String.Equals(Me._Type, value) = false) Then
-				Me.OnTypeChanging(value)
-				Me.SendPropertyChanging
-				Me._Type = value
-				Me.SendPropertyChanged("Type")
-				Me.OnTypeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="VarChar(50)")>  _
-	Public Property Status() As String
-		Get
-			Return Me._Status
-		End Get
-		Set
-			If (String.Equals(Me._Status, value) = false) Then
-				Me.OnStatusChanging(value)
-				Me.SendPropertyChanging
-				Me._Status = value
-				Me.SendPropertyChanged("Status")
-				Me.OnStatusChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Schedule_Participle", Storage:="_Participles", ThisKey:="ScheduleID", OtherKey:="ScheduleID")>  _
-	Public Property Participles() As EntitySet(Of Participle)
-		Get
-			Return Me._Participles
-		End Get
-		Set
-			Me._Participles.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Schedule_Reminder", Storage:="_Reminders", ThisKey:="ScheduleID", OtherKey:="ScheduleID")>  _
-	Public Property Reminders() As EntitySet(Of Reminder)
-		Get
-			Return Me._Reminders
-		End Get
-		Set
-			Me._Reminders.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_Participles(ByVal entity As Participle)
-		Me.SendPropertyChanging
-		entity.Schedule = Me
-	End Sub
-	
-	Private Sub detach_Participles(ByVal entity As Participle)
-		Me.SendPropertyChanging
-		entity.Schedule = Nothing
-	End Sub
-	
-	Private Sub attach_Reminders(ByVal entity As Reminder)
-		Me.SendPropertyChanging
-		entity.Schedule = Me
-	End Sub
-	
-	Private Sub detach_Reminders(ByVal entity As Reminder)
-		Me.SendPropertyChanging
-		entity.Schedule = Nothing
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Member")>  _
-Partial Public Class Member
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _MemberID As Integer
-	
-	Private _Username As String
-	
-	Private _Password As String
-	
-	Private _Email As String
-	
-	Private _Occupation As String
-	
-	Private _ContactNo As String
-	
-	Private _Picture As System.Data.Linq.Binary
-	
-	Private _Nickname As String
-	
-	Private _Gender As String
-	
-	Private _DateJoin As Date
-	
-	Private _Role As String
-	
-	Private _Friends As EntitySet(Of [Friend])
-	
-	Private _Friends1 As EntitySet(Of [Friend])
-	
-	Private _Participles As EntitySet(Of Participle)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnMemberIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnMemberIDChanged()
-    End Sub
-    Partial Private Sub OnUsernameChanging(value As String)
-    End Sub
-    Partial Private Sub OnUsernameChanged()
-    End Sub
-    Partial Private Sub OnPasswordChanging(value As String)
-    End Sub
-    Partial Private Sub OnPasswordChanged()
-    End Sub
-    Partial Private Sub OnEmailChanging(value As String)
-    End Sub
-    Partial Private Sub OnEmailChanged()
-    End Sub
-    Partial Private Sub OnOccupationChanging(value As String)
-    End Sub
-    Partial Private Sub OnOccupationChanged()
-    End Sub
-    Partial Private Sub OnContactNoChanging(value As String)
-    End Sub
-    Partial Private Sub OnContactNoChanged()
-    End Sub
-    Partial Private Sub OnPictureChanging(value As System.Data.Linq.Binary)
-    End Sub
-    Partial Private Sub OnPictureChanged()
-    End Sub
-    Partial Private Sub OnNicknameChanging(value As String)
-    End Sub
-    Partial Private Sub OnNicknameChanged()
-    End Sub
-    Partial Private Sub OnGenderChanging(value As String)
-    End Sub
-    Partial Private Sub OnGenderChanged()
-    End Sub
-    Partial Private Sub OnDateJoinChanging(value As Date)
-    End Sub
-    Partial Private Sub OnDateJoinChanged()
-    End Sub
-    Partial Private Sub OnRoleChanging(value As String)
-    End Sub
-    Partial Private Sub OnRoleChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._Friends = New EntitySet(Of [Friend])(AddressOf Me.attach_Friends, AddressOf Me.detach_Friends)
-		Me._Friends1 = New EntitySet(Of [Friend])(AddressOf Me.attach_Friends1, AddressOf Me.detach_Friends1)
-		Me._Participles = New EntitySet(Of Participle)(AddressOf Me.attach_Participles, AddressOf Me.detach_Participles)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MemberID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property MemberID() As Integer
-		Get
-			Return Me._MemberID
-		End Get
-		Set
-			If ((Me._MemberID = value)  _
-						= false) Then
-				Me.OnMemberIDChanging(value)
-				Me.SendPropertyChanging
-				Me._MemberID = value
-				Me.SendPropertyChanged("MemberID")
-				Me.OnMemberIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Username", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property Username() As String
-		Get
-			Return Me._Username
-		End Get
-		Set
-			If (String.Equals(Me._Username, value) = false) Then
-				Me.OnUsernameChanging(value)
-				Me.SendPropertyChanging
-				Me._Username = value
-				Me.SendPropertyChanged("Username")
-				Me.OnUsernameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Password", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property Password() As String
-		Get
-			Return Me._Password
-		End Get
-		Set
-			If (String.Equals(Me._Password, value) = false) Then
-				Me.OnPasswordChanging(value)
-				Me.SendPropertyChanging
-				Me._Password = value
-				Me.SendPropertyChanged("Password")
-				Me.OnPasswordChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Email", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property Email() As String
-		Get
-			Return Me._Email
-		End Get
-		Set
-			If (String.Equals(Me._Email, value) = false) Then
-				Me.OnEmailChanging(value)
-				Me.SendPropertyChanging
-				Me._Email = value
-				Me.SendPropertyChanged("Email")
-				Me.OnEmailChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Occupation", DbType:="VarChar(50)")>  _
-	Public Property Occupation() As String
-		Get
-			Return Me._Occupation
-		End Get
-		Set
-			If (String.Equals(Me._Occupation, value) = false) Then
-				Me.OnOccupationChanging(value)
-				Me.SendPropertyChanging
-				Me._Occupation = value
-				Me.SendPropertyChanged("Occupation")
-				Me.OnOccupationChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ContactNo", DbType:="VarChar(50)")>  _
-	Public Property ContactNo() As String
-		Get
-			Return Me._ContactNo
-		End Get
-		Set
-			If (String.Equals(Me._ContactNo, value) = false) Then
-				Me.OnContactNoChanging(value)
-				Me.SendPropertyChanging
-				Me._ContactNo = value
-				Me.SendPropertyChanged("ContactNo")
-				Me.OnContactNoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Picture", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Picture() As System.Data.Linq.Binary
-		Get
-			Return Me._Picture
-		End Get
-		Set
-			If (Object.Equals(Me._Picture, value) = false) Then
-				Me.OnPictureChanging(value)
-				Me.SendPropertyChanging
-				Me._Picture = value
-				Me.SendPropertyChanged("Picture")
-				Me.OnPictureChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Nickname", DbType:="VarChar(50)")>  _
-	Public Property Nickname() As String
-		Get
-			Return Me._Nickname
-		End Get
-		Set
-			If (String.Equals(Me._Nickname, value) = false) Then
-				Me.OnNicknameChanging(value)
-				Me.SendPropertyChanging
-				Me._Nickname = value
-				Me.SendPropertyChanged("Nickname")
-				Me.OnNicknameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Gender", DbType:="Char(10)")>  _
-	Public Property Gender() As String
-		Get
-			Return Me._Gender
-		End Get
-		Set
-			If (String.Equals(Me._Gender, value) = false) Then
-				Me.OnGenderChanging(value)
-				Me.SendPropertyChanging
-				Me._Gender = value
-				Me.SendPropertyChanged("Gender")
-				Me.OnGenderChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateJoin", DbType:="Date NOT NULL")>  _
-	Public Property DateJoin() As Date
-		Get
-			Return Me._DateJoin
-		End Get
-		Set
-			If ((Me._DateJoin = value)  _
-						= false) Then
-				Me.OnDateJoinChanging(value)
-				Me.SendPropertyChanging
-				Me._DateJoin = value
-				Me.SendPropertyChanged("DateJoin")
-				Me.OnDateJoinChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Role", DbType:="VarChar(50)")>  _
-	Public Property Role() As String
-		Get
-			Return Me._Role
-		End Get
-		Set
-			If (String.Equals(Me._Role, value) = false) Then
-				Me.OnRoleChanging(value)
-				Me.SendPropertyChanging
-				Me._Role = value
-				Me.SendPropertyChanged("Role")
-				Me.OnRoleChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend", Storage:="_Friends", ThisKey:="MemberID", OtherKey:="FriendID")>  _
-	Public Property Friends() As EntitySet(Of [Friend])
-		Get
-			Return Me._Friends
-		End Get
-		Set
-			Me._Friends.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend1", Storage:="_Friends1", ThisKey:="MemberID", OtherKey:="UserID")>  _
-	Public Property Friends1() As EntitySet(Of [Friend])
-		Get
-			Return Me._Friends1
-		End Get
-		Set
-			Me._Friends1.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Participle", Storage:="_Participles", ThisKey:="MemberID", OtherKey:="MemberID")>  _
-	Public Property Participles() As EntitySet(Of Participle)
-		Get
-			Return Me._Participles
-		End Get
-		Set
-			Me._Participles.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_Friends(ByVal entity As [Friend])
-		Me.SendPropertyChanging
-		entity.Member = Me
-	End Sub
-	
-	Private Sub detach_Friends(ByVal entity As [Friend])
-		Me.SendPropertyChanging
-		entity.Member = Nothing
-	End Sub
-	
-	Private Sub attach_Friends1(ByVal entity As [Friend])
-		Me.SendPropertyChanging
-		entity.Member1 = Me
-	End Sub
-	
-	Private Sub detach_Friends1(ByVal entity As [Friend])
-		Me.SendPropertyChanging
-		entity.Member1 = Nothing
-	End Sub
-	
-	Private Sub attach_Participles(ByVal entity As Participle)
-		Me.SendPropertyChanging
-		entity.Member = Me
-	End Sub
-	
-	Private Sub detach_Participles(ByVal entity As Participle)
-		Me.SendPropertyChanging
-		entity.Member = Nothing
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Participles")>  _
 Partial Public Class Participle
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -1216,6 +570,851 @@ Partial Public Class Participle
 	End Sub
 End Class
 
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Member")>  _
+Partial Public Class Member
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _MemberID As Integer
+	
+	Private _Username As String
+	
+	Private _Password As String
+	
+	Private _Email As String
+	
+	Private _Occupation As String
+	
+	Private _ContactNo As String
+	
+	Private _Picture As System.Data.Linq.Binary
+	
+	Private _Nickname As String
+	
+	Private _Gender As String
+	
+	Private _DateJoin As Date
+	
+	Private _Role As String
+	
+	Private _Hobby As String
+	
+	Private _Friends As EntitySet(Of [Friend])
+	
+	Private _Friends1 As EntitySet(Of [Friend])
+	
+	Private _Participles As EntitySet(Of Participle)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnMemberIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnMemberIDChanged()
+    End Sub
+    Partial Private Sub OnUsernameChanging(value As String)
+    End Sub
+    Partial Private Sub OnUsernameChanged()
+    End Sub
+    Partial Private Sub OnPasswordChanging(value As String)
+    End Sub
+    Partial Private Sub OnPasswordChanged()
+    End Sub
+    Partial Private Sub OnEmailChanging(value As String)
+    End Sub
+    Partial Private Sub OnEmailChanged()
+    End Sub
+    Partial Private Sub OnOccupationChanging(value As String)
+    End Sub
+    Partial Private Sub OnOccupationChanged()
+    End Sub
+    Partial Private Sub OnContactNoChanging(value As String)
+    End Sub
+    Partial Private Sub OnContactNoChanged()
+    End Sub
+    Partial Private Sub OnPictureChanging(value As System.Data.Linq.Binary)
+    End Sub
+    Partial Private Sub OnPictureChanged()
+    End Sub
+    Partial Private Sub OnNicknameChanging(value As String)
+    End Sub
+    Partial Private Sub OnNicknameChanged()
+    End Sub
+    Partial Private Sub OnGenderChanging(value As String)
+    End Sub
+    Partial Private Sub OnGenderChanged()
+    End Sub
+    Partial Private Sub OnDateJoinChanging(value As Date)
+    End Sub
+    Partial Private Sub OnDateJoinChanged()
+    End Sub
+    Partial Private Sub OnRoleChanging(value As String)
+    End Sub
+    Partial Private Sub OnRoleChanged()
+    End Sub
+    Partial Private Sub OnHobbyChanging(value As String)
+    End Sub
+    Partial Private Sub OnHobbyChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Friends = New EntitySet(Of [Friend])(AddressOf Me.attach_Friends, AddressOf Me.detach_Friends)
+		Me._Friends1 = New EntitySet(Of [Friend])(AddressOf Me.attach_Friends1, AddressOf Me.detach_Friends1)
+		Me._Participles = New EntitySet(Of Participle)(AddressOf Me.attach_Participles, AddressOf Me.detach_Participles)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MemberID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property MemberID() As Integer
+		Get
+			Return Me._MemberID
+		End Get
+		Set
+			If ((Me._MemberID = value)  _
+						= false) Then
+				Me.OnMemberIDChanging(value)
+				Me.SendPropertyChanging
+				Me._MemberID = value
+				Me.SendPropertyChanged("MemberID")
+				Me.OnMemberIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Username", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Username() As String
+		Get
+			Return Me._Username
+		End Get
+		Set
+			If (String.Equals(Me._Username, value) = false) Then
+				Me.OnUsernameChanging(value)
+				Me.SendPropertyChanging
+				Me._Username = value
+				Me.SendPropertyChanged("Username")
+				Me.OnUsernameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Password", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Password() As String
+		Get
+			Return Me._Password
+		End Get
+		Set
+			If (String.Equals(Me._Password, value) = false) Then
+				Me.OnPasswordChanging(value)
+				Me.SendPropertyChanging
+				Me._Password = value
+				Me.SendPropertyChanged("Password")
+				Me.OnPasswordChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Email", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Email() As String
+		Get
+			Return Me._Email
+		End Get
+		Set
+			If (String.Equals(Me._Email, value) = false) Then
+				Me.OnEmailChanging(value)
+				Me.SendPropertyChanging
+				Me._Email = value
+				Me.SendPropertyChanged("Email")
+				Me.OnEmailChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Occupation", DbType:="VarChar(50)")>  _
+	Public Property Occupation() As String
+		Get
+			Return Me._Occupation
+		End Get
+		Set
+			If (String.Equals(Me._Occupation, value) = false) Then
+				Me.OnOccupationChanging(value)
+				Me.SendPropertyChanging
+				Me._Occupation = value
+				Me.SendPropertyChanged("Occupation")
+				Me.OnOccupationChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ContactNo", DbType:="VarChar(50)")>  _
+	Public Property ContactNo() As String
+		Get
+			Return Me._ContactNo
+		End Get
+		Set
+			If (String.Equals(Me._ContactNo, value) = false) Then
+				Me.OnContactNoChanging(value)
+				Me.SendPropertyChanging
+				Me._ContactNo = value
+				Me.SendPropertyChanged("ContactNo")
+				Me.OnContactNoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Picture", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Picture() As System.Data.Linq.Binary
+		Get
+			Return Me._Picture
+		End Get
+		Set
+			If (Object.Equals(Me._Picture, value) = false) Then
+				Me.OnPictureChanging(value)
+				Me.SendPropertyChanging
+				Me._Picture = value
+				Me.SendPropertyChanged("Picture")
+				Me.OnPictureChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Nickname", DbType:="VarChar(50)")>  _
+	Public Property Nickname() As String
+		Get
+			Return Me._Nickname
+		End Get
+		Set
+			If (String.Equals(Me._Nickname, value) = false) Then
+				Me.OnNicknameChanging(value)
+				Me.SendPropertyChanging
+				Me._Nickname = value
+				Me.SendPropertyChanged("Nickname")
+				Me.OnNicknameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Gender", DbType:="Char(10)")>  _
+	Public Property Gender() As String
+		Get
+			Return Me._Gender
+		End Get
+		Set
+			If (String.Equals(Me._Gender, value) = false) Then
+				Me.OnGenderChanging(value)
+				Me.SendPropertyChanging
+				Me._Gender = value
+				Me.SendPropertyChanged("Gender")
+				Me.OnGenderChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DateJoin", DbType:="Date NOT NULL")>  _
+	Public Property DateJoin() As Date
+		Get
+			Return Me._DateJoin
+		End Get
+		Set
+			If ((Me._DateJoin = value)  _
+						= false) Then
+				Me.OnDateJoinChanging(value)
+				Me.SendPropertyChanging
+				Me._DateJoin = value
+				Me.SendPropertyChanged("DateJoin")
+				Me.OnDateJoinChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Role", DbType:="VarChar(50)")>  _
+	Public Property Role() As String
+		Get
+			Return Me._Role
+		End Get
+		Set
+			If (String.Equals(Me._Role, value) = false) Then
+				Me.OnRoleChanging(value)
+				Me.SendPropertyChanging
+				Me._Role = value
+				Me.SendPropertyChanged("Role")
+				Me.OnRoleChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Hobby", DbType:="VarChar(50)")>  _
+	Public Property Hobby() As String
+		Get
+			Return Me._Hobby
+		End Get
+		Set
+			If (String.Equals(Me._Hobby, value) = false) Then
+				Me.OnHobbyChanging(value)
+				Me.SendPropertyChanging
+				Me._Hobby = value
+				Me.SendPropertyChanged("Hobby")
+				Me.OnHobbyChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend", Storage:="_Friends", ThisKey:="MemberID", OtherKey:="FriendID")>  _
+	Public Property Friends() As EntitySet(Of [Friend])
+		Get
+			Return Me._Friends
+		End Get
+		Set
+			Me._Friends.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend1", Storage:="_Friends1", ThisKey:="MemberID", OtherKey:="UserID")>  _
+	Public Property Friends1() As EntitySet(Of [Friend])
+		Get
+			Return Me._Friends1
+		End Get
+		Set
+			Me._Friends1.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Participle", Storage:="_Participles", ThisKey:="MemberID", OtherKey:="MemberID")>  _
+	Public Property Participles() As EntitySet(Of Participle)
+		Get
+			Return Me._Participles
+		End Get
+		Set
+			Me._Participles.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_Friends(ByVal entity As [Friend])
+		Me.SendPropertyChanging
+		entity.Member = Me
+	End Sub
+	
+	Private Sub detach_Friends(ByVal entity As [Friend])
+		Me.SendPropertyChanging
+		entity.Member = Nothing
+	End Sub
+	
+	Private Sub attach_Friends1(ByVal entity As [Friend])
+		Me.SendPropertyChanging
+		entity.Member1 = Me
+	End Sub
+	
+	Private Sub detach_Friends1(ByVal entity As [Friend])
+		Me.SendPropertyChanging
+		entity.Member1 = Nothing
+	End Sub
+	
+	Private Sub attach_Participles(ByVal entity As Participle)
+		Me.SendPropertyChanging
+		entity.Member = Me
+	End Sub
+	
+	Private Sub detach_Participles(ByVal entity As Participle)
+		Me.SendPropertyChanging
+		entity.Member = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Schedule")>  _
+Partial Public Class Schedule
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _ScheduleID As Integer
+	
+	Private _RepeatDue As System.Nullable(Of Date)
+	
+	Private _RepeatBehavior As System.Data.Linq.Binary
+	
+	Private _Title As String
+	
+	Private _Description As String
+	
+	Private _Venue As String
+	
+	Private _Type As String
+	
+	Private _Status As String
+	
+	Private _Participles As EntitySet(Of Participle)
+	
+	Private _ScheduleTimes As EntitySet(Of ScheduleTime)
+	
+	Private _Reminders As EntitySet(Of Reminder)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnScheduleIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnScheduleIDChanged()
+    End Sub
+    Partial Private Sub OnRepeatDueChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnRepeatDueChanged()
+    End Sub
+    Partial Private Sub OnRepeatBehaviorChanging(value As System.Data.Linq.Binary)
+    End Sub
+    Partial Private Sub OnRepeatBehaviorChanged()
+    End Sub
+    Partial Private Sub OnTitleChanging(value As String)
+    End Sub
+    Partial Private Sub OnTitleChanged()
+    End Sub
+    Partial Private Sub OnDescriptionChanging(value As String)
+    End Sub
+    Partial Private Sub OnDescriptionChanged()
+    End Sub
+    Partial Private Sub OnVenueChanging(value As String)
+    End Sub
+    Partial Private Sub OnVenueChanged()
+    End Sub
+    Partial Private Sub OnTypeChanging(value As String)
+    End Sub
+    Partial Private Sub OnTypeChanged()
+    End Sub
+    Partial Private Sub OnStatusChanging(value As String)
+    End Sub
+    Partial Private Sub OnStatusChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Participles = New EntitySet(Of Participle)(AddressOf Me.attach_Participles, AddressOf Me.detach_Participles)
+		Me._ScheduleTimes = New EntitySet(Of ScheduleTime)(AddressOf Me.attach_ScheduleTimes, AddressOf Me.detach_ScheduleTimes)
+		Me._Reminders = New EntitySet(Of Reminder)(AddressOf Me.attach_Reminders, AddressOf Me.detach_Reminders)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property ScheduleID() As Integer
+		Get
+			Return Me._ScheduleID
+		End Get
+		Set
+			If ((Me._ScheduleID = value)  _
+						= false) Then
+				Me.OnScheduleIDChanging(value)
+				Me.SendPropertyChanging
+				Me._ScheduleID = value
+				Me.SendPropertyChanged("ScheduleID")
+				Me.OnScheduleIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RepeatDue", DbType:="Date")>  _
+	Public Property RepeatDue() As System.Nullable(Of Date)
+		Get
+			Return Me._RepeatDue
+		End Get
+		Set
+			If (Me._RepeatDue.Equals(value) = false) Then
+				Me.OnRepeatDueChanging(value)
+				Me.SendPropertyChanging
+				Me._RepeatDue = value
+				Me.SendPropertyChanged("RepeatDue")
+				Me.OnRepeatDueChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RepeatBehavior", DbType:="Binary(50)", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property RepeatBehavior() As System.Data.Linq.Binary
+		Get
+			Return Me._RepeatBehavior
+		End Get
+		Set
+			If (Object.Equals(Me._RepeatBehavior, value) = false) Then
+				Me.OnRepeatBehaviorChanging(value)
+				Me.SendPropertyChanging
+				Me._RepeatBehavior = value
+				Me.SendPropertyChanged("RepeatBehavior")
+				Me.OnRepeatBehaviorChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Title", DbType:="VarChar(50)")>  _
+	Public Property Title() As String
+		Get
+			Return Me._Title
+		End Get
+		Set
+			If (String.Equals(Me._Title, value) = false) Then
+				Me.OnTitleChanging(value)
+				Me.SendPropertyChanging
+				Me._Title = value
+				Me.SendPropertyChanged("Title")
+				Me.OnTitleChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Description", DbType:="VarChar(50)")>  _
+	Public Property Description() As String
+		Get
+			Return Me._Description
+		End Get
+		Set
+			If (String.Equals(Me._Description, value) = false) Then
+				Me.OnDescriptionChanging(value)
+				Me.SendPropertyChanging
+				Me._Description = value
+				Me.SendPropertyChanged("Description")
+				Me.OnDescriptionChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Venue", DbType:="VarChar(50)")>  _
+	Public Property Venue() As String
+		Get
+			Return Me._Venue
+		End Get
+		Set
+			If (String.Equals(Me._Venue, value) = false) Then
+				Me.OnVenueChanging(value)
+				Me.SendPropertyChanging
+				Me._Venue = value
+				Me.SendPropertyChanged("Venue")
+				Me.OnVenueChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Type", DbType:="VarChar(50)")>  _
+	Public Property Type() As String
+		Get
+			Return Me._Type
+		End Get
+		Set
+			If (String.Equals(Me._Type, value) = false) Then
+				Me.OnTypeChanging(value)
+				Me.SendPropertyChanging
+				Me._Type = value
+				Me.SendPropertyChanged("Type")
+				Me.OnTypeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="VarChar(50)")>  _
+	Public Property Status() As String
+		Get
+			Return Me._Status
+		End Get
+		Set
+			If (String.Equals(Me._Status, value) = false) Then
+				Me.OnStatusChanging(value)
+				Me.SendPropertyChanging
+				Me._Status = value
+				Me.SendPropertyChanged("Status")
+				Me.OnStatusChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Schedule_Participle", Storage:="_Participles", ThisKey:="ScheduleID", OtherKey:="ScheduleID")>  _
+	Public Property Participles() As EntitySet(Of Participle)
+		Get
+			Return Me._Participles
+		End Get
+		Set
+			Me._Participles.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Schedule_ScheduleTime", Storage:="_ScheduleTimes", ThisKey:="ScheduleID", OtherKey:="ScheduleID")>  _
+	Public Property ScheduleTimes() As EntitySet(Of ScheduleTime)
+		Get
+			Return Me._ScheduleTimes
+		End Get
+		Set
+			Me._ScheduleTimes.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Schedule_Reminder", Storage:="_Reminders", ThisKey:="ScheduleID", OtherKey:="ScheduleID")>  _
+	Public Property Reminders() As EntitySet(Of Reminder)
+		Get
+			Return Me._Reminders
+		End Get
+		Set
+			Me._Reminders.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_Participles(ByVal entity As Participle)
+		Me.SendPropertyChanging
+		entity.Schedule = Me
+	End Sub
+	
+	Private Sub detach_Participles(ByVal entity As Participle)
+		Me.SendPropertyChanging
+		entity.Schedule = Nothing
+	End Sub
+	
+	Private Sub attach_ScheduleTimes(ByVal entity As ScheduleTime)
+		Me.SendPropertyChanging
+		entity.Schedule = Me
+	End Sub
+	
+	Private Sub detach_ScheduleTimes(ByVal entity As ScheduleTime)
+		Me.SendPropertyChanging
+		entity.Schedule = Nothing
+	End Sub
+	
+	Private Sub attach_Reminders(ByVal entity As Reminder)
+		Me.SendPropertyChanging
+		entity.Schedule = Me
+	End Sub
+	
+	Private Sub detach_Reminders(ByVal entity As Reminder)
+		Me.SendPropertyChanging
+		entity.Schedule = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.ScheduleTime")>  _
+Partial Public Class ScheduleTime
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _ScheduleTimeId As Integer
+	
+	Private _ScheduleID As Integer
+	
+	Private _ScheduleStart As System.Nullable(Of Date)
+	
+	Private _ScheduleEnd As System.Nullable(Of Date)
+	
+	Private _InitialTime As Boolean
+	
+	Private _Schedule As EntityRef(Of Schedule)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnScheduleTimeIdChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnScheduleTimeIdChanged()
+    End Sub
+    Partial Private Sub OnScheduleIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnScheduleIDChanged()
+    End Sub
+    Partial Private Sub OnScheduleStartChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnScheduleStartChanged()
+    End Sub
+    Partial Private Sub OnScheduleEndChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnScheduleEndChanged()
+    End Sub
+    Partial Private Sub OnInitialTimeChanging(value As Boolean)
+    End Sub
+    Partial Private Sub OnInitialTimeChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Schedule = CType(Nothing, EntityRef(Of Schedule))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleTimeId", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property ScheduleTimeId() As Integer
+		Get
+			Return Me._ScheduleTimeId
+		End Get
+		Set
+			If ((Me._ScheduleTimeId = value)  _
+						= false) Then
+				Me.OnScheduleTimeIdChanging(value)
+				Me.SendPropertyChanging
+				Me._ScheduleTimeId = value
+				Me.SendPropertyChanged("ScheduleTimeId")
+				Me.OnScheduleTimeIdChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleID", DbType:="Int NOT NULL")>  _
+	Public Property ScheduleID() As Integer
+		Get
+			Return Me._ScheduleID
+		End Get
+		Set
+			If ((Me._ScheduleID = value)  _
+						= false) Then
+				If Me._Schedule.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnScheduleIDChanging(value)
+				Me.SendPropertyChanging
+				Me._ScheduleID = value
+				Me.SendPropertyChanged("ScheduleID")
+				Me.OnScheduleIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleStart", DbType:="DateTime")>  _
+	Public Property ScheduleStart() As System.Nullable(Of Date)
+		Get
+			Return Me._ScheduleStart
+		End Get
+		Set
+			If (Me._ScheduleStart.Equals(value) = false) Then
+				Me.OnScheduleStartChanging(value)
+				Me.SendPropertyChanging
+				Me._ScheduleStart = value
+				Me.SendPropertyChanged("ScheduleStart")
+				Me.OnScheduleStartChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ScheduleEnd", DbType:="DateTime")>  _
+	Public Property ScheduleEnd() As System.Nullable(Of Date)
+		Get
+			Return Me._ScheduleEnd
+		End Get
+		Set
+			If (Me._ScheduleEnd.Equals(value) = false) Then
+				Me.OnScheduleEndChanging(value)
+				Me.SendPropertyChanging
+				Me._ScheduleEnd = value
+				Me.SendPropertyChanged("ScheduleEnd")
+				Me.OnScheduleEndChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_InitialTime", DbType:="Bit NOT NULL")>  _
+	Public Property InitialTime() As Boolean
+		Get
+			Return Me._InitialTime
+		End Get
+		Set
+			If ((Me._InitialTime = value)  _
+						= false) Then
+				Me.OnInitialTimeChanging(value)
+				Me.SendPropertyChanging
+				Me._InitialTime = value
+				Me.SendPropertyChanged("InitialTime")
+				Me.OnInitialTimeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Schedule_ScheduleTime", Storage:="_Schedule", ThisKey:="ScheduleID", OtherKey:="ScheduleID", IsForeignKey:=true)>  _
+	Public Property Schedule() As Schedule
+		Get
+			Return Me._Schedule.Entity
+		End Get
+		Set
+			Dim previousValue As Schedule = Me._Schedule.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Schedule.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Schedule.Entity = Nothing
+					previousValue.ScheduleTimes.Remove(Me)
+				End If
+				Me._Schedule.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.ScheduleTimes.Add(Me)
+					Me._ScheduleID = value.ScheduleID
+				Else
+					Me._ScheduleID = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("Schedule")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Reminder")>  _
 Partial Public Class Reminder
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -1227,6 +1426,8 @@ Partial Public Class Reminder
 	Private _ScheduleID As System.Nullable(Of Integer)
 	
 	Private _MinutesBefore As System.Nullable(Of Integer)
+	
+	Private _ReminderDateTime As System.Nullable(Of Date)
 	
 	Private _Schedule As EntityRef(Of Schedule)
 	
@@ -1248,6 +1449,10 @@ Partial Public Class Reminder
     Partial Private Sub OnMinutesBeforeChanging(value As System.Nullable(Of Integer))
     End Sub
     Partial Private Sub OnMinutesBeforeChanged()
+    End Sub
+    Partial Private Sub OnReminderDateTimeChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnReminderDateTimeChanged()
     End Sub
     #End Region
 	
@@ -1305,6 +1510,22 @@ Partial Public Class Reminder
 				Me._MinutesBefore = value
 				Me.SendPropertyChanged("MinutesBefore")
 				Me.OnMinutesBeforeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ReminderDateTime", DbType:="DateTime")>  _
+	Public Property ReminderDateTime() As System.Nullable(Of Date)
+		Get
+			Return Me._ReminderDateTime
+		End Get
+		Set
+			If (Me._ReminderDateTime.Equals(value) = false) Then
+				Me.OnReminderDateTimeChanging(value)
+				Me.SendPropertyChanging
+				Me._ReminderDateTime = value
+				Me.SendPropertyChanged("ReminderDateTime")
+				Me.OnReminderDateTimeChanged
 			End If
 		End Set
 	End Property
