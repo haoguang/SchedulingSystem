@@ -64,8 +64,8 @@
 
     Private Sub populateSchedule()
         Dim db As New ScheduleDBDataContext()
-        Dim rs = From o In db.Schedules
-                 Where o.ScheduleStart >= New DateTime(2017, 4, 9) And o.ScheduleStart <= New DateTime(2017, 4, 10)
+        Dim rs = From s In db.Schedules, st In db.ScheduleTimes
+                 Where s.ScheduleID = st.ScheduleID And st.ScheduleStart >= New DateTime(2017, 4, 9) And st.ScheduleStart <= New DateTime(2017, 4, 10)
 
         Dim activities(rs.Count) As ActivityControl
 
@@ -77,11 +77,11 @@
         Dim x As Integer = 0
 
         For Each item In rs
-            ScheduleID = item.ScheduleID
-            ScheduleTitle = item.Title
-            ScheduleVenue = item.Venue
-            ScheduleStart = item.ScheduleStart
-            ScheduleEnd = item.ScheduleEnd
+            ScheduleID = item.s.ScheduleID
+            ScheduleTitle = item.s.Title
+            ScheduleVenue = item.s.Venue
+            ScheduleStart = item.st.ScheduleStart
+            ScheduleEnd = item.st.ScheduleEnd
 
             activities(x) = New ActivityControl
 
