@@ -32,12 +32,14 @@
         Static Dim curRow As Integer = -1
         If DGVF.CurrentRow.Index <> curRow Then
             My.Forms.MainForm.ContentPanel.Controls.Clear()
-
             curRow = DGVF.CurrentRow.Index
         End If
-
-
     End Sub
 
 
+    Private Sub DGVF_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVF.CellClick
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        Dim UserCtrl4 As New ListFriend
+        My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl4)
+    End Sub
 End Class

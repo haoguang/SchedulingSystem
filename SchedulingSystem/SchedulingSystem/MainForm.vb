@@ -18,9 +18,6 @@
 
     End Sub
 
-    Private Sub ContentPanel_Paint(sender As Object, e As PaintEventArgs) Handles ContentPanel.Paint
-
-    End Sub
 
     Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
         Dim FriendSidePanel As New FriendSidePanel

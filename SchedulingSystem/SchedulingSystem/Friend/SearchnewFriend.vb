@@ -19,17 +19,17 @@
             Case 1
                 sf = From m In db.Members
                      Where m.MemberID.ToString.Contains((txtsearch.Text))
-                     Select m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender
+                     Select m.MemberID, m.Username, m.Email, m.Occupation, m.ContactNo, m.Gender, m.Hobby
 
             Case 2
                 sf = From m In db.Members
                      Where m.Username.ToString.Contains((txtsearch.Text))
-                     Select m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender
+                     Select m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender, m.Hobby
 
             Case 3
                 sf = From m In db.Members
                      Where m.Hobby.ToString.Contains((txtsearch.Text))
-                     Select m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender, m.Hobby
+                     Select m.Hobby, m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender
             Case Else
                 MessageBox.Show("Please choose a radio button 1st")
         End Select
