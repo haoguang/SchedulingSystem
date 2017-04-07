@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ViewAppointment
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,12 @@ Partial Class ViewAppointment
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.gbSelection = New System.Windows.Forms.GroupBox()
-        Me.btnView = New System.Windows.Forms.Button()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.rbPending = New System.Windows.Forms.RadioButton()
+        Me.rbOngoing = New System.Windows.Forms.RadioButton()
+        Me.rbHistory = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dgvRecord = New System.Windows.Forms.DataGridView()
         Me.gbSelection.SuspendLayout()
@@ -36,65 +35,55 @@ Partial Class ViewAppointment
         '
         'gbSelection
         '
-        Me.gbSelection.Controls.Add(Me.btnView)
-        Me.gbSelection.Controls.Add(Me.RadioButton3)
-        Me.gbSelection.Controls.Add(Me.RadioButton2)
-        Me.gbSelection.Controls.Add(Me.RadioButton1)
+        Me.gbSelection.Controls.Add(Me.rbPending)
+        Me.gbSelection.Controls.Add(Me.rbOngoing)
+        Me.gbSelection.Controls.Add(Me.rbHistory)
         Me.gbSelection.Location = New System.Drawing.Point(39, 17)
         Me.gbSelection.Name = "gbSelection"
-        Me.gbSelection.Size = New System.Drawing.Size(581, 92)
+        Me.gbSelection.Size = New System.Drawing.Size(645, 92)
         Me.gbSelection.TabIndex = 0
         Me.gbSelection.TabStop = False
         Me.gbSelection.Text = "Selection"
         '
-        'btnView
+        'rbPending
         '
-        Me.btnView.Location = New System.Drawing.Point(473, 39)
-        Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(75, 23)
-        Me.btnView.TabIndex = 2
-        Me.btnView.Text = "View"
-        Me.btnView.UseVisualStyleBackColor = True
+        Me.rbPending.AutoSize = True
+        Me.rbPending.Location = New System.Drawing.Point(486, 39)
+        Me.rbPending.Name = "rbPending"
+        Me.rbPending.Size = New System.Drawing.Size(126, 17)
+        Me.rbPending.TabIndex = 2
+        Me.rbPending.TabStop = True
+        Me.rbPending.Text = "Pending Appointment"
+        Me.rbPending.UseVisualStyleBackColor = True
         '
-        'RadioButton3
+        'rbOngoing
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(320, 39)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(126, 17)
-        Me.RadioButton3.TabIndex = 2
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Pending Appointment"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.rbOngoing.AutoSize = True
+        Me.rbOngoing.Location = New System.Drawing.Point(241, 39)
+        Me.rbOngoing.Name = "rbOngoing"
+        Me.rbOngoing.Size = New System.Drawing.Size(127, 17)
+        Me.rbOngoing.TabIndex = 1
+        Me.rbOngoing.TabStop = True
+        Me.rbOngoing.Text = "Ongoing Appointment"
+        Me.rbOngoing.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'rbHistory
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(169, 39)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(127, 17)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Ongoing Appointment"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(24, 39)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(119, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Appointment History"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.rbHistory.AutoSize = True
+        Me.rbHistory.Location = New System.Drawing.Point(24, 39)
+        Me.rbHistory.Name = "rbHistory"
+        Me.rbHistory.Size = New System.Drawing.Size(119, 17)
+        Me.rbHistory.TabIndex = 0
+        Me.rbHistory.TabStop = True
+        Me.rbHistory.Text = "Appointment History"
+        Me.rbHistory.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.dgvRecord)
         Me.GroupBox1.Location = New System.Drawing.Point(39, 131)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(581, 209)
+        Me.GroupBox1.Size = New System.Drawing.Size(645, 209)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
@@ -104,7 +93,7 @@ Partial Class ViewAppointment
         Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRecord.Location = New System.Drawing.Point(24, 31)
         Me.dgvRecord.Name = "dgvRecord"
-        Me.dgvRecord.Size = New System.Drawing.Size(524, 150)
+        Me.dgvRecord.Size = New System.Drawing.Size(600, 150)
         Me.dgvRecord.TabIndex = 0
         '
         'ViewAppointment
@@ -124,10 +113,9 @@ Partial Class ViewAppointment
     End Sub
 
     Friend WithEvents gbSelection As GroupBox
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents rbPending As RadioButton
+    Friend WithEvents rbOngoing As RadioButton
+    Friend WithEvents rbHistory As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents btnView As Button
     Friend WithEvents dgvRecord As DataGridView
 End Class

@@ -1,38 +1,95 @@
 ﻿Public Class ViewAppointment
-    Private Sub ViewAppointment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
+
+    Private Sub ViewAppointment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        rbHistory.Checked = True
     End Sub
 
-    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+
+
+    Private Sub rbHistory_CheckedChanged(sender As Object, e As EventArgs) Handles rbHistory.CheckedChanged
+        dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
         Dim memberId As Integer = 100001
+        Dim currentDateTime As DateTime
 
+        currentDateTime = DateTime.Now
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where p.MemberID = memberId And s.Type = "Appointment" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
                          s.ScheduleID,
                          st.ScheduleStart,
                          st.ScheduleEnd,
-                         s.Title
+                         s.Title,
+                         s.Venue
                          }
 
 
-        'Dim record = From o In db.Participles
-        '             Join o1 In db.Schedules On o.ScheduleID Equals o1.ScheduleID
-        '             Join o2 In db.ScheduleTimes On o1.ScheduleID Equals o2.ScheduleID
-        '             Where o.MemberID = memberId And o2.ScheduleStart = "30/03/2017" And o1.Type = "Appointment"
-        '             Select New With {
-        '              o1.ScheduleID,
-        '              o2.ScheduleStart,
-        '              o2.ScheduleEnd,
-        '              o1.Title
-        '             }
+
 
         dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
+    End Sub
+
+    Private Sub rbOngoing_CheckedChanged(sender As Object, e As EventArgs) Handles rbOngoing.CheckedChanged
+        dgvRecord.DataSource = Nothing
+        Dim db As New ScheduleDBDataContext()
+        Dim memberId As Integer = 100001
+        Dim currentDateTime As DateTime
+
+        currentDateTime = DateTime.Now
+
+        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
+                     Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         s.ScheduleID,
+                         st.ScheduleStart,
+                         st.ScheduleEnd,
+                         s.Title,
+                         s.Venue
+                         }
+
+        dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
+    End Sub
+
+    Private Sub rbPending_CheckedChanged(sender As Object, e As EventArgs) Handles rbPending.CheckedChanged
+
+        dgvRecord.DataSource = Nothing
+        Dim db As New ScheduleDBDataContext()
+        Dim memberId As Integer = 100001
+        Dim currentDateTime As DateTime
+
+        currentDateTime = DateTime.Now
+
+        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
+                     Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Pending" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         s.ScheduleID,
+                         st.ScheduleStart,
+                         st.ScheduleEnd,
+                         s.Title,
+                         s.Venue
+                         }
+
+        dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
 
 
+    End Sub
 
+    Private Sub dgvRecord_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecord.CellClick
+        Dim index As Integer
+        index = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+        Dim formRecord As New ViewAppointmentRecord()
+        Dim scheduleID As String
+        selectedRow = dgvRecord.Rows(index)
+        scheduleID = selectedRow.Cells(0).Value.ToString()
 
+        formRecord.StringIDPass = Integer.Parse(scheduleID)
+        formRecord.ShowDialog()
     End Sub
 End Class
