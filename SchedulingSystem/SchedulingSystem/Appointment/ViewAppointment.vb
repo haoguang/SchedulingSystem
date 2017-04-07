@@ -9,7 +9,15 @@
 
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where p.MemberID = memberId
+                     Where p.MemberID = memberId And s.Type = "Appointment" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         s.ScheduleID,
+                         st.ScheduleStart,
+                         st.ScheduleEnd,
+                         s.Title
+                         }
+
+
         'Dim record = From o In db.Participles
         '             Join o1 In db.Schedules On o.ScheduleID Equals o1.ScheduleID
         '             Join o2 In db.ScheduleTimes On o1.ScheduleID Equals o2.ScheduleID

@@ -22,8 +22,6 @@ Partial Class ActivityRegister
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"abc"}, -1, System.Drawing.Color.Empty, System.Drawing.SystemColors.InactiveCaption, Nothing)
-        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Cab")
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -44,10 +42,11 @@ Partial Class ActivityRegister
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
         Me.btnDone = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.dgvParticiples = New System.Windows.Forms.DataGridView()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblStartTitle
@@ -250,7 +249,7 @@ Partial Class ActivityRegister
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ListView1)
+        Me.GroupBox1.Controls.Add(Me.dgvParticiples)
         Me.GroupBox1.Location = New System.Drawing.Point(423, 13)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(277, 371)
@@ -258,19 +257,15 @@ Partial Class ActivityRegister
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Participles"
         '
-        'ListView1
+        'dgvParticiples
         '
-        Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2})
-        Me.ListView1.Location = New System.Drawing.Point(3, 16)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(271, 352)
-        Me.ListView1.TabIndex = 0
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Tile
+        Me.dgvParticiples.AllowUserToResizeRows = False
+        Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvParticiples.Location = New System.Drawing.Point(3, 16)
+        Me.dgvParticiples.Name = "dgvParticiples"
+        Me.dgvParticiples.Size = New System.Drawing.Size(271, 352)
+        Me.dgvParticiples.TabIndex = 0
         '
         'ActivityRegister
         '
@@ -287,6 +282,7 @@ Partial Class ActivityRegister
         Me.gbRepeat.ResumeLayout(False)
         Me.gbRepeat.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -311,5 +307,5 @@ Partial Class ActivityRegister
     Friend WithEvents gbRepeat As GroupBox
     Friend WithEvents btnDone As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents ListView1 As ListView
+    Friend WithEvents dgvParticiples As DataGridView
 End Class
