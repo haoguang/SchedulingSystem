@@ -23,16 +23,15 @@ Partial Class ViewAppointment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbSelection = New System.Windows.Forms.GroupBox()
+        Me.btnView = New System.Windows.Forms.Button()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.lblStart = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnView = New System.Windows.Forms.Button()
+        Me.dgvRecord = New System.Windows.Forms.DataGridView()
         Me.gbSelection.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbSelection
@@ -47,6 +46,15 @@ Partial Class ViewAppointment
         Me.gbSelection.TabIndex = 0
         Me.gbSelection.TabStop = False
         Me.gbSelection.Text = "Selection"
+        '
+        'btnView
+        '
+        Me.btnView.Location = New System.Drawing.Point(473, 39)
+        Me.btnView.Name = "btnView"
+        Me.btnView.Size = New System.Drawing.Size(75, 23)
+        Me.btnView.TabIndex = 2
+        Me.btnView.Text = "View"
+        Me.btnView.UseVisualStyleBackColor = True
         '
         'RadioButton3
         '
@@ -83,9 +91,7 @@ Partial Class ViewAppointment
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.lblStart)
-        Me.GroupBox1.Controls.Add(Me.ListBox1)
+        Me.GroupBox1.Controls.Add(Me.dgvRecord)
         Me.GroupBox1.Location = New System.Drawing.Point(39, 131)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(581, 209)
@@ -93,39 +99,13 @@ Partial Class ViewAppointment
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
         '
-        'ListBox1
+        'dgvRecord
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(24, 57)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(524, 134)
-        Me.ListBox1.TabIndex = 0
-        '
-        'lblStart
-        '
-        Me.lblStart.AutoSize = True
-        Me.lblStart.Location = New System.Drawing.Point(21, 44)
-        Me.lblStart.Name = "lblStart"
-        Me.lblStart.Size = New System.Drawing.Size(30, 13)
-        Me.lblStart.TabIndex = 1
-        Me.lblStart.Text = "Date"
-        '
-        'Label2
-        '
-        Me.Label2.Location = New System.Drawing.Point(104, 44)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Time"
-        '
-        'btnView
-        '
-        Me.btnView.Location = New System.Drawing.Point(473, 39)
-        Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(75, 23)
-        Me.btnView.TabIndex = 2
-        Me.btnView.Text = "View"
-        Me.btnView.UseVisualStyleBackColor = True
+        Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvRecord.Location = New System.Drawing.Point(24, 31)
+        Me.dgvRecord.Name = "dgvRecord"
+        Me.dgvRecord.Size = New System.Drawing.Size(524, 150)
+        Me.dgvRecord.TabIndex = 0
         '
         'ViewAppointment
         '
@@ -138,7 +118,7 @@ Partial Class ViewAppointment
         Me.gbSelection.ResumeLayout(False)
         Me.gbSelection.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -148,8 +128,6 @@ Partial Class ViewAppointment
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents lblStart As Label
-    Friend WithEvents ListBox1 As ListBox
     Friend WithEvents btnView As Button
+    Friend WithEvents dgvRecord As DataGridView
 End Class
