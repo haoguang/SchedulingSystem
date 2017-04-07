@@ -25,4 +25,13 @@
     Private Sub SidePanel_MouseEnter(sender As Object, e As EventArgs) Handles SidePanel.MouseEnter
         SidePanel.Focus()
     End Sub
+
+    Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
+        Dim UserCtrl3 As New SecondUserControl
+        Dim FriendSidePanel As New FriendSidePanel
+        ContentPanel.Controls.Clear()
+        ContentPanel.Controls.Add(UserCtrl3)
+        SideContentPanel.Controls.Clear()
+        SideContentPanel.Controls.Add(FriendSidePanel)
+    End Sub
 End Class

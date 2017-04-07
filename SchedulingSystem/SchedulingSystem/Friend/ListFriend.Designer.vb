@@ -30,6 +30,12 @@ Partial Class ListFriend
         Me.btn_del = New System.Windows.Forms.Button()
         Me.Status = New System.Windows.Forms.Label()
         Me.lbloccupation = New System.Windows.Forms.Label()
+        Me.lbl_N = New System.Windows.Forms.Label()
+        Me.lbl_ID = New System.Windows.Forms.Label()
+        Me.lbl_G = New System.Windows.Forms.Label()
+        Me.lbl_Oc = New System.Windows.Forms.Label()
+        Me.lbl_H = New System.Windows.Forms.Label()
+        Me.cbo_S = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblName
@@ -105,10 +111,64 @@ Partial Class ListFriend
         Me.lbloccupation.TabIndex = 3
         Me.lbloccupation.Text = "Occupation :"
         '
+        'lbl_N
+        '
+        Me.lbl_N.AutoSize = True
+        Me.lbl_N.Location = New System.Drawing.Point(340, 146)
+        Me.lbl_N.Name = "lbl_N"
+        Me.lbl_N.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_N.TabIndex = 14
+        '
+        'lbl_ID
+        '
+        Me.lbl_ID.AutoSize = True
+        Me.lbl_ID.Location = New System.Drawing.Point(343, 177)
+        Me.lbl_ID.Name = "lbl_ID"
+        Me.lbl_ID.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_ID.TabIndex = 15
+        '
+        'lbl_G
+        '
+        Me.lbl_G.AutoSize = True
+        Me.lbl_G.Location = New System.Drawing.Point(340, 206)
+        Me.lbl_G.Name = "lbl_G"
+        Me.lbl_G.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_G.TabIndex = 16
+        '
+        'lbl_Oc
+        '
+        Me.lbl_Oc.AutoSize = True
+        Me.lbl_Oc.Location = New System.Drawing.Point(340, 238)
+        Me.lbl_Oc.Name = "lbl_Oc"
+        Me.lbl_Oc.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_Oc.TabIndex = 17
+        '
+        'lbl_H
+        '
+        Me.lbl_H.AutoSize = True
+        Me.lbl_H.Location = New System.Drawing.Point(340, 266)
+        Me.lbl_H.Name = "lbl_H"
+        Me.lbl_H.Size = New System.Drawing.Size(0, 17)
+        Me.lbl_H.TabIndex = 18
+        '
+        'cbo_S
+        '
+        Me.cbo_S.FormattingEnabled = True
+        Me.cbo_S.Location = New System.Drawing.Point(343, 294)
+        Me.cbo_S.Name = "cbo_S"
+        Me.cbo_S.Size = New System.Drawing.Size(121, 24)
+        Me.cbo_S.TabIndex = 19
+        '
         'ListFriend
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.cbo_S)
+        Me.Controls.Add(Me.lbl_H)
+        Me.Controls.Add(Me.lbl_Oc)
+        Me.Controls.Add(Me.lbl_G)
+        Me.Controls.Add(Me.lbl_ID)
+        Me.Controls.Add(Me.lbl_N)
         Me.Controls.Add(Me.Status)
         Me.Controls.Add(Me.btn_del)
         Me.Controls.Add(Me.btn_update)
@@ -132,4 +192,10 @@ Partial Class ListFriend
     Friend WithEvents btn_del As Button
     Friend WithEvents Status As Label
     Friend WithEvents lbloccupation As Label
+    Friend WithEvents lbl_N As Label
+    Friend WithEvents lbl_ID As Label
+    Friend WithEvents lbl_G As Label
+    Friend WithEvents lbl_Oc As Label
+    Friend WithEvents lbl_H As Label
+    Friend WithEvents cbo_S As ComboBox
 End Class

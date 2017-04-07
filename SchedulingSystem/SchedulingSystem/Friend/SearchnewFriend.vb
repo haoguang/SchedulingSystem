@@ -1,5 +1,4 @@
 ﻿Public Class SearchnewFriend
-    Dim flag = 0
     Dim db As New ScheduleDBDataContext
 
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
@@ -14,7 +13,7 @@
         Else
             MessageBox.Show("Please select an option")
         End If
-        Dim sf
+        Dim sf As IQueryable
         Select Case choosenType
             Case 1
                 sf = From m In db.Members

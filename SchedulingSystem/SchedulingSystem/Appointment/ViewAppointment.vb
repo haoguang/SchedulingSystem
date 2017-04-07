@@ -5,7 +5,7 @@
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As String = "100001"
+        Dim memberId As Integer = 100001
 
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes

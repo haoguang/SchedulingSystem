@@ -38,8 +38,13 @@
 
 
     Private Sub DGVF_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVF.CellClick
+
+
+
         My.Forms.MainForm.ContentPanel.Controls.Clear()
         Dim UserCtrl4 As New ListFriend
+        UserCtrl4.user_id = Integer.Parse(DGVF.CurrentRow.Cells(1).Value.ToString)
         My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl4)
+
     End Sub
 End Class

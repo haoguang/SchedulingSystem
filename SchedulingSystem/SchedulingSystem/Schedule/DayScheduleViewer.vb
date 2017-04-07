@@ -80,14 +80,14 @@
             ScheduleID = item.s.ScheduleID
             ScheduleTitle = item.s.Title
             ScheduleVenue = item.s.Venue
-            ScheduleStart = item.st.ScheduleStart
-            ScheduleEnd = item.st.ScheduleEnd
+            ScheduleStart = CDate(item.st.ScheduleStart)
+            ScheduleEnd = CDate(item.st.ScheduleEnd)
 
             activities(x) = New ActivityControl
 
             With activities(x)
-                .Location = New System.Drawing.Point(0, ActivityModule.calActivityPosition(ScheduleStart))
-                .Height = ActivityModule.calActivityHeight(ScheduleStart, ScheduleEnd)
+                .Location = New System.Drawing.Point(0, CInt(ActivityModule.calActivityPosition(ScheduleStart)))
+                .Height = CInt(ActivityModule.calActivityHeight(ScheduleStart, ScheduleEnd))
                 .lblStartTime.Text = ScheduleStart.ToShortTimeString
                 .lblTitle.Text = ScheduleTitle
                 .lblVenue.Text = ScheduleVenue
@@ -108,8 +108,8 @@
 
 
         With activityDisplayer
-            .Location = New System.Drawing.Point(0, ActivityModule.calActivityPosition(startTime))
-            .Height = ActivityModule.calActivityHeight(startTime, endTime)
+            .Location = New System.Drawing.Point(0, CInt(ActivityModule.calActivityPosition(startTime)))
+            .Height = CInt(ActivityModule.calActivityHeight(startTime, endTime))
             .lblStartTime.Text = startTime.ToShortTimeString
             .lblTitle.Text = "I am a title"
             .lblVenue.Text = "I am a place"
