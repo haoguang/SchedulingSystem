@@ -105,6 +105,12 @@
     <Compile Include="Appointment\CreateAppointment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Appointment\ViewAppointment.Designer.vb">
+      <DependentUpon>ViewAppointment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\ViewAppointment.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Friend\ListFriend.Designer.vb">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </Compile>
@@ -150,10 +156,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Schedule\ActivityControl.Designer.vb">
+      <DependentUpon>ActivityControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ActivityControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ActivityModule.vb" />
     <Compile Include="Schedule\ActivityRegister.Designer.vb">
       <DependentUpon>ActivityRegister.vb</DependentUpon>
     </Compile>
     <Compile Include="Schedule\ActivityRegister.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\DayScheduleViewer.Designer.vb">
+      <DependentUpon>DayScheduleViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\DayScheduleViewer.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
@@ -176,6 +195,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Appointment\ViewAppointment.resx">
+      <DependentUpon>ViewAppointment.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Friend\ListFriend.resx">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </EmbeddedResource>
@@ -203,8 +225,14 @@
     <None Include="ScheduleDB.dbml.layout">
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Schedule\ActivityControl.resx">
+      <DependentUpon>ActivityControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ActivityRegister.resx">
       <DependentUpon>ActivityRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\DayScheduleViewer.resx">
+      <DependentUpon>DayScheduleViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ScheduleSidePanel.resx">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
@@ -259,6 +287,12 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\arrow-4-24.png" />
+    <None Include="Resources\arrow-105-24.png" />
+    <None Include="Resources\arrow-105-pressed.png" />
+    <None Include="Resources\arrow-105-hover.png" />
+    <None Include="Resources\arrow-4-hover.png" />
+    <None Include="Resources\arrow-4-pressed.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

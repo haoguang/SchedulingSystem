@@ -40,9 +40,13 @@ Partial Class ActivityRegister
         Me.cboBehavior = New System.Windows.Forms.ComboBox()
         Me.gbGeneral = New System.Windows.Forms.GroupBox()
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
-        Me.btnComplete = New System.Windows.Forms.Button()
+        Me.btnDone = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.dgvParticiples = New System.Windows.Forms.DataGridView()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblStartTitle
@@ -234,20 +238,41 @@ Partial Class ActivityRegister
         Me.gbRepeat.TabStop = False
         Me.gbRepeat.Text = "Repeatation"
         '
-        'btnComplete
+        'btnDone
         '
-        Me.btnComplete.Location = New System.Drawing.Point(186, 408)
-        Me.btnComplete.Name = "btnComplete"
-        Me.btnComplete.Size = New System.Drawing.Size(75, 23)
-        Me.btnComplete.TabIndex = 9
-        Me.btnComplete.Text = "Complete"
-        Me.btnComplete.UseVisualStyleBackColor = True
+        Me.btnDone.Location = New System.Drawing.Point(149, 429)
+        Me.btnDone.Name = "btnDone"
+        Me.btnDone.Size = New System.Drawing.Size(75, 23)
+        Me.btnDone.TabIndex = 9
+        Me.btnDone.Text = "Done"
+        Me.btnDone.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.dgvParticiples)
+        Me.GroupBox1.Location = New System.Drawing.Point(423, 13)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(277, 371)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Participles"
+        '
+        'dgvParticiples
+        '
+        Me.dgvParticiples.AllowUserToResizeRows = False
+        Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvParticiples.Location = New System.Drawing.Point(3, 16)
+        Me.dgvParticiples.Name = "dgvParticiples"
+        Me.dgvParticiples.Size = New System.Drawing.Size(271, 352)
+        Me.dgvParticiples.TabIndex = 0
         '
         'ActivityRegister
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.btnComplete)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.gbRepeat)
         Me.Controls.Add(Me.gbGeneral)
         Me.Name = "ActivityRegister"
@@ -256,6 +281,8 @@ Partial Class ActivityRegister
         Me.gbGeneral.PerformLayout()
         Me.gbRepeat.ResumeLayout(False)
         Me.gbRepeat.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -278,5 +305,7 @@ Partial Class ActivityRegister
     Friend WithEvents cboBehavior As ComboBox
     Friend WithEvents gbGeneral As GroupBox
     Friend WithEvents gbRepeat As GroupBox
-    Friend WithEvents btnComplete As Button
+    Friend WithEvents btnDone As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents dgvParticiples As DataGridView
 End Class
