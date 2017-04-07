@@ -122,6 +122,7 @@
     <Compile Include="Appointment\ViewAppointmentRecord.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DevelopmentVariables.vb" />
     <Compile Include="Friend\ListFriend.Designer.vb">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </Compile>
@@ -307,6 +308,9 @@
     <None Include="Resources\arrow-105-hover.png" />
     <None Include="Resources\arrow-4-hover.png" />
     <None Include="Resources\arrow-4-pressed.png" />
+    <None Include="Resources\add-user-32.png" />
+    <None Include="Resources\add-user-hover.png" />
+    <None Include="Resources\add-user-pressed.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -22,6 +22,7 @@ Partial Class ActivityRegister
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -42,10 +43,16 @@ Partial Class ActivityRegister
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
         Me.btnDone = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnAddParti = New System.Windows.Forms.PictureBox()
+        Me.lblParticipleTitle = New System.Windows.Forms.Label()
         Me.dgvParticiples = New System.Windows.Forms.DataGridView()
+        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvParticipleRemove = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -249,6 +256,8 @@ Partial Class ActivityRegister
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnAddParti)
+        Me.GroupBox1.Controls.Add(Me.lblParticipleTitle)
         Me.GroupBox1.Controls.Add(Me.dgvParticiples)
         Me.GroupBox1.Location = New System.Drawing.Point(423, 13)
         Me.GroupBox1.Name = "GroupBox1"
@@ -257,15 +266,77 @@ Partial Class ActivityRegister
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Participles"
         '
+        'btnAddParti
+        '
+        Me.btnAddParti.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.btnAddParti.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnAddParti.Image = Global.SchedulingSystem.My.Resources.Resources.add_user_32
+        Me.btnAddParti.InitialImage = Global.SchedulingSystem.My.Resources.Resources.add_user_32
+        Me.btnAddParti.Location = New System.Drawing.Point(234, 16)
+        Me.btnAddParti.Name = "btnAddParti"
+        Me.btnAddParti.Size = New System.Drawing.Size(40, 40)
+        Me.btnAddParti.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.btnAddParti.TabIndex = 2
+        Me.btnAddParti.TabStop = False
+        '
+        'lblParticipleTitle
+        '
+        Me.lblParticipleTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.lblParticipleTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblParticipleTitle.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblParticipleTitle.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblParticipleTitle.Location = New System.Drawing.Point(3, 16)
+        Me.lblParticipleTitle.Name = "lblParticipleTitle"
+        Me.lblParticipleTitle.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.lblParticipleTitle.Size = New System.Drawing.Size(271, 40)
+        Me.lblParticipleTitle.TabIndex = 1
+        Me.lblParticipleTitle.Text = "Participle Names"
+        Me.lblParticipleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'dgvParticiples
         '
         Me.dgvParticiples.AllowUserToResizeRows = False
-        Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvParticiples.Location = New System.Drawing.Point(3, 16)
+        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
+        Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvParticiples.ColumnHeadersVisible = False
+        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName, Me.dgvParticipleRemove})
+        Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.dgvParticiples.GridColor = System.Drawing.Color.Silver
+        Me.dgvParticiples.Location = New System.Drawing.Point(3, 56)
+        Me.dgvParticiples.MultiSelect = False
         Me.dgvParticiples.Name = "dgvParticiples"
-        Me.dgvParticiples.Size = New System.Drawing.Size(271, 352)
+        Me.dgvParticiples.RowHeadersVisible = False
+        Me.dgvParticiples.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvParticiples.RowTemplate.Height = 100
+        Me.dgvParticiples.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvParticiples.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvParticiples.Size = New System.Drawing.Size(271, 312)
         Me.dgvParticiples.TabIndex = 0
+        '
+        'dgvParticipleID
+        '
+        Me.dgvParticipleID.HeaderText = "Participle ID"
+        Me.dgvParticipleID.Name = "dgvParticipleID"
+        Me.dgvParticipleID.ReadOnly = True
+        Me.dgvParticipleID.Visible = False
+        '
+        'dgvParticipleName
+        '
+        Me.dgvParticipleName.FillWeight = 50.0!
+        Me.dgvParticipleName.HeaderText = "Participle Name"
+        Me.dgvParticipleName.Name = "dgvParticipleName"
+        Me.dgvParticipleName.ReadOnly = True
+        Me.dgvParticipleName.Width = 221
+        '
+        'dgvParticipleRemove
+        '
+        Me.dgvParticipleRemove.HeaderText = "Remove"
+        Me.dgvParticipleRemove.Name = "dgvParticipleRemove"
+        Me.dgvParticipleRemove.ReadOnly = True
+        Me.dgvParticipleRemove.Width = 30
         '
         'ActivityRegister
         '
@@ -282,6 +353,7 @@ Partial Class ActivityRegister
         Me.gbRepeat.ResumeLayout(False)
         Me.gbRepeat.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -308,4 +380,9 @@ Partial Class ActivityRegister
     Friend WithEvents btnDone As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvParticiples As DataGridView
+    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
+    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
+    Friend WithEvents dgvParticipleRemove As DataGridViewButtonColumn
+    Friend WithEvents btnAddParti As PictureBox
+    Friend WithEvents lblParticipleTitle As Label
 End Class

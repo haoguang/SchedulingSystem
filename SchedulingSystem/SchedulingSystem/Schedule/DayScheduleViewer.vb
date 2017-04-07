@@ -10,8 +10,6 @@
 
     End Sub
 
-
-
     Private Sub btnPrev_MouseEnterAndUp(sender As Object, e As EventArgs) Handles btnPrev.MouseEnter, btnPrev.MouseUp
         btnPrev.Image = My.Resources.arrow_105_hover
     End Sub
@@ -120,4 +118,5 @@
         activityDisplayPanel.Controls.Add(activityDisplayer)
         '(delete till here)
     End Sub
+
 End Class

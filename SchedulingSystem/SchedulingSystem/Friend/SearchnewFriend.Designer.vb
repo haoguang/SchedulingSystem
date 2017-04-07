@@ -27,6 +27,7 @@ Partial Class SearchnewFriend
         Me.R_ID = New System.Windows.Forms.RadioButton()
         Me.R_Hobby = New System.Windows.Forms.RadioButton()
         Me.R_Name = New System.Windows.Forms.RadioButton()
+        Me.btn_addfriend = New System.Windows.Forms.Button()
         CType(Me.DGVS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,10 +93,20 @@ Partial Class SearchnewFriend
         Me.R_Name.Text = "&Name"
         Me.R_Name.UseVisualStyleBackColor = True
         '
+        'btn_addfriend
+        '
+        Me.btn_addfriend.Location = New System.Drawing.Point(651, 402)
+        Me.btn_addfriend.Name = "btn_addfriend"
+        Me.btn_addfriend.Size = New System.Drawing.Size(113, 39)
+        Me.btn_addfriend.TabIndex = 10
+        Me.btn_addfriend.Text = "Add Friend"
+        Me.btn_addfriend.UseVisualStyleBackColor = True
+        '
         'SearchnewFriend
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btn_addfriend)
         Me.Controls.Add(Me.R_Name)
         Me.Controls.Add(Me.R_Hobby)
         Me.Controls.Add(Me.R_ID)
@@ -117,4 +128,5 @@ Partial Class SearchnewFriend
     Friend WithEvents R_ID As RadioButton
     Friend WithEvents R_Hobby As RadioButton
     Friend WithEvents R_Name As RadioButton
+    Friend WithEvents btn_addfriend As Button
 End Class

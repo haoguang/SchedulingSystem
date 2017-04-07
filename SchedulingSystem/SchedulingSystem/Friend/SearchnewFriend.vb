@@ -1,6 +1,8 @@
 ﻿Public Class SearchnewFriend
     Dim db As New ScheduleDBDataContext
 
+
+
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
 
         Dim choosenType = 0
@@ -11,26 +13,27 @@
         ElseIf R_Hobby.Checked = False And R_Name.Checked = False And R_ID.Checked = True Then
             choosenType = 1
         Else
-            MessageBox.Show("Please select an option")
+            MessageBox.Show("Please select an Option")
         End If
         Dim sf As IQueryable
         Select Case choosenType
             Case 1
+
                 sf = From m In db.Members
-                     Where m.MemberID.ToString.Contains((txtsearch.Text))
+                     Where m.MemberID.ToString.StartsWith((txtsearch.Text))
                      Select m.MemberID, m.Username, m.Email, m.Occupation, m.ContactNo, m.Gender, m.Hobby
 
             Case 2
                 sf = From m In db.Members
-                     Where m.Username.ToString.Contains((txtsearch.Text))
+                     Where m.Username.ToString.StartsWith((txtsearch.Text))
                      Select m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender, m.Hobby
 
             Case 3
                 sf = From m In db.Members
-                     Where m.Hobby.ToString.Contains((txtsearch.Text))
+                     Where m.Hobby.ToString.StartsWith((txtsearch.Text))
                      Select m.Hobby, m.Username, m.MemberID, m.Email, m.Occupation, m.ContactNo, m.Gender
             Case Else
-                MessageBox.Show("Please choose a radio button 1st")
+                MessageBox.Show("Please choose a Radio Button")
         End Select
         If txtsearch.Text.Equals("") Then
             DGVS.DataSource = Nothing
@@ -38,16 +41,17 @@
             DGVS.DataSource = sf
         End If
 
-
     End Sub
 
-    Private Sub DGVS_SelectionChanged(sender As Object, e As EventArgs) Handles DGVS.SelectionChanged
+    Public Function CheckUserRelation(userid As Integer) As Boolean
+        Dim db As New ScheduleDBDataContext
+        Return db.Friends.Any(Function(o) o.FriendID = userid And o.UserID = 100001)
+    End Function
 
-    End Sub
-
-    Private Sub SearchnewFriend_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
+    Public Function CheckUserIsPending(userid As Integer) As Boolean
+        Dim db As New ScheduleDBDataContext
+        Return db.Friends.Any(Function(o) o.FriendID = userid And o.UserID = 100001 And o.Status = "Pending")
+    End Function
 
     Private Sub R_ID_CheckedChanged(sender As Object, e As EventArgs) Handles R_ID.CheckedChanged, R_Name.CheckedChanged, R_Hobby.CheckedChanged
         DGVS.DataSource = Nothing
@@ -56,7 +60,27 @@
         Else
             DGVS.DataSource = Nothing
         End If
+    End Sub
 
+    Private Sub btn_addfriend_Click(sender As Object, e As EventArgs) Handles btn_addfriend.Click
+        Dim UserCtrl3 As New ListFriend
+        Dim friend_id As Integer = Integer.Parse(DGVS.CurrentRow.Cells(0).Value.ToString)
+        Console.Write(DGVS.CurrentRow.Cells(1).Value.ToString)
+        If CheckUserIsPending(friend_id) Then
+            MessageBox.Show("You Already Sent Friend Request")
+
+        ElseIf CheckUserRelation(friend_id) Then
+            MessageBox.Show("You Both Are Already Friend")
+
+        Else
+            Dim add_friend As New [Friend]
+            add_friend.UserID = 100001
+            add_friend.FriendID = friend_id
+            add_friend.Status = "Pending"
+
+            db.Friends.InsertOnSubmit(add_friend)
+            db.SubmitChanges()
+        End If
 
     End Sub
 End Class

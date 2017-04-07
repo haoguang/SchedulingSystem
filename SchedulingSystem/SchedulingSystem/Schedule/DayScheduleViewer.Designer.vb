@@ -24,12 +24,14 @@ Partial Class DayScheduleViewer
     Private Sub InitializeComponent()
         Me.DateDisplayPanel = New System.Windows.Forms.Panel()
         Me.lblDate = New System.Windows.Forms.Label()
-        Me.btnNext = New System.Windows.Forms.Button()
-        Me.btnPrev = New System.Windows.Forms.Button()
+        Me.btnNext = New System.Windows.Forms.PictureBox()
+        Me.btnPrev = New System.Windows.Forms.PictureBox()
         Me.TimelineDisplayPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.timeDisplayPanel = New System.Windows.Forms.Panel()
         Me.activityDisplayPanel = New System.Windows.Forms.Panel()
         Me.DateDisplayPanel.SuspendLayout()
+        CType(Me.btnNext, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnPrev, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TimelineDisplayPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,40 +49,36 @@ Partial Class DayScheduleViewer
         'lblDate
         '
         Me.lblDate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblDate.Location = New System.Drawing.Point(75, 0)
+        Me.lblDate.Location = New System.Drawing.Point(50, 0)
         Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(350, 50)
-        Me.lblDate.TabIndex = 3
+        Me.lblDate.Size = New System.Drawing.Size(400, 50)
+        Me.lblDate.TabIndex = 2
         Me.lblDate.Text = "Date"
         Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnNext
         '
-        Me.btnNext.BackColor = System.Drawing.Color.Transparent
         Me.btnNext.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnNext.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnNext.FlatAppearance.BorderSize = 0
-        Me.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNext.Image = Global.SchedulingSystem.My.Resources.Resources.arrow_4_24
-        Me.btnNext.Location = New System.Drawing.Point(425, 0)
+        Me.btnNext.Location = New System.Drawing.Point(450, 0)
         Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(75, 50)
-        Me.btnNext.TabIndex = 2
-        Me.btnNext.UseVisualStyleBackColor = False
+        Me.btnNext.Size = New System.Drawing.Size(50, 50)
+        Me.btnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.btnNext.TabIndex = 1
+        Me.btnNext.TabStop = False
         '
         'btnPrev
         '
-        Me.btnPrev.BackColor = System.Drawing.Color.Transparent
         Me.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPrev.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnPrev.FlatAppearance.BorderSize = 0
-        Me.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrev.Image = Global.SchedulingSystem.My.Resources.Resources.arrow_105_24
         Me.btnPrev.Location = New System.Drawing.Point(0, 0)
         Me.btnPrev.Name = "btnPrev"
-        Me.btnPrev.Size = New System.Drawing.Size(75, 50)
-        Me.btnPrev.TabIndex = 1
-        Me.btnPrev.UseVisualStyleBackColor = False
+        Me.btnPrev.Size = New System.Drawing.Size(50, 50)
+        Me.btnPrev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.btnPrev.TabIndex = 0
+        Me.btnPrev.TabStop = False
         '
         'TimelineDisplayPanel
         '
@@ -122,6 +120,8 @@ Partial Class DayScheduleViewer
         Me.Name = "DayScheduleViewer"
         Me.Size = New System.Drawing.Size(500, 1300)
         Me.DateDisplayPanel.ResumeLayout(False)
+        CType(Me.btnNext, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnPrev, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TimelineDisplayPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -130,8 +130,8 @@ Partial Class DayScheduleViewer
     Friend WithEvents DateDisplayPanel As Panel
     Friend WithEvents TimelineDisplayPanel As TableLayoutPanel
     Friend WithEvents timeDisplayPanel As Panel
-    Friend WithEvents lblDate As Label
-    Friend WithEvents btnNext As Button
-    Friend WithEvents btnPrev As Button
     Friend WithEvents activityDisplayPanel As Panel
+    Friend WithEvents lblDate As Label
+    Friend WithEvents btnNext As PictureBox
+    Friend WithEvents btnPrev As PictureBox
 End Class
