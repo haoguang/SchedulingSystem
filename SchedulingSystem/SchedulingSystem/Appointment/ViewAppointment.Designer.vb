@@ -38,6 +38,8 @@ Partial Class ViewAppointment
         Me.gbSelection.Controls.Add(Me.rbPending)
         Me.gbSelection.Controls.Add(Me.rbOngoing)
         Me.gbSelection.Controls.Add(Me.rbHistory)
+        Me.gbSelection.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbSelection.ForeColor = System.Drawing.Color.DarkGreen
         Me.gbSelection.Location = New System.Drawing.Point(39, 17)
         Me.gbSelection.Name = "gbSelection"
         Me.gbSelection.Size = New System.Drawing.Size(645, 92)
@@ -48,9 +50,9 @@ Partial Class ViewAppointment
         'rbPending
         '
         Me.rbPending.AutoSize = True
-        Me.rbPending.Location = New System.Drawing.Point(486, 39)
+        Me.rbPending.Location = New System.Drawing.Point(448, 39)
         Me.rbPending.Name = "rbPending"
-        Me.rbPending.Size = New System.Drawing.Size(126, 17)
+        Me.rbPending.Size = New System.Drawing.Size(197, 20)
         Me.rbPending.TabIndex = 2
         Me.rbPending.TabStop = True
         Me.rbPending.Text = "Pending Appointment"
@@ -61,7 +63,7 @@ Partial Class ViewAppointment
         Me.rbOngoing.AutoSize = True
         Me.rbOngoing.Location = New System.Drawing.Point(241, 39)
         Me.rbOngoing.Name = "rbOngoing"
-        Me.rbOngoing.Size = New System.Drawing.Size(127, 17)
+        Me.rbOngoing.Size = New System.Drawing.Size(197, 20)
         Me.rbOngoing.TabIndex = 1
         Me.rbOngoing.TabStop = True
         Me.rbOngoing.Text = "Ongoing Appointment"
@@ -72,7 +74,7 @@ Partial Class ViewAppointment
         Me.rbHistory.AutoSize = True
         Me.rbHistory.Location = New System.Drawing.Point(24, 39)
         Me.rbHistory.Name = "rbHistory"
-        Me.rbHistory.Size = New System.Drawing.Size(119, 17)
+        Me.rbHistory.Size = New System.Drawing.Size(197, 20)
         Me.rbHistory.TabIndex = 0
         Me.rbHistory.TabStop = True
         Me.rbHistory.Text = "Appointment History"
@@ -81,6 +83,8 @@ Partial Class ViewAppointment
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.dgvRecord)
+        Me.GroupBox1.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
         Me.GroupBox1.Location = New System.Drawing.Point(39, 131)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(645, 209)

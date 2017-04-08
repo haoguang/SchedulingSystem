@@ -22,7 +22,8 @@ Partial Class SecondUserControl
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbSearch = New System.Windows.Forms.GroupBox()
+        Me.dtSelected = New System.Windows.Forms.DateTimePicker()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -31,26 +32,37 @@ Partial Class SecondUserControl
         Me.btnAppointment = New System.Windows.Forms.Button()
         Me.gbTimetable = New System.Windows.Forms.GroupBox()
         Me.dgvTimetable = New System.Windows.Forms.DataGridView()
-        Me.dtSelected = New System.Windows.Forms.DateTimePicker()
-        Me.GroupBox1.SuspendLayout()
+        Me.lblInfo = New System.Windows.Forms.Label()
+        Me.btnSearch2 = New System.Windows.Forms.Button()
+        Me.gbSearch.SuspendLayout()
         Me.gbTimetable.SuspendLayout()
         CType(Me.dgvTimetable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'GroupBox1
+        'gbSearch
         '
-        Me.GroupBox1.Controls.Add(Me.dtSelected)
-        Me.GroupBox1.Controls.Add(Me.lblDate)
-        Me.GroupBox1.Controls.Add(Me.lblName)
-        Me.GroupBox1.Controls.Add(Me.txtName)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.btnSearch)
-        Me.GroupBox1.Location = New System.Drawing.Point(86, 15)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(371, 266)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Search Schedule"
+        Me.gbSearch.Controls.Add(Me.dtSelected)
+        Me.gbSearch.Controls.Add(Me.lblDate)
+        Me.gbSearch.Controls.Add(Me.lblName)
+        Me.gbSearch.Controls.Add(Me.txtName)
+        Me.gbSearch.Controls.Add(Me.Button2)
+        Me.gbSearch.Controls.Add(Me.btnSearch)
+        Me.gbSearch.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbSearch.ForeColor = System.Drawing.Color.DarkGreen
+        Me.gbSearch.Location = New System.Drawing.Point(86, 15)
+        Me.gbSearch.Name = "gbSearch"
+        Me.gbSearch.Size = New System.Drawing.Size(371, 142)
+        Me.gbSearch.TabIndex = 0
+        Me.gbSearch.TabStop = False
+        Me.gbSearch.Text = "Search Schedule"
+        '
+        'dtSelected
+        '
+        Me.dtSelected.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtSelected.Location = New System.Drawing.Point(115, 52)
+        Me.dtSelected.Name = "dtSelected"
+        Me.dtSelected.Size = New System.Drawing.Size(200, 22)
+        Me.dtSelected.TabIndex = 10
         '
         'lblDate
         '
@@ -78,7 +90,7 @@ Partial Class SecondUserControl
         '
         Me.txtName.Location = New System.Drawing.Point(112, 16)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(100, 20)
+        Me.txtName.Size = New System.Drawing.Size(100, 22)
         Me.txtName.TabIndex = 7
         '
         'Button2
@@ -102,20 +114,24 @@ Partial Class SecondUserControl
         'btnAppointment
         '
         Me.btnAppointment.Enabled = False
-        Me.btnAppointment.Location = New System.Drawing.Point(80, 227)
+        Me.btnAppointment.Location = New System.Drawing.Point(141, 255)
         Me.btnAppointment.Name = "btnAppointment"
-        Me.btnAppointment.Size = New System.Drawing.Size(116, 23)
+        Me.btnAppointment.Size = New System.Drawing.Size(168, 28)
         Me.btnAppointment.TabIndex = 4
         Me.btnAppointment.Text = "Make Appointment"
         Me.btnAppointment.UseVisualStyleBackColor = True
         '
         'gbTimetable
         '
+        Me.gbTimetable.Controls.Add(Me.btnSearch2)
+        Me.gbTimetable.Controls.Add(Me.lblInfo)
         Me.gbTimetable.Controls.Add(Me.dgvTimetable)
         Me.gbTimetable.Controls.Add(Me.btnAppointment)
-        Me.gbTimetable.Location = New System.Drawing.Point(86, 302)
+        Me.gbTimetable.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTimetable.ForeColor = System.Drawing.Color.DarkGreen
+        Me.gbTimetable.Location = New System.Drawing.Point(86, 180)
         Me.gbTimetable.Name = "gbTimetable"
-        Me.gbTimetable.Size = New System.Drawing.Size(371, 275)
+        Me.gbTimetable.Size = New System.Drawing.Size(392, 364)
         Me.gbTimetable.TabIndex = 5
         Me.gbTimetable.TabStop = False
         Me.gbTimetable.Text = "Timetable"
@@ -124,36 +140,47 @@ Partial Class SecondUserControl
         'dgvTimetable
         '
         Me.dgvTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvTimetable.Location = New System.Drawing.Point(43, 41)
+        Me.dgvTimetable.Location = New System.Drawing.Point(27, 71)
         Me.dgvTimetable.Name = "dgvTimetable"
-        Me.dgvTimetable.Size = New System.Drawing.Size(240, 150)
+        Me.dgvTimetable.Size = New System.Drawing.Size(288, 150)
         Me.dgvTimetable.TabIndex = 5
         '
-        'dtSelected
+        'lblInfo
         '
-        Me.dtSelected.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtSelected.Location = New System.Drawing.Point(115, 52)
-        Me.dtSelected.Name = "dtSelected"
-        Me.dtSelected.Size = New System.Drawing.Size(200, 20)
-        Me.dtSelected.TabIndex = 10
+        Me.lblInfo.AutoSize = True
+        Me.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblInfo.Location = New System.Drawing.Point(27, 34)
+        Me.lblInfo.Name = "lblInfo"
+        Me.lblInfo.Size = New System.Drawing.Size(2, 18)
+        Me.lblInfo.TabIndex = 6
+        '
+        'btnSearch2
+        '
+        Me.btnSearch2.Location = New System.Drawing.Point(34, 255)
+        Me.btnSearch2.Name = "btnSearch2"
+        Me.btnSearch2.Size = New System.Drawing.Size(75, 28)
+        Me.btnSearch2.TabIndex = 7
+        Me.btnSearch2.Text = "Search"
+        Me.btnSearch2.UseVisualStyleBackColor = True
         '
         'SecondUserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.gbTimetable)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.gbSearch)
         Me.Name = "SecondUserControl"
         Me.Size = New System.Drawing.Size(972, 609)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbSearch.ResumeLayout(False)
+        Me.gbSearch.PerformLayout()
         Me.gbTimetable.ResumeLayout(False)
+        Me.gbTimetable.PerformLayout()
         CType(Me.dgvTimetable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gbSearch As GroupBox
     Friend WithEvents Button2 As Button
     Friend WithEvents btnSearch As Button
     Friend WithEvents btnAppointment As Button
@@ -163,4 +190,6 @@ Partial Class SecondUserControl
     Friend WithEvents lblName As Label
     Friend WithEvents dgvTimetable As DataGridView
     Friend WithEvents dtSelected As DateTimePicker
+    Friend WithEvents lblInfo As Label
+    Friend WithEvents btnSearch2 As Button
 End Class
