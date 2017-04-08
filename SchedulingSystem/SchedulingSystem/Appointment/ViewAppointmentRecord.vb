@@ -16,8 +16,8 @@
                          m.Nickname
                          }
         lblDate.Text = Format(record.FirstOrDefault.ScheduleStart, "d")
-        lblStartTime.Text = Format(record.FirstOrDefault.ScheduleStart, "HH:mm")
-        lblEndTime.Text = Format(record.FirstOrDefault.ScheduleEnd, "HH:mm")
+        lblStartTime.Text = Format(record.FirstOrDefault.ScheduleStart, "HH:mm tt")
+        lblEndTime.Text = Format(record.FirstOrDefault.ScheduleEnd, "HH:mm tt")
         lblTitle.Text = record.FirstOrDefault.Title
         txtBoxDescription.Text = record.FirstOrDefault.Description
         lblVenue.Text = record.FirstOrDefault.Venue

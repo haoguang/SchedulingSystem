@@ -11,7 +11,7 @@
     Private Sub rbHistory_CheckedChanged(sender As Object, e As EventArgs) Handles rbHistory.CheckedChanged
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = 100001
+        Dim memberId As Integer = DevelopmentVariables.UserID
         Dim currentDateTime As DateTime
 
         currentDateTime = DateTime.Now
@@ -19,16 +19,12 @@
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
                      Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
-                         s.ScheduleID,
-                         st.ScheduleStart,
-                         st.ScheduleEnd,
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
                          s.Title,
                          s.Venue
                          }
-
-
-
-
         dgvRecord.DataSource = record
         dgvRecord.ReadOnly = True
     End Sub
@@ -36,7 +32,7 @@
     Private Sub rbOngoing_CheckedChanged(sender As Object, e As EventArgs) Handles rbOngoing.CheckedChanged
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = 100001
+        Dim memberId As Integer = DevelopmentVariables.UserID
         Dim currentDateTime As DateTime
 
         currentDateTime = DateTime.Now
@@ -59,7 +55,7 @@
 
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = 100001
+        Dim memberId As Integer = DevelopmentVariables.UserID
         Dim currentDateTime As DateTime
 
         currentDateTime = DateTime.Now

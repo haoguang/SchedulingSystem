@@ -22,7 +22,7 @@ Partial Class CreateAppointment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnConfirm = New System.Windows.Forms.Button()
         Me.gbGeneral = New System.Windows.Forms.GroupBox()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -34,19 +34,19 @@ Partial Class CreateAppointment
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.txtTitle = New System.Windows.Forms.TextBox()
         Me.lblDescriptionTitle = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblTo = New System.Windows.Forms.Label()
         Me.gbGeneral.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnConfirm
         '
-        Me.Button1.Location = New System.Drawing.Point(184, 323)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(101, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Confirm"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnConfirm.Location = New System.Drawing.Point(184, 323)
+        Me.btnConfirm.Name = "btnConfirm"
+        Me.btnConfirm.Size = New System.Drawing.Size(101, 23)
+        Me.btnConfirm.TabIndex = 1
+        Me.btnConfirm.Text = "Confirm"
+        Me.btnConfirm.UseVisualStyleBackColor = True
         '
         'gbGeneral
         '
@@ -69,29 +69,29 @@ Partial Class CreateAppointment
         '
         'lblStartTitle
         '
-        Me.lblStartTitle.AutoSize = True
         Me.lblStartTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.lblStartTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblStartTitle.Location = New System.Drawing.Point(6, 26)
         Me.lblStartTitle.Name = "lblStartTitle"
-        Me.lblStartTitle.Size = New System.Drawing.Size(159, 13)
+        Me.lblStartTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblStartTitle.TabIndex = 0
-        Me.lblStartTitle.Text = "Appointment Start :"
+        Me.lblStartTitle.Text = "Appointment Start:"
+        Me.lblStartTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'lblEndTitle
         '
-        Me.lblEndTitle.AutoSize = True
         Me.lblEndTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.lblEndTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblEndTitle.Location = New System.Drawing.Point(6, 57)
         Me.lblEndTitle.Name = "lblEndTitle"
-        Me.lblEndTitle.Size = New System.Drawing.Size(143, 13)
+        Me.lblEndTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblEndTitle.TabIndex = 2
-        Me.lblEndTitle.Text = "Appointment End :"
+        Me.lblEndTitle.Text = "Duration :"
+        Me.lblEndTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'scheStart
         '
-        Me.scheStart.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.scheStart.CustomFormat = "dd/MM/yyyy hh:mm tt"
         Me.scheStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheStart.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheStart.Location = New System.Drawing.Point(167, 20)
@@ -117,7 +117,7 @@ Partial Class CreateAppointment
         '
         'scheEnd
         '
-        Me.scheEnd.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.scheEnd.CustomFormat = "hh:mm tt"
         Me.scheEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheEnd.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheEnd.Location = New System.Drawing.Point(167, 51)
@@ -128,25 +128,25 @@ Partial Class CreateAppointment
         '
         'lblVenueTitle
         '
-        Me.lblVenueTitle.AutoSize = True
         Me.lblVenueTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.lblVenueTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblVenueTitle.Location = New System.Drawing.Point(6, 187)
         Me.lblVenueTitle.Name = "lblVenueTitle"
-        Me.lblVenueTitle.Size = New System.Drawing.Size(63, 13)
+        Me.lblVenueTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblVenueTitle.TabIndex = 8
         Me.lblVenueTitle.Text = "Venue :"
+        Me.lblVenueTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'lblTitle
         '
-        Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblTitle.Location = New System.Drawing.Point(6, 88)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(135, 13)
+        Me.lblTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblTitle.TabIndex = 4
         Me.lblTitle.Text = "Activity Title :"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtTitle
         '
@@ -157,23 +157,23 @@ Partial Class CreateAppointment
         '
         'lblDescriptionTitle
         '
-        Me.lblDescriptionTitle.AutoSize = True
         Me.lblDescriptionTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.lblDescriptionTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblDescriptionTitle.Location = New System.Drawing.Point(6, 119)
         Me.lblDescriptionTitle.Name = "lblDescriptionTitle"
-        Me.lblDescriptionTitle.Size = New System.Drawing.Size(111, 13)
+        Me.lblDescriptionTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblDescriptionTitle.TabIndex = 6
         Me.lblDescriptionTitle.Text = "Description :"
+        Me.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Button2
+        'btnCancel
         '
-        Me.Button2.Location = New System.Drawing.Point(65, 323)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(101, 23)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Cancel"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnCancel.Location = New System.Drawing.Point(65, 323)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(101, 23)
+        Me.btnCancel.TabIndex = 9
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'lblTo
         '
@@ -192,9 +192,9 @@ Partial Class CreateAppointment
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(412, 358)
         Me.Controls.Add(Me.lblTo)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.gbGeneral)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnConfirm)
         Me.MaximizeBox = False
         Me.Name = "CreateAppointment"
         Me.Text = "Appointment Form"
@@ -204,7 +204,7 @@ Partial Class CreateAppointment
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnConfirm As Button
     Friend WithEvents gbGeneral As GroupBox
     Friend WithEvents lblStartTitle As Label
     Friend WithEvents lblEndTitle As Label
@@ -216,6 +216,6 @@ Partial Class CreateAppointment
     Friend WithEvents lblTitle As Label
     Friend WithEvents txtTitle As TextBox
     Friend WithEvents lblDescriptionTitle As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnCancel As Button
     Friend WithEvents lblTo As Label
 End Class
