@@ -311,6 +311,9 @@
     <None Include="Resources\add-user-32.png" />
     <None Include="Resources\add-user-hover.png" />
     <None Include="Resources\add-user-pressed.png" />
+    <None Include="Resources\x-mark-3-24.png" />
+    <None Include="Resources\transparent.png" />
+    <None Include="Resources\x-mark-3-Pressed.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

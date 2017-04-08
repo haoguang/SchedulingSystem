@@ -48,7 +48,6 @@ Partial Class ActivityRegister
         Me.dgvParticiples = New System.Windows.Forms.DataGridView()
         Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvParticipleRemove = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -295,6 +294,9 @@ Partial Class ActivityRegister
         '
         'dgvParticiples
         '
+        Me.dgvParticiples.AllowUserToAddRows = False
+        Me.dgvParticiples.AllowUserToDeleteRows = False
+        Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
         DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
         Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
@@ -302,15 +304,17 @@ Partial Class ActivityRegister
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvParticiples.ColumnHeadersVisible = False
-        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName, Me.dgvParticipleRemove})
+        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName})
         Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.dgvParticiples.GridColor = System.Drawing.Color.Silver
+        Me.dgvParticiples.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.dgvParticiples.Location = New System.Drawing.Point(3, 56)
         Me.dgvParticiples.MultiSelect = False
         Me.dgvParticiples.Name = "dgvParticiples"
+        Me.dgvParticiples.ReadOnly = True
         Me.dgvParticiples.RowHeadersVisible = False
         Me.dgvParticiples.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvParticiples.RowTemplate.Height = 100
+        Me.dgvParticiples.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvParticiples.RowTemplate.Height = 60
         Me.dgvParticiples.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvParticiples.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvParticiples.Size = New System.Drawing.Size(271, 312)
@@ -329,14 +333,8 @@ Partial Class ActivityRegister
         Me.dgvParticipleName.HeaderText = "Participle Name"
         Me.dgvParticipleName.Name = "dgvParticipleName"
         Me.dgvParticipleName.ReadOnly = True
+        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvParticipleName.Width = 221
-        '
-        'dgvParticipleRemove
-        '
-        Me.dgvParticipleRemove.HeaderText = "Remove"
-        Me.dgvParticipleRemove.Name = "dgvParticipleRemove"
-        Me.dgvParticipleRemove.ReadOnly = True
-        Me.dgvParticipleRemove.Width = 30
         '
         'ActivityRegister
         '
@@ -380,9 +378,8 @@ Partial Class ActivityRegister
     Friend WithEvents btnDone As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvParticiples As DataGridView
-    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
-    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
-    Friend WithEvents dgvParticipleRemove As DataGridViewButtonColumn
     Friend WithEvents btnAddParti As PictureBox
     Friend WithEvents lblParticipleTitle As Label
+    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
+    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
 End Class
