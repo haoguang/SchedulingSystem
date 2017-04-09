@@ -37,6 +37,10 @@ Public Class CreateAppointment
         End If
 
         AddSchedule()
+        AddScheduleTime()
+        addOwner()
+        addParticiple()
+        MessageBox.Show("Appointment request sent.", "Request")
 
 
     End Sub
@@ -74,10 +78,73 @@ Public Class CreateAppointment
     End Sub
 
     Private Sub AddScheduleTime()
+        Dim db As New ScheduleDBDataContext()
+        Dim record = From s In db.Schedules
+                     Order By s.ScheduleID
+                     Descending
+                     Select New With {
+                          s.ScheduleID
+                         }
+        Dim scheduleID As Integer
+        With record.First
+            scheduleID = .ScheduleID
+        End With
+
         Dim st As New ScheduleTime
-        'st.ScheduleID =
-        'st.ScheduleStart = scheStart.Value
+        st.ScheduleID = scheduleID
+        st.ScheduleStart = scheStart.Value
         st.ScheduleEnd = scheEnd.Value
         st.InitialTime = Nothing
+        db.ScheduleTimes.InsertOnSubmit(st)
+        db.SubmitChanges()
+    End Sub
+
+    Private Sub addOwner()
+        Dim db As New ScheduleDBDataContext()
+        Dim record = From s In db.Schedules
+                     Order By s.ScheduleID
+                     Descending
+                     Select New With {
+                          s.ScheduleID
+                         }
+        Dim scheduleID As Integer
+        With record.First
+            scheduleID = .ScheduleID
+        End With
+
+        Dim p As New Participle
+        p.ScheduleID = scheduleID
+        p.MemberID = DevelopmentVariables.UserID
+        p.ParticiplesRole = "Owner"
+        p.Status = "Attend"
+        p.GenerateDate = DateTime.Now
+    End Sub
+
+    Private Sub addParticiple()
+        Dim db As New ScheduleDBDataContext()
+        Dim record = From s In db.Schedules
+                     Order By s.ScheduleID
+                     Descending
+                     Select New With {
+                          s.ScheduleID
+                         }
+        Dim scheduleID As Integer
+        With record.First
+            scheduleID = .ScheduleID
+        End With
+
+        Dim memberRecord = From m In db.Members
+                           Where m.Username = StringUsername
+                           Select New With {
+                           m.MemberID
+                           }
+        Dim memId As Integer = memberRecord.FirstOrDefault.MemberID
+
+        Dim p As New Participle
+        p.ScheduleID = scheduleID
+        p.MemberID = memId
+        p.ParticiplesRole = "Participant"
+        p.Status = "Owner"
+        p.GenerateDate = DateTime.Now
     End Sub
 End Class

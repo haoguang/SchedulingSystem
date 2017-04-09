@@ -29,6 +29,13 @@
 
     Private Sub btn_del_Click(sender As Object, e As EventArgs) Handles btn_del.Click
         Dim db As New ScheduleDBDataContext
-        Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = user_id)
+        Dim UserCtrl3 As New ListFriend
+        Dim FriendSidePanel As New FriendSidePanel
+
+        Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = Integer.Parse(sideCtrl.DGVF.CurrentRow.Cells(0).Value.ToString))
+        db.Friends.DeleteOnSubmit(btn_delete)
+        db.SubmitChanges()
+        sideCtrl.populateDGVF()
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
     End Sub
 End Class

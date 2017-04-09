@@ -35,7 +35,7 @@ Public Class SecondUserControl
 
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
-                     Where m.Username = name And st.ScheduleStart >= beforeDate And st.ScheduleStart <= afterDate And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
+                     Where m.Username = name And st.ScheduleStart > beforeDate And st.ScheduleStart < afterDate And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
                      Select New With {
                          .StartTime = Format(st.ScheduleStart, "HH: mm tt"),
                          .EndTime = Format(st.ScheduleEnd, "HH: mm tt")
