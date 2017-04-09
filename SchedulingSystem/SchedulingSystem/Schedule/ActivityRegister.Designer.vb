@@ -22,7 +22,7 @@ Partial Class ActivityRegister
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -48,7 +48,7 @@ Partial Class ActivityRegister
         Me.dgvParticiples = New System.Windows.Forms.DataGridView()
         Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvParticipleRemove = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -69,7 +69,7 @@ Partial Class ActivityRegister
         '
         'scheStart
         '
-        Me.scheStart.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.scheStart.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.scheStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheStart.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheStart.Location = New System.Drawing.Point(167, 20)
@@ -157,7 +157,7 @@ Partial Class ActivityRegister
         '
         'scheEnd
         '
-        Me.scheEnd.CustomFormat = "dd/MM/yyyy hh:mm"
+        Me.scheEnd.CustomFormat = "dd/MM/yyyy HH:mm"
         Me.scheEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheEnd.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheEnd.Location = New System.Drawing.Point(167, 51)
@@ -190,6 +190,7 @@ Partial Class ActivityRegister
         '
         'cboActivityType
         '
+        Me.cboActivityType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboActivityType.FormattingEnabled = True
         Me.cboActivityType.Location = New System.Drawing.Point(167, 220)
         Me.cboActivityType.Name = "cboActivityType"
@@ -205,6 +206,7 @@ Partial Class ActivityRegister
         '
         'cboBehavior
         '
+        Me.cboBehavior.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBehavior.FormattingEnabled = True
         Me.cboBehavior.Location = New System.Drawing.Point(167, 55)
         Me.cboBehavior.Name = "cboBehavior"
@@ -247,12 +249,17 @@ Partial Class ActivityRegister
         '
         'btnDone
         '
-        Me.btnDone.Location = New System.Drawing.Point(149, 429)
+        Me.btnDone.BackColor = System.Drawing.Color.FromArgb(CType(CType(153, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnDone.FlatAppearance.BorderSize = 3
+        Me.btnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDone.Font = New System.Drawing.Font("Gill Sans MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.btnDone.Location = New System.Drawing.Point(210, 450)
         Me.btnDone.Name = "btnDone"
-        Me.btnDone.Size = New System.Drawing.Size(75, 23)
+        Me.btnDone.Size = New System.Drawing.Size(119, 44)
         Me.btnDone.TabIndex = 9
         Me.btnDone.Text = "Done"
-        Me.btnDone.UseVisualStyleBackColor = True
+        Me.btnDone.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -295,22 +302,28 @@ Partial Class ActivityRegister
         '
         'dgvParticiples
         '
+        Me.dgvParticiples.AllowUserToAddRows = False
+        Me.dgvParticiples.AllowUserToDeleteRows = False
+        Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvParticiples.ColumnHeadersVisible = False
-        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName, Me.dgvParticipleRemove})
+        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName})
         Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.dgvParticiples.GridColor = System.Drawing.Color.Silver
+        Me.dgvParticiples.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.dgvParticiples.Location = New System.Drawing.Point(3, 56)
         Me.dgvParticiples.MultiSelect = False
         Me.dgvParticiples.Name = "dgvParticiples"
+        Me.dgvParticiples.ReadOnly = True
         Me.dgvParticiples.RowHeadersVisible = False
         Me.dgvParticiples.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvParticiples.RowTemplate.Height = 100
+        Me.dgvParticiples.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvParticiples.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        Me.dgvParticiples.RowTemplate.Height = 60
         Me.dgvParticiples.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvParticiples.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvParticiples.Size = New System.Drawing.Size(271, 312)
@@ -329,20 +342,29 @@ Partial Class ActivityRegister
         Me.dgvParticipleName.HeaderText = "Participle Name"
         Me.dgvParticipleName.Name = "dgvParticipleName"
         Me.dgvParticipleName.ReadOnly = True
+        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvParticipleName.Width = 221
         '
-        'dgvParticipleRemove
+        'btnCancel
         '
-        Me.dgvParticipleRemove.HeaderText = "Remove"
-        Me.dgvParticipleRemove.Name = "dgvParticipleRemove"
-        Me.dgvParticipleRemove.ReadOnly = True
-        Me.dgvParticipleRemove.Width = 30
+        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.btnCancel.FlatAppearance.BorderSize = 3
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Font = New System.Drawing.Font("Gill Sans MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(179, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(71, Byte), Integer))
+        Me.btnCancel.Location = New System.Drawing.Point(404, 450)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(119, 44)
+        Me.btnCancel.TabIndex = 9
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'ActivityRegister
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.gbRepeat)
         Me.Controls.Add(Me.gbGeneral)
@@ -380,9 +402,9 @@ Partial Class ActivityRegister
     Friend WithEvents btnDone As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvParticiples As DataGridView
-    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
-    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
-    Friend WithEvents dgvParticipleRemove As DataGridViewButtonColumn
     Friend WithEvents btnAddParti As PictureBox
     Friend WithEvents lblParticipleTitle As Label
+    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
+    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
+    Friend WithEvents btnCancel As Button
 End Class

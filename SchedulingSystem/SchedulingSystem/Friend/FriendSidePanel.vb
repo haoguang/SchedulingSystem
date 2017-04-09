@@ -1,5 +1,6 @@
 ﻿Public Class FriendSidePanel
     Private Sub FriendSidePanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim db As New ScheduleDBDataContext
         populateDGVF()
 
     End Sub
@@ -18,12 +19,10 @@
 
         Dim fl = From o In db.Friends,
                      m In db.Members
-                 Where o.UserID = 100001 And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text)
+                 Where o.UserID = 100001 And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text) And Not o.Status = "Pending"
                  Select m.Username, m.MemberID, o.Status
 
         DGVF.DataSource = fl
-
-
     End Sub
 
     Private Sub btnFriend_Click(sender As Object, e As EventArgs) Handles btnFriend.Click
@@ -40,4 +39,6 @@
         My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl4)
 
     End Sub
+
+
 End Class

@@ -17,4 +17,12 @@
 
     End Function
 
+    Friend Function IsOwner(ScheduleID As Integer) As Boolean
+        Dim db As New ScheduleDBDataContext
+
+        Dim p As Participle = db.Participles.FirstOrDefault(Function(o) o.ScheduleID = ScheduleID And o.MemberID = DevelopmentVariables.UserID)
+
+        Return p.ParticiplesRole.Equals("Owner")
+    End Function
+
 End Module
