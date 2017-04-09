@@ -66,6 +66,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\calendar-11-64.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -193,6 +196,7 @@
     <Compile Include="Schedule\DayScheduleViewer.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Schedule\RepeatationModule.vb" />
     <Compile Include="Schedule\ScheduleClass.vb" />
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
@@ -324,6 +328,7 @@
     <None Include="Resources\x-mark-3-24.png" />
     <None Include="Resources\transparent.png" />
     <None Include="Resources\x-mark-3-Pressed.png" />
+    <None Include="Resources\calendar-11-64.ico" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

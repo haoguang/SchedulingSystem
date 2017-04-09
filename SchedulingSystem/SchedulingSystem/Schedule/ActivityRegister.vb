@@ -3,7 +3,7 @@
 Public Class ActivityRegister
     Private schedule As ScheduleClass
 
-    Private Sub initializeScheduleForDevelopment()
+    Private Sub initializeScheduleForDevelopment() '******************************************
         Dim db As New ScheduleDBDataContext
 
         Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000002)
@@ -14,11 +14,12 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        initializeScheduleForDevelopment()
+        'initializeScheduleForDevelopment() 'to test adding *******************************
 
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
 
         If schedule Is Nothing Then
+
             activityCreateMode()
         Else
             activityEditMode()
@@ -29,8 +30,6 @@ Public Class ActivityRegister
     Private Sub activityEditMode() 'called when control is used to edit schedule
 
         AddHandler btnDone.MouseClick, AddressOf btnDoneEdit_MouseClick
-
-        populateDataToControls()
 
         If ActivityModule.IsOwner(schedule.ScheduleID) Then
             'Add button column
@@ -46,17 +45,35 @@ Public Class ActivityRegister
             btnAddParti.Enabled = True
             btnAddParti.Visible = True
         Else
+            'disable the button if not owner of the schedule
             btnAddParti.Enabled = False
             btnAddParti.Visible = False
         End If
 
-
         settingdgvColumn() 'resize the column
+
+        populateDataToControls() 'insert data to all control
+
         populateParticiples() 'insert data to grid view
     End Sub
 
     Private Sub activityCreateMode() 'called when control is used to create schedule
         AddHandler btnDone.MouseClick, AddressOf btnDoneCreate_MouseClick
+
+        'Add button column
+        Dim iconColumn As New DataGridViewImageColumn()
+
+        With iconColumn
+            .Image = My.Resources.transparent
+            .Name = "dgvParticiplesRemove"
+            .HeaderText = "Remove"
+            .ToolTipText = "Remore this participle"
+        End With
+        dgvParticiples.Columns.Insert(2, iconColumn)
+        btnAddParti.Enabled = True
+        btnAddParti.Visible = True
+
+        settingdgvColumn() 'resize the column
     End Sub
 
     Private Sub populateDataToControls()
@@ -77,14 +94,16 @@ Public Class ActivityRegister
 
         cboActivityType.SelectedIndex = index
 
-        Dim abc As Byte = CByte(30)
-
-        Console.WriteLine(abc.ToString)
-
     End Sub
 
     Private Sub btnDoneCreate_MouseClick(sender As Object, e As EventArgs)
-        Console.WriteLine("is Create")
+
+
+
+
+
+
+
     End Sub
 
     Private Sub btnDoneEdit_MouseClick(sender As Object, e As EventArgs)
@@ -122,7 +141,7 @@ Public Class ActivityRegister
         btnAddParti.Image = My.Resources.add_user_hover
     End Sub
 
-    Private Sub btnNext_MouseDown(sender As Object, e As MouseEventArgs) Handles btnAddParti.MouseDown
+    Private Sub btnAddParti_MouseDown(sender As Object, e As MouseEventArgs) Handles btnAddParti.MouseDown
         btnAddParti.Image = My.Resources.add_user_pressed
     End Sub
 
@@ -144,7 +163,19 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub btnAddParti_Click(sender As Object, e As EventArgs) Handles btnAddParti.Click
-        'use true or false to handle add participle with create and edit condition
+        Dim participleAdd As New AddParticiple
+
+        If schedule Is Nothing Then
+
+            participleAdd.ScheduleID = -1
+            participleAdd.participleList = dgvParticiples
+
+        Else
+            participleAdd.ScheduleID = schedule.ScheduleID
+        End If
+
+        participleAdd.ShowDialog()
+
     End Sub
 
 
@@ -175,34 +206,53 @@ Public Class ActivityRegister
 
     End Sub
 
-    Private Sub dgvParticiples_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseClick, dgvParticiples.CellMouseDown
+    Private Sub dgvParticiples_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseClick
+        If schedule Is Nothing Then
+            'romove row only
+            dgvParticiples.Rows.RemoveAt(e.RowIndex)
+        Else
 
-        dgvParticiples.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(179, 255, 236)
-        Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
-        If columnName = "dgvParticiplesRemove" Then
-            'change icon
-            Dim cellImage As DataGridViewImageCell = CType(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
-            cellImage.Value = My.Resources.x_mark_3_Pressed
+            Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
+            If columnName = "dgvParticiplesRemove" Then
 
-            'preform operation
-            If vbYes = MsgBox("Are you sure you want to remove this participle?", vbYesNo, "Warning") Then
-                Dim db As New ScheduleDBDataContext()
+                'preform operation
+                If vbYes = MsgBox("Are you sure you want to remove this participle?", vbYesNo, "Warning") Then
+                    Dim db As New ScheduleDBDataContext()
 
-                Dim p As Participle = db.Participles.FirstOrDefault(Function(o) o.ScheduleID = schedule.ScheduleID And o.MemberID = CInt(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticipleID").Value))
+                    Dim p As Participle = db.Participles.FirstOrDefault(Function(o) o.ScheduleID = schedule.ScheduleID And o.MemberID = CInt(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticipleID").Value))
 
-                If p Is Nothing Then
-                    MsgBox("The record of the user fail to retrieved", vbOKOnly, "Error")
-                ElseIf p.ParticiplesRole.Equals("Owner")
-                    MsgBox("You can't remove yourself as an owner of the activity", vbOKOnly, "Warning")
-                Else
-                    db.Participles.DeleteOnSubmit(p)
-                    db.SubmitChanges()
-                    populateParticiples()
+                    If p Is Nothing Then
+                        MsgBox("The record of the user fail to retrieved", vbOKOnly, "Error")
+                    ElseIf p.ParticiplesRole.Equals("Owner")
+                        MsgBox("You can't remove yourself as an owner of the activity", vbOKOnly, "Warning")
+                    Else
+                        db.Participles.DeleteOnSubmit(p)
+                        db.SubmitChanges()
+                        populateParticiples()
+                    End If
                 End If
-            End If
 
+            End If
         End If
 
 
+
+    End Sub
+
+    Private Sub dgvParticiples_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseDown
+
+        dgvParticiples.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(179, 255, 236)
+
+        Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
+        If columnName = "dgvParticiplesRemove" Then
+            Dim cellImage As DataGridViewImageCell = CType(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
+            cellImage.Value = My.Resources.x_mark_3_Pressed
+        End If
+
+    End Sub
+
+    Private Sub scheEnd_ValueChanged(sender As Object, e As EventArgs) Handles scheEnd.ValueChanged
+        'To make sure that due date is atleast same as end date
+        scheRepeatDue.Value = scheEnd.Value
     End Sub
 End Class

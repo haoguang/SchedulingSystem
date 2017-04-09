@@ -36,10 +36,18 @@
     Friend Shared ReadOnly FAMILY_TYPE As String = "Family"
 
     'List of status for schedule
-    Friend Const CANCEL_STATUS As String = "Cancel"
-    Friend Const ENDED_STATUS As String = "Ended"
-    Friend Const ACTIVE_STATUS As String = "Active"
-    Friend Const PENDING_STATUS As String = "Pending"
+    Friend Shared ReadOnly CANCEL_STATUS As String = "Cancel"
+    Friend Shared ReadOnly ENDED_STATUS As String = "Ended"
+    Friend Shared ReadOnly ACTIVE_STATUS As String = "Active"
+    Friend Shared ReadOnly PENDING_STATUS As String = "Pending"
+
+    'List of participle type
+    Friend Shared ReadOnly OWNER As String = "Owner"
+    Friend Shared ReadOnly PARTICIPLE As String = "Participle"
+
+    'List of participle status
+    Friend Shared ReadOnly PARTICIPLE_PENDING As String = "Pending"
+    Friend Shared ReadOnly PARTICIPLE_ATTENT As String = "Attend"
 
 
 

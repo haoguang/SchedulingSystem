@@ -25,4 +25,15 @@
         Return p.ParticiplesRole.Equals("Owner")
     End Function
 
+    Friend Function dateValidator(tempDate As DateTime, userID As Integer) As Boolean
+        Dim db As New ScheduleDBDataContext
+
+        Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
+                 Where p.MemberID = userID And p.ScheduleID = s.ScheduleID And
+                     s.ScheduleID = st.ScheduleID And st.ScheduleStart <= tempDate And
+                     st.ScheduleEnd >= tempDate
+
+        Return rs.Count > 0
+    End Function
+
 End Module
