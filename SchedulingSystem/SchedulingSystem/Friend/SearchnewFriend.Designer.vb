@@ -22,6 +22,8 @@ Partial Class SearchnewFriend
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.DGVS = New System.Windows.Forms.DataGridView()
         Me.R_ID = New System.Windows.Forms.RadioButton()
@@ -41,7 +43,7 @@ Partial Class SearchnewFriend
         Me.txtsearch.Margin = New System.Windows.Forms.Padding(4)
         Me.txtsearch.Multiline = True
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(722, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(829, 31)
         Me.txtsearch.TabIndex = 5
         '
         'DGVS
@@ -50,20 +52,44 @@ Partial Class SearchnewFriend
         Me.DGVS.AllowUserToDeleteRows = False
         Me.DGVS.AllowUserToResizeColumns = False
         Me.DGVS.AllowUserToResizeRows = False
-        Me.DGVS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DGVS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DGVS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DGVS.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DGVS.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DGVS.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.DGVS.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
+        Me.DGVS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DGVS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVS.Location = New System.Drawing.Point(42, 165)
+        Me.DGVS.ColumnHeadersVisible = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVS.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVS.Location = New System.Drawing.Point(42, 96)
+        Me.DGVS.MultiSelect = False
         Me.DGVS.Name = "DGVS"
         Me.DGVS.ReadOnly = True
-        Me.DGVS.RowTemplate.Height = 24
-        Me.DGVS.Size = New System.Drawing.Size(722, 211)
+        Me.DGVS.RowHeadersVisible = False
+        Me.DGVS.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Lime
+        Me.DGVS.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.DGVS.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DGVS.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGVS.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVS.RowTemplate.Height = 100
+        Me.DGVS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGVS.Size = New System.Drawing.Size(829, 437)
         Me.DGVS.TabIndex = 6
         '
         'R_ID
         '
         Me.R_ID.AutoSize = True
-        Me.R_ID.Location = New System.Drawing.Point(524, 62)
+        Me.R_ID.Location = New System.Drawing.Point(631, 62)
         Me.R_ID.Name = "R_ID"
         Me.R_ID.Size = New System.Drawing.Size(50, 28)
         Me.R_ID.TabIndex = 7
@@ -74,7 +100,7 @@ Partial Class SearchnewFriend
         'R_Hobby
         '
         Me.R_Hobby.AutoSize = True
-        Me.R_Hobby.Location = New System.Drawing.Point(672, 62)
+        Me.R_Hobby.Location = New System.Drawing.Point(779, 62)
         Me.R_Hobby.Name = "R_Hobby"
         Me.R_Hobby.Size = New System.Drawing.Size(92, 28)
         Me.R_Hobby.TabIndex = 8
@@ -85,7 +111,7 @@ Partial Class SearchnewFriend
         'R_Name
         '
         Me.R_Name.AutoSize = True
-        Me.R_Name.Location = New System.Drawing.Point(580, 62)
+        Me.R_Name.Location = New System.Drawing.Point(687, 62)
         Me.R_Name.Name = "R_Name"
         Me.R_Name.Size = New System.Drawing.Size(86, 28)
         Me.R_Name.TabIndex = 9
@@ -95,7 +121,7 @@ Partial Class SearchnewFriend
         '
         'btn_addfriend
         '
-        Me.btn_addfriend.Location = New System.Drawing.Point(651, 402)
+        Me.btn_addfriend.Location = New System.Drawing.Point(758, 554)
         Me.btn_addfriend.Name = "btn_addfriend"
         Me.btn_addfriend.Size = New System.Drawing.Size(113, 39)
         Me.btn_addfriend.TabIndex = 10
