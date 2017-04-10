@@ -205,4 +205,5 @@ Public Class ActivityRegister
 
 
     End Sub
+
 End Class
