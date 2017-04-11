@@ -113,6 +113,18 @@
     <Compile Include="Appointment\CreateAppointment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Appointment\UpdateAppointment.Designer.vb">
+      <DependentUpon>UpdateAppointment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\UpdateAppointment.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Appointment\UpdateAppointmentRecord.Designer.vb">
+      <DependentUpon>UpdateAppointmentRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\UpdateAppointmentRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Appointment\ViewAppointment.Designer.vb">
       <DependentUpon>ViewAppointment.vb</DependentUpon>
     </Compile>
@@ -218,6 +230,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Appointment\UpdateAppointment.resx">
+      <DependentUpon>UpdateAppointment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointment\UpdateAppointmentRecord.resx">
+      <DependentUpon>UpdateAppointmentRecord.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Appointment\ViewAppointment.resx">
       <DependentUpon>ViewAppointment.vb</DependentUpon>
     </EmbeddedResource>

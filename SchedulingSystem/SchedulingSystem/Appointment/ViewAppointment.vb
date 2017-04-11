@@ -12,9 +12,9 @@
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
         Dim memberId As Integer = DevelopmentVariables.UserID
-        Dim currentDateTime As DateTime
+        Dim currentDateTime As Date
 
-        currentDateTime = DateTime.Now
+        currentDateTime = Date.Now
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
                      Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
@@ -40,9 +40,9 @@
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
                      Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
-                         s.ScheduleID,
-                         st.ScheduleStart,
-                         st.ScheduleEnd,
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
                          s.Title,
                          s.Venue
                          }
@@ -63,9 +63,9 @@
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
                      Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Pending" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
-                         s.ScheduleID,
-                         st.ScheduleStart,
-                         st.ScheduleEnd,
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
                          s.Title,
                          s.Venue
                          }

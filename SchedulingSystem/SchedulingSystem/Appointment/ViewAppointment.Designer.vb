@@ -28,6 +28,7 @@ Partial Class ViewAppointment
         Me.rbHistory = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dgvRecord = New System.Windows.Forms.DataGridView()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.gbSelection.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -40,7 +41,7 @@ Partial Class ViewAppointment
         Me.gbSelection.Controls.Add(Me.rbHistory)
         Me.gbSelection.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbSelection.ForeColor = System.Drawing.Color.DarkGreen
-        Me.gbSelection.Location = New System.Drawing.Point(39, 17)
+        Me.gbSelection.Location = New System.Drawing.Point(39, 100)
         Me.gbSelection.Name = "gbSelection"
         Me.gbSelection.Size = New System.Drawing.Size(645, 92)
         Me.gbSelection.TabIndex = 0
@@ -50,7 +51,7 @@ Partial Class ViewAppointment
         'rbPending
         '
         Me.rbPending.AutoSize = True
-        Me.rbPending.Location = New System.Drawing.Point(448, 39)
+        Me.rbPending.Location = New System.Drawing.Point(430, 39)
         Me.rbPending.Name = "rbPending"
         Me.rbPending.Size = New System.Drawing.Size(197, 20)
         Me.rbPending.TabIndex = 2
@@ -61,7 +62,7 @@ Partial Class ViewAppointment
         'rbOngoing
         '
         Me.rbOngoing.AutoSize = True
-        Me.rbOngoing.Location = New System.Drawing.Point(241, 39)
+        Me.rbOngoing.Location = New System.Drawing.Point(227, 39)
         Me.rbOngoing.Name = "rbOngoing"
         Me.rbOngoing.Size = New System.Drawing.Size(197, 20)
         Me.rbOngoing.TabIndex = 1
@@ -85,9 +86,9 @@ Partial Class ViewAppointment
         Me.GroupBox1.Controls.Add(Me.dgvRecord)
         Me.GroupBox1.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
-        Me.GroupBox1.Location = New System.Drawing.Point(39, 131)
+        Me.GroupBox1.Location = New System.Drawing.Point(39, 218)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(645, 209)
+        Me.GroupBox1.Size = New System.Drawing.Size(807, 209)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
@@ -97,17 +98,29 @@ Partial Class ViewAppointment
         Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRecord.Location = New System.Drawing.Point(24, 31)
         Me.dgvRecord.Name = "dgvRecord"
-        Me.dgvRecord.Size = New System.Drawing.Size(600, 150)
+        Me.dgvRecord.Size = New System.Drawing.Size(764, 150)
         Me.dgvRecord.TabIndex = 0
+        '
+        'lblTitle
+        '
+        Me.lblTitle.Font = New System.Drawing.Font("NSimSun", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.DarkGreen
+        Me.lblTitle.Location = New System.Drawing.Point(39, 41)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(329, 43)
+        Me.lblTitle.TabIndex = 2
+        Me.lblTitle.Text = "View Appointment Record"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ViewAppointment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.gbSelection)
         Me.Name = "ViewAppointment"
-        Me.Size = New System.Drawing.Size(704, 384)
+        Me.Size = New System.Drawing.Size(900, 572)
         Me.gbSelection.ResumeLayout(False)
         Me.gbSelection.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -122,4 +135,5 @@ Partial Class ViewAppointment
     Friend WithEvents rbHistory As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvRecord As DataGridView
+    Friend WithEvents lblTitle As Label
 End Class

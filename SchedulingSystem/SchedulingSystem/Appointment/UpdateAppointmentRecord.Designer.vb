@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ViewAppointmentRecord
+Partial Class UpdateAppointmentRecord
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,54 +22,34 @@ Partial Class ViewAppointmentRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblDate = New System.Windows.Forms.Label()
-        Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.gbAppointment = New System.Windows.Forms.GroupBox()
-        Me.lblStartTime = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.txtVenue = New System.Windows.Forms.TextBox()
+        Me.txtTitle = New System.Windows.Forms.TextBox()
+        Me.scheEnd = New System.Windows.Forms.DateTimePicker()
+        Me.scheStart = New System.Windows.Forms.DateTimePicker()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         Me.lblPaticipant = New System.Windows.Forms.Label()
-        Me.lblVenue = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
-        Me.lblEndTime = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtBoxDescription = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblStartTitle = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.gbAppointment.SuspendLayout()
         Me.SuspendLayout()
         '
-        'lblDate
-        '
-        Me.lblDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblDate.Location = New System.Drawing.Point(186, 44)
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(199, 23)
-        Me.lblDate.TabIndex = 0
-        '
-        'lblStartTitle
-        '
-        Me.lblStartTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.lblStartTitle.ForeColor = System.Drawing.Color.DarkGreen
-        Me.lblStartTitle.Location = New System.Drawing.Point(6, 82)
-        Me.lblStartTitle.Name = "lblStartTitle"
-        Me.lblStartTitle.Size = New System.Drawing.Size(159, 22)
-        Me.lblStartTitle.TabIndex = 1
-        Me.lblStartTitle.Text = "Start Time :"
-        Me.lblStartTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
         'gbAppointment
         '
-        Me.gbAppointment.Controls.Add(Me.lblStartTime)
-        Me.gbAppointment.Controls.Add(Me.Label11)
-        Me.gbAppointment.Controls.Add(Me.btnClose)
+        Me.gbAppointment.Controls.Add(Me.txtVenue)
+        Me.gbAppointment.Controls.Add(Me.txtTitle)
+        Me.gbAppointment.Controls.Add(Me.scheEnd)
+        Me.gbAppointment.Controls.Add(Me.scheStart)
+        Me.gbAppointment.Controls.Add(Me.btnCancel)
+        Me.gbAppointment.Controls.Add(Me.btnUpdate)
         Me.gbAppointment.Controls.Add(Me.lblPaticipant)
-        Me.gbAppointment.Controls.Add(Me.lblVenue)
-        Me.gbAppointment.Controls.Add(Me.lblTitle)
-        Me.gbAppointment.Controls.Add(Me.lblEndTime)
         Me.gbAppointment.Controls.Add(Me.Label6)
         Me.gbAppointment.Controls.Add(Me.Label5)
         Me.gbAppointment.Controls.Add(Me.Label4)
@@ -77,86 +57,84 @@ Partial Class ViewAppointmentRecord
         Me.gbAppointment.Controls.Add(Me.Label3)
         Me.gbAppointment.Controls.Add(Me.Label2)
         Me.gbAppointment.Controls.Add(Me.lblStartTitle)
-        Me.gbAppointment.Controls.Add(Me.lblDate)
         Me.gbAppointment.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbAppointment.ForeColor = System.Drawing.Color.DarkGreen
-        Me.gbAppointment.Location = New System.Drawing.Point(31, 27)
+        Me.gbAppointment.Location = New System.Drawing.Point(12, 27)
         Me.gbAppointment.Name = "gbAppointment"
-        Me.gbAppointment.Size = New System.Drawing.Size(430, 411)
-        Me.gbAppointment.TabIndex = 2
+        Me.gbAppointment.Size = New System.Drawing.Size(430, 408)
+        Me.gbAppointment.TabIndex = 3
         Me.gbAppointment.TabStop = False
         Me.gbAppointment.Text = "Appointment Details"
         '
-        'lblStartTime
+        'txtVenue
         '
-        Me.lblStartTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblStartTime.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblStartTime.Location = New System.Drawing.Point(186, 82)
-        Me.lblStartTime.Name = "lblStartTime"
-        Me.lblStartTime.Size = New System.Drawing.Size(199, 23)
-        Me.lblStartTime.TabIndex = 18
+        Me.txtVenue.Location = New System.Drawing.Point(187, 233)
+        Me.txtVenue.Name = "txtVenue"
+        Me.txtVenue.Size = New System.Drawing.Size(199, 26)
+        Me.txtVenue.TabIndex = 24
         '
-        'Label11
+        'txtTitle
         '
-        Me.Label11.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label11.Location = New System.Drawing.Point(6, 44)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(159, 22)
-        Me.Label11.TabIndex = 17
-        Me.Label11.Text = "Date :"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.txtTitle.Location = New System.Drawing.Point(186, 121)
+        Me.txtTitle.Name = "txtTitle"
+        Me.txtTitle.Size = New System.Drawing.Size(199, 26)
+        Me.txtTitle.TabIndex = 23
         '
-        'btnClose
+        'scheEnd
         '
-        Me.btnClose.Location = New System.Drawing.Point(115, 376)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(164, 29)
-        Me.btnClose.TabIndex = 16
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.scheEnd.CustomFormat = "hh:mm tt"
+        Me.scheEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.scheEnd.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.scheEnd.Location = New System.Drawing.Point(185, 82)
+        Me.scheEnd.Name = "scheEnd"
+        Me.scheEnd.ShowUpDown = True
+        Me.scheEnd.Size = New System.Drawing.Size(200, 26)
+        Me.scheEnd.TabIndex = 22
+        '
+        'scheStart
+        '
+        Me.scheStart.Checked = False
+        Me.scheStart.CustomFormat = "dd/MM/yyyy hh:mm tt"
+        Me.scheStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.scheStart.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.scheStart.Location = New System.Drawing.Point(186, 40)
+        Me.scheStart.Name = "scheStart"
+        Me.scheStart.ShowUpDown = True
+        Me.scheStart.Size = New System.Drawing.Size(200, 26)
+        Me.scheStart.TabIndex = 21
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Location = New System.Drawing.Point(51, 340)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(127, 47)
+        Me.btnCancel.TabIndex = 20
+        Me.btnCancel.Text = "Cancel Appointment"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(223, 340)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(117, 47)
+        Me.btnUpdate.TabIndex = 19
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'lblPaticipant
         '
         Me.lblPaticipant.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblPaticipant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblPaticipant.Location = New System.Drawing.Point(186, 326)
+        Me.lblPaticipant.Location = New System.Drawing.Point(187, 272)
         Me.lblPaticipant.Name = "lblPaticipant"
         Me.lblPaticipant.Size = New System.Drawing.Size(199, 23)
         Me.lblPaticipant.TabIndex = 15
-        '
-        'lblVenue
-        '
-        Me.lblVenue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblVenue.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblVenue.Location = New System.Drawing.Point(186, 274)
-        Me.lblVenue.Name = "lblVenue"
-        Me.lblVenue.Size = New System.Drawing.Size(199, 23)
-        Me.lblVenue.TabIndex = 14
-        '
-        'lblTitle
-        '
-        Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblTitle.Location = New System.Drawing.Point(186, 161)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(199, 23)
-        Me.lblTitle.TabIndex = 13
-        '
-        'lblEndTime
-        '
-        Me.lblEndTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblEndTime.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblEndTime.Location = New System.Drawing.Point(186, 121)
-        Me.lblEndTime.Name = "lblEndTime"
-        Me.lblEndTime.Size = New System.Drawing.Size(199, 23)
-        Me.lblEndTime.TabIndex = 12
         '
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label6.Location = New System.Drawing.Point(6, 330)
+        Me.Label6.Location = New System.Drawing.Point(6, 272)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(159, 22)
         Me.Label6.TabIndex = 11
@@ -167,7 +145,7 @@ Partial Class ViewAppointmentRecord
         '
         Me.Label5.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label5.Location = New System.Drawing.Point(6, 275)
+        Me.Label5.Location = New System.Drawing.Point(6, 233)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(159, 22)
         Me.Label5.TabIndex = 10
@@ -178,7 +156,7 @@ Partial Class ViewAppointmentRecord
         '
         Me.Label4.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label4.Location = New System.Drawing.Point(6, 205)
+        Me.Label4.Location = New System.Drawing.Point(6, 157)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(159, 22)
         Me.Label4.TabIndex = 9
@@ -189,10 +167,9 @@ Partial Class ViewAppointmentRecord
         '
         Me.txtBoxDescription.Enabled = False
         Me.txtBoxDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.txtBoxDescription.Location = New System.Drawing.Point(186, 199)
+        Me.txtBoxDescription.Location = New System.Drawing.Point(187, 157)
         Me.txtBoxDescription.Name = "txtBoxDescription"
-        Me.txtBoxDescription.ReadOnly = True
-        Me.txtBoxDescription.Size = New System.Drawing.Size(199, 56)
+        Me.txtBoxDescription.Size = New System.Drawing.Size(199, 64)
         Me.txtBoxDescription.TabIndex = 8
         Me.txtBoxDescription.Text = ""
         '
@@ -200,7 +177,7 @@ Partial Class ViewAppointmentRecord
         '
         Me.Label3.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label3.Location = New System.Drawing.Point(6, 161)
+        Me.Label3.Location = New System.Drawing.Point(6, 125)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(159, 22)
         Me.Label3.TabIndex = 3
@@ -211,41 +188,63 @@ Partial Class ViewAppointmentRecord
         '
         Me.Label2.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label2.Location = New System.Drawing.Point(6, 125)
+        Me.Label2.Location = New System.Drawing.Point(6, 86)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(159, 22)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "End Time :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'ViewAppointmentRecord
+        'lblStartTitle
+        '
+        Me.lblStartTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.lblStartTitle.ForeColor = System.Drawing.Color.DarkGreen
+        Me.lblStartTitle.Location = New System.Drawing.Point(6, 40)
+        Me.lblStartTitle.Name = "lblStartTitle"
+        Me.lblStartTitle.Size = New System.Drawing.Size(159, 22)
+        Me.lblStartTitle.TabIndex = 1
+        Me.lblStartTitle.Text = "Start Date Time :"
+        Me.lblStartTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(130, 451)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(164, 29)
+        Me.btnClose.TabIndex = 16
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
+        'UpdateAppointmentRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(493, 473)
+        Me.ClientSize = New System.Drawing.Size(466, 501)
         Me.Controls.Add(Me.gbAppointment)
+        Me.Controls.Add(Me.btnClose)
         Me.MaximizeBox = False
-        Me.Name = "ViewAppointmentRecord"
-        Me.Text = "View Appointment Record"
+        Me.Name = "UpdateAppointmentRecord"
+        Me.Text = "UpdateAppointmentRecord"
         Me.gbAppointment.ResumeLayout(False)
+        Me.gbAppointment.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents lblDate As Label
-    Friend WithEvents lblStartTitle As Label
     Friend WithEvents gbAppointment As GroupBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnUpdate As Button
     Friend WithEvents lblPaticipant As Label
-    Friend WithEvents lblVenue As Label
-    Friend WithEvents lblTitle As Label
-    Friend WithEvents lblEndTime As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents txtBoxDescription As RichTextBox
-    Friend WithEvents lblStartTime As Label
-    Friend WithEvents Label11 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblStartTitle As Label
     Friend WithEvents btnClose As Button
+    Friend WithEvents scheStart As DateTimePicker
+    Friend WithEvents txtTitle As TextBox
+    Friend WithEvents scheEnd As DateTimePicker
+    Friend WithEvents txtVenue As TextBox
 End Class

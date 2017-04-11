@@ -31,9 +31,10 @@ Partial Class SecondUserControl
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnAppointment = New System.Windows.Forms.Button()
         Me.gbTimetable = New System.Windows.Forms.GroupBox()
-        Me.dgvTimetable = New System.Windows.Forms.DataGridView()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.lblInfo = New System.Windows.Forms.Label()
-        Me.btnSearch2 = New System.Windows.Forms.Button()
+        Me.dgvTimetable = New System.Windows.Forms.DataGridView()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.gbSearch.SuspendLayout()
         Me.gbTimetable.SuspendLayout()
         CType(Me.dgvTimetable, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,9 +50,9 @@ Partial Class SecondUserControl
         Me.gbSearch.Controls.Add(Me.btnSearch)
         Me.gbSearch.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbSearch.ForeColor = System.Drawing.Color.DarkGreen
-        Me.gbSearch.Location = New System.Drawing.Point(86, 15)
+        Me.gbSearch.Location = New System.Drawing.Point(86, 97)
         Me.gbSearch.Name = "gbSearch"
-        Me.gbSearch.Size = New System.Drawing.Size(371, 142)
+        Me.gbSearch.Size = New System.Drawing.Size(407, 142)
         Me.gbSearch.TabIndex = 0
         Me.gbSearch.TabStop = False
         Me.gbSearch.Text = "Search Schedule"
@@ -114,7 +115,7 @@ Partial Class SecondUserControl
         'btnAppointment
         '
         Me.btnAppointment.Enabled = False
-        Me.btnAppointment.Location = New System.Drawing.Point(141, 255)
+        Me.btnAppointment.Location = New System.Drawing.Point(248, 255)
         Me.btnAppointment.Name = "btnAppointment"
         Me.btnAppointment.Size = New System.Drawing.Size(168, 28)
         Me.btnAppointment.TabIndex = 4
@@ -123,58 +124,68 @@ Partial Class SecondUserControl
         '
         'gbTimetable
         '
-        Me.gbTimetable.Controls.Add(Me.btnSearch2)
+        Me.gbTimetable.Controls.Add(Me.btnBack)
         Me.gbTimetable.Controls.Add(Me.lblInfo)
         Me.gbTimetable.Controls.Add(Me.dgvTimetable)
         Me.gbTimetable.Controls.Add(Me.btnAppointment)
         Me.gbTimetable.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTimetable.ForeColor = System.Drawing.Color.DarkGreen
-        Me.gbTimetable.Location = New System.Drawing.Point(86, 180)
+        Me.gbTimetable.Location = New System.Drawing.Point(86, 277)
         Me.gbTimetable.Name = "gbTimetable"
-        Me.gbTimetable.Size = New System.Drawing.Size(392, 364)
+        Me.gbTimetable.Size = New System.Drawing.Size(605, 364)
         Me.gbTimetable.TabIndex = 5
         Me.gbTimetable.TabStop = False
         Me.gbTimetable.Text = "Timetable"
         Me.gbTimetable.Visible = False
         '
-        'dgvTimetable
+        'btnBack
         '
-        Me.dgvTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvTimetable.Location = New System.Drawing.Point(27, 71)
-        Me.dgvTimetable.Name = "dgvTimetable"
-        Me.dgvTimetable.Size = New System.Drawing.Size(288, 150)
-        Me.dgvTimetable.TabIndex = 5
+        Me.btnBack.Location = New System.Drawing.Point(79, 255)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(75, 28)
+        Me.btnBack.TabIndex = 7
+        Me.btnBack.Text = "Back"
+        Me.btnBack.UseVisualStyleBackColor = True
         '
         'lblInfo
         '
-        Me.lblInfo.AutoSize = True
         Me.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblInfo.Location = New System.Drawing.Point(27, 34)
         Me.lblInfo.Name = "lblInfo"
-        Me.lblInfo.Size = New System.Drawing.Size(2, 18)
+        Me.lblInfo.Size = New System.Drawing.Size(414, 18)
         Me.lblInfo.TabIndex = 6
         '
-        'btnSearch2
+        'dgvTimetable
         '
-        Me.btnSearch2.Location = New System.Drawing.Point(34, 255)
-        Me.btnSearch2.Name = "btnSearch2"
-        Me.btnSearch2.Size = New System.Drawing.Size(75, 28)
-        Me.btnSearch2.TabIndex = 7
-        Me.btnSearch2.Text = "Search"
-        Me.btnSearch2.UseVisualStyleBackColor = True
+        Me.dgvTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvTimetable.Location = New System.Drawing.Point(27, 74)
+        Me.dgvTimetable.Name = "dgvTimetable"
+        Me.dgvTimetable.Size = New System.Drawing.Size(510, 150)
+        Me.dgvTimetable.TabIndex = 5
+        '
+        'lblTitle
+        '
+        Me.lblTitle.Font = New System.Drawing.Font("NSimSun", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.DarkGreen
+        Me.lblTitle.Location = New System.Drawing.Point(33, 27)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(445, 43)
+        Me.lblTitle.TabIndex = 6
+        Me.lblTitle.Text = "Create Appointment Record"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SecondUserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.gbTimetable)
         Me.Controls.Add(Me.gbSearch)
         Me.Name = "SecondUserControl"
-        Me.Size = New System.Drawing.Size(972, 609)
+        Me.Size = New System.Drawing.Size(972, 726)
         Me.gbSearch.ResumeLayout(False)
         Me.gbSearch.PerformLayout()
         Me.gbTimetable.ResumeLayout(False)
-        Me.gbTimetable.PerformLayout()
         CType(Me.dgvTimetable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -191,5 +202,6 @@ Partial Class SecondUserControl
     Friend WithEvents dgvTimetable As DataGridView
     Friend WithEvents dtSelected As DateTimePicker
     Friend WithEvents lblInfo As Label
-    Friend WithEvents btnSearch2 As Button
+    Friend WithEvents btnBack As Button
+    Friend WithEvents lblTitle As Label
 End Class

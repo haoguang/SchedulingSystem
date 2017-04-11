@@ -24,6 +24,7 @@ Partial Class AppointmentSidePanel
     Private Sub InitializeComponent()
         Me.btnMySchedule = New System.Windows.Forms.Button()
         Me.btnView = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnMySchedule
@@ -56,10 +57,26 @@ Partial Class AppointmentSidePanel
         Me.btnView.Text = "View Appointment"
         Me.btnView.UseVisualStyleBackColor = False
         '
+        'btnUpdate
+        '
+        Me.btnUpdate.BackColor = System.Drawing.Color.Transparent
+        Me.btnUpdate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnUpdate.FlatAppearance.BorderSize = 0
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpdate.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.DarkCyan
+        Me.btnUpdate.Location = New System.Drawing.Point(0, 124)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(300, 62)
+        Me.btnUpdate.TabIndex = 3
+        Me.btnUpdate.Text = "Update Appointment"
+        Me.btnUpdate.UseVisualStyleBackColor = False
+        '
         'AppointmentSidePanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.btnMySchedule)
         Me.Name = "AppointmentSidePanel"
@@ -70,4 +87,5 @@ Partial Class AppointmentSidePanel
 
     Friend WithEvents btnMySchedule As Button
     Friend WithEvents btnView As Button
+    Friend WithEvents btnUpdate As Button
 End Class
