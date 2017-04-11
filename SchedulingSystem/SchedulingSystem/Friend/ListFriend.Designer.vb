@@ -40,138 +40,183 @@ Partial Class ListFriend
         '
         'lblName
         '
+        Me.lblName.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblName.AutoSize = True
-        Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblName.Location = New System.Drawing.Point(321, 147)
+        Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName.Location = New System.Drawing.Point(249, 87)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(63, 20)
+        Me.lblName.Size = New System.Drawing.Size(108, 36)
         Me.lblName.TabIndex = 0
         Me.lblName.Text = "Name :"
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(321, 178)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(297, 134)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(36, 20)
+        Me.Label2.Size = New System.Drawing.Size(60, 36)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "ID :"
         '
         'lblgender
         '
-        Me.lblgender.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblgender.Location = New System.Drawing.Point(320, 207)
+        Me.lblgender.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblgender.AutoSize = True
+        Me.lblgender.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblgender.Location = New System.Drawing.Point(227, 182)
         Me.lblgender.Name = "lblgender"
-        Me.lblgender.Size = New System.Drawing.Size(64, 17)
+        Me.lblgender.Size = New System.Drawing.Size(130, 36)
         Me.lblgender.TabIndex = 2
         Me.lblgender.Text = "Gender :"
         '
         'lblhobby
         '
+        Me.lblhobby.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblhobby.AutoSize = True
-        Me.lblhobby.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblhobby.Location = New System.Drawing.Point(321, 267)
+        Me.lblhobby.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblhobby.Location = New System.Drawing.Point(239, 279)
         Me.lblhobby.Name = "lblhobby"
-        Me.lblhobby.Size = New System.Drawing.Size(67, 20)
+        Me.lblhobby.Size = New System.Drawing.Size(118, 36)
         Me.lblhobby.TabIndex = 4
         Me.lblhobby.Text = "Hobby :"
         Me.lblhobby.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btn_update
         '
-        Me.btn_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_update.Location = New System.Drawing.Point(450, 352)
+        Me.btn_update.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_update.AutoSize = True
+        Me.btn_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_update.Location = New System.Drawing.Point(410, 403)
         Me.btn_update.Name = "btn_update"
-        Me.btn_update.Size = New System.Drawing.Size(121, 31)
+        Me.btn_update.Size = New System.Drawing.Size(213, 46)
         Me.btn_update.TabIndex = 11
         Me.btn_update.Text = "&Update Status"
         Me.btn_update.UseVisualStyleBackColor = True
         '
         'btn_del
         '
-        Me.btn_del.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_del.Location = New System.Drawing.Point(599, 351)
+        Me.btn_del.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_del.AutoSize = True
+        Me.btn_del.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_del.Location = New System.Drawing.Point(742, 403)
         Me.btn_del.Name = "btn_del"
-        Me.btn_del.Size = New System.Drawing.Size(102, 32)
+        Me.btn_del.Size = New System.Drawing.Size(155, 46)
         Me.btn_del.TabIndex = 12
         Me.btn_del.Text = "&Unfriend"
         Me.btn_del.UseVisualStyleBackColor = True
         '
         'Status
         '
+        Me.Status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Status.AutoSize = True
-        Me.Status.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Status.Location = New System.Drawing.Point(321, 295)
+        Me.Status.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Status.Location = New System.Drawing.Point(160, 326)
         Me.Status.Name = "Status"
-        Me.Status.Size = New System.Drawing.Size(111, 20)
+        Me.Status.Size = New System.Drawing.Size(197, 36)
         Me.Status.TabIndex = 13
         Me.Status.Text = "Relationship :"
         '
         'lbloccupation
         '
+        Me.lbloccupation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbloccupation.AutoSize = True
-        Me.lbloccupation.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbloccupation.Location = New System.Drawing.Point(321, 238)
+        Me.lbloccupation.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbloccupation.Location = New System.Drawing.Point(175, 233)
         Me.lbloccupation.Name = "lbloccupation"
-        Me.lbloccupation.Size = New System.Drawing.Size(104, 20)
+        Me.lbloccupation.Size = New System.Drawing.Size(182, 36)
         Me.lbloccupation.TabIndex = 3
         Me.lbloccupation.Text = "Occupation :"
         '
         'lbl_N
         '
+        Me.lbl_N.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_N.AutoSize = True
-        Me.lbl_N.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_N.Location = New System.Drawing.Point(451, 144)
+        Me.lbl_N.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_N.Location = New System.Drawing.Point(404, 87)
         Me.lbl_N.Name = "lbl_N"
-        Me.lbl_N.Size = New System.Drawing.Size(0, 20)
-        Me.lbl_N.TabIndex = 14
+        Me.lbl_N.Size = New System.Drawing.Size(0, 36)
+        Me.lbl_N.TabIndex = 0
         '
         'lbl_ID
         '
+        Me.lbl_ID.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_ID.AutoSize = True
-        Me.lbl_ID.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_ID.Location = New System.Drawing.Point(450, 177)
+        Me.lbl_ID.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_ID.Location = New System.Drawing.Point(404, 134)
         Me.lbl_ID.Name = "lbl_ID"
-        Me.lbl_ID.Size = New System.Drawing.Size(0, 20)
-        Me.lbl_ID.TabIndex = 15
+        Me.lbl_ID.Size = New System.Drawing.Size(0, 36)
+        Me.lbl_ID.TabIndex = 1
         '
         'lbl_G
         '
+        Me.lbl_G.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_G.AutoSize = True
-        Me.lbl_G.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_G.Location = New System.Drawing.Point(451, 206)
+        Me.lbl_G.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_G.Location = New System.Drawing.Point(404, 182)
         Me.lbl_G.Name = "lbl_G"
-        Me.lbl_G.Size = New System.Drawing.Size(0, 20)
+        Me.lbl_G.Size = New System.Drawing.Size(0, 36)
         Me.lbl_G.TabIndex = 16
         '
         'lbl_Oc
         '
+        Me.lbl_Oc.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_Oc.AutoSize = True
-        Me.lbl_Oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Oc.Location = New System.Drawing.Point(451, 238)
+        Me.lbl_Oc.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Oc.Location = New System.Drawing.Point(404, 233)
         Me.lbl_Oc.Name = "lbl_Oc"
-        Me.lbl_Oc.Size = New System.Drawing.Size(0, 20)
+        Me.lbl_Oc.Size = New System.Drawing.Size(0, 36)
         Me.lbl_Oc.TabIndex = 17
         '
         'lbl_H
         '
+        Me.lbl_H.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_H.AutoSize = True
-        Me.lbl_H.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_H.Location = New System.Drawing.Point(451, 267)
+        Me.lbl_H.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_H.Location = New System.Drawing.Point(404, 279)
         Me.lbl_H.Name = "lbl_H"
-        Me.lbl_H.Size = New System.Drawing.Size(0, 20)
+        Me.lbl_H.Size = New System.Drawing.Size(0, 36)
         Me.lbl_H.TabIndex = 18
         '
         'cbo_S
         '
-        Me.cbo_S.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbo_S.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbo_S.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_S.FormattingEnabled = True
         Me.cbo_S.Items.AddRange(New Object() {"Friend", "Closer Friend", "Family", "Collegue", "Pending"})
-        Me.cbo_S.Location = New System.Drawing.Point(450, 295)
+        Me.cbo_S.Location = New System.Drawing.Point(410, 323)
         Me.cbo_S.Name = "cbo_S"
-        Me.cbo_S.Size = New System.Drawing.Size(151, 28)
-        Me.cbo_S.TabIndex = 19
+        Me.cbo_S.Size = New System.Drawing.Size(314, 44)
+        Me.cbo_S.TabIndex = 0
         '
         'ListFriend
         '
