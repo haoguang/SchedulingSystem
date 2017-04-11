@@ -196,6 +196,7 @@
     <Compile Include="Schedule\DayScheduleViewer.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Schedule\RepeatationClass.vb" />
     <Compile Include="Schedule\RepeatationModule.vb" />
     <Compile Include="Schedule\ScheduleClass.vb" />
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
