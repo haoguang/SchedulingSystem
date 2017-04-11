@@ -22,27 +22,20 @@ Partial Class UserButton
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.pcbProfilePic = New System.Windows.Forms.PictureBox()
         Me.btnMenu = New System.Windows.Forms.Button()
         Me.lblUserEmail = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.pcbProfilePic = New System.Windows.Forms.PictureBox()
         CType(Me.pcbProfilePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pcbProfilePic
-        '
-        Me.pcbProfilePic.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pcbProfilePic.Location = New System.Drawing.Point(0, 0)
-        Me.pcbProfilePic.Name = "pcbProfilePic"
-        Me.pcbProfilePic.Size = New System.Drawing.Size(69, 69)
-        Me.pcbProfilePic.TabIndex = 0
-        Me.pcbProfilePic.TabStop = False
         '
         'btnMenu
         '
         Me.btnMenu.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnMenu.FlatAppearance.BorderSize = 0
         Me.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenu.Image = Global.SchedulingSystem.My.Resources.Resources.arrow_213_16
+        Me.btnMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnMenu.Location = New System.Drawing.Point(228, 0)
         Me.btnMenu.Name = "btnMenu"
         Me.btnMenu.Size = New System.Drawing.Size(26, 69)
@@ -69,6 +62,15 @@ Partial Class UserButton
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "My Name"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'pcbProfilePic
+        '
+        Me.pcbProfilePic.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pcbProfilePic.Location = New System.Drawing.Point(0, 0)
+        Me.pcbProfilePic.Name = "pcbProfilePic"
+        Me.pcbProfilePic.Size = New System.Drawing.Size(69, 69)
+        Me.pcbProfilePic.TabIndex = 0
+        Me.pcbProfilePic.TabStop = False
         '
         'UserButton
         '

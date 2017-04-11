@@ -360,6 +360,7 @@
     <None Include="Resources\transparent.png" />
     <None Include="Resources\x-mark-3-Pressed.png" />
     <None Include="Resources\calendar-11-64.ico" />
+    <None Include="Resources\arrow-213-16.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
