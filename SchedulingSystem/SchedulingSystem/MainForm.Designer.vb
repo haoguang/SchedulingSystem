@@ -190,20 +190,22 @@ Partial Class MainForm
         '
         'btnUserInfo
         '
-        Me.btnUserInfo.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnUserInfo.Location = New System.Drawing.Point(901, 0)
+        Me.btnUserInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnUserInfo.Location = New System.Drawing.Point(857, 0)
         Me.btnUserInfo.Name = "btnUserInfo"
-        Me.btnUserInfo.Size = New System.Drawing.Size(206, 69)
+        Me.btnUserInfo.Size = New System.Drawing.Size(250, 69)
         Me.btnUserInfo.TabIndex = 4
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1107, 607)
         Me.Controls.Add(Me.ContentPanel)
         Me.Controls.Add(Me.SidePanel)
         Me.Controls.Add(Me.HeaderPanel)
+        Me.MinimumSize = New System.Drawing.Size(1123, 646)
         Me.Name = "MainForm"
         Me.Text = "Personal Scheduling System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

@@ -1,0 +1,75 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class UserMenu
+    Inherits System.Windows.Forms.UserControl
+
+    'UserControl overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.btnProfile = New System.Windows.Forms.Button()
+        Me.btnLogOut = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'btnProfile
+        '
+        Me.btnProfile.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.btnProfile.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnProfile.FlatAppearance.BorderSize = 0
+        Me.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProfile.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProfile.Image = Global.SchedulingSystem.My.Resources.Resources.user_4_32
+        Me.btnProfile.Location = New System.Drawing.Point(0, 0)
+        Me.btnProfile.Name = "btnProfile"
+        Me.btnProfile.Size = New System.Drawing.Size(169, 59)
+        Me.btnProfile.TabIndex = 0
+        Me.btnProfile.Text = "  Profile"
+        Me.btnProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnProfile.UseVisualStyleBackColor = False
+        '
+        'btnLogOut
+        '
+        Me.btnLogOut.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnLogOut.FlatAppearance.BorderSize = 0
+        Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogOut.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogOut.Image = Global.SchedulingSystem.My.Resources.Resources.logout_32
+        Me.btnLogOut.Location = New System.Drawing.Point(0, 59)
+        Me.btnLogOut.Name = "btnLogOut"
+        Me.btnLogOut.Size = New System.Drawing.Size(169, 59)
+        Me.btnLogOut.TabIndex = 1
+        Me.btnLogOut.Text = "  Logout"
+        Me.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnLogOut.UseVisualStyleBackColor = False
+        '
+        'UserMenu
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnLogOut)
+        Me.Controls.Add(Me.btnProfile)
+        Me.Name = "UserMenu"
+        Me.Size = New System.Drawing.Size(169, 120)
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Friend WithEvents btnProfile As Button
+    Friend WithEvents btnLogOut As Button
+End Class

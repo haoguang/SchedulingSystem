@@ -1,9 +1,5 @@
 ﻿Public Class UserButton
 
-    Friend ProPic As Image
-    Friend UserName As String
-    Friend UserEmail As String
-
     Friend Event btnMenuEvent() 'for event handling
 
     Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
@@ -22,10 +18,5 @@
         btnMenu.Image = My.Resources.arrow_213_16
     End Sub
 
-    Private Sub UserButton_Load(sender As Object, e As EventArgs) Handles Me.Load
-        pcbProfilePic.Image = ProPic
-        lblName.Text = UserName
-        lblUserEmail.Text = UserEmail
-    End Sub
 
 End Class

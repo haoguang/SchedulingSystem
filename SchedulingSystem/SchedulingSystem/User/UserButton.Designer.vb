@@ -32,9 +32,9 @@ Partial Class UserButton
         'lblUserEmail
         '
         Me.lblUserEmail.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblUserEmail.Location = New System.Drawing.Point(69, 46)
+        Me.lblUserEmail.Location = New System.Drawing.Point(69, 38)
         Me.lblUserEmail.Name = "lblUserEmail"
-        Me.lblUserEmail.Size = New System.Drawing.Size(159, 23)
+        Me.lblUserEmail.Size = New System.Drawing.Size(159, 31)
         Me.lblUserEmail.TabIndex = 2
         Me.lblUserEmail.Text = "abc123@bcd.com"
         Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -45,7 +45,7 @@ Partial Class UserButton
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.Location = New System.Drawing.Point(69, 0)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(159, 46)
+        Me.lblName.Size = New System.Drawing.Size(159, 38)
         Me.lblName.TabIndex = 3
         Me.lblName.Text = "My Name"
         Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -69,6 +69,7 @@ Partial Class UserButton
         Me.pcbProfilePic.ErrorImage = Global.SchedulingSystem.My.Resources.Resources.user_default
         Me.pcbProfilePic.Location = New System.Drawing.Point(0, 0)
         Me.pcbProfilePic.Name = "pcbProfilePic"
+        Me.pcbProfilePic.Padding = New System.Windows.Forms.Padding(10)
         Me.pcbProfilePic.Size = New System.Drawing.Size(69, 69)
         Me.pcbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pcbProfilePic.TabIndex = 0

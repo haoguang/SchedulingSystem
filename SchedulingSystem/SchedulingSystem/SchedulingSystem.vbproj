@@ -235,6 +235,12 @@
     <Compile Include="User\Registration.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="User\UserMenu.Designer.vb">
+      <DependentUpon>UserMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserMenu.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="User\UserProfile.Designer.vb">
       <DependentUpon>UserProfile.vb</DependentUpon>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserMenu.resx">
+      <DependentUpon>UserMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserProfile.resx">
       <DependentUpon>UserProfile.vb</DependentUpon>

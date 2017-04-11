@@ -32,4 +32,10 @@
         SideContentPanel.Controls.Add(FriendSidePanel)
     End Sub
 
+    Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+
+        btnUserInfo.pcbProfilePic.Image = My.Resources.user_default
+        btnUserInfo.lblName.Text = "My Sample name"
+        btnUserInfo.lblUserEmail.Text = "hg@sample.com"
+    End Sub
 End Class
