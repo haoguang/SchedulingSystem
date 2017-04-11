@@ -39,7 +39,7 @@
 
     Friend Function getRepeatStringArray() As String()
 
-        Dim stringList As String() = {DAILY_STRING, WEEKLY_STRING, TWICE_WEEK_STRING, MONTHLY_STRING, YEARLY_STRING}
+        Dim stringList As String() = {NONE_STRING, DAILY_STRING, WEEKLY_STRING, TWICE_WEEK_STRING, MONTHLY_STRING, YEARLY_STRING}
         Return stringList
     End Function
 
@@ -56,7 +56,7 @@
             Case REPEAT_YEARLY
                 Return YEARLY_STRING
             Case Else
-                Return "Invalid Repeat Behavior"
+                Return NONE_STRING
         End Select
     End Function
 
@@ -73,16 +73,18 @@
             Case YEARLY_STRING
                 Return REPEAT_YEARLY
             Case Else
-                Return 0
+                Return REPEAT_NONE
         End Select
     End Function
 
+    Friend Const REPEAT_NONE As Byte = 0
     Friend Const REPEAT_DAILY As Byte = 1
     Friend Const REPEAT_WEEKLY As Byte = 2
     Friend Const REPEAT_TWICE_WEEK As Byte = 4
     Friend Const REPEAT_MONTHLY As Byte = 8
     Friend Const REPEAT_YEARLY As Byte = 16
 
+    Friend Const NONE_STRING As String = "None"
     Friend Const DAILY_STRING As String = "Daily"
     Friend Const WEEKLY_STRING As String = "Weekly"
     Friend Const TWICE_WEEK_STRING As String = "Twice a Week"
