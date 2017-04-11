@@ -41,6 +41,7 @@ Public Class CreateAppointment
         addOwner()
         addParticiple()
         MessageBox.Show("Appointment request sent.", "Request")
+        Me.Close()
 
 
     End Sub
@@ -118,6 +119,8 @@ Public Class CreateAppointment
         p.ParticiplesRole = "Owner"
         p.Status = "Attend"
         p.GenerateDate = DateTime.Now
+        db.Participles.InsertOnSubmit(p)
+        db.SubmitChanges()
     End Sub
 
     Private Sub addParticiple()
@@ -143,8 +146,10 @@ Public Class CreateAppointment
         Dim p As New Participle
         p.ScheduleID = scheduleID
         p.MemberID = memId
-        p.ParticiplesRole = "Participant"
-        p.Status = "Owner"
+        p.ParticiplesRole = ScheduleClass.PARTICIPLE
+        p.Status = "Pending"
         p.GenerateDate = DateTime.Now
+        db.Participles.InsertOnSubmit(p)
+        db.SubmitChanges()
     End Sub
 End Class

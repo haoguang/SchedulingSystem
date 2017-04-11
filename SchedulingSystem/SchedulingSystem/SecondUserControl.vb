@@ -1,6 +1,6 @@
 ﻿Imports System.Text
 Public Class SecondUserControl
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnAppointment.Click
+    Private Sub btnAppointment_Click(sender As Object, e As EventArgs) Handles btnAppointment.Click
         Dim formDialog As New CreateAppointment()
         formDialog.StringUsername = txtName.Text
         formDialog.ShowDialog()
@@ -33,28 +33,42 @@ Public Class SecondUserControl
         beforeDate = dtSelected.Value.Date.AddDays(-1)
         afterDate = dtSelected.Value.Date.AddDays(1)
 
+        Dim member As Member = db.Members.FirstOrDefault(Function(o) o.Username = name)
 
-        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
-                     Where m.Username = name And st.ScheduleStart > beforeDate And st.ScheduleStart < afterDate And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
-                     Select New With {
-                         .StartTime = Format(st.ScheduleStart, "HH: mm tt"),
-                         .EndTime = Format(st.ScheduleEnd, "HH: mm tt")
-                    }
-
-
-        dgvTimetable.DataSource = record
-
-
-        If dgvTimetable.RowCount <= 0 Then
-            MessageBox.Show("Record not found!", "Input Error")
+        If member Is Nothing Then
+            MessageBox.Show("User record not found!", "Error")
         Else
-            lblInfo.Text = name & "'s Schedule in " & dtSelected.Value.Date
+            Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
+                         Where m.Username = name And st.ScheduleStart > beforeDate And st.ScheduleStart < afterDate And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
+                         Select New With {
+                             .StartTime = Format(st.ScheduleStart, "HH: mm "),
+                             .EndTime = Format(st.ScheduleEnd, "HH: mm ")
+                        }
+
+
+            dgvTimetable.DataSource = record
             dgvTimetable.ReadOnly = True
             gbTimetable.Visible = True
             btnAppointment.Enabled = True
             gbSearch.Enabled = False
             gbTimetable.Enabled = True
+
+            If dgvTimetable.RowCount <= 0 Then
+                lblInfo.Text = name & "haven't create his schedule in " & dtSelected.Value.Date
+            Else
+                lblInfo.Text = name & "'s Schedule in " & dtSelected.Value.Date
+
+            End If
+            'add new column for status
+            'Dim statusColumn As New DataGridViewColumn
+            'With statusColumn
+            '    .HeaderText = "Status"
+            '    .ToolTipText = "N/A"
+            'End With
+            'dgvTimetable.Columns.Insert(2, statusColumn)
         End If
+
+
 
     End Sub
 
@@ -62,8 +76,10 @@ Public Class SecondUserControl
         dtSelected.MinDate = DateTime.Now
     End Sub
 
-    Private Sub btnSearch2_Click(sender As Object, e As EventArgs) Handles btnSearch2.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         gbSearch.Enabled = True
         gbTimetable.Enabled = False
     End Sub
+
+
 End Class

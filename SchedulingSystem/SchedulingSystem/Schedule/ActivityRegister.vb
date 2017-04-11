@@ -256,4 +256,5 @@ Public Class ActivityRegister
         'To make sure that due date is atleast same as end date
         scheRepeatDue.Value = scheEnd.Value
     End Sub
+
 End Class
