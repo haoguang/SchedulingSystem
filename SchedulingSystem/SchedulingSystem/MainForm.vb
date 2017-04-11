@@ -9,10 +9,9 @@
     End Sub
 
     Private Sub btnAppointment_Click(sender As Object, e As EventArgs) Handles btnAppointment.Click
-        Dim UserCtrl2 As New SecondUserControl
+
         Dim AppointmentSideContent As New AppointmentSidePanel
         ContentPanel.Controls.Clear()
-        ContentPanel.Controls.Add(UserCtrl2)
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(AppointmentSideContent)
 
@@ -28,6 +27,7 @@
 
     Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
         Dim FriendSidePanel As New FriendSidePanel
+        FriendSidePanel.Dock = DockStyle.Fill
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(FriendSidePanel)
     End Sub

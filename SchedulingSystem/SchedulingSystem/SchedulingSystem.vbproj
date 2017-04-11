@@ -208,6 +208,7 @@
     <Compile Include="Schedule\DayScheduleViewer.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Schedule\RepeatationClass.vb" />
     <Compile Include="Schedule\RepeatationModule.vb" />
     <Compile Include="Schedule\ScheduleClass.vb" />
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
@@ -226,6 +227,24 @@
       <DependentUpon>TestUserControl1.vb</DependentUpon>
     </Compile>
     <Compile Include="TestUserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\Registration.Designer.vb">
+      <DependentUpon>Registration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\Registration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserProfile.Designer.vb">
+      <DependentUpon>UserProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserButton.Designer.vb">
+      <DependentUpon>UserButton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserButton.vb">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
@@ -265,6 +284,19 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Registration.resx">
+      <DependentUpon>Registration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserButton.resx">
+      <DependentUpon>UserButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\..\..\..\Desktop\Registration.resx">
+      <DependentUpon>Registration.vb</DependentUpon>
+      <Link>User\Registration.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserProfile.resx">
+      <DependentUpon>UserProfile.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="ScheduleDB.dbml.layout">
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
@@ -310,7 +342,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Notification\" />
-    <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -347,6 +378,7 @@
     <None Include="Resources\transparent.png" />
     <None Include="Resources\x-mark-3-Pressed.png" />
     <None Include="Resources\calendar-11-64.ico" />
+    <None Include="Resources\arrow-213-16.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

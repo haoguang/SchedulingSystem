@@ -98,10 +98,11 @@ Public Class ActivityRegister
 
     Private Sub btnDoneCreate_MouseClick(sender As Object, e As EventArgs)
 
+        Dim startDate As DateTime = scheStart.Value
+        Dim endDate As DateTime = scheEnd.Value
 
-
-
-
+        Dim abc As New RepeatationClass(12345, startDate, endDate)
+        Console.Write(abc.generateDateArray(RepeatationModule.REPEAT_DAILY, endDate))
 
 
     End Sub

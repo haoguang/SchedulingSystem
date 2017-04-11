@@ -33,11 +33,11 @@ Partial Class AddParticiple
         Me.dgvAddUsersButton = New System.Windows.Forms.DataGridViewImageColumn()
         Me.txtSearchFriend = New System.Windows.Forms.TextBox()
         Me.tbpPublic = New System.Windows.Forms.TabPage()
-        Me.txtSearchPublic = New System.Windows.Forms.TextBox()
         Me.dgvPublic = New System.Windows.Forms.DataGridView()
         Me.dgvPublicUserID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvPublicName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvPublicAddButton = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.txtSearchPublic = New System.Windows.Forms.TextBox()
         Me.tbcParticipleAdd.SuspendLayout()
         Me.tbpFriend.SuspendLayout()
         CType(Me.dgvAddUsers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,9 +52,10 @@ Partial Class AddParticiple
         Me.tbcParticipleAdd.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tbcParticipleAdd.ItemSize = New System.Drawing.Size(100, 25)
         Me.tbcParticipleAdd.Location = New System.Drawing.Point(0, 0)
+        Me.tbcParticipleAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbcParticipleAdd.Name = "tbcParticipleAdd"
         Me.tbcParticipleAdd.SelectedIndex = 0
-        Me.tbcParticipleAdd.Size = New System.Drawing.Size(298, 326)
+        Me.tbcParticipleAdd.Size = New System.Drawing.Size(397, 401)
         Me.tbcParticipleAdd.TabIndex = 0
         '
         'tbpFriend
@@ -62,9 +63,10 @@ Partial Class AddParticiple
         Me.tbpFriend.Controls.Add(Me.dgvAddUsers)
         Me.tbpFriend.Controls.Add(Me.txtSearchFriend)
         Me.tbpFriend.Location = New System.Drawing.Point(4, 29)
+        Me.tbpFriend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbpFriend.Name = "tbpFriend"
-        Me.tbpFriend.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpFriend.Size = New System.Drawing.Size(290, 293)
+        Me.tbpFriend.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbpFriend.Size = New System.Drawing.Size(389, 368)
         Me.tbpFriend.TabIndex = 0
         Me.tbpFriend.Text = "Friend"
         Me.tbpFriend.UseVisualStyleBackColor = True
@@ -85,7 +87,8 @@ Partial Class AddParticiple
         Me.dgvAddUsers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvAddUsersID, Me.dgvAddUsersName, Me.dgvAddUsersButton})
         Me.dgvAddUsers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvAddUsers.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.dgvAddUsers.Location = New System.Drawing.Point(3, 23)
+        Me.dgvAddUsers.Location = New System.Drawing.Point(4, 26)
+        Me.dgvAddUsers.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvAddUsers.MultiSelect = False
         Me.dgvAddUsers.Name = "dgvAddUsers"
         Me.dgvAddUsers.ReadOnly = True
@@ -96,7 +99,7 @@ Partial Class AddParticiple
         Me.dgvAddUsers.RowTemplate.Height = 60
         Me.dgvAddUsers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvAddUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAddUsers.Size = New System.Drawing.Size(284, 267)
+        Me.dgvAddUsers.Size = New System.Drawing.Size(381, 338)
         Me.dgvAddUsers.TabIndex = 1
         '
         'dgvAddUsersID
@@ -121,9 +124,10 @@ Partial Class AddParticiple
         'txtSearchFriend
         '
         Me.txtSearchFriend.Dock = System.Windows.Forms.DockStyle.Top
-        Me.txtSearchFriend.Location = New System.Drawing.Point(3, 3)
+        Me.txtSearchFriend.Location = New System.Drawing.Point(4, 4)
+        Me.txtSearchFriend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtSearchFriend.Name = "txtSearchFriend"
-        Me.txtSearchFriend.Size = New System.Drawing.Size(284, 20)
+        Me.txtSearchFriend.Size = New System.Drawing.Size(381, 22)
         Me.txtSearchFriend.TabIndex = 0
         '
         'tbpPublic
@@ -131,20 +135,13 @@ Partial Class AddParticiple
         Me.tbpPublic.Controls.Add(Me.dgvPublic)
         Me.tbpPublic.Controls.Add(Me.txtSearchPublic)
         Me.tbpPublic.Location = New System.Drawing.Point(4, 29)
+        Me.tbpPublic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbpPublic.Name = "tbpPublic"
-        Me.tbpPublic.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpPublic.Size = New System.Drawing.Size(290, 293)
+        Me.tbpPublic.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tbpPublic.Size = New System.Drawing.Size(389, 368)
         Me.tbpPublic.TabIndex = 1
         Me.tbpPublic.Text = "Public"
         Me.tbpPublic.UseVisualStyleBackColor = True
-        '
-        'txtSearchPublic
-        '
-        Me.txtSearchPublic.Dock = System.Windows.Forms.DockStyle.Top
-        Me.txtSearchPublic.Location = New System.Drawing.Point(3, 3)
-        Me.txtSearchPublic.Name = "txtSearchPublic"
-        Me.txtSearchPublic.Size = New System.Drawing.Size(284, 20)
-        Me.txtSearchPublic.TabIndex = 0
         '
         'dgvPublic
         '
@@ -162,7 +159,8 @@ Partial Class AddParticiple
         Me.dgvPublic.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvPublicUserID, Me.dgvPublicName, Me.dgvPublicAddButton})
         Me.dgvPublic.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvPublic.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.dgvPublic.Location = New System.Drawing.Point(3, 23)
+        Me.dgvPublic.Location = New System.Drawing.Point(4, 26)
+        Me.dgvPublic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvPublic.MultiSelect = False
         Me.dgvPublic.Name = "dgvPublic"
         Me.dgvPublic.ReadOnly = True
@@ -173,7 +171,7 @@ Partial Class AddParticiple
         Me.dgvPublic.RowTemplate.Height = 60
         Me.dgvPublic.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvPublic.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPublic.Size = New System.Drawing.Size(284, 267)
+        Me.dgvPublic.Size = New System.Drawing.Size(381, 338)
         Me.dgvPublic.TabIndex = 2
         '
         'dgvPublicUserID
@@ -195,14 +193,24 @@ Partial Class AddParticiple
         Me.dgvPublicAddButton.Name = "dgvPublicAddButton"
         Me.dgvPublicAddButton.ReadOnly = True
         '
+        'txtSearchPublic
+        '
+        Me.txtSearchPublic.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtSearchPublic.Location = New System.Drawing.Point(4, 4)
+        Me.txtSearchPublic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSearchPublic.Name = "txtSearchPublic"
+        Me.txtSearchPublic.Size = New System.Drawing.Size(381, 22)
+        Me.txtSearchPublic.TabIndex = 0
+        '
         'AddParticiple
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(298, 326)
+        Me.ClientSize = New System.Drawing.Size(397, 401)
         Me.Controls.Add(Me.tbcParticipleAdd)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "AddParticiple"

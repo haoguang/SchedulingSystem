@@ -30,14 +30,16 @@ Partial Class FriendSidePanel
         '
         'btnFriend
         '
+        Me.btnFriend.BackColor = System.Drawing.Color.FromArgb(CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(153, Byte), Integer))
+        Me.btnFriend.BackgroundImage = Global.SchedulingSystem.My.Resources.Resources.add_user_32
+        Me.btnFriend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnFriend.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFriend.ForeColor = System.Drawing.Color.DarkCyan
-        Me.btnFriend.Location = New System.Drawing.Point(303, 3)
+        Me.btnFriend.Location = New System.Drawing.Point(297, 0)
         Me.btnFriend.Name = "btnFriend"
-        Me.btnFriend.Size = New System.Drawing.Size(97, 37)
+        Me.btnFriend.Size = New System.Drawing.Size(100, 40)
         Me.btnFriend.TabIndex = 0
-        Me.btnFriend.Text = "+"
-        Me.btnFriend.UseVisualStyleBackColor = True
+        Me.btnFriend.UseVisualStyleBackColor = False
         '
         'txtsearch
         '
@@ -45,25 +47,38 @@ Partial Class FriendSidePanel
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.Location = New System.Drawing.Point(3, 3)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(297, 34)
+        Me.txtsearch.Size = New System.Drawing.Size(294, 34)
         Me.txtsearch.TabIndex = 3
         '
         'DGVF
         '
         Me.DGVF.AllowUserToAddRows = False
         Me.DGVF.AllowUserToDeleteRows = False
-        Me.DGVF.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DGVF.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DGVF.AllowUserToResizeColumns = False
+        Me.DGVF.AllowUserToResizeRows = False
+        Me.DGVF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DGVF.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(153, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.DGVF.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.DGVF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DGVF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DGVF.ColumnHeadersVisible = False
+        Me.DGVF.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.DGVF.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DGVF.Location = New System.Drawing.Point(3, 85)
+        Me.DGVF.Location = New System.Drawing.Point(0, 39)
+        Me.DGVF.Margin = New System.Windows.Forms.Padding(4)
+        Me.DGVF.MultiSelect = False
         Me.DGVF.Name = "DGVF"
         Me.DGVF.ReadOnly = True
-        Me.DGVF.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        Me.DGVF.RowTemplate.Height = 24
+        Me.DGVF.RowHeadersVisible = False
+        Me.DGVF.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DGVF.RowTemplate.Height = 50
+        Me.DGVF.RowTemplate.ReadOnly = True
+        Me.DGVF.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVF.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DGVF.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVF.Size = New System.Drawing.Size(397, 150)
+        Me.DGVF.ShowEditingIcon = False
+        Me.DGVF.Size = New System.Drawing.Size(396, 426)
         Me.DGVF.TabIndex = 4
         '
         'FriendSidePanel

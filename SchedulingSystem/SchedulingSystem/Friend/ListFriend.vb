@@ -1,6 +1,6 @@
 ﻿Public Class ListFriend
     Friend friend_id As Integer
-    Friend user_id As Integer = 100001
+    Friend user_id As Integer = DevelopmentVariables.UserID
     Friend sideCtrl As FriendSidePanel
 
     Private Sub ListFriend_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,10 +32,11 @@
         Dim UserCtrl3 As New ListFriend
         Dim FriendSidePanel As New FriendSidePanel
 
-        Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = Integer.Parse(sideCtrl.DGVF.CurrentRow.Cells(0).Value.ToString))
+        Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = user_id)
         db.Friends.DeleteOnSubmit(btn_delete)
         db.SubmitChanges()
         sideCtrl.populateDGVF()
         My.Forms.MainForm.ContentPanel.Controls.Clear()
     End Sub
+
 End Class

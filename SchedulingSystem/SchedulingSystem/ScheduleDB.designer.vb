@@ -31,12 +31,6 @@ Partial Public Class ScheduleDBDataContext
   #Region "Extensibility Method Definitions"
   Partial Private Sub OnCreated()
   End Sub
-  Partial Private Sub InsertFriend(instance As [Friend])
-    End Sub
-  Partial Private Sub UpdateFriend(instance As [Friend])
-    End Sub
-  Partial Private Sub DeleteFriend(instance As [Friend])
-    End Sub
   Partial Private Sub InsertMember(instance As Member)
     End Sub
   Partial Private Sub UpdateMember(instance As Member)
@@ -67,6 +61,18 @@ Partial Public Class ScheduleDBDataContext
     End Sub
   Partial Private Sub DeleteScheduleTime(instance As ScheduleTime)
     End Sub
+  Partial Private Sub InsertLoginRecord(instance As LoginRecord)
+    End Sub
+  Partial Private Sub UpdateLoginRecord(instance As LoginRecord)
+    End Sub
+  Partial Private Sub DeleteLoginRecord(instance As LoginRecord)
+    End Sub
+  Partial Private Sub InsertFriend(instance As [Friend])
+    End Sub
+  Partial Private Sub UpdateFriend(instance As [Friend])
+    End Sub
+  Partial Private Sub DeleteFriend(instance As [Friend])
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -93,12 +99,6 @@ Partial Public Class ScheduleDBDataContext
 		MyBase.New(connection, mappingSource)
 		OnCreated
 	End Sub
-	
-	Public ReadOnly Property Friends() As System.Data.Linq.Table(Of [Friend])
-		Get
-			Return Me.GetTable(Of [Friend])
-		End Get
-	End Property
 	
 	Public ReadOnly Property Members() As System.Data.Linq.Table(Of Member)
 		Get
@@ -129,226 +129,18 @@ Partial Public Class ScheduleDBDataContext
 			Return Me.GetTable(Of ScheduleTime)
 		End Get
 	End Property
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Friend")>  _
-Partial Public Class [Friend]
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _UserID As Integer
-	
-	Private _FriendID As Integer
-	
-	Private _Status As String
-	
-	Private _MeetDate As System.Nullable(Of Date)
-	
-	Private _RequestDate As Date
-	
-	Private _Member As EntityRef(Of Member)
-	
-	Private _Member1 As EntityRef(Of Member)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnUserIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnUserIDChanged()
-    End Sub
-    Partial Private Sub OnFriendIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnFriendIDChanged()
-    End Sub
-    Partial Private Sub OnStatusChanging(value As String)
-    End Sub
-    Partial Private Sub OnStatusChanged()
-    End Sub
-    Partial Private Sub OnMeetDateChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnMeetDateChanged()
-    End Sub
-    Partial Private Sub OnRequestDateChanging(value As Date)
-    End Sub
-    Partial Private Sub OnRequestDateChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._Member = CType(Nothing, EntityRef(Of Member))
-		Me._Member1 = CType(Nothing, EntityRef(Of Member))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property UserID() As Integer
+	Public ReadOnly Property LoginRecords() As System.Data.Linq.Table(Of LoginRecord)
 		Get
-			Return Me._UserID
+			Return Me.GetTable(Of LoginRecord)
 		End Get
-		Set
-			If ((Me._UserID = value)  _
-						= false) Then
-				If Me._Member1.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnUserIDChanging(value)
-				Me.SendPropertyChanging
-				Me._UserID = value
-				Me.SendPropertyChanged("UserID")
-				Me.OnUserIDChanged
-			End If
-		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FriendID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property FriendID() As Integer
+	Public ReadOnly Property Friends() As System.Data.Linq.Table(Of [Friend])
 		Get
-			Return Me._FriendID
+			Return Me.GetTable(Of [Friend])
 		End Get
-		Set
-			If ((Me._FriendID = value)  _
-						= false) Then
-				If Me._Member.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnFriendIDChanging(value)
-				Me.SendPropertyChanging
-				Me._FriendID = value
-				Me.SendPropertyChanged("FriendID")
-				Me.OnFriendIDChanged
-			End If
-		End Set
 	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="VarChar(50)")>  _
-	Public Property Status() As String
-		Get
-			Return Me._Status
-		End Get
-		Set
-			If (String.Equals(Me._Status, value) = false) Then
-				Me.OnStatusChanging(value)
-				Me.SendPropertyChanging
-				Me._Status = value
-				Me.SendPropertyChanged("Status")
-				Me.OnStatusChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MeetDate", DbType:="Date")>  _
-	Public Property MeetDate() As System.Nullable(Of Date)
-		Get
-			Return Me._MeetDate
-		End Get
-		Set
-			If (Me._MeetDate.Equals(value) = false) Then
-				Me.OnMeetDateChanging(value)
-				Me.SendPropertyChanging
-				Me._MeetDate = value
-				Me.SendPropertyChanged("MeetDate")
-				Me.OnMeetDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RequestDate", DbType:="Date NOT NULL")>  _
-	Public Property RequestDate() As Date
-		Get
-			Return Me._RequestDate
-		End Get
-		Set
-			If ((Me._RequestDate = value)  _
-						= false) Then
-				Me.OnRequestDateChanging(value)
-				Me.SendPropertyChanging
-				Me._RequestDate = value
-				Me.SendPropertyChanged("RequestDate")
-				Me.OnRequestDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend", Storage:="_Member", ThisKey:="FriendID", OtherKey:="MemberID", IsForeignKey:=true)>  _
-	Public Property Member() As Member
-		Get
-			Return Me._Member.Entity
-		End Get
-		Set
-			Dim previousValue As Member = Me._Member.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Member.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Member.Entity = Nothing
-					previousValue.Friends.Remove(Me)
-				End If
-				Me._Member.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.Friends.Add(Me)
-					Me._FriendID = value.MemberID
-				Else
-					Me._FriendID = CType(Nothing, Integer)
-				End If
-				Me.SendPropertyChanged("Member")
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend1", Storage:="_Member1", ThisKey:="UserID", OtherKey:="MemberID", IsForeignKey:=true)>  _
-	Public Property Member1() As Member
-		Get
-			Return Me._Member1.Entity
-		End Get
-		Set
-			Dim previousValue As Member = Me._Member1.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Member1.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Member1.Entity = Nothing
-					previousValue.Friends1.Remove(Me)
-				End If
-				Me._Member1.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.Friends1.Add(Me)
-					Me._UserID = value.MemberID
-				Else
-					Me._UserID = CType(Nothing, Integer)
-				End If
-				Me.SendPropertyChanged("Member1")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Member")>  _
@@ -381,11 +173,13 @@ Partial Public Class Member
 	
 	Private _Hobby As String
 	
+	Private _Participles As EntitySet(Of Participle)
+	
+	Private _LoginRecords As EntitySet(Of LoginRecord)
+	
 	Private _Friends As EntitySet(Of [Friend])
 	
 	Private _Friends1 As EntitySet(Of [Friend])
-	
-	Private _Participles As EntitySet(Of Participle)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -446,9 +240,10 @@ Partial Public Class Member
 	
 	Public Sub New()
 		MyBase.New
+		Me._Participles = New EntitySet(Of Participle)(AddressOf Me.attach_Participles, AddressOf Me.detach_Participles)
+		Me._LoginRecords = New EntitySet(Of LoginRecord)(AddressOf Me.attach_LoginRecords, AddressOf Me.detach_LoginRecords)
 		Me._Friends = New EntitySet(Of [Friend])(AddressOf Me.attach_Friends, AddressOf Me.detach_Friends)
 		Me._Friends1 = New EntitySet(Of [Friend])(AddressOf Me.attach_Friends1, AddressOf Me.detach_Friends1)
-		Me._Participles = New EntitySet(Of Participle)(AddressOf Me.attach_Participles, AddressOf Me.detach_Participles)
 		OnCreated
 	End Sub
 	
@@ -646,6 +441,26 @@ Partial Public Class Member
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Participle", Storage:="_Participles", ThisKey:="MemberID", OtherKey:="MemberID")>  _
+	Public Property Participles() As EntitySet(Of Participle)
+		Get
+			Return Me._Participles
+		End Get
+		Set
+			Me._Participles.Assign(value)
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_LoginRecord", Storage:="_LoginRecords", ThisKey:="MemberID", OtherKey:="UserId")>  _
+	Public Property LoginRecords() As EntitySet(Of LoginRecord)
+		Get
+			Return Me._LoginRecords
+		End Get
+		Set
+			Me._LoginRecords.Assign(value)
+		End Set
+	End Property
+	
 	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend", Storage:="_Friends", ThisKey:="MemberID", OtherKey:="FriendID")>  _
 	Public Property Friends() As EntitySet(Of [Friend])
 		Get
@@ -663,16 +478,6 @@ Partial Public Class Member
 		End Get
 		Set
 			Me._Friends1.Assign(value)
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Participle", Storage:="_Participles", ThisKey:="MemberID", OtherKey:="MemberID")>  _
-	Public Property Participles() As EntitySet(Of Participle)
-		Get
-			Return Me._Participles
-		End Get
-		Set
-			Me._Participles.Assign(value)
 		End Set
 	End Property
 	
@@ -694,6 +499,26 @@ Partial Public Class Member
 		End If
 	End Sub
 	
+	Private Sub attach_Participles(ByVal entity As Participle)
+		Me.SendPropertyChanging
+		entity.Member = Me
+	End Sub
+	
+	Private Sub detach_Participles(ByVal entity As Participle)
+		Me.SendPropertyChanging
+		entity.Member = Nothing
+	End Sub
+	
+	Private Sub attach_LoginRecords(ByVal entity As LoginRecord)
+		Me.SendPropertyChanging
+		entity.Member = Me
+	End Sub
+	
+	Private Sub detach_LoginRecords(ByVal entity As LoginRecord)
+		Me.SendPropertyChanging
+		entity.Member = Nothing
+	End Sub
+	
 	Private Sub attach_Friends(ByVal entity As [Friend])
 		Me.SendPropertyChanging
 		entity.Member = Me
@@ -712,16 +537,6 @@ Partial Public Class Member
 	Private Sub detach_Friends1(ByVal entity As [Friend])
 		Me.SendPropertyChanging
 		entity.Member1 = Nothing
-	End Sub
-	
-	Private Sub attach_Participles(ByVal entity As Participle)
-		Me.SendPropertyChanging
-		entity.Member = Me
-	End Sub
-	
-	Private Sub detach_Participles(ByVal entity As Participle)
-		Me.SendPropertyChanging
-		entity.Member = Nothing
 	End Sub
 End Class
 
@@ -1554,6 +1369,410 @@ Partial Public Class ScheduleTime
 					Me._ScheduleID = CType(Nothing, Integer)
 				End If
 				Me.SendPropertyChanged("Schedule")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.LoginRecord")>  _
+Partial Public Class LoginRecord
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _LogId As Integer
+	
+	Private _SignInTime As System.Nullable(Of Date)
+	
+	Private _SignOutTime As System.Nullable(Of Date)
+	
+	Private _UserId As System.Nullable(Of Integer)
+	
+	Private _Member As EntityRef(Of Member)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnLogIdChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnLogIdChanged()
+    End Sub
+    Partial Private Sub OnSignInTimeChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnSignInTimeChanged()
+    End Sub
+    Partial Private Sub OnSignOutTimeChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnSignOutTimeChanged()
+    End Sub
+    Partial Private Sub OnUserIdChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnUserIdChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Member = CType(Nothing, EntityRef(Of Member))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LogId", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property LogId() As Integer
+		Get
+			Return Me._LogId
+		End Get
+		Set
+			If ((Me._LogId = value)  _
+						= false) Then
+				Me.OnLogIdChanging(value)
+				Me.SendPropertyChanging
+				Me._LogId = value
+				Me.SendPropertyChanged("LogId")
+				Me.OnLogIdChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SignInTime", DbType:="DateTime")>  _
+	Public Property SignInTime() As System.Nullable(Of Date)
+		Get
+			Return Me._SignInTime
+		End Get
+		Set
+			If (Me._SignInTime.Equals(value) = false) Then
+				Me.OnSignInTimeChanging(value)
+				Me.SendPropertyChanging
+				Me._SignInTime = value
+				Me.SendPropertyChanged("SignInTime")
+				Me.OnSignInTimeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SignOutTime", DbType:="DateTime")>  _
+	Public Property SignOutTime() As System.Nullable(Of Date)
+		Get
+			Return Me._SignOutTime
+		End Get
+		Set
+			If (Me._SignOutTime.Equals(value) = false) Then
+				Me.OnSignOutTimeChanging(value)
+				Me.SendPropertyChanging
+				Me._SignOutTime = value
+				Me.SendPropertyChanged("SignOutTime")
+				Me.OnSignOutTimeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserId", DbType:="Int")>  _
+	Public Property UserId() As System.Nullable(Of Integer)
+		Get
+			Return Me._UserId
+		End Get
+		Set
+			If (Me._UserId.Equals(value) = false) Then
+				If Me._Member.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnUserIdChanging(value)
+				Me.SendPropertyChanging
+				Me._UserId = value
+				Me.SendPropertyChanged("UserId")
+				Me.OnUserIdChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_LoginRecord", Storage:="_Member", ThisKey:="UserId", OtherKey:="MemberID", IsForeignKey:=true)>  _
+	Public Property Member() As Member
+		Get
+			Return Me._Member.Entity
+		End Get
+		Set
+			Dim previousValue As Member = Me._Member.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Member.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Member.Entity = Nothing
+					previousValue.LoginRecords.Remove(Me)
+				End If
+				Me._Member.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.LoginRecords.Add(Me)
+					Me._UserId = value.MemberID
+				Else
+					Me._UserId = CType(Nothing, Nullable(Of Integer))
+				End If
+				Me.SendPropertyChanged("Member")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Friend")>  _
+Partial Public Class [Friend]
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _UserID As Integer
+	
+	Private _FriendID As Integer
+	
+	Private _Status As String
+	
+	Private _MeetDate As System.Nullable(Of Date)
+	
+	Private _RequestDate As Date
+	
+	Private _Inviter As System.Nullable(Of Integer)
+	
+	Private _Member As EntityRef(Of Member)
+	
+	Private _Member1 As EntityRef(Of Member)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnUserIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnUserIDChanged()
+    End Sub
+    Partial Private Sub OnFriendIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnFriendIDChanged()
+    End Sub
+    Partial Private Sub OnStatusChanging(value As String)
+    End Sub
+    Partial Private Sub OnStatusChanged()
+    End Sub
+    Partial Private Sub OnMeetDateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnMeetDateChanged()
+    End Sub
+    Partial Private Sub OnRequestDateChanging(value As Date)
+    End Sub
+    Partial Private Sub OnRequestDateChanged()
+    End Sub
+    Partial Private Sub OnInviterChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnInviterChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Member = CType(Nothing, EntityRef(Of Member))
+		Me._Member1 = CType(Nothing, EntityRef(Of Member))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_UserID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property UserID() As Integer
+		Get
+			Return Me._UserID
+		End Get
+		Set
+			If ((Me._UserID = value)  _
+						= false) Then
+				If Me._Member1.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnUserIDChanging(value)
+				Me.SendPropertyChanging
+				Me._UserID = value
+				Me.SendPropertyChanged("UserID")
+				Me.OnUserIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FriendID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property FriendID() As Integer
+		Get
+			Return Me._FriendID
+		End Get
+		Set
+			If ((Me._FriendID = value)  _
+						= false) Then
+				If Me._Member.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnFriendIDChanging(value)
+				Me.SendPropertyChanging
+				Me._FriendID = value
+				Me.SendPropertyChanged("FriendID")
+				Me.OnFriendIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="VarChar(50)")>  _
+	Public Property Status() As String
+		Get
+			Return Me._Status
+		End Get
+		Set
+			If (String.Equals(Me._Status, value) = false) Then
+				Me.OnStatusChanging(value)
+				Me.SendPropertyChanging
+				Me._Status = value
+				Me.SendPropertyChanged("Status")
+				Me.OnStatusChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MeetDate", DbType:="Date")>  _
+	Public Property MeetDate() As System.Nullable(Of Date)
+		Get
+			Return Me._MeetDate
+		End Get
+		Set
+			If (Me._MeetDate.Equals(value) = false) Then
+				Me.OnMeetDateChanging(value)
+				Me.SendPropertyChanging
+				Me._MeetDate = value
+				Me.SendPropertyChanged("MeetDate")
+				Me.OnMeetDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RequestDate", DbType:="Date NOT NULL")>  _
+	Public Property RequestDate() As Date
+		Get
+			Return Me._RequestDate
+		End Get
+		Set
+			If ((Me._RequestDate = value)  _
+						= false) Then
+				Me.OnRequestDateChanging(value)
+				Me.SendPropertyChanging
+				Me._RequestDate = value
+				Me.SendPropertyChanged("RequestDate")
+				Me.OnRequestDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Inviter", DbType:="Int")>  _
+	Public Property Inviter() As System.Nullable(Of Integer)
+		Get
+			Return Me._Inviter
+		End Get
+		Set
+			If (Me._Inviter.Equals(value) = false) Then
+				Me.OnInviterChanging(value)
+				Me.SendPropertyChanging
+				Me._Inviter = value
+				Me.SendPropertyChanged("Inviter")
+				Me.OnInviterChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend", Storage:="_Member", ThisKey:="FriendID", OtherKey:="MemberID", IsForeignKey:=true)>  _
+	Public Property Member() As Member
+		Get
+			Return Me._Member.Entity
+		End Get
+		Set
+			Dim previousValue As Member = Me._Member.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Member.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Member.Entity = Nothing
+					previousValue.Friends.Remove(Me)
+				End If
+				Me._Member.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.Friends.Add(Me)
+					Me._FriendID = value.MemberID
+				Else
+					Me._FriendID = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("Member")
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Member_Friend1", Storage:="_Member1", ThisKey:="UserID", OtherKey:="MemberID", IsForeignKey:=true)>  _
+	Public Property Member1() As Member
+		Get
+			Return Me._Member1.Entity
+		End Get
+		Set
+			Dim previousValue As Member = Me._Member1.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Member1.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Member1.Entity = Nothing
+					previousValue.Friends1.Remove(Me)
+				End If
+				Me._Member1.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.Friends1.Add(Me)
+					Me._UserID = value.MemberID
+				Else
+					Me._UserID = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("Member1")
 			End If
 		End Set
 	End Property
