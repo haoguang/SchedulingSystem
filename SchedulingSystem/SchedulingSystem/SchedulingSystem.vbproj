@@ -220,13 +220,8 @@
     <Compile Include="User\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="User\Login.vb" />
-    <Compile Include="..\..\..\..\..\Desktop\Registration.Designer.vb">
-      <DependentUpon>Registration.vb</DependentUpon>
-      <Link>User\Registration.Designer.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\..\..\Desktop\Registration.vb">
-      <Link>User\Registration.vb</Link>
+    <Compile Include="User\Login.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\UserProfile.Designer.vb">
       <DependentUpon>UserProfile.vb</DependentUpon>
@@ -274,10 +269,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\..\..\..\..\Desktop\Registration.resx">
-      <DependentUpon>Registration.vb</DependentUpon>
-      <Link>User\Registration.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserProfile.resx">
       <DependentUpon>UserProfile.vb</DependentUpon>
