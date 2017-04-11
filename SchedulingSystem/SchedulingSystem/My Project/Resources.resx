@@ -172,4 +172,22 @@
   <data name="arrow_213_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-213-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_213_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-213-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_213_pressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-213-pressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logout_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_4_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-4-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

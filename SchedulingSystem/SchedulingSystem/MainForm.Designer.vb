@@ -59,7 +59,7 @@ Partial Class MainForm
         Me.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReport.Font = New System.Drawing.Font("Lucida Sans", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReport.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnReport.Image = Global.SchedulingSystem.My.Resources.Resources.user
+        Me.btnReport.Image = Global.SchedulingSystem.My.Resources.Resources.report
         Me.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnReport.Location = New System.Drawing.Point(668, 0)
         Me.btnReport.Name = "btnReport"

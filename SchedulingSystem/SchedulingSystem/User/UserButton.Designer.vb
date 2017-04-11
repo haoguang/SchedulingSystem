@@ -22,12 +22,33 @@ Partial Class UserButton
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnMenu = New System.Windows.Forms.Button()
         Me.lblUserEmail = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.btnMenu = New System.Windows.Forms.Button()
         Me.pcbProfilePic = New System.Windows.Forms.PictureBox()
         CType(Me.pcbProfilePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'lblUserEmail
+        '
+        Me.lblUserEmail.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lblUserEmail.Location = New System.Drawing.Point(69, 46)
+        Me.lblUserEmail.Name = "lblUserEmail"
+        Me.lblUserEmail.Size = New System.Drawing.Size(159, 23)
+        Me.lblUserEmail.TabIndex = 2
+        Me.lblUserEmail.Text = "abc123@bcd.com"
+        Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblName
+        '
+        Me.lblName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName.Location = New System.Drawing.Point(69, 0)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(159, 46)
+        Me.lblName.TabIndex = 3
+        Me.lblName.Text = "My Name"
+        Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnMenu
         '
@@ -42,33 +63,14 @@ Partial Class UserButton
         Me.btnMenu.TabIndex = 1
         Me.btnMenu.UseVisualStyleBackColor = True
         '
-        'lblUserEmail
-        '
-        Me.lblUserEmail.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblUserEmail.Location = New System.Drawing.Point(69, 46)
-        Me.lblUserEmail.Name = "lblUserEmail"
-        Me.lblUserEmail.Size = New System.Drawing.Size(159, 23)
-        Me.lblUserEmail.TabIndex = 2
-        Me.lblUserEmail.Text = "abc123@bcd.com"
-        Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label2
-        '
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(69, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(159, 46)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "My Name"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'pcbProfilePic
         '
         Me.pcbProfilePic.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pcbProfilePic.ErrorImage = Global.SchedulingSystem.My.Resources.Resources.user_default
         Me.pcbProfilePic.Location = New System.Drawing.Point(0, 0)
         Me.pcbProfilePic.Name = "pcbProfilePic"
         Me.pcbProfilePic.Size = New System.Drawing.Size(69, 69)
+        Me.pcbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pcbProfilePic.TabIndex = 0
         Me.pcbProfilePic.TabStop = False
         '
@@ -76,7 +78,7 @@ Partial Class UserButton
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.lblUserEmail)
         Me.Controls.Add(Me.btnMenu)
         Me.Controls.Add(Me.pcbProfilePic)
@@ -90,5 +92,5 @@ Partial Class UserButton
     Friend WithEvents pcbProfilePic As PictureBox
     Friend WithEvents btnMenu As Button
     Friend WithEvents lblUserEmail As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblName As Label
 End Class

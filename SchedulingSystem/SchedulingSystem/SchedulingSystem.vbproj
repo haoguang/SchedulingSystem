@@ -361,6 +361,12 @@
     <None Include="Resources\x-mark-3-Pressed.png" />
     <None Include="Resources\calendar-11-64.ico" />
     <None Include="Resources\arrow-213-16.png" />
+    <None Include="Resources\user-4-32.png" />
+    <None Include="Resources\arrow-213-hover.png" />
+    <None Include="Resources\arrow-213-pressed.png" />
+    <None Include="Resources\logout-32.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\user-default.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
