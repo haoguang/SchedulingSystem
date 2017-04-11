@@ -112,7 +112,7 @@ Partial Class ListFriend
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_del.AutoSize = True
         Me.btn_del.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_del.Location = New System.Drawing.Point(629, 403)
+        Me.btn_del.Location = New System.Drawing.Point(742, 403)
         Me.btn_del.Name = "btn_del"
         Me.btn_del.Size = New System.Drawing.Size(155, 46)
         Me.btn_del.TabIndex = 12
