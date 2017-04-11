@@ -33,6 +33,7 @@ Partial Class MainForm
         Me.SideContentPanel = New System.Windows.Forms.Panel()
         Me.TimeSidePanel = New System.Windows.Forms.Panel()
         Me.ContentPanel = New System.Windows.Forms.Panel()
+        Me.btnUserInfo = New SchedulingSystem.UserButton()
         Me.HeaderPanel.SuspendLayout()
         Me.SidePanel.SuspendLayout()
         Me.SuspendLayout()
@@ -40,6 +41,7 @@ Partial Class MainForm
         'HeaderPanel
         '
         Me.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(83, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.HeaderPanel.Controls.Add(Me.btnUserInfo)
         Me.HeaderPanel.Controls.Add(Me.btnReport)
         Me.HeaderPanel.Controls.Add(Me.btnFriends)
         Me.HeaderPanel.Controls.Add(Me.btnNotification)
@@ -48,7 +50,7 @@ Partial Class MainForm
         Me.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.HeaderPanel.Location = New System.Drawing.Point(0, 0)
         Me.HeaderPanel.Name = "HeaderPanel"
-        Me.HeaderPanel.Size = New System.Drawing.Size(1045, 69)
+        Me.HeaderPanel.Size = New System.Drawing.Size(1107, 69)
         Me.HeaderPanel.TabIndex = 0
         '
         'btnReport
@@ -183,14 +185,22 @@ Partial Class MainForm
         Me.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ContentPanel.Location = New System.Drawing.Point(300, 69)
         Me.ContentPanel.Name = "ContentPanel"
-        Me.ContentPanel.Size = New System.Drawing.Size(745, 538)
+        Me.ContentPanel.Size = New System.Drawing.Size(807, 538)
         Me.ContentPanel.TabIndex = 2
+        '
+        'btnUserInfo
+        '
+        Me.btnUserInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnUserInfo.Location = New System.Drawing.Point(901, 0)
+        Me.btnUserInfo.Name = "btnUserInfo"
+        Me.btnUserInfo.Size = New System.Drawing.Size(206, 69)
+        Me.btnUserInfo.TabIndex = 4
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1045, 607)
+        Me.ClientSize = New System.Drawing.Size(1107, 607)
         Me.Controls.Add(Me.ContentPanel)
         Me.Controls.Add(Me.SidePanel)
         Me.Controls.Add(Me.HeaderPanel)
@@ -212,4 +222,5 @@ Partial Class MainForm
     Friend WithEvents TimeSidePanel As Panel
     Friend WithEvents ContentPanel As Panel
     Friend WithEvents btnReport As Button
+    Friend WithEvents btnUserInfo As UserButton
 End Class

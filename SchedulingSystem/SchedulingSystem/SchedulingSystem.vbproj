@@ -291,10 +291,6 @@
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\..\..\..\Desktop\Registration.resx">
-      <DependentUpon>Registration.vb</DependentUpon>
-      <Link>User\Registration.resx</Link>
-    </EmbeddedResource>
     <EmbeddedResource Include="User\UserProfile.resx">
       <DependentUpon>UserProfile.vb</DependentUpon>
     </EmbeddedResource>

@@ -31,4 +31,5 @@
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(FriendSidePanel)
     End Sub
+
 End Class

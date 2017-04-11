@@ -1,6 +1,10 @@
 ﻿Public Class UserButton
 
-    Public Event btnMenuEvent()
+    Friend ProPic As Image
+    Friend UserName As String
+    Friend UserEmail As String
+
+    Friend Event btnMenuEvent() 'for event handling
 
     Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
         RaiseEvent btnMenuEvent() ' used for handle event from parent class
@@ -19,10 +23,9 @@
     End Sub
 
     Private Sub UserButton_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        pcbProfilePic.Image = ProPic
+        lblName.Text = UserName
+        lblUserEmail.Text = UserEmail
     End Sub
 
-    Private Sub btnMenu_MouseEnterAndMouseUp(sender As Object, e As MouseEventArgs) Handles btnMenu.MouseUp, btnMenu.MouseEnter
-
-    End Sub
 End Class
