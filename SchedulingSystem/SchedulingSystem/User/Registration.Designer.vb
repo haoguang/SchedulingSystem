@@ -43,7 +43,6 @@ Partial Class Registration
         Me.radNotSpecified = New System.Windows.Forms.RadioButton()
         Me.radFemale = New System.Windows.Forms.RadioButton()
         Me.radMale = New System.Windows.Forms.RadioButton()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtHobby = New System.Windows.Forms.TextBox()
         Me.btnRegister = New System.Windows.Forms.Button()
@@ -51,6 +50,7 @@ Partial Class Registration
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -242,15 +242,6 @@ Partial Class Registration
         Me.radMale.Text = "&Male"
         Me.radMale.UseVisualStyleBackColor = True
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(49, 22)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "&Gender :"
-        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -306,6 +297,15 @@ Partial Class Registration
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 26
         Me.PictureBox1.TabStop = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(49, 20)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(48, 13)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "&Gender :"
         '
         'Registration
         '
@@ -368,7 +368,6 @@ Partial Class Registration
     Friend WithEvents radNotSpecified As RadioButton
     Friend WithEvents radFemale As RadioButton
     Friend WithEvents radMale As RadioButton
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents txtHobby As TextBox
     Friend WithEvents btnRegister As Button
@@ -376,4 +375,5 @@ Partial Class Registration
     Friend WithEvents ofdBrowse As OpenFileDialog
     Friend WithEvents btnClear As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label9 As Label
 End Class
