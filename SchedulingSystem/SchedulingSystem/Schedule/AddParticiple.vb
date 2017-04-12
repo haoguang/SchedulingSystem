@@ -24,8 +24,8 @@
         Dim db As New ScheduleDBDataContext()
 
         Dim friends = From m In db.Members
-                      Where m.Nickname.Contains(Keyword) Or
-                          m.Username.Contains(Keyword)
+                      Where (m.Nickname.Contains(Keyword) Or
+                          m.Username.Contains(Keyword)) And Not (m.MemberID = DevelopmentVariables.UserID)
                       Select m.MemberID, m.Nickname
 
         dgvPublicUserID.DataPropertyName = "MemberID"

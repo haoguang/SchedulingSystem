@@ -1,7 +1,10 @@
 ﻿
 
+Imports System.Data.Linq
+
 Public Class ActivityRegister
     Private schedule As ScheduleClass
+    Private repeat As RepeatationClass
 
     Private Sub initializeScheduleForDevelopment() '******************************************
         Dim db As New ScheduleDBDataContext
@@ -17,6 +20,9 @@ Public Class ActivityRegister
         'initializeScheduleForDevelopment() 'to test adding *******************************
 
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
+        cboActivityType.SelectedIndex = 0
+        cboBehavior.Items.AddRange(RepeatationModule.getRepeatStringArray())
+        cboBehavior.SelectedIndex = 0
 
         If schedule Is Nothing Then
 
@@ -96,18 +102,57 @@ Public Class ActivityRegister
 
     End Sub
 
-    Private Sub btnDoneCreate_MouseClick(sender As Object, e As EventArgs)
+    Private Sub btnDoneCreate_MouseClick(sender As Object, e As EventArgs) ' Done button handler for create schedule use
 
         Dim startDate As DateTime = scheStart.Value
         Dim endDate As DateTime = scheEnd.Value
+        Dim title As String = txtTitle.Text
+        Dim description As String = txtBoxDescription.Text
+        Dim venue As String = txtVenue.Text
+        Dim type As String = cboActivityType.SelectedItem.ToString
 
-        Dim abc As New RepeatationClass(12345, startDate, endDate)
-        Console.Write(abc.generateDateArray(RepeatationModule.REPEAT_DAILY, endDate))
+        Dim repeatBehave As Byte = RepeatationModule.getRepeatBehavior(cboBehavior.SelectedItem.ToString)
+        Dim repeatDue As Date = scheRepeatDue.Value
 
+        Dim db As New ScheduleDBDataContext
+
+        Dim schedule As New Schedule With {.Title = title, .Description = description,
+            .Venue = venue, .Type = type, .RepeatBehavior = New Binary(BitConverter.GetBytes(repeatBehave)), .RepeatDue = repeatDue}
+
+        If type.Equals(ScheduleClass.APPOINTMENT_TYPE) Then
+            schedule.Status = ScheduleClass.PENDING_STATUS
+        Else
+            schedule.Status = ScheduleClass.ACTIVE_STATUS
+        End If
+
+        db.Schedules.InsertOnSubmit(schedule)
+        db.SubmitChanges()
+
+        Dim scheduleid As Integer = schedule.ScheduleID
+
+        Dim scheduleTime As New ScheduleTime With {.ScheduleID = scheduleid, .InitialTime = True, .ScheduleStart = startDate, .ScheduleEnd = endDate}
+
+        Dim participle As New Participle With {.ScheduleID = scheduleid, .ParticiplesRole = ScheduleClass.OWNER, .Status = ScheduleClass.PARTICIPLE_ATTENT,
+            .MemberID = DevelopmentVariables.UserID, .GenerateDate = Date.Today}
+
+        db.ScheduleTimes.InsertOnSubmit(scheduleTime)
+        db.Participles.InsertOnSubmit(participle)
+        db.SubmitChanges()
+
+        If dgvParticiples.RowCount > 0 Then
+            insertParticipleToDB(scheduleid)
+        End If
+
+        If (repeatBehave <> RepeatationModule.REPEAT_NONE And repeat IsNot Nothing) Then
+            repeat.scheduleID = scheduleid
+            RepeatationModule.generateScheduleTimeRecord(repeat)
+        End If
+
+        MessageBox.Show("Successfully added a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
-    Private Sub btnDoneEdit_MouseClick(sender As Object, e As EventArgs)
+    Private Sub btnDoneEdit_MouseClick(sender As Object, e As EventArgs) ' Done button handler for edit schedule use
         Dim db As New ScheduleDBDataContext
 
         Dim sche = From s In db.Schedules, st In db.ScheduleTimes
@@ -257,4 +302,55 @@ Public Class ActivityRegister
         scheRepeatDue.Value = scheEnd.Value
     End Sub
 
+    Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
+        If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
+            gbRepeat.Enabled = True
+            gbParticiple.Enabled = False
+        Else
+            gbRepeat.Enabled = False
+            gbParticiple.Enabled = True
+        End If
+    End Sub
+
+    Private Sub generateRepeatDates()
+
+
+        Dim startDate As DateTime = scheStart.Value
+        Dim endDate As DateTime = scheEnd.Value
+        Dim repeatDue As Date = scheRepeatDue.Value
+
+        If Not (cboBehavior.SelectedItem.ToString.Equals(RepeatationModule.NONE_STRING)) Then
+            repeat = New RepeatationClass(0, startDate, endDate)
+            Dim errorMessage = repeat.generateDateArray(RepeatationModule.getRepeatBehavior(cboBehavior.SelectedItem.ToString), repeatDue)
+
+            If Not (errorMessage.Equals("errorless")) Then
+                MessageBox.Show(errorMessage, "Repetation Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End If
+
+    End Sub
+
+    Private Sub RepeatationHandler(sender As Object, e As EventArgs) Handles cboBehavior.SelectedIndexChanged, scheRepeatDue.ValueChanged, scheStart.ValueChanged, scheEnd.ValueChanged
+        generateRepeatDates()
+    End Sub
+
+    Private Sub insertParticipleToDB(scheduleid As Integer)
+        Dim db As New ScheduleDBDataContext
+        Dim participle As Participle
+
+        For Each row As DataGridViewRow In dgvParticiples.Rows
+            participle = New Participle
+            With participle
+                .ScheduleID = scheduleid
+                .MemberID = CInt(row.Cells("dgvParticipleID").Value)
+                .ParticiplesRole = ScheduleClass.PARTICIPLE
+                .Status = ScheduleClass.PENDING_STATUS
+                .GenerateDate = Date.Today
+            End With
+
+            db.Participles.InsertOnSubmit(participle)
+        Next
+
+        db.SubmitChanges()
+    End Sub
 End Class

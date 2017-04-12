@@ -4,12 +4,13 @@ Public Class RepeatationClass
     Friend Property scheduleID As Integer
     Friend Property minDuration As Integer
     Friend Property initialStartDate As DateTime
-    Friend Property startTimeList As ArrayList
+    Friend Property startTimeList As List(Of DateTime)
 
     Sub New(scheduleID As Integer, startDate As DateTime, endDate As DateTime)
         Me.scheduleID = scheduleID
         Me.minDuration = calTimeDiffInMin(startDate, endDate)
         Me.initialStartDate = startDate
+        Me.startTimeList = New List(Of DateTime)
     End Sub
 
     Public Function generateDateArray(repeatBehavior As Byte, repeatDue As Date) As String ' return true when date duplicated in the db
@@ -18,7 +19,7 @@ Public Class RepeatationClass
         Dim errorStr As New StringBuilder("Conflict occur on the dates :" & vbNewLine)
         Dim isConflict As Boolean = False
 
-        Do While tempDate.CompareTo(repeatDue) <> 1
+        Do While tempDate.Date.CompareTo(repeatDue.Date) < 0
             tempDate = RepeatationModule.getNextDate(RepeatationModule.getRepeatString(repeatBehavior), tempDate)
             If ActivityModule.dateValidator(tempDate, DevelopmentVariables.UserID) Then
                 errorStr.AppendLine(tempDate.ToString("dd/MM/yyyy HH:mm"))

@@ -63,7 +63,7 @@
     Private Sub populateSchedule()
         Dim db As New ScheduleDBDataContext()
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
-                 Where s.ScheduleID = st.ScheduleID And st.ScheduleStart >= New DateTime(2017, 4, 9) And st.ScheduleStart <= New DateTime(2017, 4, 10) And
+                 Where s.ScheduleID = st.ScheduleID And st.ScheduleStart >= New DateTime(2017, 4, 15) And st.ScheduleStart <= New DateTime(2017, 4, 16) And
                      p.ScheduleID = s.ScheduleID And p.MemberID = DevelopmentVariables.UserID And s.Status = "Active" And p.Status = "Attend"
 
         Dim activities(rs.Count) As ActivityControl
