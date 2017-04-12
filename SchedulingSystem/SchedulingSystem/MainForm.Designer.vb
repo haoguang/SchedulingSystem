@@ -226,7 +226,6 @@ Partial Class MainForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1476, 747)
-        Me.Controls.Add(Me.umDropDownMenu)
         Me.Controls.Add(Me.ContentPanel)
         Me.Controls.Add(Me.SidePanel)
         Me.Controls.Add(Me.HeaderPanel)
