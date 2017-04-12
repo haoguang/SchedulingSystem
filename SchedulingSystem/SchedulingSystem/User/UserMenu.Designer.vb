@@ -22,6 +22,7 @@ Partial Class UserMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserMenu))
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -33,10 +34,11 @@ Partial Class UserMenu
         Me.btnProfile.FlatAppearance.BorderSize = 0
         Me.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnProfile.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnProfile.Image = Global.SchedulingSystem.My.Resources.Resources.user_4_32
-        Me.btnProfile.Location = New System.Drawing.Point(0, 0)
+        Me.btnProfile.Image = CType(resources.GetObject("btnProfile.Image"), System.Drawing.Image)
+        Me.btnProfile.Location = New System.Drawing.Point(4, 0)
+        Me.btnProfile.Margin = New System.Windows.Forms.Padding(4)
         Me.btnProfile.Name = "btnProfile"
-        Me.btnProfile.Size = New System.Drawing.Size(169, 59)
+        Me.btnProfile.Size = New System.Drawing.Size(217, 73)
         Me.btnProfile.TabIndex = 0
         Me.btnProfile.Text = "  Profile"
         Me.btnProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -49,10 +51,11 @@ Partial Class UserMenu
         Me.btnLogOut.FlatAppearance.BorderSize = 0
         Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogOut.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogOut.Image = Global.SchedulingSystem.My.Resources.Resources.logout_32
-        Me.btnLogOut.Location = New System.Drawing.Point(0, 59)
+        Me.btnLogOut.Image = CType(resources.GetObject("btnLogOut.Image"), System.Drawing.Image)
+        Me.btnLogOut.Location = New System.Drawing.Point(4, 73)
+        Me.btnLogOut.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogOut.Name = "btnLogOut"
-        Me.btnLogOut.Size = New System.Drawing.Size(169, 59)
+        Me.btnLogOut.Size = New System.Drawing.Size(217, 73)
         Me.btnLogOut.TabIndex = 1
         Me.btnLogOut.Text = "  Logout"
         Me.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -60,12 +63,15 @@ Partial Class UserMenu
         '
         'UserMenu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Controls.Add(Me.btnLogOut)
         Me.Controls.Add(Me.btnProfile)
+        Me.Margin = New System.Windows.Forms.Padding(0)
         Me.Name = "UserMenu"
-        Me.Size = New System.Drawing.Size(169, 120)
+        Me.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
+        Me.Size = New System.Drawing.Size(225, 148)
         Me.ResumeLayout(False)
 
     End Sub
