@@ -6,74 +6,16 @@
         rbHistory.Checked = True
     End Sub
 
-
-
     Private Sub rbHistory_CheckedChanged(sender As Object, e As EventArgs) Handles rbHistory.CheckedChanged
-        dgvRecord.DataSource = Nothing
-        Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
-        Dim currentDateTime As Date
-
-        currentDateTime = Date.Now
-
-        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
-                     Select New With {
-                         .Schedule_ID = s.ScheduleID,
-                         .Start_DateTime = st.ScheduleStart,
-                         .End_DateTime = st.ScheduleEnd,
-                         s.Title,
-                         s.Venue
-                         }
-        dgvRecord.DataSource = record
-        dgvRecord.ReadOnly = True
+        BindHistoryData()
     End Sub
 
     Private Sub rbOngoing_CheckedChanged(sender As Object, e As EventArgs) Handles rbOngoing.CheckedChanged
-        dgvRecord.DataSource = Nothing
-        Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
-        Dim currentDateTime As DateTime
-
-        currentDateTime = DateTime.Now
-
-        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
-                     Select New With {
-                         .Schedule_ID = s.ScheduleID,
-                         .Start_DateTime = st.ScheduleStart,
-                         .End_DateTime = st.ScheduleEnd,
-                         s.Title,
-                         s.Venue
-                         }
-
-        dgvRecord.DataSource = record
-        dgvRecord.ReadOnly = True
+        BindOngoingData()
     End Sub
 
     Private Sub rbPending_CheckedChanged(sender As Object, e As EventArgs) Handles rbPending.CheckedChanged
-
-        dgvRecord.DataSource = Nothing
-        Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
-        Dim currentDateTime As DateTime
-
-        currentDateTime = DateTime.Now
-
-        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Pending" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
-                     Select New With {
-                         .Schedule_ID = s.ScheduleID,
-                         .Start_DateTime = st.ScheduleStart,
-                         .End_DateTime = st.ScheduleEnd,
-                         s.Title,
-                         s.Venue
-                         }
-
-        dgvRecord.DataSource = record
-        dgvRecord.ReadOnly = True
-
-
+        BindPendingData()
     End Sub
 
     Private Sub dgvRecord_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecord.CellClick
@@ -87,5 +29,79 @@
 
         formRecord.StringIDPass = Integer.Parse(scheduleID)
         formRecord.ShowDialog()
+    End Sub
+
+    Private Sub txtTitle_TextChanged(sender As Object, e As EventArgs) Handles txtTitle.TextChanged
+        If rbOngoing.Checked = True Then
+            BindOngoingData()
+        ElseIf rbPending.Checked = True Then
+            BindPendingData()
+        Else
+            BindHistoryData()
+        End If
+
+    End Sub
+
+    Private Sub BindOngoingData()
+        dgvRecord.DataSource = Nothing
+        Dim db As New ScheduleDBDataContext()
+        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim currentDateTime As DateTime
+
+        currentDateTime = DateTime.Now
+        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
+                         s.Title,
+                         s.Venue
+                         }
+        dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
+    End Sub
+
+    Private Sub BindPendingData()
+        dgvRecord.DataSource = Nothing
+        Dim db As New ScheduleDBDataContext()
+        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim currentDateTime As DateTime
+
+        currentDateTime = DateTime.Now
+
+        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Pending" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
+                         s.Title,
+                         s.Venue
+                         }
+
+        dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
+    End Sub
+
+    Private Sub BindHistoryData()
+        dgvRecord.DataSource = Nothing
+        Dim db As New ScheduleDBDataContext()
+        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim currentDateTime As Date
+
+        currentDateTime = Date.Now
+
+        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
+                         s.Title,
+                         s.Venue
+                         }
+        dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
     End Sub
 End Class

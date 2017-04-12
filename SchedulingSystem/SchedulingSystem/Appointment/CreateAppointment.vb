@@ -13,10 +13,32 @@ Public Class CreateAppointment
         Dim title As String, description As String, venue As String
         Dim err As New StringBuilder
         Dim ctr As Control = Nothing
-
+        Dim db As New ScheduleDBDataContext
         title = txtTitle.Text
         description = txtBoxDescription.Text
         venue = txtVenue.Text
+
+        'validate date and time
+        Dim participle = StringUsername
+        Dim memberId As Integer
+        Dim memId = From m In db.Members
+                    Where m.Username = participle
+
+        memberId = memId.FirstOrDefault.MemberID
+
+        If dateValidator(scheStart.Value, memberId) = True Then
+            err.AppendLine("- Start time is not available")
+            ctr = If(ctr, scheStart)
+        End If
+        If dateValidator(scheEnd.Value, memberId) = True Then
+            err.AppendLine("- End time is not available")
+            ctr = If(ctr, scheEnd)
+        End If
+        If dateValidator2(scheStart.Value, scheEnd.Value, memberId) = True Then
+            err.AppendLine("- Start time and End time are not available")
+            ctr = If(ctr, scheStart)
+            ctr = If(ctr, scheEnd)
+        End If
 
         If title = "" Then
             err.AppendLine("- Please enter title.")

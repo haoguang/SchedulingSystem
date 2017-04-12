@@ -152,7 +152,7 @@ Partial Class SecondUserControl
         Me.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblInfo.Location = New System.Drawing.Point(27, 34)
         Me.lblInfo.Name = "lblInfo"
-        Me.lblInfo.Size = New System.Drawing.Size(414, 18)
+        Me.lblInfo.Size = New System.Drawing.Size(510, 18)
         Me.lblInfo.TabIndex = 6
         '
         'dgvTimetable

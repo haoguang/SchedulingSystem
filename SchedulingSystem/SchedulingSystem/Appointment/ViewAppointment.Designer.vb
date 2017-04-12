@@ -29,6 +29,8 @@ Partial Class ViewAppointment
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dgvRecord = New System.Windows.Forms.DataGridView()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtTitle = New System.Windows.Forms.TextBox()
         Me.gbSelection.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,12 +85,14 @@ Partial Class ViewAppointment
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtTitle)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.dgvRecord)
         Me.GroupBox1.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
         Me.GroupBox1.Location = New System.Drawing.Point(39, 218)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(807, 209)
+        Me.GroupBox1.Size = New System.Drawing.Size(807, 282)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
@@ -96,7 +100,7 @@ Partial Class ViewAppointment
         'dgvRecord
         '
         Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRecord.Location = New System.Drawing.Point(24, 31)
+        Me.dgvRecord.Location = New System.Drawing.Point(24, 83)
         Me.dgvRecord.Name = "dgvRecord"
         Me.dgvRecord.Size = New System.Drawing.Size(764, 150)
         Me.dgvRecord.TabIndex = 0
@@ -112,6 +116,22 @@ Partial Class ViewAppointment
         Me.lblTitle.Text = "View Appointment Record"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(161, 16)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Search by &Title :"
+        '
+        'txtTitle
+        '
+        Me.txtTitle.Location = New System.Drawing.Point(191, 42)
+        Me.txtTitle.Name = "txtTitle"
+        Me.txtTitle.Size = New System.Drawing.Size(119, 26)
+        Me.txtTitle.TabIndex = 2
+        '
         'ViewAppointment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -124,6 +144,7 @@ Partial Class ViewAppointment
         Me.gbSelection.ResumeLayout(False)
         Me.gbSelection.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -136,4 +157,6 @@ Partial Class ViewAppointment
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvRecord As DataGridView
     Friend WithEvents lblTitle As Label
+    Friend WithEvents txtTitle As TextBox
+    Friend WithEvents Label1 As Label
 End Class
