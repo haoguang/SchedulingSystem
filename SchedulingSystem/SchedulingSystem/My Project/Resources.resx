@@ -169,9 +169,6 @@
   <data name="calendar_11_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar-11-64.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow_213_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow-213-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arrow_213_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-213-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,5 +186,8 @@
   </data>
   <data name="user_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_213_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-213-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -38,4 +38,17 @@
         btnUserInfo.lblName.Text = "My Sample name"
         btnUserInfo.lblUserEmail.Text = "hg@sample.com"
     End Sub
+
+    Private Sub btnDown_Click()
+        umDropDownMenu.Visible = True
+    End Sub
+
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
+    End Sub
+
+    Private Sub umDropDownMenu_MouseLeave(sender As Object, e As EventArgs) Handles umDropDownMenu.MouseLeave
+        umDropDownMenu.Visible = False
+
+    End Sub
 End Class
