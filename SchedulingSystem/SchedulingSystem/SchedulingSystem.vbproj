@@ -138,6 +138,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DevelopmentVariables.vb" />
+    <Compile Include="Friend\Friend_module.vb" />
     <Compile Include="Friend\ListFriend.Designer.vb">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </Compile>

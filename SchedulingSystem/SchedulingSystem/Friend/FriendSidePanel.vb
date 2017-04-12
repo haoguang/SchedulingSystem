@@ -8,10 +8,15 @@
 
     Friend Sub populateDGVF()
         Dim db As New ScheduleDBDataContext
+
+
         Dim fl = From o In db.Friends, m In db.Members
                  Where o.UserID = 100001 And o.FriendID = m.MemberID And o.Status <> "Pending"
-                 Select m.Username, m.MemberID, o.Status
+                 Select m.Username, m.MemberID, o.Status, m.Picture
+
+
         DGVF.DataSource = fl
+
         If DGVF.RowCount = 0 Then
             MessageBox.Show("You currently have no friends" & vbNewLine &
                             "Please proceed to add friends by clicking OK button", "")
@@ -30,7 +35,6 @@
                      m In db.Members
                  Where o.UserID = 100001 And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text) And Not o.Status = "Pending"
                  Select m.Username, m.MemberID, o.Status
-
         DGVF.DataSource = fl
     End Sub
 
@@ -46,7 +50,6 @@
         UserCtrl4.friend_id = Integer.Parse(DGVF.CurrentRow.Cells(1).Value.ToString)
         UserCtrl4.sideCtrl = Me
         My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl4)
-
     End Sub
 
     Private Sub btnFriend_MouseDown(sender As Object, e As MouseEventArgs) Handles btnFriend.MouseDown
