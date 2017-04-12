@@ -25,6 +25,8 @@ Partial Class UpdateAppointment
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.gbOngoing = New System.Windows.Forms.GroupBox()
         Me.dgvRecord = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtTitle = New System.Windows.Forms.TextBox()
         Me.gbOngoing.SuspendLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -42,6 +44,8 @@ Partial Class UpdateAppointment
         '
         'gbOngoing
         '
+        Me.gbOngoing.Controls.Add(Me.txtTitle)
+        Me.gbOngoing.Controls.Add(Me.Label1)
         Me.gbOngoing.Controls.Add(Me.dgvRecord)
         Me.gbOngoing.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbOngoing.ForeColor = System.Drawing.Color.DarkGreen
@@ -57,11 +61,27 @@ Partial Class UpdateAppointment
         Me.dgvRecord.AllowUserToAddRows = False
         Me.dgvRecord.AllowUserToDeleteRows = False
         Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRecord.Location = New System.Drawing.Point(31, 61)
+        Me.dgvRecord.Location = New System.Drawing.Point(24, 74)
         Me.dgvRecord.Name = "dgvRecord"
         Me.dgvRecord.ReadOnly = True
         Me.dgvRecord.Size = New System.Drawing.Size(897, 200)
         Me.dgvRecord.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(37, 42)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(161, 16)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Search by &Title :"
+        '
+        'txtTitle
+        '
+        Me.txtTitle.Location = New System.Drawing.Point(204, 39)
+        Me.txtTitle.Name = "txtTitle"
+        Me.txtTitle.Size = New System.Drawing.Size(119, 26)
+        Me.txtTitle.TabIndex = 3
         '
         'UpdateAppointment
         '
@@ -72,6 +92,7 @@ Partial Class UpdateAppointment
         Me.Name = "UpdateAppointment"
         Me.Size = New System.Drawing.Size(1063, 484)
         Me.gbOngoing.ResumeLayout(False)
+        Me.gbOngoing.PerformLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -80,4 +101,6 @@ Partial Class UpdateAppointment
     Friend WithEvents lblTitle As Label
     Friend WithEvents gbOngoing As GroupBox
     Friend WithEvents dgvRecord As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtTitle As TextBox
 End Class

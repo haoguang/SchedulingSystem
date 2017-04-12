@@ -78,7 +78,7 @@ Partial Class FriendSidePanel
         Me.DGVF.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DGVF.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGVF.ShowEditingIcon = False
-        Me.DGVF.Size = New System.Drawing.Size(396, 426)
+        Me.DGVF.Size = New System.Drawing.Size(396, 448)
         Me.DGVF.TabIndex = 4
         '
         'FriendSidePanel
@@ -89,7 +89,7 @@ Partial Class FriendSidePanel
         Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.btnFriend)
         Me.Name = "FriendSidePanel"
-        Me.Size = New System.Drawing.Size(400, 465)
+        Me.Size = New System.Drawing.Size(400, 487)
         CType(Me.DGVF, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
