@@ -27,14 +27,16 @@ Public Class RepeatationClass
                 errorStr.AppendLine(tempDate.ToString("dd/MM/yyyy HH:mm"))
                 isConflict = True
             Else
-                '****************************
-
-
-
+                startTimeList.Add(New DateTime(tempDate.Ticks))
             End If
 
         Loop
 
+        If isConflict Then
+            errorStr.AppendLine("Reselect the date or activity will not be create on the following date.")
+        Else
+            errorStr = New StringBuilder("errorless")
+        End If
 
         Return errorStr.ToString
     End Function

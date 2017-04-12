@@ -50,9 +50,8 @@ Partial Class MainForm
         Me.HeaderPanel.Controls.Add(Me.btnSchedule)
         Me.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.HeaderPanel.Location = New System.Drawing.Point(0, 0)
-        Me.HeaderPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.HeaderPanel.Name = "HeaderPanel"
-        Me.HeaderPanel.Size = New System.Drawing.Size(1476, 85)
+        Me.HeaderPanel.Size = New System.Drawing.Size(1014, 69)
         Me.HeaderPanel.TabIndex = 0
         '
         'btnReport
@@ -65,11 +64,10 @@ Partial Class MainForm
         Me.btnReport.ForeColor = System.Drawing.SystemColors.Control
         Me.btnReport.Image = CType(resources.GetObject("btnReport.Image"), System.Drawing.Image)
         Me.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReport.Location = New System.Drawing.Point(892, 0)
-        Me.btnReport.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnReport.Location = New System.Drawing.Point(668, 0)
         Me.btnReport.Name = "btnReport"
-        Me.btnReport.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
-        Me.btnReport.Size = New System.Drawing.Size(223, 85)
+        Me.btnReport.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.btnReport.Size = New System.Drawing.Size(167, 69)
         Me.btnReport.TabIndex = 3
         Me.btnReport.Text = "  Report"
         Me.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -86,11 +84,10 @@ Partial Class MainForm
         Me.btnFriends.ForeColor = System.Drawing.SystemColors.Control
         Me.btnFriends.Image = CType(resources.GetObject("btnFriends.Image"), System.Drawing.Image)
         Me.btnFriends.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFriends.Location = New System.Drawing.Point(669, 0)
-        Me.btnFriends.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnFriends.Location = New System.Drawing.Point(501, 0)
         Me.btnFriends.Name = "btnFriends"
-        Me.btnFriends.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
-        Me.btnFriends.Size = New System.Drawing.Size(223, 85)
+        Me.btnFriends.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.btnFriends.Size = New System.Drawing.Size(167, 69)
         Me.btnFriends.TabIndex = 2
         Me.btnFriends.Text = "  Friends"
         Me.btnFriends.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -107,11 +104,10 @@ Partial Class MainForm
         Me.btnNotification.ForeColor = System.Drawing.SystemColors.Control
         Me.btnNotification.Image = CType(resources.GetObject("btnNotification.Image"), System.Drawing.Image)
         Me.btnNotification.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNotification.Location = New System.Drawing.Point(446, 0)
-        Me.btnNotification.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnNotification.Location = New System.Drawing.Point(334, 0)
         Me.btnNotification.Name = "btnNotification"
-        Me.btnNotification.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
-        Me.btnNotification.Size = New System.Drawing.Size(223, 85)
+        Me.btnNotification.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.btnNotification.Size = New System.Drawing.Size(167, 69)
         Me.btnNotification.TabIndex = 2
         Me.btnNotification.Text = "  Notification"
         Me.btnNotification.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -128,11 +124,10 @@ Partial Class MainForm
         Me.btnAppointment.ForeColor = System.Drawing.SystemColors.Control
         Me.btnAppointment.Image = CType(resources.GetObject("btnAppointment.Image"), System.Drawing.Image)
         Me.btnAppointment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAppointment.Location = New System.Drawing.Point(223, 0)
-        Me.btnAppointment.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAppointment.Location = New System.Drawing.Point(167, 0)
         Me.btnAppointment.Name = "btnAppointment"
-        Me.btnAppointment.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
-        Me.btnAppointment.Size = New System.Drawing.Size(223, 85)
+        Me.btnAppointment.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.btnAppointment.Size = New System.Drawing.Size(167, 69)
         Me.btnAppointment.TabIndex = 2
         Me.btnAppointment.Text = "  Appointment"
         Me.btnAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -149,10 +144,9 @@ Partial Class MainForm
         Me.btnSchedule.ForeColor = System.Drawing.SystemColors.Control
         Me.btnSchedule.Image = CType(resources.GetObject("btnSchedule.Image"), System.Drawing.Image)
         Me.btnSchedule.Location = New System.Drawing.Point(0, 0)
-        Me.btnSchedule.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSchedule.Name = "btnSchedule"
-        Me.btnSchedule.Padding = New System.Windows.Forms.Padding(7, 0, 0, 0)
-        Me.btnSchedule.Size = New System.Drawing.Size(223, 85)
+        Me.btnSchedule.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.btnSchedule.Size = New System.Drawing.Size(167, 69)
         Me.btnSchedule.TabIndex = 2
         Me.btnSchedule.Text = "  Schedule"
         Me.btnSchedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -164,28 +158,25 @@ Partial Class MainForm
         Me.SidePanel.Controls.Add(Me.SideContentPanel)
         Me.SidePanel.Controls.Add(Me.TimeSidePanel)
         Me.SidePanel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.SidePanel.Location = New System.Drawing.Point(0, 85)
-        Me.SidePanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.SidePanel.Location = New System.Drawing.Point(0, 69)
         Me.SidePanel.Name = "SidePanel"
-        Me.SidePanel.Size = New System.Drawing.Size(400, 662)
+        Me.SidePanel.Size = New System.Drawing.Size(300, 533)
         Me.SidePanel.TabIndex = 1
         '
         'SideContentPanel
         '
         Me.SideContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SideContentPanel.Location = New System.Drawing.Point(0, 79)
-        Me.SideContentPanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.SideContentPanel.Location = New System.Drawing.Point(0, 64)
         Me.SideContentPanel.Name = "SideContentPanel"
-        Me.SideContentPanel.Size = New System.Drawing.Size(400, 583)
+        Me.SideContentPanel.Size = New System.Drawing.Size(300, 469)
         Me.SideContentPanel.TabIndex = 1
         '
         'TimeSidePanel
         '
         Me.TimeSidePanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TimeSidePanel.Location = New System.Drawing.Point(0, 0)
-        Me.TimeSidePanel.Margin = New System.Windows.Forms.Padding(4)
         Me.TimeSidePanel.Name = "TimeSidePanel"
-        Me.TimeSidePanel.Size = New System.Drawing.Size(400, 79)
+        Me.TimeSidePanel.Size = New System.Drawing.Size(300, 64)
         Me.TimeSidePanel.TabIndex = 0
         '
         'ContentPanel
@@ -193,45 +184,43 @@ Partial Class MainForm
         Me.ContentPanel.AutoScroll = True
         Me.ContentPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ContentPanel.Location = New System.Drawing.Point(400, 85)
-        Me.ContentPanel.Margin = New System.Windows.Forms.Padding(4)
+        Me.ContentPanel.Location = New System.Drawing.Point(300, 69)
         Me.ContentPanel.Name = "ContentPanel"
-        Me.ContentPanel.Size = New System.Drawing.Size(1076, 662)
+        Me.ContentPanel.Size = New System.Drawing.Size(714, 533)
         Me.ContentPanel.TabIndex = 2
         '
         'umDropDownMenu
         '
         Me.umDropDownMenu.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.umDropDownMenu.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.umDropDownMenu.Location = New System.Drawing.Point(1251, 85)
+        Me.umDropDownMenu.Location = New System.Drawing.Point(845, 69)
         Me.umDropDownMenu.Margin = New System.Windows.Forms.Padding(0)
         Me.umDropDownMenu.Name = "umDropDownMenu"
-        Me.umDropDownMenu.Padding = New System.Windows.Forms.Padding(2, 0, 2, 2)
-        Me.umDropDownMenu.Size = New System.Drawing.Size(225, 148)
+        Me.umDropDownMenu.Padding = New System.Windows.Forms.Padding(5, 0, 5, 5)
+        Me.umDropDownMenu.Size = New System.Drawing.Size(169, 120)
         Me.umDropDownMenu.TabIndex = 3
         Me.umDropDownMenu.Visible = False
         '
         'btnUserInfo
         '
-        Me.btnUserInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUserInfo.Location = New System.Drawing.Point(1143, 0)
-        Me.btnUserInfo.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnUserInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnUserInfo.Location = New System.Drawing.Point(779, 0)
+        Me.btnUserInfo.Margin = New System.Windows.Forms.Padding(4)
         Me.btnUserInfo.Name = "btnUserInfo"
-        Me.btnUserInfo.Size = New System.Drawing.Size(333, 85)
+        Me.btnUserInfo.Size = New System.Drawing.Size(235, 69)
         Me.btnUserInfo.TabIndex = 4
         '
         'MainForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1476, 747)
+        Me.ClientSize = New System.Drawing.Size(1014, 602)
         Me.Controls.Add(Me.umDropDownMenu)
         Me.Controls.Add(Me.ContentPanel)
         Me.Controls.Add(Me.SidePanel)
         Me.Controls.Add(Me.HeaderPanel)
-        Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.MinimumSize = New System.Drawing.Size(1491, 784)
+        Me.MinimumSize = New System.Drawing.Size(1027, 597)
         Me.Name = "MainForm"
         Me.Text = "Personal Scheduling System"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

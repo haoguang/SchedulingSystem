@@ -15,8 +15,6 @@ Public Class SecondUserControl
         Dim name As String
 
         Dim beforeDate As DateTime
-        Dim afterDate As DateTime
-
 
         name = txtName.Text.Trim
 
@@ -24,27 +22,38 @@ Public Class SecondUserControl
             err.AppendLine("- Please enter [Name]")
             ctr = If(ctr, txtName)
         End If
+        'check whether user is found himself
+        Dim checkUser = From m In db.Members
+                        Where m.Username = name
+                        Select New With {
+                            m.MemberID
+                        }
+        If checkUser.FirstOrDefault.MemberID = DevelopmentVariables.UserID Then
+            err.AppendLine("- You cannot make appointment to yourself")
+            ctr = If(ctr, txtName)
+        End If
+
+
         If (err.Length > 0) Then
             MessageBox.Show(err.ToString, "Input Error")
             ctr.Focus()
             Return
         End If
 
-        beforeDate = dtSelected.Value.Date.AddDays(-1)
-        afterDate = dtSelected.Value.Date.AddDays(1)
+        beforeDate = dtSelected.Value.Date
 
         Dim member As Member = db.Members.FirstOrDefault(Function(o) o.Username = name)
 
         If member Is Nothing Then
             MessageBox.Show("User record not found!", "Error")
         Else
+
             Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
-                         Where m.Username = name And st.ScheduleStart > beforeDate And st.ScheduleStart < afterDate And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
+                         Where m.Username = name And st.ScheduleStart.Value.Date = beforeDate.Date And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
                          Select New With {
                              .StartTime = Format(st.ScheduleStart, "HH: mm "),
                              .EndTime = Format(st.ScheduleEnd, "HH: mm ")
                         }
-
 
             dgvTimetable.DataSource = record
             dgvTimetable.ReadOnly = True
@@ -59,13 +68,14 @@ Public Class SecondUserControl
                 lblInfo.Text = name & "'s Schedule in " & dtSelected.Value.Date
 
             End If
+
             'add new column for status
-            'Dim statusColumn As New DataGridViewColumn
-            'With statusColumn
-            '    .HeaderText = "Status"
-            '    .ToolTipText = "N/A"
-            'End With
-            'dgvTimetable.Columns.Insert(2, statusColumn)
+            Dim col As New DataGridViewTextBoxColumn
+            col.DataPropertyName = "PropertyName"
+            col.HeaderText = "Status"
+            col.Name = "colWhateverName"
+            col.DefaultCellStyle.NullValue = "N/A"
+            dgvTimetable.Columns.Insert(2, col)
         End If
 
 

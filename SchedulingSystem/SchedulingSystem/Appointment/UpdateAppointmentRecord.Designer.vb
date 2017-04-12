@@ -165,7 +165,6 @@ Partial Class UpdateAppointmentRecord
         '
         'txtBoxDescription
         '
-        Me.txtBoxDescription.Enabled = False
         Me.txtBoxDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.txtBoxDescription.Location = New System.Drawing.Point(187, 157)
         Me.txtBoxDescription.Name = "txtBoxDescription"
@@ -219,7 +218,7 @@ Partial Class UpdateAppointmentRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(466, 501)
+        Me.ClientSize = New System.Drawing.Size(498, 501)
         Me.Controls.Add(Me.gbAppointment)
         Me.Controls.Add(Me.btnClose)
         Me.MaximizeBox = False
