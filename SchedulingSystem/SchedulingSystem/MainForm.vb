@@ -47,8 +47,11 @@
         AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
     End Sub
 
-    Private Sub umDropDownMenu_MouseLeave(sender As Object, e As EventArgs) Handles umDropDownMenu.MouseLeave
+    Private Sub umDropDownMenu_MouseLeave() Handles umDropDownMenu.MouseLeave
         umDropDownMenu.Visible = False
+    End Sub
+
+    Private Sub umDropDownMenu_MouseLeave(sender As Object, e As EventArgs) Handles umDropDownMenu.MouseLeave
 
     End Sub
 End Class

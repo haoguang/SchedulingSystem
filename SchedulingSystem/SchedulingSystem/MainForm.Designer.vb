@@ -196,7 +196,7 @@ Partial Class MainForm
         Me.umDropDownMenu.Location = New System.Drawing.Point(845, 69)
         Me.umDropDownMenu.Margin = New System.Windows.Forms.Padding(0)
         Me.umDropDownMenu.Name = "umDropDownMenu"
-        Me.umDropDownMenu.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.umDropDownMenu.Padding = New System.Windows.Forms.Padding(5, 0, 5, 5)
         Me.umDropDownMenu.Size = New System.Drawing.Size(169, 120)
         Me.umDropDownMenu.TabIndex = 3
         Me.umDropDownMenu.Visible = False
