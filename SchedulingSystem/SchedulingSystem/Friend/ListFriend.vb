@@ -13,7 +13,6 @@ Public Class ListFriend
         Dim fl = From m In db.Members, o In db.Friends
                  Where m.MemberID = o.FriendID And o.UserID = user_id And o.FriendID = friend_id
                  Select m.MemberID, m.Nickname, m.Gender, m.Occupation, m.Hobby, o.Status, m.Picture
-
         lbl_ID.Text = fl.FirstOrDefault.MemberID.ToString()
         lbl_N.Text = fl.FirstOrDefault.Nickname
         lbl_G.Text = fl.FirstOrDefault.Gender
@@ -22,8 +21,8 @@ Public Class ListFriend
         cbo_S.SelectedItem = fl.FirstOrDefault.Status
         For Each p In fl
             imgByte = CType(p.Picture.ToArray, Byte())
-            Stream = New MemoryStream(imgByte, 0, imgByte.Length)
-            img = Image.FromStream(Stream)
+            stream = New MemoryStream(imgByte, 0, imgByte.Length)
+            img = Image.FromStream(stream)
             PictureBox1.Image = img
         Next
     End Sub

@@ -116,7 +116,7 @@ Partial Class ListFriend
         Me.btn_del.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_del.Location = New System.Drawing.Point(742, 403)
         Me.btn_del.Name = "btn_del"
-        Me.btn_del.Size = New System.Drawing.Size(155, 46)
+        Me.btn_del.Size = New System.Drawing.Size(200, 46)
         Me.btn_del.TabIndex = 12
         Me.btn_del.Text = "&Unfriend"
         Me.btn_del.UseVisualStyleBackColor = True
@@ -214,7 +214,7 @@ Partial Class ListFriend
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbo_S.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_S.FormattingEnabled = True
-        Me.cbo_S.Items.AddRange(New Object() {"Friend", "Closer Friend", "Family", "Collegue", "Pending"})
+        Me.cbo_S.Items.AddRange(New Object() {"Friend", "Closer Friend", "Family", "Colleague"})
         Me.cbo_S.Location = New System.Drawing.Point(410, 323)
         Me.cbo_S.Name = "cbo_S"
         Me.cbo_S.Size = New System.Drawing.Size(314, 44)
@@ -222,9 +222,10 @@ Partial Class ListFriend
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(742, 87)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
+        Me.PictureBox1.Size = New System.Drawing.Size(200, 280)
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '
