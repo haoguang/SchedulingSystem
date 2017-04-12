@@ -24,6 +24,7 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.HeaderPanel = New System.Windows.Forms.Panel()
+        Me.btnUserInfo = New SchedulingSystem.UserButton()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnFriends = New System.Windows.Forms.Button()
         Me.btnNotification = New System.Windows.Forms.Button()
@@ -33,7 +34,6 @@ Partial Class MainForm
         Me.SideContentPanel = New System.Windows.Forms.Panel()
         Me.TimeSidePanel = New System.Windows.Forms.Panel()
         Me.ContentPanel = New System.Windows.Forms.Panel()
-        Me.btnUserInfo = New SchedulingSystem.UserButton()
         Me.HeaderPanel.SuspendLayout()
         Me.SidePanel.SuspendLayout()
         Me.SuspendLayout()
@@ -52,6 +52,14 @@ Partial Class MainForm
         Me.HeaderPanel.Name = "HeaderPanel"
         Me.HeaderPanel.Size = New System.Drawing.Size(1107, 69)
         Me.HeaderPanel.TabIndex = 0
+        '
+        'btnUserInfo
+        '
+        Me.btnUserInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnUserInfo.Location = New System.Drawing.Point(857, 0)
+        Me.btnUserInfo.Name = "btnUserInfo"
+        Me.btnUserInfo.Size = New System.Drawing.Size(250, 69)
+        Me.btnUserInfo.TabIndex = 4
         '
         'btnReport
         '
@@ -187,14 +195,6 @@ Partial Class MainForm
         Me.ContentPanel.Name = "ContentPanel"
         Me.ContentPanel.Size = New System.Drawing.Size(807, 538)
         Me.ContentPanel.TabIndex = 2
-        '
-        'btnUserInfo
-        '
-        Me.btnUserInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUserInfo.Location = New System.Drawing.Point(857, 0)
-        Me.btnUserInfo.Name = "btnUserInfo"
-        Me.btnUserInfo.Size = New System.Drawing.Size(250, 69)
-        Me.btnUserInfo.TabIndex = 4
         '
         'MainForm
         '
