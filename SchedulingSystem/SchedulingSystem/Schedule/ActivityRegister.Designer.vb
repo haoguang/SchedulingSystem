@@ -23,7 +23,7 @@ Partial Class ActivityRegister
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -52,10 +52,10 @@ Partial Class ActivityRegister
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Err = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbReminder = New System.Windows.Forms.GroupBox()
-        Me.lblMinBefore = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.btnAddReminder = New System.Windows.Forms.Button()
         Me.dgvReminder = New System.Windows.Forms.DataGridView()
+        Me.btnAddReminder = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.lblMinBefore = New System.Windows.Forms.Label()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.gbParticiple.SuspendLayout()
@@ -319,8 +319,8 @@ Partial Class ActivityRegister
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -361,6 +361,7 @@ Partial Class ActivityRegister
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(209, Byte), Integer))
+        Me.btnCancel.CausesValidation = False
         Me.btnCancel.FlatAppearance.BorderSize = 3
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("Gill Sans MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -374,6 +375,7 @@ Partial Class ActivityRegister
         '
         'Err
         '
+        Me.Err.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.Err.ContainerControl = Me
         '
         'gbReminder
@@ -389,24 +391,13 @@ Partial Class ActivityRegister
         Me.gbReminder.TabStop = False
         Me.gbReminder.Text = "Reminder"
         '
-        'lblMinBefore
+        'dgvReminder
         '
-        Me.lblMinBefore.AutoSize = True
-        Me.lblMinBefore.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.lblMinBefore.ForeColor = System.Drawing.Color.DarkGreen
-        Me.lblMinBefore.Location = New System.Drawing.Point(6, 25)
-        Me.lblMinBefore.Name = "lblMinBefore"
-        Me.lblMinBefore.Size = New System.Drawing.Size(135, 13)
-        Me.lblMinBefore.TabIndex = 3
-        Me.lblMinBefore.Text = "&Minutes Before :"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(167, 22)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(158, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.dgvReminder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvReminder.Location = New System.Drawing.Point(9, 60)
+        Me.dgvReminder.Name = "dgvReminder"
+        Me.dgvReminder.Size = New System.Drawing.Size(365, 86)
+        Me.dgvReminder.TabIndex = 6
         '
         'btnAddReminder
         '
@@ -417,13 +408,24 @@ Partial Class ActivityRegister
         Me.btnAddReminder.Text = "Button1"
         Me.btnAddReminder.UseVisualStyleBackColor = True
         '
-        'dgvReminder
+        'ComboBox1
         '
-        Me.dgvReminder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReminder.Location = New System.Drawing.Point(9, 60)
-        Me.dgvReminder.Name = "dgvReminder"
-        Me.dgvReminder.Size = New System.Drawing.Size(365, 86)
-        Me.dgvReminder.TabIndex = 6
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(167, 22)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(158, 21)
+        Me.ComboBox1.TabIndex = 4
+        '
+        'lblMinBefore
+        '
+        Me.lblMinBefore.AutoSize = True
+        Me.lblMinBefore.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.lblMinBefore.ForeColor = System.Drawing.Color.DarkGreen
+        Me.lblMinBefore.Location = New System.Drawing.Point(6, 25)
+        Me.lblMinBefore.Name = "lblMinBefore"
+        Me.lblMinBefore.Size = New System.Drawing.Size(135, 13)
+        Me.lblMinBefore.TabIndex = 3
+        Me.lblMinBefore.Text = "&Minutes Before :"
         '
         'ActivityRegister
         '
