@@ -86,7 +86,7 @@ Partial Class CreateAppointment
         Me.lblEndTitle.Name = "lblEndTitle"
         Me.lblEndTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblEndTitle.TabIndex = 2
-        Me.lblEndTitle.Text = "Duration :"
+        Me.lblEndTitle.Text = "Appointment End :"
         Me.lblEndTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'scheStart
@@ -117,7 +117,7 @@ Partial Class CreateAppointment
         '
         'scheEnd
         '
-        Me.scheEnd.CustomFormat = "hh:mm tt"
+        Me.scheEnd.CustomFormat = "dd/MM/yyyy hh:mm tt"
         Me.scheEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheEnd.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheEnd.Location = New System.Drawing.Point(167, 51)

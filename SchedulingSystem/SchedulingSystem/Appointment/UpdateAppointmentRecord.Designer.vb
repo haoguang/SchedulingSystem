@@ -82,7 +82,7 @@ Partial Class UpdateAppointmentRecord
         '
         'scheEnd
         '
-        Me.scheEnd.CustomFormat = "hh:mm tt"
+        Me.scheEnd.CustomFormat = "dd/MM/yyyy hh:mm tt"
         Me.scheEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheEnd.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheEnd.Location = New System.Drawing.Point(185, 82)

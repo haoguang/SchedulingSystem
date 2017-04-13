@@ -4,7 +4,7 @@ Public Class UpdateAppointmentRecord
 
     Private Sub UpdateAppointmentRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         scheStart.MinDate = DateTime.Now
-        'scheEnd.MinDate = scheStart.Value
+        scheEnd.MinDate = scheStart.Value
         Dim db As New ScheduleDBDataContext()
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members

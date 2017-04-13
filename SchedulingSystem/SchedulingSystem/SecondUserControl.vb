@@ -8,7 +8,10 @@ Public Class SecondUserControl
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Dim err As New StringBuilder
+        dgvTimetable.Rows.Clear()
+        dgvTimetable.Columns.Clear()
+
+        Dim Err As New StringBuilder
         Dim ctr As Control = Nothing
 
         Dim db As New ScheduleDBDataContext()
@@ -51,8 +54,8 @@ Public Class SecondUserControl
             Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
                          Where m.Username = name And st.ScheduleStart.Value.Date = beforeDate.Date And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
                          Select New With {
-                             .StartTime = Format(st.ScheduleStart, "HH: mm "),
-                             .EndTime = Format(st.ScheduleEnd, "HH: mm ")
+                             .StartTime = Format(st.ScheduleStart, "HH: mm tt"),
+                             .EndTime = Format(st.ScheduleEnd, "HH: mm tt")
                         }
 
             dgvTimetable.DataSource = record

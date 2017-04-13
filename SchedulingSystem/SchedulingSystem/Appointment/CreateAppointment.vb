@@ -35,7 +35,7 @@ Public Class CreateAppointment
             ctr = If(ctr, scheEnd)
         End If
         If dateValidator2(scheStart.Value, scheEnd.Value, memberId) = True Then
-            err.AppendLine("- Start time and End time are not available")
+            err.AppendLine("- The range of start time and end time are not available")
             ctr = If(ctr, scheStart)
             ctr = If(ctr, scheEnd)
         End If
@@ -51,6 +51,10 @@ Public Class CreateAppointment
         If venue = "" Then
             err.AppendLine("- Please enter venue")
             ctr = If(ctr, txtVenue)
+        End If
+        If scheEnd.Value < scheStart.Value Then
+            err.AppendLine("- End time cannot earlier than start time.")
+            ctr = If(ctr, scheEnd)
         End If
         If (err.Length > 0) Then
             MessageBox.Show(err.ToString, "Input Error")
