@@ -104,6 +104,10 @@ Public Class ActivityRegister
 
     Private Sub btnDoneCreate_MouseClick(sender As Object, e As EventArgs) ' Done button handler for create schedule use
 
+        If Me.ValidateChildren() = False Then
+            Return
+        End If
+
         Dim startDate As DateTime = scheStart.Value
         Dim endDate As DateTime = scheEnd.Value
         Dim title As String = txtTitle.Text
@@ -153,6 +157,10 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub btnDoneEdit_MouseClick(sender As Object, e As EventArgs) ' Done button handler for edit schedule use
+        If Me.ValidateChildren() = False Then
+            Return
+        End If
+
         Dim db As New ScheduleDBDataContext
 
         Dim sche = From s In db.Schedules, st In db.ScheduleTimes
@@ -352,5 +360,87 @@ Public Class ActivityRegister
         Next
 
         db.SubmitChanges()
+    End Sub
+
+    Private Sub txtTitle_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtTitle.Validating
+
+        If txtTitle.Text.Equals("") Then
+            Err.SetError(txtTitle, "Field must not be empty.")
+            e.Cancel = True
+        Else
+            Err.SetError(txtTitle, Nothing)
+        End If
+
+    End Sub
+
+    Private Sub txtBoxDescription_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtBoxDescription.Validating
+
+        If txtBoxDescription.Text.Equals("") Then
+            Err.SetError(txtBoxDescription, "Field must not be empty")
+            e.Cancel = True
+        Else
+            Err.SetError(txtBoxDescription, Nothing)
+        End If
+    End Sub
+
+    Private Sub txtVenue_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtVenue.Validating
+
+        If txtVenue.Text.Equals("") Then
+            Err.SetError(txtVenue, "Field must not be empty")
+            e.Cancel = True
+        Else
+            Err.SetError(txtVenue, Nothing)
+        End If
+
+    End Sub
+
+    Private Sub cboActivityType_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cboActivityType.Validating
+        If schedule IsNot Nothing Then
+            If schedule.Type = ScheduleClass.PERSONAL_TYPE Then
+                If Not (cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE)) Then
+                    Err.SetError(cboActivityType, "Once activity type is set to personal it can't change to activity type involve multiple person")
+                    e.Cancel = True
+                Else
+                    Err.SetError(cboActivityType, Nothing)
+                End If
+            Else
+                If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
+                    Err.SetError(cboActivityType, "Once activity type is set to multiperson activity type it can't change to activity type involve only one person")
+                    e.Cancel = True
+                Else
+                    Err.SetError(cboActivityType, Nothing)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub scheEnd_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheEnd.Validating
+        If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
+            Err.SetError(scheEnd, "The end date must be later than the start date")
+            e.Cancel = True
+        ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
+            Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID)
+            Err.SetError(scheEnd, "The end date is having conflict with other schedule")
+            e.Cancel = True
+        Else
+            Err.SetError(scheEnd, Nothing)
+        End If
+    End Sub
+
+    Private Sub scheStart_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheStart.Validating
+        If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
+            Err.SetError(scheStart, "The end date must be later than the start date")
+            e.Cancel = True
+        ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
+            Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID)
+            Err.SetError(scheStart, "The end date is having conflict with other schedule")
+            e.Cancel = True
+        Else
+            Err.SetError(scheEnd, Nothing)
+        End If
     End Sub
 End Class
