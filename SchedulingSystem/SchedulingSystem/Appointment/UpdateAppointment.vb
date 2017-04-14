@@ -37,6 +37,7 @@
 
         dgvRecord.DataSource = record
         dgvRecord.ReadOnly = True
+        dgvRecord.AutoResizeColumns()
     End Sub
 
     Private Sub txtTitle_TextChanged(sender As Object, e As EventArgs) Handles txtTitle.TextChanged
