@@ -43,17 +43,18 @@ Partial Class Registration
         Me.radNotSpecified = New System.Windows.Forms.RadioButton()
         Me.radFemale = New System.Windows.Forms.RadioButton()
         Me.radMale = New System.Windows.Forms.RadioButton()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtHobby = New System.Windows.Forms.TextBox()
         Me.btnRegister = New System.Windows.Forms.Button()
-        Me.btnBack = New System.Windows.Forms.Button()
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cboQuestion = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtAnswer = New System.Windows.Forms.TextBox()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -85,6 +86,7 @@ Partial Class Registration
         '
         Me.txtPassword.Location = New System.Drawing.Point(125, 42)
         Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(100, 20)
         Me.txtPassword.TabIndex = 3
         '
@@ -101,6 +103,7 @@ Partial Class Registration
         '
         Me.txtConfirmPassword.Location = New System.Drawing.Point(125, 72)
         Me.txtConfirmPassword.Name = "txtConfirmPassword"
+        Me.txtConfirmPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPassword.Size = New System.Drawing.Size(100, 20)
         Me.txtConfirmPassword.TabIndex = 5
         '
@@ -117,7 +120,7 @@ Partial Class Registration
         '
         Me.txtEmail.Location = New System.Drawing.Point(125, 214)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(156, 20)
         Me.txtEmail.TabIndex = 16
         '
         'Label5
@@ -242,6 +245,15 @@ Partial Class Registration
         Me.radMale.Text = "&Male"
         Me.radMale.UseVisualStyleBackColor = True
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(49, 20)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(48, 13)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "&Gender :"
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -260,21 +272,12 @@ Partial Class Registration
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(125, 455)
+        Me.btnRegister.Location = New System.Drawing.Point(125, 511)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(75, 23)
         Me.btnRegister.TabIndex = 23
         Me.btnRegister.Text = "&Register"
         Me.btnRegister.UseVisualStyleBackColor = True
-        '
-        'btnBack
-        '
-        Me.btnBack.Location = New System.Drawing.Point(287, 455)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(75, 23)
-        Me.btnBack.TabIndex = 25
-        Me.btnBack.Text = "&Back"
-        Me.btnBack.UseVisualStyleBackColor = True
         '
         'ofdBrowse
         '
@@ -282,39 +285,59 @@ Partial Class Registration
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(206, 455)
+        Me.btnClear.Location = New System.Drawing.Point(206, 511)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
         Me.btnClear.TabIndex = 24
         Me.btnClear.Text = "C&lear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'PictureBox1
+        'Label11
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(244, 311)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(118, 90)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 26
-        Me.PictureBox1.TabStop = False
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(13, 443)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(96, 13)
+        Me.Label11.TabIndex = 25
+        Me.Label11.Text = "Security &Question :"
         '
-        'Label9
+        'cboQuestion
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(49, 20)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "&Gender :"
+        Me.cboQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboQuestion.FormattingEnabled = True
+        Me.cboQuestion.Items.AddRange(New Object() {"Where is your mom's hometown ?", "What is your favorite food ?", "What is the name of your first pet ?", "Who are your best friend ?"})
+        Me.cboQuestion.Location = New System.Drawing.Point(125, 440)
+        Me.cboQuestion.Name = "cboQuestion"
+        Me.cboQuestion.Size = New System.Drawing.Size(196, 21)
+        Me.cboQuestion.TabIndex = 26
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(19, 478)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(89, 13)
+        Me.Label12.TabIndex = 27
+        Me.Label12.Text = "Security &Answer :"
+        '
+        'txtAnswer
+        '
+        Me.txtAnswer.Location = New System.Drawing.Point(125, 475)
+        Me.txtAnswer.Name = "txtAnswer"
+        Me.txtAnswer.Size = New System.Drawing.Size(100, 20)
+        Me.txtAnswer.TabIndex = 28
         '
         'Registration
         '
+        Me.AcceptButton = Me.btnRegister
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(392, 508)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.ClientSize = New System.Drawing.Size(392, 544)
+        Me.Controls.Add(Me.txtAnswer)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.cboQuestion)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.txtHobby)
         Me.Controls.Add(Me.Label10)
@@ -337,11 +360,11 @@ Partial Class Registration
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Registration"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registration"
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -371,9 +394,11 @@ Partial Class Registration
     Friend WithEvents Label10 As Label
     Friend WithEvents txtHobby As TextBox
     Friend WithEvents btnRegister As Button
-    Friend WithEvents btnBack As Button
     Friend WithEvents ofdBrowse As OpenFileDialog
     Friend WithEvents btnClear As Button
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents cboQuestion As ComboBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtAnswer As TextBox
 End Class

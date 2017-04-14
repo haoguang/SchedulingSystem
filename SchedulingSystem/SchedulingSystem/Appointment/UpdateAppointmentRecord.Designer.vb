@@ -62,7 +62,7 @@ Partial Class UpdateAppointmentRecord
         Me.gbAppointment.Controls.Add(Me.lblStartTitle)
         Me.gbAppointment.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbAppointment.ForeColor = System.Drawing.Color.DarkGreen
-        Me.gbAppointment.Location = New System.Drawing.Point(12, 27)
+        Me.gbAppointment.Location = New System.Drawing.Point(12, 12)
         Me.gbAppointment.Name = "gbAppointment"
         Me.gbAppointment.Size = New System.Drawing.Size(430, 408)
         Me.gbAppointment.TabIndex = 3
@@ -74,14 +74,14 @@ Partial Class UpdateAppointmentRecord
         Me.txtVenue.Location = New System.Drawing.Point(187, 233)
         Me.txtVenue.Name = "txtVenue"
         Me.txtVenue.Size = New System.Drawing.Size(199, 26)
-        Me.txtVenue.TabIndex = 24
+        Me.txtVenue.TabIndex = 5
         '
         'txtTitle
         '
         Me.txtTitle.Location = New System.Drawing.Point(186, 121)
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(199, 26)
-        Me.txtTitle.TabIndex = 23
+        Me.txtTitle.TabIndex = 3
         '
         'scheEnd
         '
@@ -92,7 +92,7 @@ Partial Class UpdateAppointmentRecord
         Me.scheEnd.Name = "scheEnd"
         Me.scheEnd.ShowUpDown = True
         Me.scheEnd.Size = New System.Drawing.Size(200, 26)
-        Me.scheEnd.TabIndex = 22
+        Me.scheEnd.TabIndex = 2
         '
         'scheStart
         '
@@ -104,14 +104,14 @@ Partial Class UpdateAppointmentRecord
         Me.scheStart.Name = "scheStart"
         Me.scheStart.ShowUpDown = True
         Me.scheStart.Size = New System.Drawing.Size(200, 26)
-        Me.scheStart.TabIndex = 21
+        Me.scheStart.TabIndex = 1
         '
         'btnCancel
         '
         Me.btnCancel.Location = New System.Drawing.Point(51, 340)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(127, 47)
-        Me.btnCancel.TabIndex = 20
+        Me.btnCancel.TabIndex = 7
         Me.btnCancel.Text = "Cancel Appointment"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
@@ -120,7 +120,7 @@ Partial Class UpdateAppointmentRecord
         Me.btnUpdate.Location = New System.Drawing.Point(223, 340)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(117, 47)
-        Me.btnUpdate.TabIndex = 19
+        Me.btnUpdate.TabIndex = 6
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
@@ -141,7 +141,7 @@ Partial Class UpdateAppointmentRecord
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(159, 22)
         Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Participant :"
+        Me.Label6.Text = "&Participant :"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label5
@@ -152,7 +152,7 @@ Partial Class UpdateAppointmentRecord
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(159, 22)
         Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Venue :"
+        Me.Label5.Text = "&Venue :"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label4
@@ -163,7 +163,7 @@ Partial Class UpdateAppointmentRecord
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(159, 22)
         Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Description :"
+        Me.Label4.Text = "&Description :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtBoxDescription
@@ -172,7 +172,7 @@ Partial Class UpdateAppointmentRecord
         Me.txtBoxDescription.Location = New System.Drawing.Point(187, 157)
         Me.txtBoxDescription.Name = "txtBoxDescription"
         Me.txtBoxDescription.Size = New System.Drawing.Size(199, 64)
-        Me.txtBoxDescription.TabIndex = 8
+        Me.txtBoxDescription.TabIndex = 4
         Me.txtBoxDescription.Text = ""
         '
         'Label3
@@ -183,7 +183,7 @@ Partial Class UpdateAppointmentRecord
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(159, 22)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Title :"
+        Me.Label3.Text = "&Title :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label2
@@ -194,26 +194,26 @@ Partial Class UpdateAppointmentRecord
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(159, 22)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "End Time :"
+        Me.Label2.Text = "&End Time :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'lblStartTitle
         '
         Me.lblStartTitle.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.lblStartTitle.ForeColor = System.Drawing.Color.DarkGreen
-        Me.lblStartTitle.Location = New System.Drawing.Point(6, 40)
+        Me.lblStartTitle.Location = New System.Drawing.Point(6, 44)
         Me.lblStartTitle.Name = "lblStartTitle"
         Me.lblStartTitle.Size = New System.Drawing.Size(159, 22)
         Me.lblStartTitle.TabIndex = 1
-        Me.lblStartTitle.Text = "Start Date Time :"
+        Me.lblStartTitle.Text = "&Start Date Time :"
         Me.lblStartTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(130, 451)
+        Me.btnClose.Location = New System.Drawing.Point(115, 440)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(164, 29)
-        Me.btnClose.TabIndex = 16
+        Me.btnClose.Size = New System.Drawing.Size(164, 39)
+        Me.btnClose.TabIndex = 8
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -226,7 +226,8 @@ Partial Class UpdateAppointmentRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(498, 501)
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
+        Me.ClientSize = New System.Drawing.Size(456, 491)
         Me.Controls.Add(Me.gbAppointment)
         Me.Controls.Add(Me.btnClose)
         Me.MaximizeBox = False

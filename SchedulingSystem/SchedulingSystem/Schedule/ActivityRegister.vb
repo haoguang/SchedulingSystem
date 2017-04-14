@@ -328,7 +328,7 @@ Public Class ActivityRegister
 
                     If p Is Nothing Then
                         MsgBox("The record of the user fail to retrieved", vbOKOnly, "Error")
-                    ElseIf p.ParticiplesRole.Equals("Owner")
+                    ElseIf p.ParticiplesRole.Equals("Owner") Then
                         MsgBox("You can't remove yourself as an owner of the activity", vbOKOnly, "Warning")
                     Else
                         db.Participles.DeleteOnSubmit(p)
@@ -482,15 +482,15 @@ Public Class ActivityRegister
             Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheEnd, Nothing)
             Err.SetError(scheStart, "The start date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, "There is schedule conflict between both times")
             Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True

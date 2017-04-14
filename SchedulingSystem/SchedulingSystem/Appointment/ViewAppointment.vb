@@ -21,14 +21,16 @@
     Private Sub dgvRecord_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecord.CellClick
         Dim index As Integer
         index = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        Dim formRecord As New ViewAppointmentRecord()
-        Dim scheduleID As String
-        selectedRow = dgvRecord.Rows(index)
-        scheduleID = selectedRow.Cells(0).Value.ToString()
+        If index >= 0 Then
+            Dim selectedRow As DataGridViewRow
+            Dim formRecord As New ViewAppointmentRecord()
+            Dim scheduleID As String
 
-        formRecord.StringIDPass = Integer.Parse(scheduleID)
-        formRecord.ShowDialog()
+            selectedRow = dgvRecord.Rows(index)
+            scheduleID = selectedRow.Cells(0).Value.ToString()
+            formRecord.StringIDPass = Integer.Parse(scheduleID)
+            formRecord.ShowDialog()
+        End If
     End Sub
 
     Private Sub txtTitle_TextChanged(sender As Object, e As EventArgs) Handles txtTitle.TextChanged
@@ -106,6 +108,33 @@
         dgvRecord.DataSource = record
         dgvRecord.ReadOnly = True
         dgvRecord.AutoResizeColumns()
+
+    End Sub
+
+    Private Sub BindCancelData()
+        dgvRecord.DataSource = Nothing
+        Dim db As New ScheduleDBDataContext()
+        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim currentDateTime As Date
+
+        currentDateTime = Date.Now
+
+        Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And s.Status = "Cancel" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Select New With {
+                         .Schedule_ID = s.ScheduleID,
+                         .Start_DateTime = st.ScheduleStart,
+                         .End_DateTime = st.ScheduleEnd,
+                         s.Title,
+                         s.Venue
+                         }
+        dgvRecord.DataSource = record
+        dgvRecord.ReadOnly = True
+        dgvRecord.AutoResizeColumns()
+    End Sub
+
+    Private Sub rbCancel_CheckedChanged(sender As Object, e As EventArgs) Handles rbCancel.CheckedChanged
+        BindCancelData()
 
     End Sub
 End Class

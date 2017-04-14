@@ -33,10 +33,9 @@ Partial Class UserButton
         'lblUserEmail
         '
         Me.lblUserEmail.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblUserEmail.Location = New System.Drawing.Point(92, 47)
-        Me.lblUserEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblUserEmail.Location = New System.Drawing.Point(69, 38)
         Me.lblUserEmail.Name = "lblUserEmail"
-        Me.lblUserEmail.Size = New System.Drawing.Size(212, 38)
+        Me.lblUserEmail.Size = New System.Drawing.Size(159, 31)
         Me.lblUserEmail.TabIndex = 2
         Me.lblUserEmail.Text = "abc123@bcd.com"
         Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -45,10 +44,9 @@ Partial Class UserButton
         '
         Me.lblName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblName.Location = New System.Drawing.Point(92, 0)
-        Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblName.Location = New System.Drawing.Point(69, 0)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(212, 47)
+        Me.lblName.Size = New System.Drawing.Size(159, 38)
         Me.lblName.TabIndex = 3
         Me.lblName.Text = "My Name"
         Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -60,10 +58,9 @@ Partial Class UserButton
         Me.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMenu.Image = CType(resources.GetObject("btnMenu.Image"), System.Drawing.Image)
         Me.btnMenu.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnMenu.Location = New System.Drawing.Point(304, 0)
-        Me.btnMenu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnMenu.Location = New System.Drawing.Point(228, 0)
         Me.btnMenu.Name = "btnMenu"
-        Me.btnMenu.Size = New System.Drawing.Size(35, 85)
+        Me.btnMenu.Size = New System.Drawing.Size(26, 69)
         Me.btnMenu.TabIndex = 1
         Me.btnMenu.UseVisualStyleBackColor = True
         '
@@ -72,25 +69,23 @@ Partial Class UserButton
         Me.pcbProfilePic.Dock = System.Windows.Forms.DockStyle.Left
         Me.pcbProfilePic.ErrorImage = CType(resources.GetObject("pcbProfilePic.ErrorImage"), System.Drawing.Image)
         Me.pcbProfilePic.Location = New System.Drawing.Point(0, 0)
-        Me.pcbProfilePic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pcbProfilePic.Name = "pcbProfilePic"
-        Me.pcbProfilePic.Padding = New System.Windows.Forms.Padding(13, 12, 13, 12)
-        Me.pcbProfilePic.Size = New System.Drawing.Size(92, 85)
+        Me.pcbProfilePic.Padding = New System.Windows.Forms.Padding(10, 10, 10, 10)
+        Me.pcbProfilePic.Size = New System.Drawing.Size(69, 69)
         Me.pcbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pcbProfilePic.TabIndex = 0
         Me.pcbProfilePic.TabStop = False
         '
         'UserButton
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.lblUserEmail)
         Me.Controls.Add(Me.btnMenu)
         Me.Controls.Add(Me.pcbProfilePic)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "UserButton"
-        Me.Size = New System.Drawing.Size(339, 85)
+        Me.Size = New System.Drawing.Size(254, 69)
         CType(Me.pcbProfilePic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
