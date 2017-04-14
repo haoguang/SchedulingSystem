@@ -25,25 +25,26 @@
         Return p.ParticiplesRole.Equals("Owner")
     End Function
 
-    Friend Function dateValidator(tempDate As DateTime, userID As Integer) As Boolean
+    Friend Function dateValidator(tempDate As DateTime, userID As Integer, scheduleID As Integer) As Boolean
         Dim db As New ScheduleDBDataContext
 
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
                  Where p.MemberID = userID And p.ScheduleID = s.ScheduleID And
                      s.ScheduleID = st.ScheduleID And st.ScheduleStart <= tempDate And
-                     s.Status = ScheduleClass.ACTIVE_STATUS And st.ScheduleEnd >= tempDate
+                     s.Status = ScheduleClass.ACTIVE_STATUS And st.ScheduleEnd >= tempDate And
+                     st.ScheduleID <> scheduleID
 
         Return rs.Count > 0
     End Function
 
-    Friend Function dateValidator2(tempDate As DateTime, tempDate2 As DateTime, userID As Integer) As Boolean
+    Friend Function dateValidator2(tempDate As DateTime, tempDate2 As DateTime, userID As Integer, scheduleID As Integer) As Boolean
         Dim db As New ScheduleDBDataContext
 
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
                  Where p.MemberID = userID And p.ScheduleID = s.ScheduleID And
                      s.ScheduleID = st.ScheduleID And st.ScheduleStart >= tempDate And
                      s.Status = ScheduleClass.ACTIVE_STATUS And
-                        st.ScheduleEnd <= tempDate2
+                     st.ScheduleEnd <= tempDate2 And st.ScheduleID <> scheduleID
 
         Return rs.Count > 0
     End Function

@@ -22,6 +22,7 @@ Partial Class UpdateAppointmentRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.gbAppointment = New System.Windows.Forms.GroupBox()
         Me.txtVenue = New System.Windows.Forms.TextBox()
         Me.txtTitle = New System.Windows.Forms.TextBox()
@@ -38,7 +39,9 @@ Partial Class UpdateAppointmentRecord
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
+        Me.err = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbAppointment.SuspendLayout()
+        CType(Me.err, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbAppointment
@@ -214,6 +217,11 @@ Partial Class UpdateAppointmentRecord
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
         '
+        'err
+        '
+        Me.err.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.err.ContainerControl = Me
+        '
         'UpdateAppointmentRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -226,6 +234,7 @@ Partial Class UpdateAppointmentRecord
         Me.Text = "UpdateAppointmentRecord"
         Me.gbAppointment.ResumeLayout(False)
         Me.gbAppointment.PerformLayout()
+        CType(Me.err, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -246,4 +255,5 @@ Partial Class UpdateAppointmentRecord
     Friend WithEvents txtTitle As TextBox
     Friend WithEvents scheEnd As DateTimePicker
     Friend WithEvents txtVenue As TextBox
+    Friend WithEvents err As ErrorProvider
 End Class

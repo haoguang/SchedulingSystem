@@ -60,6 +60,7 @@
                          }
         dgvRecord.DataSource = record
         dgvRecord.ReadOnly = True
+        dgvRecord.AutoResizeColumns()
     End Sub
 
     Private Sub BindPendingData()
@@ -82,6 +83,7 @@
 
         dgvRecord.DataSource = record
         dgvRecord.ReadOnly = True
+        dgvRecord.AutoResizeColumns()
     End Sub
 
     Private Sub BindHistoryData()
@@ -103,5 +105,7 @@
                          }
         dgvRecord.DataSource = record
         dgvRecord.ReadOnly = True
+        dgvRecord.AutoResizeColumns()
+
     End Sub
 End Class

@@ -1,5 +1,4 @@
 ﻿
-
 Imports System.Data.Linq
 
 Public Class ActivityRegister
@@ -9,15 +8,15 @@ Public Class ActivityRegister
     Private Sub initializeScheduleForDevelopment() '******************************************
         Dim db As New ScheduleDBDataContext
 
-        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000002)
-        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000002)
+        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000006)
+        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000006 And o.InitialTime = True)
 
-        Dim thisSchedule As ScheduleClass = New ScheduleClass(s.ScheduleID, CDate(st.ScheduleStart), CDate(st.ScheduleEnd), CDate(s.RepeatDue), CByte(s.RepeatBehavior.ToArray(8)), s.Title, s.Description, s.Venue, s.Type, s.Status)
+        Dim thisSchedule As ScheduleClass = New ScheduleClass(s.ScheduleID, CDate(st.ScheduleStart), CDate(st.ScheduleEnd), CDate(s.RepeatDue), CByte(s.RepeatBehavior.ToArray().First()), s.Title, s.Description, s.Venue, s.Type, s.Status)
         schedule = thisSchedule
     End Sub
 
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'initializeScheduleForDevelopment() 'to test adding *******************************
+        initializeScheduleForDevelopment() 'to test adding *******************************
 
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
         cboActivityType.SelectedIndex = 0
@@ -64,6 +63,10 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub activityCreateMode() 'called when control is used to create schedule
+        ' limit date control min date
+        scheStart.MinDate = Date.Today
+        scheEnd.MinDate = Date.Today
+
         AddHandler btnDone.MouseClick, AddressOf btnDoneCreate_MouseClick
 
         'Add button column
@@ -88,6 +91,8 @@ Public Class ActivityRegister
         txtTitle.Text = schedule.Title
         txtBoxDescription.Text = schedule.Description
         txtVenue.Text = schedule.Venue
+        scheRepeatDue.Value = schedule.RepeatDue
+
 
         Dim index As Integer = 0
         Dim i As Integer = 0
@@ -99,6 +104,17 @@ Public Class ActivityRegister
         Next
 
         cboActivityType.SelectedIndex = index
+
+        index = 0
+        i = 0
+        For Each item As String In RepeatationModule.getRepeatStringArray()
+            If item.Equals(RepeatationModule.getRepeatString(schedule.RepeatBehavior)) Then
+                index = i
+            End If
+            i += 1
+        Next
+
+        cboBehavior.SelectedIndex = index
 
     End Sub
 
@@ -143,7 +159,7 @@ Public Class ActivityRegister
         db.Participles.InsertOnSubmit(participle)
         db.SubmitChanges()
 
-        If dgvParticiples.RowCount > 0 Then
+        If dgvParticiples.RowCount > 0 And gbParticiple.Enabled Then
             insertParticipleToDB(scheduleid)
         End If
 
@@ -161,6 +177,9 @@ Public Class ActivityRegister
             Return
         End If
 
+        Dim repeatBehave As Byte = RepeatationModule.getRepeatBehavior(cboBehavior.SelectedItem.ToString)
+        Dim repeatDue As Date = scheRepeatDue.Value
+
         Dim db As New ScheduleDBDataContext
 
         Dim sche = From s In db.Schedules, st In db.ScheduleTimes
@@ -174,16 +193,29 @@ Public Class ActivityRegister
             .s.Description = txtBoxDescription.Text
             .s.Venue = txtVenue.Text
             .s.Type = cboActivityType.SelectedItem.ToString
+            .s.RepeatDue = repeatDue
+            .s.RepeatBehavior = New Binary(BitConverter.GetBytes(repeatBehave))
         End With
 
         db.SubmitChanges()
+
+        RepeatationModule.deleteScheduleTimeRecord(schedule.ScheduleID)
+
+        If (repeatBehave <> RepeatationModule.REPEAT_NONE And repeat IsNot Nothing) Then
+            repeat.scheduleID = schedule.ScheduleID
+            RepeatationModule.generateScheduleTimeRecord(repeat)
+        End If
+
+        MessageBox.Show("Successfully edited a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
     End Sub
 
 
     Private Sub populateParticiples()
         Dim db As New ScheduleDBDataContext()
         Dim rs = From p In db.Participles, m In db.Members
-                 Where m.MemberID = p.MemberID And p.ScheduleID = schedule.ScheduleID And p.Status = "Attend"
+                 Where m.MemberID = p.MemberID And p.ScheduleID = schedule.ScheduleID And
+                     p.Status = ScheduleClass.PARTICIPLE_ATTENT And p.ParticiplesRole <> ScheduleClass.OWNER
                  Select New With {p.MemberID, m.Nickname}
 
         dgvParticipleID.DataPropertyName = "MemberID"
@@ -307,7 +339,15 @@ Public Class ActivityRegister
 
     Private Sub scheEnd_ValueChanged(sender As Object, e As EventArgs) Handles scheEnd.ValueChanged
         'To make sure that due date is atleast same as end date
+        scheRepeatDue.MinDate = scheEnd.Value.Date
+        scheStart.MaxDate = scheEnd.Value
         scheRepeatDue.Value = scheEnd.Value
+
+
+    End Sub
+
+    Private Sub scheStart_ValueChanged(sender As Object, e As EventArgs) Handles scheStart.ValueChanged
+        scheEnd.MinDate = scheStart.Value
     End Sub
 
     Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
@@ -328,7 +368,7 @@ Public Class ActivityRegister
         Dim repeatDue As Date = scheRepeatDue.Value
 
         If Not (cboBehavior.SelectedItem.ToString.Equals(RepeatationModule.NONE_STRING)) Then
-            repeat = New RepeatationClass(0, startDate, endDate)
+            repeat = New RepeatationClass(If(schedule Is Nothing, 0, schedule.ScheduleID), startDate, endDate)
             Dim errorMessage = repeat.generateDateArray(RepeatationModule.getRepeatBehavior(cboBehavior.SelectedItem.ToString), repeatDue)
 
             If Not (errorMessage.Equals("errorless")) Then
@@ -414,33 +454,50 @@ Public Class ActivityRegister
         End If
     End Sub
 
-    Private Sub scheEnd_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheEnd.Validating
+    Private Sub schedule_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheEnd.Validating, scheStart.Validating
         If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
+            Err.SetError(scheStart, "The Start date must be earlier than the end date")
             Err.SetError(scheEnd, "The end date must be later than the start date")
             e.Cancel = True
         ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
+            Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID)
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+            Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+            Err.SetError(scheEnd, Nothing)
+            Err.SetError(scheStart, "The start date is having conflict with other schedule")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+            Err.SetError(scheStart, "There is schedule conflict between both times")
+            Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True
         Else
             Err.SetError(scheEnd, Nothing)
+            Err.SetError(scheStart, Nothing)
         End If
     End Sub
 
-    Private Sub scheStart_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheStart.Validating
-        If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
-            Err.SetError(scheStart, "The end date must be later than the start date")
-            e.Cancel = True
-        ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
-            Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
-            e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID)
-            Err.SetError(scheStart, "The end date is having conflict with other schedule")
+    Private Sub scheRepeatDue_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheRepeatDue.Validating
+        If scheRepeatDue.Value.CompareTo(scheEnd.Value) > 1 Then
+            Err.SetError(scheRepeatDue, "RepeatDue cannot be earlier than the schedule dates")
             e.Cancel = True
         Else
-            Err.SetError(scheEnd, Nothing)
+            Err.SetError(scheRepeatDue, Nothing)
+        End If
+    End Sub
+
+    Private Sub dgvParticiples_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dgvParticiples.Validating
+        If Not (cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE)) Then
+            If dgvParticiples.RowCount < 1 Then
+                Err.SetError(gbParticiple, cboActivityType.SelectedItem.ToString & " need to be atleast invite 1 person")
+                e.Cancel = True
+            Else
+                Err.SetError(gbParticiple, Nothing)
+            End If
         End If
     End Sub
 End Class
