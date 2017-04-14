@@ -44,15 +44,15 @@ Public Class UpdateAppointmentRecord
 
         memberId = memId.FirstOrDefault.MemberID
 
-        If dateValidator(scheStart.Value, memberId) = True Then
+        If dateValidator(scheStart.Value, memberId, StringIDPass) = True Then ' need to take back the schedule id
             err.AppendLine("- Start time is not available")
             ctr = If(ctr, scheStart)
         End If
-        If dateValidator(scheEnd.Value, memberId) = True Then
+        If dateValidator(scheEnd.Value, memberId, StringIDPass) = True Then ' need to take back the schedule id
             err.AppendLine("- End time is not available")
             ctr = If(ctr, scheEnd)
         End If
-        If dateValidator2(scheStart.Value, scheEnd.Value, memberId) = True Then
+        If dateValidator2(scheStart.Value, scheEnd.Value, memberId, StringIDPass) = True Then ' need to take back the schedule id
             err.AppendLine("- Start time and End time are not available")
             ctr = If(ctr, scheStart)
             ctr = If(ctr, scheEnd)
