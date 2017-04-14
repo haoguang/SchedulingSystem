@@ -52,10 +52,10 @@ Public Class SecondUserControl
         Else
 
             Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
-                         Where m.Username = name And st.ScheduleStart.Value.Date = beforeDate.Date And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
+                         Where m.Username = name And st.ScheduleStart.Value.Date = beforeDate.Date And s.Status = "Active" And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
                          Select New With {
-                             .StartTime = Format(st.ScheduleStart, "HH: mm tt"),
-                             .EndTime = Format(st.ScheduleEnd, "HH: mm tt")
+                             .StartTime = Format(st.ScheduleStart, "h: mm tt"),
+                             .EndTime = Format(st.ScheduleEnd, "h: mm tt")
                         }
 
             dgvTimetable.DataSource = record
@@ -66,7 +66,8 @@ Public Class SecondUserControl
             gbTimetable.Enabled = True
 
             If dgvTimetable.RowCount <= 0 Then
-                lblInfo.Text = name & "haven't create his schedule in " & dtSelected.Value.Date
+                lblInfo.Text = "All time are available for appointment."
+                dgvTimetable.Enabled = False
             Else
                 lblInfo.Text = name & "'s Schedule in " & dtSelected.Value.Date
 

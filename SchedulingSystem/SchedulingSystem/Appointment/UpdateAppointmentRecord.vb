@@ -1,7 +1,7 @@
 ﻿Imports System.Text
 Public Class UpdateAppointmentRecord
     Public Property StringIDPass As Integer
-
+    Private schedule As ScheduleClass
     Private Sub UpdateAppointmentRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         scheStart.MinDate = DateTime.Now
         scheEnd.MinDate = scheStart.Value
@@ -27,6 +27,11 @@ Public Class UpdateAppointmentRecord
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If Me.ValidateChildren() = False Then
+            MessageBox.Show("Please correct the invalid input.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         Dim title As String, description As String, venue As String
         Dim err As New StringBuilder
         Dim ctr As Control = Nothing
@@ -36,44 +41,6 @@ Public Class UpdateAppointmentRecord
         venue = txtVenue.Text
 
         Dim db As New ScheduleDBDataContext
-        'validate time
-        Dim participle = lblPaticipant.Text
-        Dim memberId As Integer
-        Dim memId = From m In db.Members
-                    Where m.Nickname = participle
-
-        memberId = memId.FirstOrDefault.MemberID
-
-        If dateValidator(scheStart.Value, memberId) = True Then
-            err.AppendLine("- The start date time is having conflict with other schedule")
-            ctr = If(ctr, scheStart)
-        End If
-        If dateValidator(scheEnd.Value, memberId) = True Then
-            err.AppendLine("- The end date time is having conflict with other schedule")
-            ctr = If(ctr, scheEnd)
-        End If
-        If dateValidator2(scheStart.Value, scheEnd.Value, memberId) = True Then
-            err.AppendLine("- There is schedule conflict between both times")
-            ctr = If(ctr, scheStart)
-            ctr = If(ctr, scheEnd)
-        End If
-        If scheEnd.Value < scheStart.Value Then
-            err.AppendLine("- End time cannot earlier than start time.")
-            ctr = If(ctr, scheEnd)
-        End If
-        If DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
-            err.AppendLine("- The duration of the time must at least 30 minutes")
-            ctr = If(ctr, scheEnd)
-        End If
-        If (err.Length > 0) Then
-            MessageBox.Show(err.ToString, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ctr.Focus()
-            Return
-        End If
-
-
-
-
         'update schedule table
         Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = StringIDPass)
         s.Title = title
@@ -95,6 +62,12 @@ Public Class UpdateAppointmentRecord
 
         MessageBox.Show("The appointment record is updated", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.None)
         Me.Close()
+
+        'refresh table
+        Dim UpdateAppointmentCtrl As New UpdateAppointment
+
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(UpdateAppointmentCtrl)
 
     End Sub
 
@@ -141,6 +114,42 @@ Public Class UpdateAppointmentRecord
             e.Cancel = True
         Else
             err.SetError(txtVenue, Nothing)
+        End If
+    End Sub
+
+    Private Sub scheStart_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheStart.Validating, scheEnd.Validating
+
+        Dim db As New ScheduleDBDataContext
+        Dim participle = lblPaticipant.Text
+        Dim memberId As Integer
+        Dim memId = From m In db.Members
+                    Where m.Nickname = participle
+
+        memberId = memId.FirstOrDefault.MemberID
+
+        If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
+            err.SetError(scheStart, "The Start date must be earlier than the end date")
+            err.SetError(scheEnd, "The end date must be later than the start date")
+            e.Cancel = True
+        ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
+            err.SetError(scheStart, "The duration of the time must more than 30 minutes")
+            err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, memberId, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+            err.SetError(scheStart, Nothing)
+            err.SetError(scheEnd, "The end date is having conflict with other schedule")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator(scheStart.Value, memberId, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+            err.SetError(scheEnd, Nothing)
+            err.SetError(scheStart, "The start date is having conflict with other schedule")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, memberId, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+            err.SetError(scheStart, "There is schedule conflict between both times")
+            err.SetError(scheEnd, "There is schedule conflict between both times")
+            e.Cancel = True
+        Else
+            err.SetError(scheEnd, Nothing)
+            err.SetError(scheStart, Nothing)
         End If
     End Sub
 End Class

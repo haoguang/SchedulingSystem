@@ -2,14 +2,17 @@
     Private Sub dgvRecord_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecord.CellClick
         Dim index As Integer
         index = e.RowIndex
-        Dim selectedRow As DataGridViewRow
-        Dim formRecord As New UpdateAppointmentRecord()
-        Dim scheduleID As String
-        selectedRow = dgvRecord.Rows(index)
-        scheduleID = selectedRow.Cells(0).Value.ToString()
+        If index >= 0 Then
+            Dim selectedRow As DataGridViewRow
+            Dim formRecord As New UpdateAppointmentRecord()
+            Dim scheduleID As String
+            selectedRow = dgvRecord.Rows(index)
+            scheduleID = selectedRow.Cells(0).Value.ToString()
 
-        formRecord.StringIDPass = Integer.Parse(scheduleID)
-        formRecord.ShowDialog()
+            formRecord.StringIDPass = Integer.Parse(scheduleID)
+            formRecord.ShowDialog()
+        End If
+
     End Sub
 
     Private Sub UpdateAppointment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
