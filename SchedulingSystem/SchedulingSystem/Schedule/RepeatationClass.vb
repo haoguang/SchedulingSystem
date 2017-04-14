@@ -21,10 +21,10 @@ Public Class RepeatationClass
 
         Do While tempDate.Date.CompareTo(repeatDue.Date) < 0
             tempDate = RepeatationModule.getNextDate(RepeatationModule.getRepeatString(repeatBehavior), tempDate)
-            If ActivityModule.dateValidator(tempDate, DevelopmentVariables.UserID, -1) Then
+            If ActivityModule.dateValidator(tempDate, DevelopmentVariables.UserID, scheduleID) Then
                 errorStr.AppendLine(tempDate.ToString("dd/MM/yyyy HH:mm"))
                 isConflict = True
-            ElseIf ActivityModule.dateValidator(tempDate.AddMinutes(minDuration), DevelopmentVariables.UserID, -1)
+            ElseIf ActivityModule.dateValidator(tempDate.AddMinutes(minDuration), DevelopmentVariables.UserID, scheduleID)
                 errorStr.AppendLine(tempDate.ToString("dd/MM/yyyy HH:mm"))
                 isConflict = True
             Else

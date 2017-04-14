@@ -17,6 +17,4 @@
     Private Sub btnMenu_MouseLeave(sender As Object, e As EventArgs) Handles btnMenu.MouseLeave
         btnMenu.Image = My.Resources.arrow_213_16
     End Sub
-
-
 End Class

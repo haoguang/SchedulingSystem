@@ -34,9 +34,9 @@
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        btnUserInfo.pcbProfilePic.Image = My.Resources.user_default
-        btnUserInfo.lblName.Text = "My Sample name"
-        btnUserInfo.lblUserEmail.Text = "hg@sample.com"
+        btnUserInfo.pcbProfilePic.Image = LoginSession.picture
+        btnUserInfo.lblName.Text = LoginSession.nickname
+        btnUserInfo.lblUserEmail.Text = LoginSession.email
     End Sub
 
     Private Sub btnDown_Click()
@@ -53,5 +53,11 @@
 
     Private Sub umDropDownMenu_MouseLeave(sender As Object, e As EventArgs) Handles umDropDownMenu.MouseLeave
 
+    End Sub
+
+    Private Sub btnNotification_Click(sender As Object, e As EventArgs) Handles btnNotification.Click
+        Dim listNotification As New listNotification
+        ContentPanel.Controls.Clear()
+        ContentPanel.Controls.Add(listNotification)
     End Sub
 End Class
