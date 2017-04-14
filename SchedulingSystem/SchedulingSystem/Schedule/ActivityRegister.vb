@@ -143,7 +143,7 @@ Public Class ActivityRegister
         db.Participles.InsertOnSubmit(participle)
         db.SubmitChanges()
 
-        If dgvParticiples.RowCount > 0 Then
+        If dgvParticiples.RowCount > 0 And gbParticiple.Enabled Then
             insertParticipleToDB(scheduleid)
         End If
 
@@ -307,7 +307,11 @@ Public Class ActivityRegister
 
     Private Sub scheEnd_ValueChanged(sender As Object, e As EventArgs) Handles scheEnd.ValueChanged
         'To make sure that due date is atleast same as end date
+        scheRepeatDue.MinDate = scheEnd.Value
+        scheStart.MaxDate = scheEnd.Value
         scheRepeatDue.Value = scheEnd.Value
+
+
     End Sub
 
     Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
@@ -341,6 +345,7 @@ Public Class ActivityRegister
     Private Sub RepeatationHandler(sender As Object, e As EventArgs) Handles cboBehavior.SelectedIndexChanged, scheRepeatDue.ValueChanged, scheStart.ValueChanged, scheEnd.ValueChanged
         generateRepeatDates()
     End Sub
+
 
     Private Sub insertParticipleToDB(scheduleid As Integer)
         Dim db As New ScheduleDBDataContext
@@ -414,33 +419,50 @@ Public Class ActivityRegister
         End If
     End Sub
 
-    Private Sub scheEnd_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheEnd.Validating
+    Private Sub schedule_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheEnd.Validating, scheStart.Validating
         If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
+            Err.SetError(scheStart, "The Start date must be earlier than the end date")
             Err.SetError(scheEnd, "The end date must be later than the start date")
             e.Cancel = True
         ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
+            Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
         ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID)
+            Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID)
+            Err.SetError(scheEnd, Nothing)
+            Err.SetError(scheStart, "The start date is having conflict with other schedule")
+            e.Cancel = True
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID)
+            Err.SetError(scheStart, "There is schedule conflict between both times")
+            Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True
         Else
             Err.SetError(scheEnd, Nothing)
+            Err.SetError(scheStart, Nothing)
         End If
     End Sub
 
-    Private Sub scheStart_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheStart.Validating
-        If scheEnd.Value.CompareTo(scheStart.Value) < 1 Then
-            Err.SetError(scheStart, "The end date must be later than the start date")
-            e.Cancel = True
-        ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
-            Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
-            e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID)
-            Err.SetError(scheStart, "The end date is having conflict with other schedule")
+    Private Sub scheRepeatDue_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles scheRepeatDue.Validating
+        If scheRepeatDue.Value.CompareTo(scheEnd.Value) > 1 Then
+            Err.SetError(scheRepeatDue, "RepeatDue cannot be earlier than the schedule dates")
             e.Cancel = True
         Else
-            Err.SetError(scheEnd, Nothing)
+            Err.SetError(scheRepeatDue, Nothing)
+        End If
+    End Sub
+
+    Private Sub dgvParticiples_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dgvParticiples.Validating
+        If Not (cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE)) Then
+            If dgvParticiples.RowCount < 1 Then
+                Err.SetError(gbParticiple, cboActivityType.SelectedItem.ToString & " need to be atleast invite 1 person")
+                e.Cancel = True
+            Else
+                Err.SetError(gbParticiple, Nothing)
+            End If
         End If
     End Sub
 End Class
