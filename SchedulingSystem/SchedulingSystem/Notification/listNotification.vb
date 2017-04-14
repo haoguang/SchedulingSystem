@@ -18,6 +18,8 @@
                                            s.Title,
                                            s.ScheduleTimes
                                    }
+
+        'testing
     End Sub
 
     Private Sub lstNotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstNotification.MouseDoubleClick
