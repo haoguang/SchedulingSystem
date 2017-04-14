@@ -182,7 +182,7 @@ Partial Class SecondUserControl
         Me.Controls.Add(Me.gbTimetable)
         Me.Controls.Add(Me.gbSearch)
         Me.Name = "SecondUserControl"
-        Me.Size = New System.Drawing.Size(972, 726)
+        Me.Size = New System.Drawing.Size(817, 726)
         Me.gbSearch.ResumeLayout(False)
         Me.gbSearch.PerformLayout()
         Me.gbTimetable.ResumeLayout(False)
