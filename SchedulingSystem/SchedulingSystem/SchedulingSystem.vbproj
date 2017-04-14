@@ -179,6 +179,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Notification\listNotification.Designer.vb">
+      <DependentUpon>listNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\listNotification.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ScheduleDB.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,6 +305,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notification\listNotification.resx">
+      <DependentUpon>listNotification.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>
     </EmbeddedResource>
@@ -356,9 +365,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Notification\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
