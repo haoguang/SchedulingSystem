@@ -230,10 +230,17 @@
     <Compile Include="TestUserControl1.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="User\LoginSession.vb" />
     <Compile Include="User\Registration.Designer.vb">
       <DependentUpon>Registration.vb</DependentUpon>
     </Compile>
     <Compile Include="User\Registration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserLogin.Designer.vb">
+      <DependentUpon>UserLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\UserMenu.Designer.vb">
@@ -297,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserLogin.resx">
+      <DependentUpon>UserLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserMenu.resx">
       <DependentUpon>UserMenu.vb</DependentUpon>

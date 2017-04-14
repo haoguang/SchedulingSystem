@@ -43,14 +43,13 @@ Partial Class Registration
         Me.radNotSpecified = New System.Windows.Forms.RadioButton()
         Me.radFemale = New System.Windows.Forms.RadioButton()
         Me.radMale = New System.Windows.Forms.RadioButton()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtHobby = New System.Windows.Forms.TextBox()
         Me.btnRegister = New System.Windows.Forms.Button()
-        Me.btnBack = New System.Windows.Forms.Button()
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +84,7 @@ Partial Class Registration
         '
         Me.txtPassword.Location = New System.Drawing.Point(125, 42)
         Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(100, 20)
         Me.txtPassword.TabIndex = 3
         '
@@ -101,6 +101,7 @@ Partial Class Registration
         '
         Me.txtConfirmPassword.Location = New System.Drawing.Point(125, 72)
         Me.txtConfirmPassword.Name = "txtConfirmPassword"
+        Me.txtConfirmPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPassword.Size = New System.Drawing.Size(100, 20)
         Me.txtConfirmPassword.TabIndex = 5
         '
@@ -242,6 +243,15 @@ Partial Class Registration
         Me.radMale.Text = "&Male"
         Me.radMale.UseVisualStyleBackColor = True
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(49, 20)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(48, 13)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "&Gender :"
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -267,15 +277,6 @@ Partial Class Registration
         Me.btnRegister.Text = "&Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
-        'btnBack
-        '
-        Me.btnBack.Location = New System.Drawing.Point(287, 455)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(75, 23)
-        Me.btnBack.TabIndex = 25
-        Me.btnBack.Text = "&Back"
-        Me.btnBack.UseVisualStyleBackColor = True
-        '
         'ofdBrowse
         '
         Me.ofdBrowse.FileName = "OpenFileDialog1"
@@ -298,15 +299,6 @@ Partial Class Registration
         Me.PictureBox1.TabIndex = 26
         Me.PictureBox1.TabStop = False
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(49, 20)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "&Gender :"
-        '
         'Registration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -314,7 +306,6 @@ Partial Class Registration
         Me.ClientSize = New System.Drawing.Size(392, 508)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.txtHobby)
         Me.Controls.Add(Me.Label10)
@@ -337,6 +328,7 @@ Partial Class Registration
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Registration"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registration"
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -371,7 +363,6 @@ Partial Class Registration
     Friend WithEvents Label10 As Label
     Friend WithEvents txtHobby As TextBox
     Friend WithEvents btnRegister As Button
-    Friend WithEvents btnBack As Button
     Friend WithEvents ofdBrowse As OpenFileDialog
     Friend WithEvents btnClear As Button
     Friend WithEvents PictureBox1 As PictureBox

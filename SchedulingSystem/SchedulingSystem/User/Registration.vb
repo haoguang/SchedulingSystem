@@ -24,7 +24,7 @@ Public Class Registration
             ctr = If(ctr, txtPassword)
         End If
 
-        If txtConfirmPassword.Text.Equals(txtPassword) = True Then
+        If txtConfirmPassword.Text.Equals(txtPassword) = False Then
             err.AppendLine("- Confirm password not match.")
             ctr = If(ctr, txtConfirmPassword)
         End If
@@ -35,11 +35,11 @@ Public Class Registration
         End If
 
         If radMale.Checked Then
-            gender = "Male"
+            gender = "M"
         ElseIf radFemale.Checked Then
-            gender = "Female"
+            gender = "F"
         ElseIf radNotSpecified.Checked Then
-            gender = "Not Specified"
+            gender = "N"
         Else
             err.AppendLine("- Please select gender.")
             ctr = If(ctr, radMale)
@@ -93,9 +93,22 @@ Public Class Registration
         m.Email = txtEmail.Text
 
         Dim db As New ScheduleDBDataContext()
-        db.Members.InsertOnSubmit(m)
-        db.SubmitChanges()
 
+        Dim user As Table(Of Member) = db.GetTable(Of Member)()
+        Dim query = From mem In user
+                    Where mem.Username = m.Username
+                    Select mem
+
+        If query.Count > 0 Then
+            MessageBox.Show("Username exist. Please user other username.")
+        Else
+            db.Members.InsertOnSubmit(m)
+            db.SubmitChanges()
+
+            MessageBox.Show("Register Successful :D", "Congratulation")
+            UserLogin.Show()
+            Me.Close()
+        End If
 
     End Sub
 
@@ -160,6 +173,5 @@ Public Class Registration
 
         Next
     End Sub
-
 
 End Class
