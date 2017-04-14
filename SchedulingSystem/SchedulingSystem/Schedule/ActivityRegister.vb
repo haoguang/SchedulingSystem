@@ -1,5 +1,4 @@
 ﻿
-
 Imports System.Data.Linq
 
 Public Class ActivityRegister
@@ -17,7 +16,7 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'initializeScheduleForDevelopment() 'to test adding *******************************
+        initializeScheduleForDevelopment() 'to test adding *******************************
 
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
         cboActivityType.SelectedIndex = 0
@@ -64,6 +63,10 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub activityCreateMode() 'called when control is used to create schedule
+        ' limit date control min date
+        scheStart.MinDate = Date.Today
+        scheEnd.MinDate = Date.Today
+
         AddHandler btnDone.MouseClick, AddressOf btnDoneCreate_MouseClick
 
         'Add button column
@@ -88,6 +91,8 @@ Public Class ActivityRegister
         txtTitle.Text = schedule.Title
         txtBoxDescription.Text = schedule.Description
         txtVenue.Text = schedule.Venue
+        scheRepeatDue.Value = schedule.RepeatDue
+
 
         Dim index As Integer = 0
         Dim i As Integer = 0
@@ -99,6 +104,17 @@ Public Class ActivityRegister
         Next
 
         cboActivityType.SelectedIndex = index
+
+        index = 0
+        i = 0
+        For Each item As String In RepeatationModule.getRepeatStringArray()
+            If item.Equals(RepeatationModule.getRepeatString(schedule.RepeatBehavior)) Then
+                index = i
+            End If
+            i += 1
+        Next
+
+        cboBehavior.SelectedIndex = index
 
     End Sub
 
@@ -161,6 +177,9 @@ Public Class ActivityRegister
             Return
         End If
 
+        Dim repeatBehave As Byte = RepeatationModule.getRepeatBehavior(cboBehavior.SelectedItem.ToString)
+        Dim repeatDue As Date = scheRepeatDue.Value
+
         Dim db As New ScheduleDBDataContext
 
         Dim sche = From s In db.Schedules, st In db.ScheduleTimes
@@ -174,16 +193,29 @@ Public Class ActivityRegister
             .s.Description = txtBoxDescription.Text
             .s.Venue = txtVenue.Text
             .s.Type = cboActivityType.SelectedItem.ToString
+            .s.RepeatDue = repeatDue
+            .s.RepeatBehavior = New Binary(BitConverter.GetBytes(repeatBehave))
         End With
 
         db.SubmitChanges()
+
+        RepeatationModule.deleteScheduleTimeRecord(schedule.ScheduleID)
+
+        If (repeatBehave <> RepeatationModule.REPEAT_NONE And repeat IsNot Nothing) Then
+            repeat.scheduleID = schedule.ScheduleID
+            RepeatationModule.generateScheduleTimeRecord(repeat)
+        End If
+
+
+
     End Sub
 
 
     Private Sub populateParticiples()
         Dim db As New ScheduleDBDataContext()
         Dim rs = From p In db.Participles, m In db.Members
-                 Where m.MemberID = p.MemberID And p.ScheduleID = schedule.ScheduleID And p.Status = "Attend"
+                 Where m.MemberID = p.MemberID And p.ScheduleID = schedule.ScheduleID And
+                     p.Status = ScheduleClass.PARTICIPLE_ATTENT And p.ParticiplesRole <> ScheduleClass.OWNER
                  Select New With {p.MemberID, m.Nickname}
 
         dgvParticipleID.DataPropertyName = "MemberID"
@@ -307,11 +339,15 @@ Public Class ActivityRegister
 
     Private Sub scheEnd_ValueChanged(sender As Object, e As EventArgs) Handles scheEnd.ValueChanged
         'To make sure that due date is atleast same as end date
-        scheRepeatDue.MinDate = scheEnd.Value
+        scheRepeatDue.MinDate = scheEnd.Value.Date
         scheStart.MaxDate = scheEnd.Value
         scheRepeatDue.Value = scheEnd.Value
 
 
+    End Sub
+
+    Private Sub scheStart_ValueChanged(sender As Object, e As EventArgs) Handles scheStart.ValueChanged
+        scheEnd.MinDate = scheStart.Value
     End Sub
 
     Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
@@ -345,7 +381,6 @@ Public Class ActivityRegister
     Private Sub RepeatationHandler(sender As Object, e As EventArgs) Handles cboBehavior.SelectedIndexChanged, scheRepeatDue.ValueChanged, scheStart.ValueChanged, scheEnd.ValueChanged
         generateRepeatDates()
     End Sub
-
 
     Private Sub insertParticipleToDB(scheduleid As Integer)
         Dim db As New ScheduleDBDataContext
@@ -428,15 +463,15 @@ Public Class ActivityRegister
             Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID)
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
             Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID)
+        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
             Err.SetError(scheEnd, Nothing)
             Err.SetError(scheStart, "The start date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID)
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
             Err.SetError(scheStart, "There is schedule conflict between both times")
             Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True
