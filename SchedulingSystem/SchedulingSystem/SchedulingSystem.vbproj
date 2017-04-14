@@ -212,10 +212,22 @@
     <Compile Include="Schedule\RepeatationClass.vb" />
     <Compile Include="Schedule\RepeatationModule.vb" />
     <Compile Include="Schedule\ScheduleClass.vb" />
+    <Compile Include="Schedule\ScheduleDetailView.Designer.vb">
+      <DependentUpon>ScheduleDetailView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleDetailView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
     </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleViewPanel.Designer.vb">
+      <DependentUpon>ScheduleViewPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleViewPanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecondUserControl.Designer.vb">
@@ -291,6 +303,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
+      <DependentUpon>ScheduleDetailView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleViewPanel.resx">
+      <DependentUpon>ScheduleViewPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>
