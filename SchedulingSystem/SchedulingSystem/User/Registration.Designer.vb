@@ -49,6 +49,10 @@ Partial Class Registration
         Me.btnRegister = New System.Windows.Forms.Button()
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.btnClear = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cboQuestion = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtAnswer = New System.Windows.Forms.TextBox()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -116,7 +120,7 @@ Partial Class Registration
         '
         Me.txtEmail.Location = New System.Drawing.Point(125, 214)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(156, 20)
         Me.txtEmail.TabIndex = 16
         '
         'Label5
@@ -268,7 +272,7 @@ Partial Class Registration
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(125, 455)
+        Me.btnRegister.Location = New System.Drawing.Point(125, 511)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(75, 23)
         Me.btnRegister.TabIndex = 23
@@ -281,18 +285,58 @@ Partial Class Registration
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(206, 455)
+        Me.btnClear.Location = New System.Drawing.Point(206, 511)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
         Me.btnClear.TabIndex = 24
         Me.btnClear.Text = "C&lear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(13, 443)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(96, 13)
+        Me.Label11.TabIndex = 25
+        Me.Label11.Text = "Security &Question :"
+        '
+        'cboQuestion
+        '
+        Me.cboQuestion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboQuestion.FormattingEnabled = True
+        Me.cboQuestion.Items.AddRange(New Object() {"Where is your mom's hometown ?", "What is your favorite food ?", "What is the name of your first pet ?", "Who are your best friend ?"})
+        Me.cboQuestion.Location = New System.Drawing.Point(125, 440)
+        Me.cboQuestion.Name = "cboQuestion"
+        Me.cboQuestion.Size = New System.Drawing.Size(196, 21)
+        Me.cboQuestion.TabIndex = 26
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(19, 478)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(89, 13)
+        Me.Label12.TabIndex = 27
+        Me.Label12.Text = "Security &Answer :"
+        '
+        'txtAnswer
+        '
+        Me.txtAnswer.Location = New System.Drawing.Point(125, 475)
+        Me.txtAnswer.Name = "txtAnswer"
+        Me.txtAnswer.Size = New System.Drawing.Size(100, 20)
+        Me.txtAnswer.TabIndex = 28
+        '
         'Registration
         '
+        Me.AcceptButton = Me.btnRegister
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(392, 508)
+        Me.ClientSize = New System.Drawing.Size(392, 544)
+        Me.Controls.Add(Me.txtAnswer)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.cboQuestion)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.txtHobby)
@@ -353,4 +397,8 @@ Partial Class Registration
     Friend WithEvents ofdBrowse As OpenFileDialog
     Friend WithEvents btnClear As Button
     Friend WithEvents Label9 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents cboQuestion As ComboBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents txtAnswer As TextBox
 End Class

@@ -34,9 +34,9 @@
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
 
-        btnUserInfo.pcbProfilePic.Image = My.Resources.user_default
-        btnUserInfo.lblName.Text = "My Sample name"
-        btnUserInfo.lblUserEmail.Text = "hg@sample.com"
+        btnUserInfo.pcbProfilePic.Image = LoginSession.picture
+        btnUserInfo.lblName.Text = LoginSession.nickname
+        btnUserInfo.lblUserEmail.Text = LoginSession.email
     End Sub
 
     Private Sub btnDown_Click()
