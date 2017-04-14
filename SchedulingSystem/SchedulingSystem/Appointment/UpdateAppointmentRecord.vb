@@ -44,15 +44,15 @@ Public Class UpdateAppointmentRecord
 
         memberId = memId.FirstOrDefault.MemberID
 
-        If dateValidator(scheStart.Value, memberId) = True Then
+        If dateValidator(scheStart.Value, memberId, StringIDPass) = True Then
             err.AppendLine("- The start date time is having conflict with other schedule")
             ctr = If(ctr, scheStart)
         End If
-        If dateValidator(scheEnd.Value, memberId) = True Then
+        If dateValidator(scheEnd.Value, memberId, StringIDPass) = True Then
             err.AppendLine("- The end date time is having conflict with other schedule")
             ctr = If(ctr, scheEnd)
         End If
-        If dateValidator2(scheStart.Value, scheEnd.Value, memberId) = True Then
+        If dateValidator2(scheStart.Value, scheEnd.Value, memberId, StringIDPass) = True Then
             err.AppendLine("- There is schedule conflict between both times")
             ctr = If(ctr, scheStart)
             ctr = If(ctr, scheEnd)
