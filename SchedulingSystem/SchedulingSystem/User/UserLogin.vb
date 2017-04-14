@@ -51,11 +51,16 @@ Public Class UserLogin
                     Dim img As Image
                     Dim imgByte As Byte() = Nothing
                     Dim stream As MemoryStream
-                    imgByte = CType(m.Picture.ToArray, Byte())
-                    stream = New MemoryStream(imgByte, 0, imgByte.Length)
-                    img = Image.FromStream(stream)
+                    If m.Picture IsNot Nothing Then
+                        imgByte = CType(m.Picture.ToArray, Byte())
+                        stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                        img = Image.FromStream(stream)
+                    Else
+                        img = My.Resources.user_default
+                    End If
                     LoginSession.picture = img
                     LoginSession.nickname = m.Nickname
+                    LoginSession.email = m.Email
 
                     MessageBox.Show("Login Success.", "Congratulation")
                     MainForm.Show()
