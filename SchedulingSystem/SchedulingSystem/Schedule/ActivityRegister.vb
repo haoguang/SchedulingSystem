@@ -8,10 +8,10 @@ Public Class ActivityRegister
     Private Sub initializeScheduleForDevelopment() '******************************************
         Dim db As New ScheduleDBDataContext
 
-        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000002)
-        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000002)
+        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000006)
+        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000006 And o.InitialTime = True)
 
-        Dim thisSchedule As ScheduleClass = New ScheduleClass(s.ScheduleID, CDate(st.ScheduleStart), CDate(st.ScheduleEnd), CDate(s.RepeatDue), CByte(s.RepeatBehavior.ToArray(8)), s.Title, s.Description, s.Venue, s.Type, s.Status)
+        Dim thisSchedule As ScheduleClass = New ScheduleClass(s.ScheduleID, CDate(st.ScheduleStart), CDate(st.ScheduleEnd), CDate(s.RepeatDue), CByte(s.RepeatBehavior.ToArray().First()), s.Title, s.Description, s.Venue, s.Type, s.Status)
         schedule = thisSchedule
     End Sub
 
@@ -206,7 +206,7 @@ Public Class ActivityRegister
             RepeatationModule.generateScheduleTimeRecord(repeat)
         End If
 
-
+        MessageBox.Show("Successfully edited a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
@@ -368,7 +368,7 @@ Public Class ActivityRegister
         Dim repeatDue As Date = scheRepeatDue.Value
 
         If Not (cboBehavior.SelectedItem.ToString.Equals(RepeatationModule.NONE_STRING)) Then
-            repeat = New RepeatationClass(0, startDate, endDate)
+            repeat = New RepeatationClass(If(schedule Is Nothing, 0, schedule.ScheduleID), startDate, endDate)
             Dim errorMessage = repeat.generateDateArray(RepeatationModule.getRepeatBehavior(cboBehavior.SelectedItem.ToString), repeatDue)
 
             If Not (errorMessage.Equals("errorless")) Then
