@@ -7,7 +7,7 @@
         Dim db As New ScheduleDBDataContext()
 
         Dim friendNotification = From f In db.Friends, m In db.Members
-                                 Where f.FriendID = userId And f.Status = "pending" And f.UserID = m.MemberID
+                                 Where f.UserID = userId And f.Status = "pending" And f.Inviter = m.MemberID
                                  Select New With {
                                      m.Username
                                    }
@@ -19,7 +19,15 @@
                                            s.ScheduleTimes
                                    }
 
-        'testing
+        If (friendNotification IsNot Nothing) Then
+            lstNotification.Items.Add(friendNotification)
+        ElseIf (appointmentNotification IsNot Nothing) Then
+            lstNotification.Items.Add(appointmentNotification)
+        ElseIf (friendNotification Is Nothing And appointmentNotification Is Nothing) Then
+            lstNotification.Items.Add("N/A")
+        ElseIf (friendNotification IsNot Nothing And appointmentNotification IsNot Nothing) Then
+            lstNotification.Items.Add("Hello")
+        End If
     End Sub
 
     Private Sub lstNotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstNotification.MouseDoubleClick

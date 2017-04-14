@@ -54,4 +54,10 @@
     Private Sub umDropDownMenu_MouseLeave(sender As Object, e As EventArgs) Handles umDropDownMenu.MouseLeave
 
     End Sub
+
+    Private Sub btnNotification_Click(sender As Object, e As EventArgs) Handles btnNotification.Click
+        Dim listNotification As New listNotification
+        ContentPanel.Controls.Clear()
+        ContentPanel.Controls.Add(listNotification)
+    End Sub
 End Class
