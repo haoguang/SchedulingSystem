@@ -49,10 +49,8 @@ Partial Class Registration
         Me.btnRegister = New System.Windows.Forms.Button()
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -290,21 +288,11 @@ Partial Class Registration
         Me.btnClear.Text = "C&lear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(244, 311)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(118, 90)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 26
-        Me.PictureBox1.TabStop = False
-        '
         'Registration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(392, 508)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.txtHobby)
@@ -333,7 +321,6 @@ Partial Class Registration
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -365,6 +352,5 @@ Partial Class Registration
     Friend WithEvents btnRegister As Button
     Friend WithEvents ofdBrowse As OpenFileDialog
     Friend WithEvents btnClear As Button
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label9 As Label
 End Class

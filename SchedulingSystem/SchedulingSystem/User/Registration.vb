@@ -151,27 +151,4 @@ Public Class Registration
         radNotSpecified.Checked = False
         picPicture.Image = Nothing
     End Sub
-
-    Private Sub Registration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim db As New ScheduleDBDataContext
-        Dim member As Table(Of Member) = db.GetTable(Of Member)()
-
-        Dim query = From m In member
-                    Where m.Username = "haha"
-                    Select m
-
-        For Each m In query
-            Dim img As Image
-            Dim imgByte As Byte() = Nothing
-
-            Dim stream As MemoryStream
-            imgByte = CType(m.Picture.ToArray, Byte())
-            stream = New MemoryStream(imgByte, 0, imgByte.Length)
-
-            img = Image.FromStream(stream)
-            PictureBox1.Image = img
-
-        Next
-    End Sub
-
 End Class
