@@ -44,33 +44,25 @@ Public Class UpdateAppointmentRecord
 
         memberId = memId.FirstOrDefault.MemberID
 
-        If dateValidator(scheStart.Value, memberId, StringIDPass) = True Then ' need to take back the schedule id
-            err.AppendLine("- Start time is not available")
+        If dateValidator(scheStart.Value, memberId) = True Then
+            err.AppendLine("- The start date time is having conflict with other schedule")
             ctr = If(ctr, scheStart)
         End If
-        If dateValidator(scheEnd.Value, memberId, StringIDPass) = True Then ' need to take back the schedule id
-            err.AppendLine("- End time is not available")
+        If dateValidator(scheEnd.Value, memberId) = True Then
+            err.AppendLine("- The end date time is having conflict with other schedule")
             ctr = If(ctr, scheEnd)
         End If
-        If dateValidator2(scheStart.Value, scheEnd.Value, memberId, StringIDPass) = True Then ' need to take back the schedule id
-            err.AppendLine("- Start time and End time are not available")
+        If dateValidator2(scheStart.Value, scheEnd.Value, memberId) = True Then
+            err.AppendLine("- There is schedule conflict between both times")
             ctr = If(ctr, scheStart)
             ctr = If(ctr, scheEnd)
-        End If
-        If title = "" Then
-            err.AppendLine("- Please enter title.")
-            ctr = If(ctr, txtTitle)
-        End If
-        If description = "" Then
-            err.AppendLine("- Please enter description.")
-            ctr = If(ctr, txtBoxDescription)
-        End If
-        If venue = "" Then
-            err.AppendLine("- Please enter venue")
-            ctr = If(ctr, txtVenue)
         End If
         If scheEnd.Value < scheStart.Value Then
             err.AppendLine("- End time cannot earlier than start time.")
+            ctr = If(ctr, scheEnd)
+        End If
+        If DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
+            err.AppendLine("- The duration of the time must at least 30 minutes")
             ctr = If(ctr, scheEnd)
         End If
         If (err.Length > 0) Then
@@ -121,6 +113,34 @@ Public Class UpdateAppointmentRecord
             MessageBox.Show("The appointment is cancelled", "Cancel Successful", MessageBoxButtons.OK, MessageBoxIcon.None)
             Me.Close()
 
+        End If
+    End Sub
+
+
+    Private Sub txtTitle_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtTitle.Validating
+        If txtTitle.Text.Equals("") Then
+            err.SetError(txtTitle, "Field must not be empty.")
+            e.Cancel = True
+        Else
+            err.SetError(txtTitle, Nothing)
+        End If
+    End Sub
+
+    Private Sub txtBoxDescription_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtBoxDescription.Validating
+        If txtBoxDescription.Text.Equals("") Then
+            err.SetError(txtBoxDescription, "Field must not be empty")
+            e.Cancel = True
+        Else
+            err.SetError(txtBoxDescription, Nothing)
+        End If
+    End Sub
+
+    Private Sub txtVenue_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtVenue.Validating
+        If txtVenue.Text.Equals("") Then
+            err.SetError(txtVenue, "Field must not be empty")
+            e.Cancel = True
+        Else
+            err.SetError(txtVenue, Nothing)
         End If
     End Sub
 End Class
