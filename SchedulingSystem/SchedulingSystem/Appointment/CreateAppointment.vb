@@ -57,7 +57,7 @@ Public Class CreateAppointment
             ctr = If(ctr, scheEnd)
         End If
         If (err.Length > 0) Then
-            MessageBox.Show(err.ToString, "Input Error")
+            MessageBox.Show(err.ToString, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ctr.Focus()
             Return
         End If

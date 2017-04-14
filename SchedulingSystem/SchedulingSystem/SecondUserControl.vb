@@ -79,6 +79,7 @@ Public Class SecondUserControl
             col.Name = "colWhateverName"
             col.DefaultCellStyle.NullValue = "N/A"
             dgvTimetable.Columns.Insert(2, col)
+            dgvTimetable.AutoResizeColumns()
         End If
 
 
