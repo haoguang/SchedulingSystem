@@ -14,7 +14,6 @@ Public Class UserLogin
         'database
         Dim db As New ScheduleDBDataContext
         Dim member As Table(Of Member) = db.GetTable(Of Member)()
-
         Dim err As New StringBuilder()
         Dim ctr As Control = Nothing
 
@@ -62,6 +61,14 @@ Public Class UserLogin
                     LoginSession.nickname = m.Nickname
                     LoginSession.email = m.Email
 
+                    Dim l As New LoginRecord()
+                    l.SignInTime = DateTime.Now
+                    l.UserId = m.MemberID
+                    db.LoginRecords.InsertOnSubmit(l)
+                    db.SubmitChanges()
+
+
+
                     MessageBox.Show("Login Success.", "Congratulation")
                     MainForm.Show()
                     Me.Close()
@@ -77,46 +84,7 @@ Public Class UserLogin
     End Sub
 
     Private Sub btnForgotPassword_Click(sender As Object, e As EventArgs) Handles btnForgotPassword.Click
-        Try
-            Dim mail = New MailMessage()
-            mail.From = New MailAddress("testingprogram80@gmail.com")
-            Dim smtp = New SmtpClient()
-
-            Dim db As New ScheduleDBDataContext
-            Dim member As Table(Of Member) = db.GetTable(Of Member)()
-
-            Dim query = From m In member
-                        Where m.Username = txtUsername.Text
-                        Select m
-
-
-            If query.Count > 0 Then
-                For Each m In query
-                    '25 if use phone data
-                    '587 if use wifi
-                    smtp.Port = 587
-                    smtp.EnableSsl = True
-                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network
-                    smtp.UseDefaultCredentials = False
-                    smtp.Credentials = New NetworkCredential(mail.From.Address, "123456789abc")
-                    smtp.Host = "smtp.gmail.com"
-
-                    mail.To.Add(m.Email)
-                    mail.IsBodyHtml = True
-                    Dim st As New StringBuilder
-                    st.AppendLine("Your password is: " + m.Password)
-
-                    mail.Body = st.ToString()
-                    smtp.Send(mail)
-                    MsgBox("Your password has been sent to your email.")
-                Next
-            Else
-                MessageBox.Show("Username not exist", "Error")
-            End If
-
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+        ForgotPassword.ShowDialog()
     End Sub
 
 End Class

@@ -1,9 +1,7 @@
 ﻿Public Class MainForm
     Private Sub btnSchedule_Click(sender As Object, e As EventArgs) Handles btnSchedule.Click
-        Dim UserCtrl1 As New DayScheduleViewer
+
         Dim SideContent As New ScheduleSidePanel
-        ContentPanel.Controls.Clear()
-        ContentPanel.Controls.Add(UserCtrl1)
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(SideContent)
     End Sub
@@ -34,7 +32,6 @@
     End Sub
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
         btnUserInfo.pcbProfilePic.Image = LoginSession.picture
         btnUserInfo.lblName.Text = LoginSession.nickname
         btnUserInfo.lblUserEmail.Text = LoginSession.email
@@ -61,4 +58,5 @@
         ContentPanel.Controls.Clear()
         ContentPanel.Controls.Add(listNotification)
     End Sub
+
 End Class

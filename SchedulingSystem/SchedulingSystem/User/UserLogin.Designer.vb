@@ -60,6 +60,7 @@ Partial Class UserLogin
         '
         Me.txtPassword.Location = New System.Drawing.Point(97, 73)
         Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(100, 20)
         Me.txtPassword.TabIndex = 3
         '

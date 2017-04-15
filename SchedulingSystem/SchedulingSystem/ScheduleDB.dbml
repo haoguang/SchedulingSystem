@@ -47,7 +47,7 @@
   </Table>
   <Table Name="dbo.LoginRecord" Member="LoginRecords">
     <Type Name="LoginRecord">
-      <Column Name="LogId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LogId" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SignInTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="SignOutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
