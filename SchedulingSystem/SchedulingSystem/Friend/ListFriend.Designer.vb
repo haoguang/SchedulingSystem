@@ -223,9 +223,11 @@ Partial Class ListFriend
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.ErrorImage = Global.SchedulingSystem.My.Resources.Resources.user_default
         Me.PictureBox1.Location = New System.Drawing.Point(742, 87)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(200, 280)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '

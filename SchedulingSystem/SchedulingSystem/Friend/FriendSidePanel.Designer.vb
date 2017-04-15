@@ -25,6 +25,10 @@ Partial Class FriendSidePanel
         Me.btnFriend = New System.Windows.Forms.Button()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.DGVF = New System.Windows.Forms.DataGridView()
+        Me.Picture_User = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DGVF, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -63,6 +67,7 @@ Partial Class FriendSidePanel
         Me.DGVF.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DGVF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DGVF.ColumnHeadersVisible = False
+        Me.DGVF.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Picture_User, Me.Username, Me.ID, Me.Status})
         Me.DGVF.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.DGVF.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.DGVF.Location = New System.Drawing.Point(0, 39)
@@ -80,6 +85,40 @@ Partial Class FriendSidePanel
         Me.DGVF.ShowEditingIcon = False
         Me.DGVF.Size = New System.Drawing.Size(396, 448)
         Me.DGVF.TabIndex = 4
+        '
+        'Picture_User
+        '
+        Me.Picture_User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Picture_User.FillWeight = 121.8274!
+        Me.Picture_User.HeaderText = "Picture_User"
+        Me.Picture_User.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.Picture_User.Name = "Picture_User"
+        Me.Picture_User.ReadOnly = True
+        Me.Picture_User.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'Username
+        '
+        Me.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Username.FillWeight = 92.7242!
+        Me.Username.HeaderText = "Username"
+        Me.Username.Name = "Username"
+        Me.Username.ReadOnly = True
+        '
+        'ID
+        '
+        Me.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ID.FillWeight = 92.7242!
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        '
+        'Status
+        '
+        Me.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Status.FillWeight = 92.7242!
+        Me.Status.HeaderText = "Status"
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
         '
         'FriendSidePanel
         '
@@ -99,4 +138,8 @@ Partial Class FriendSidePanel
     Friend WithEvents btnFriend As Button
     Friend WithEvents txtsearch As TextBox
     Friend WithEvents DGVF As DataGridView
+    Friend WithEvents Picture_User As DataGridViewImageColumn
+    Friend WithEvents Username As DataGridViewTextBoxColumn
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Status As DataGridViewTextBoxColumn
 End Class
