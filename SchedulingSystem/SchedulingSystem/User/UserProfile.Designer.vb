@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class UserProfile
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class UserProfile
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.picPicture = New System.Windows.Forms.PictureBox()
         Me.btnImage = New System.Windows.Forms.Button()
@@ -40,6 +40,9 @@ Partial Class UserProfile
         Me.txtOccupation = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtHobby = New System.Windows.Forms.TextBox()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnChange = New System.Windows.Forms.Button()
+        Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -91,6 +94,7 @@ Partial Class UserProfile
         'mskNickname
         '
         Me.mskNickname.Location = New System.Drawing.Point(226, 55)
+        Me.mskNickname.Mask = "????????????????????"
         Me.mskNickname.Name = "mskNickname"
         Me.mskNickname.Size = New System.Drawing.Size(100, 20)
         Me.mskNickname.TabIndex = 5
@@ -170,7 +174,7 @@ Partial Class UserProfile
         '
         Me.txtEmail.Location = New System.Drawing.Point(226, 173)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(147, 20)
         Me.txtEmail.TabIndex = 10
         '
         'Label5
@@ -205,11 +209,35 @@ Partial Class UserProfile
         Me.txtHobby.Size = New System.Drawing.Size(100, 20)
         Me.txtHobby.TabIndex = 14
         '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(165, 301)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(92, 23)
+        Me.btnUpdate.TabIndex = 15
+        Me.btnUpdate.Text = "&Update Profile"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
+        'btnChange
+        '
+        Me.btnChange.Location = New System.Drawing.Point(284, 301)
+        Me.btnChange.Name = "btnChange"
+        Me.btnChange.Size = New System.Drawing.Size(98, 23)
+        Me.btnChange.TabIndex = 16
+        Me.btnChange.Text = "&ChangePassword"
+        Me.btnChange.UseVisualStyleBackColor = True
+        '
+        'ofdBrowse
+        '
+        Me.ofdBrowse.FileName = "OpenFileDialog1"
+        '
         'UserProfile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(423, 393)
+        Me.Controls.Add(Me.btnChange)
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.txtHobby)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtOccupation)
@@ -254,4 +282,7 @@ Partial Class UserProfile
     Friend WithEvents txtOccupation As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txtHobby As TextBox
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnChange As Button
+    Friend WithEvents ofdBrowse As OpenFileDialog
 End Class
