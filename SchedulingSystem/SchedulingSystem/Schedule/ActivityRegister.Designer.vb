@@ -47,8 +47,6 @@ Partial Class ActivityRegister
         Me.btnAddParti = New System.Windows.Forms.PictureBox()
         Me.lblParticipleTitle = New System.Windows.Forms.Label()
         Me.dgvParticiples = New System.Windows.Forms.DataGridView()
-        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Err = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbReminder = New System.Windows.Forms.GroupBox()
@@ -56,6 +54,9 @@ Partial Class ActivityRegister
         Me.btnAddReminder = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.lblMinBefore = New System.Windows.Forms.Label()
+        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvParticiplePic = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.gbParticiple.SuspendLayout()
@@ -325,7 +326,7 @@ Partial Class ActivityRegister
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvParticiples.ColumnHeadersVisible = False
-        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName})
+        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticiplePic, Me.dgvParticipleName})
         Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgvParticiples.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.dgvParticiples.Location = New System.Drawing.Point(3, 56)
@@ -341,22 +342,6 @@ Partial Class ActivityRegister
         Me.dgvParticiples.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvParticiples.Size = New System.Drawing.Size(271, 312)
         Me.dgvParticiples.TabIndex = 0
-        '
-        'dgvParticipleID
-        '
-        Me.dgvParticipleID.HeaderText = "Participle ID"
-        Me.dgvParticipleID.Name = "dgvParticipleID"
-        Me.dgvParticipleID.ReadOnly = True
-        Me.dgvParticipleID.Visible = False
-        '
-        'dgvParticipleName
-        '
-        Me.dgvParticipleName.FillWeight = 50.0!
-        Me.dgvParticipleName.HeaderText = "Participle Name"
-        Me.dgvParticipleName.Name = "dgvParticipleName"
-        Me.dgvParticipleName.ReadOnly = True
-        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvParticipleName.Width = 221
         '
         'btnCancel
         '
@@ -427,6 +412,29 @@ Partial Class ActivityRegister
         Me.lblMinBefore.TabIndex = 3
         Me.lblMinBefore.Text = "&Minutes Before :"
         '
+        'dgvParticipleID
+        '
+        Me.dgvParticipleID.HeaderText = "Participle ID"
+        Me.dgvParticipleID.Name = "dgvParticipleID"
+        Me.dgvParticipleID.ReadOnly = True
+        Me.dgvParticipleID.Visible = False
+        '
+        'dgvParticiplePic
+        '
+        Me.dgvParticiplePic.HeaderText = "Profile Picture"
+        Me.dgvParticiplePic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.dgvParticiplePic.Name = "dgvParticiplePic"
+        Me.dgvParticiplePic.ReadOnly = True
+        '
+        'dgvParticipleName
+        '
+        Me.dgvParticipleName.FillWeight = 50.0!
+        Me.dgvParticipleName.HeaderText = "Participle Name"
+        Me.dgvParticipleName.Name = "dgvParticipleName"
+        Me.dgvParticipleName.ReadOnly = True
+        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvParticipleName.Width = 221
+        '
         'ActivityRegister
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -478,8 +486,6 @@ Partial Class ActivityRegister
     Friend WithEvents dgvParticiples As DataGridView
     Friend WithEvents btnAddParti As PictureBox
     Friend WithEvents lblParticipleTitle As Label
-    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
-    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
     Friend WithEvents btnCancel As Button
     Friend WithEvents Err As ErrorProvider
     Friend WithEvents gbReminder As GroupBox
@@ -487,4 +493,7 @@ Partial Class ActivityRegister
     Friend WithEvents btnAddReminder As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents lblMinBefore As Label
+    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
+    Friend WithEvents dgvParticiplePic As DataGridViewImageColumn
+    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
 End Class

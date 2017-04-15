@@ -1,22 +1,24 @@
 ﻿
 Imports System.Data.Linq
+Imports System.IO
 
 Public Class ActivityRegister
     Private schedule As ScheduleClass
     Private repeat As RepeatationClass
 
+
     Private Sub initializeScheduleForDevelopment() '******************************************
         Dim db As New ScheduleDBDataContext
 
-        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000006)
-        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000006 And o.InitialTime = True)
+        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000005)
+        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000005 And o.InitialTime = True)
 
         Dim thisSchedule As ScheduleClass = New ScheduleClass(s.ScheduleID, CDate(st.ScheduleStart), CDate(st.ScheduleEnd), CDate(s.RepeatDue), CByte(s.RepeatBehavior.ToArray().First()), s.Title, s.Description, s.Venue, s.Type, s.Status)
         schedule = thisSchedule
     End Sub
 
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        initializeScheduleForDevelopment() 'to test adding *******************************
+        'initializeScheduleForDevelopment() 'to test adding *******************************
 
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
         cboActivityType.SelectedIndex = 0
@@ -46,7 +48,7 @@ Public Class ActivityRegister
                 .HeaderText = "Remove"
                 .ToolTipText = "Remore this participle"
             End With
-            dgvParticiples.Columns.Insert(2, iconColumn)
+            dgvParticiples.Columns.Insert(3, iconColumn)
             btnAddParti.Enabled = True
             btnAddParti.Visible = True
         Else
@@ -78,7 +80,7 @@ Public Class ActivityRegister
             .HeaderText = "Remove"
             .ToolTipText = "Remore this participle"
         End With
-        dgvParticiples.Columns.Insert(2, iconColumn)
+        dgvParticiples.Columns.Insert(3, iconColumn)
         btnAddParti.Enabled = True
         btnAddParti.Visible = True
 
@@ -212,15 +214,29 @@ Public Class ActivityRegister
 
 
     Private Sub populateParticiples()
+        dgvParticiples.Rows.Clear()
         Dim db As New ScheduleDBDataContext()
         Dim rs = From p In db.Participles, m In db.Members
                  Where m.MemberID = p.MemberID And p.ScheduleID = schedule.ScheduleID And
                      p.Status = ScheduleClass.PARTICIPLE_ATTENT And p.ParticiplesRole <> ScheduleClass.OWNER
-                 Select New With {p.MemberID, m.Nickname}
+                 Select New With {m.Picture, p.MemberID, m.Nickname}
 
-        dgvParticipleID.DataPropertyName = "MemberID"
-        dgvParticipleName.DataPropertyName = "Nickname"
-        dgvParticiples.DataSource = rs
+        For Each i In rs
+            Dim ProPic As Image
+            Dim imgByte As Byte() = Nothing
+
+            Dim stream As MemoryStream
+            If i.Picture IsNot Nothing Then
+                imgByte = CType(i.Picture.ToArray, Byte())
+                stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                ProPic = Image.FromStream(stream)
+            Else
+                ProPic = My.Resources.user_default
+            End If
+
+            dgvParticiples.Rows.Add(i.MemberID, ProPic, i.Nickname)
+        Next
+
     End Sub
 
     Private Sub btnAddParti_MouseEnterAndUp(sender As Object, e As EventArgs) Handles btnAddParti.MouseEnter, btnAddParti.MouseUp
@@ -239,10 +255,13 @@ Public Class ActivityRegister
         Dim dgvWidth As Double = dgvParticiples.Width
 
         If dgvParticiples.Columns("dgvParticiplesRemove") Is Nothing Then
-            dgvParticiples.Columns("dgvParticipleName").Width = CInt(dgvWidth)
+            dgvParticiples.Columns("dgvParticiplePic").Width = dgvParticiples.RowTemplate.Height
+            dgvParticiples.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticiples.Columns("dgvParticiplePic").Width)
         Else
+
+            dgvParticiples.Columns("dgvParticiplePic").Width = dgvParticiples.RowTemplate.Height
             dgvParticiples.Columns("dgvParticiplesRemove").Width = dgvParticiples.RowTemplate.Height
-            dgvParticiples.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticiples.Columns(2).Width)
+            dgvParticiples.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticiples.Columns("dgvParticiplesRemove").Width - dgvParticiples.Columns("dgvParticiplePic").Width)
         End If
 
 
@@ -309,7 +328,7 @@ Public Class ActivityRegister
 
                     If p Is Nothing Then
                         MsgBox("The record of the user fail to retrieved", vbOKOnly, "Error")
-                    ElseIf p.ParticiplesRole.Equals("Owner")
+                    ElseIf p.ParticiplesRole.Equals("Owner") Then
                         MsgBox("You can't remove yourself as an owner of the activity", vbOKOnly, "Warning")
                     Else
                         db.Participles.DeleteOnSubmit(p)
@@ -463,15 +482,15 @@ Public Class ActivityRegister
             Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheEnd, Nothing)
             Err.SetError(scheStart, "The start date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID))
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, "There is schedule conflict between both times")
             Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True
@@ -498,6 +517,14 @@ Public Class ActivityRegister
             Else
                 Err.SetError(gbParticiple, Nothing)
             End If
+        End If
+    End Sub
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        If schedule Is Nothing Then
+            'in process
+        Else
+
         End If
     End Sub
 End Class

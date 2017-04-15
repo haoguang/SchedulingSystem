@@ -1,8 +1,12 @@
-﻿Public Class AddParticiple
+﻿Imports System.Drawing.Imaging
+Imports System.IO
+
+Public Class AddParticiple
     Friend ScheduleID As Integer = -1
     Friend participleList As DataGridView
 
     Private Sub refreshFriendGridView(keyword As String)
+        dgvAddUsers.Rows.Clear()
         Dim db As New ScheduleDBDataContext()
 
         Dim friends = From f In db.Friends, m In db.Members
@@ -11,28 +15,50 @@
                           f.Status <> "Pending" And
                           (m.Nickname.Contains(keyword) Or
                           m.Username.Contains(keyword))
-                      Select m.MemberID, m.Nickname
+                      Select m.Picture, m.MemberID, m.Nickname
 
-        dgvAddUsersID.DataPropertyName = "MemberID"
-        dgvAddUsersName.DataPropertyName = "Nickname"
-        dgvAddUsersButton.Image = My.Resources.transparent
-        dgvAddUsersButton.ToolTipText = "Add User"
-        dgvAddUsers.DataSource = friends
+        For Each i In friends
+            Dim ProPic As Image
+            Dim imgByte As Byte() = Nothing
+
+            Dim stream As MemoryStream
+            If i.Picture IsNot Nothing Then
+                imgByte = CType(i.Picture.ToArray, Byte())
+                stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                ProPic = Image.FromStream(stream)
+            Else
+                ProPic = My.Resources.user_default
+            End If
+
+            dgvAddUsers.Rows.Add(i.MemberID, ProPic, i.Nickname, My.Resources.transparent)
+        Next
     End Sub
 
     Private Sub refreshPublicGridView(Keyword As String)
+
+        dgvPublic.Rows.Clear()
         Dim db As New ScheduleDBDataContext()
 
         Dim friends = From m In db.Members
                       Where (m.Nickname.Contains(Keyword) Or
                           m.Username.Contains(Keyword)) And Not (m.MemberID = DevelopmentVariables.UserID)
-                      Select m.MemberID, m.Nickname
+                      Select m.Picture, m.MemberID, m.Nickname
 
-        dgvPublicUserID.DataPropertyName = "MemberID"
-        dgvPublicName.DataPropertyName = "Nickname"
-        dgvPublicAddButton.Image = My.Resources.transparent
-        dgvPublicAddButton.ToolTipText = "Add User"
-        dgvPublic.DataSource = friends
+        For Each i In friends
+            Dim ProPic As Image
+            Dim imgByte As Byte() = Nothing
+
+            Dim stream As MemoryStream
+            If i.Picture IsNot Nothing Then
+                imgByte = CType(i.Picture.ToArray, Byte())
+                stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                ProPic = Image.FromStream(stream)
+            Else
+                ProPic = My.Resources.user_default
+            End If
+
+            dgvPublic.Rows.Add(i.MemberID, ProPic, i.Nickname, My.Resources.transparent)
+        Next
     End Sub
 
     Private Sub AddParticiple_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -46,10 +72,13 @@
     Private Sub settingColumnWidth()
 
         dgvAddUsers.Columns("dgvAddUsersButton").Width = dgvAddUsers.RowTemplate.Height
-        dgvAddUsers.Columns("dgvAddUsersName").Width = CInt(dgvAddUsers.Width - dgvAddUsers.Columns("dgvAddUsersButton").Width)
+        dgvAddUsers.Columns("dgvAddUsersProPic").Width = dgvAddUsers.RowTemplate.Height
+        dgvAddUsers.Columns("dgvAddUsersName").Width = CInt(dgvAddUsers.Width - dgvAddUsers.Columns("dgvAddUsersButton").Width - dgvAddUsers.Columns("dgvAddUsersProPic").Width)
 
+
+        dgvPublic.Columns("dgvPublicUserPicture").Width = dgvPublic.RowTemplate.Height
         dgvPublic.Columns("dgvPublicAddButton").Width = dgvPublic.RowTemplate.Height
-        dgvPublic.Columns("dgvPublicName").Width = CInt(dgvPublic.Width - dgvPublic.Columns("dgvPublicAddButton").Width)
+        dgvPublic.Columns("dgvPublicName").Width = CInt(dgvPublic.Width - dgvPublic.Columns("dgvPublicAddButton").Width - dgvPublic.Columns("dgvPublicUserPicture").Width)
     End Sub
 
     Private Sub tbcParticipleAdd_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tbcParticipleAdd.SelectedIndexChanged
@@ -89,16 +118,16 @@
         If columnName = "dgvAddUsersButton" Then
 
             If ScheduleID = -1 Then
-                'for create user list
-                EditParticipleWhenCreateSchedule(CInt(dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersID").Value), dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersName").Value.ToString)
+                'for create mode user list
+                EditParticipleWhenCreateSchedule(CType(dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersProPic").Value, Image), CInt(dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersID").Value), dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersName").Value.ToString)
             Else
-                'for edit user list
+                'for edit mode user list
                 EditParticipleWhenEditSchedule(CInt(dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersID").Value), dgvAddUsers.Rows(e.RowIndex).Cells("dgvAddUsersName").Value.ToString)
             End If
         End If
     End Sub
 
-    Sub EditParticipleWhenCreateSchedule(userID As Integer, userName As String)
+    Sub EditParticipleWhenCreateSchedule(ProPic As Image, userID As Integer, userName As String)
 
         For Each item As DataGridViewRow In participleList.Rows
             If item.Cells("dgvParticipleID").Value.Equals(userID) Then
@@ -106,7 +135,7 @@
                 Return
             End If
         Next
-        participleList.Rows.Add(userID, userName, My.Resources.transparent)
+        participleList.Rows.Add(userID, ProPic, userName, My.Resources.transparent)
         MessageBox.Show("Successfully added " & userName & " to the list.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
@@ -163,7 +192,7 @@
 
             If ScheduleID = -1 Then
                 'for create user list
-                EditParticipleWhenCreateSchedule(CInt(dgvPublic.Rows(e.RowIndex).Cells("dgvPublicUserID").Value), dgvPublic.Rows(e.RowIndex).Cells("dgvPublicName").Value.ToString)
+                EditParticipleWhenCreateSchedule(CType(dgvPublic.Rows(e.RowIndex).Cells("dgvPublicUserPicture").Value, Image), CInt(dgvPublic.Rows(e.RowIndex).Cells("dgvPublicUserID").Value), dgvPublic.Rows(e.RowIndex).Cells("dgvPublicName").Value.ToString)
             Else
                 'for edit user list
                 EditParticipleWhenEditSchedule(CInt(dgvPublic.Rows(e.RowIndex).Cells("dgvPublicUserID").Value), dgvPublic.Rows(e.RowIndex).Cells("dgvPublicName").Value.ToString)
