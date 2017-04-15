@@ -179,6 +179,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Notification\apmtDetail.vb" />
+    <Compile Include="Notification\ApmtNoticeDetail.vb" />
+    <Compile Include="Notification\AppointmentNotification.Designer.vb">
+      <DependentUpon>AppointmentNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\AppointmentNotification.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Notification\FriendNotification.Designer.vb">
       <DependentUpon>FriendNotification.vb</DependentUpon>
     </Compile>
@@ -322,6 +330,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification\AppointmentNotification.resx">
+      <DependentUpon>AppointmentNotification.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
       <DependentUpon>ScheduleDetailView.vb</DependentUpon>

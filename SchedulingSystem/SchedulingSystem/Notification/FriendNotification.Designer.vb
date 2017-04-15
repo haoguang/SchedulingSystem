@@ -86,7 +86,7 @@ Partial Class FriendNotification
         Me.Controls.Add(Me.PictureBox1)
         Me.MaximizeBox = False
         Me.Name = "FriendNotification"
-        Me.Text = "FriendNotification"
+        Me.Text = "Friend Notification"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
