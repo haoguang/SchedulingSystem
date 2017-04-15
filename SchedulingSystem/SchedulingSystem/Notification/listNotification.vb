@@ -28,7 +28,7 @@
 
         If friendQuery.Count > 0 Then
             For Each m In friendQuery
-                lstNotification.Items.Add(String.Format("{0}   {1}", m.Username, friendQuery.Count))
+                lstNotification.Items.Add(String.Format("{0} sent you a friend request. {1}", m.Username, friendQuery.Count))
             Next
         Else
             lstNotification.Items.Add("friend N/A")
