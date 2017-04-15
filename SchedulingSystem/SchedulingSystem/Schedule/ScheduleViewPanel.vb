@@ -45,7 +45,7 @@
 
         If prevCtrl.Peek.GetType.ToString.Equals("SchedulingSystem.DayScheduleViewer") Then
             My.Forms.MainForm.ContentPanel.Controls.Clear()
-            My.Forms.MainForm.ContentPanel.Controls.Add(prevCtrl.Pop)
+            My.Forms.MainForm.ContentPanel.Controls.Add(CType(prevCtrl.Pop, DayScheduleViewer))
         Else
             Me.DetailViewPanel.Controls.Clear()
             Me.DetailViewPanel.Controls.Add(prevCtrl.Pop)
