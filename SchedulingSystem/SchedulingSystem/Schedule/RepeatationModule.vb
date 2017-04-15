@@ -1,23 +1,38 @@
 ﻿Module RepeatationModule
 
-    Friend Sub generateScheduleTimeRecord(ScheduleID As Integer, RepeatString As String)
+    Friend Sub deleteScheduleTimeRecord(scheduleID As Integer)
         Dim db As New ScheduleDBDataContext
 
-        Dim scheduleTime = From st In db.ScheduleTimes, s In db.Schedules
-                           Where st.ScheduleID = ScheduleID And st.InitialTime = True And st.ScheduleID = s.ScheduleID
-                           Select st.ScheduleStart, st.ScheduleEnd, s.RepeatDue, s.RepeatBehavior
+        Dim rs = db.ScheduleTimes.Where(Function(st) st.ScheduleID = scheduleID And st.InitialTime = False)
 
-        Dim startTime As DateTime = CDate(scheduleTime.FirstOrDefault.ScheduleStart)
-        Dim endTime As DateTime = CDate(scheduleTime.FirstOrDefault.ScheduleEnd)
-        Dim dueDate As DateTime = CDate(scheduleTime.FirstOrDefault.RepeatDue)
-        Dim repeatB As Byte = scheduleTime.FirstOrDefault.RepeatBehavior.ToArray(8)
-        ' Not done yet
-        '*
-        '*
-        '*
-        '*
-        '*
-        '*
+        db.ScheduleTimes.DeleteAllOnSubmit(rs)
+        db.SubmitChanges()
+
+    End Sub
+
+    Friend Sub generateScheduleTimeRecord(repeatation As RepeatationClass)
+        Dim db As New ScheduleDBDataContext
+        Dim startTime As DateTime
+        Dim endTime As DateTime
+        Dim scheduleTime As ScheduleTime
+
+
+        For Each item In repeatation.startTimeList
+            scheduleTime = New ScheduleTime
+            startTime = item
+            endTime = item.AddMinutes(repeatation.minDuration)
+            With scheduleTime
+                .ScheduleID = repeatation.scheduleID
+                .ScheduleStart = startTime
+                .ScheduleEnd = endTime
+                .InitialTime = False
+            End With
+
+            db.ScheduleTimes.InsertOnSubmit(scheduleTime)
+        Next
+
+        db.SubmitChanges()
+
     End Sub
 
     Friend Function getNextDate(repeatString As String, tempDate As DateTime) As DateTime

@@ -9,11 +9,12 @@ Public Class Registration
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         Dim err As New StringBuilder()
         Dim ctr As Control = Nothing
-
         Dim nickname As String = If(mskNickname.MaskCompleted, mskNickname.Text, "")
         Dim contact As String = If(mskContactNumber.MaskCompleted, mskContactNumber.Text, "")
         Dim gender As String
+        Dim question As String
 
+        'Validation
         If txtUsername.Text = "" Then
             err.AppendLine("- Please enter username.")
             ctr = If(ctr, txtUsername)
@@ -24,7 +25,12 @@ Public Class Registration
             ctr = If(ctr, txtPassword)
         End If
 
-        If txtConfirmPassword.Text.Equals(txtPassword) = True Then
+        If txtConfirmPassword.Text = "" Then
+            err.AppendLine("- Please enter confirm password.")
+            ctr = If(ctr, txtConfirmPassword)
+        End If
+
+        If txtConfirmPassword.Text.Equals(txtPassword.Text) = False Then
             err.AppendLine("- Confirm password not match.")
             ctr = If(ctr, txtConfirmPassword)
         End If
@@ -35,11 +41,11 @@ Public Class Registration
         End If
 
         If radMale.Checked Then
-            gender = "Male"
+            gender = "M"
         ElseIf radFemale.Checked Then
-            gender = "Female"
+            gender = "F"
         ElseIf radNotSpecified.Checked Then
-            gender = "Not Specified"
+            gender = "N"
         Else
             err.AppendLine("- Please select gender.")
             ctr = If(ctr, radMale)
@@ -70,15 +76,28 @@ Public Class Registration
             ctr = If(ctr, txtHobby)
         End If
 
+        If cboQuestion.SelectedIndex = -1 Then
+            err.AppendLine("- Please select security question.")
+            ctr = If(ctr, cboQuestion)
+        End If
+
+        If txtAnswer.Text = "" Then
+            err.AppendLine("- Please enter security answer.")
+            ctr = If(ctr, txtAnswer)
+        End If
+
+        'show error message
         If err.Length > 0 Then
             MessageBox.Show(err.ToString(), "Input Error")
             ctr.Focus()
             Return
         End If
 
+        'save image
         Dim imgData As Byte()
         imgData = ImgToByteArray(picPicture.Image, ImageFormat.Jpeg)
 
+        'store all info
         Dim m As New Member()
         m.Username = txtUsername.Text
         m.Password = txtPassword.Text
@@ -91,15 +110,35 @@ Public Class Registration
         m.Nickname = nickname
         m.Gender = gender
         m.Email = txtEmail.Text
+        m.SecurityQuestion = cboQuestion.SelectedItem.ToString()
+        m.SecurityAnswer = txtAnswer.Text
 
+
+        'database
         Dim db As New ScheduleDBDataContext()
-        db.Members.InsertOnSubmit(m)
-        db.SubmitChanges()
+        Dim user As Table(Of Member) = db.GetTable(Of Member)()
 
+        'check duplicate
+        Dim query = From mem In user
+                    Where mem.Username = m.Username
+                    Select mem
+        'if exist
+        If query.Count > 0 Then
+            MessageBox.Show("Username exist. Please user other username.")
+        Else
+            'insert record in database
+            db.Members.InsertOnSubmit(m)
+            db.SubmitChanges()
+
+            MessageBox.Show("Register Successful :D", "Congratulation")
+            UserLogin.Show()
+            Me.Close()
+        End If
 
     End Sub
 
     Private Sub btnPicture_Click(sender As Object, e As EventArgs) Handles btnPicture.Click
+        'browse file
         ofdBrowse.InitialDirectory = "c:\"
         ofdBrowse.Filter = "Picture Files(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
         ofdBrowse.FilterIndex = 2
@@ -114,6 +153,7 @@ Public Class Registration
     End Sub
 
     Public Shared Function ImgToByteArray(img As Image, imgFormat As Imaging.ImageFormat) As Byte()
+        'convert image
         Dim tmpData As Byte()
         Using ms As New MemoryStream()
             img.Save(ms, imgFormat)
@@ -125,6 +165,7 @@ Public Class Registration
 
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        'clear all text
         txtUsername.Text = ""
         txtPassword.Text = ""
         txtConfirmPassword.Text = ""
@@ -138,28 +179,4 @@ Public Class Registration
         radNotSpecified.Checked = False
         picPicture.Image = Nothing
     End Sub
-
-    Private Sub Registration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim db As New ScheduleDBDataContext
-        Dim member As Table(Of Member) = db.GetTable(Of Member)()
-
-        Dim query = From m In member
-                    Where m.Username = "haha"
-                    Select m
-
-        For Each m In query
-            Dim img As Image
-            Dim imgByte As Byte() = Nothing
-
-            Dim stream As MemoryStream
-            imgByte = CType(m.Picture.ToArray, Byte())
-            stream = New MemoryStream(imgByte, 0, imgByte.Length)
-
-            img = Image.FromStream(stream)
-            PictureBox1.Image = img
-
-        Next
-    End Sub
-
-
 End Class

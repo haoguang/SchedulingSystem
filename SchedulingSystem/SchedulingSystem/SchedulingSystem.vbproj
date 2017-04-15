@@ -185,6 +185,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Notification\FriendNotification.Designer.vb">
+      <DependentUpon>FriendNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\FriendNotification.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notification\listNotification.Designer.vb">
+      <DependentUpon>listNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\listNotification.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ScheduleDB.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,10 +230,22 @@
     <Compile Include="Schedule\RepeatationClass.vb" />
     <Compile Include="Schedule\RepeatationModule.vb" />
     <Compile Include="Schedule\ScheduleClass.vb" />
+    <Compile Include="Schedule\ScheduleDetailView.Designer.vb">
+      <DependentUpon>ScheduleDetailView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleDetailView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
     </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleViewPanel.Designer.vb">
+      <DependentUpon>ScheduleViewPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleViewPanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecondUserControl.Designer.vb">
@@ -236,10 +260,17 @@
     <Compile Include="TestUserControl1.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="User\LoginSession.vb" />
     <Compile Include="User\Registration.Designer.vb">
       <DependentUpon>Registration.vb</DependentUpon>
     </Compile>
     <Compile Include="User\Registration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserLogin.Designer.vb">
+      <DependentUpon>UserLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\UserMenu.Designer.vb">
@@ -301,11 +332,26 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
+      <DependentUpon>ScheduleDetailView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleViewPanel.resx">
+      <DependentUpon>ScheduleViewPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification\FriendNotification.resx">
+      <DependentUpon>FriendNotification.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification\listNotification.resx">
+      <DependentUpon>listNotification.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserLogin.resx">
+      <DependentUpon>UserLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserMenu.resx">
       <DependentUpon>UserMenu.vb</DependentUpon>
@@ -355,9 +401,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Notification\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>

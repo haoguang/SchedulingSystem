@@ -27,10 +27,11 @@ Partial Class ViewAppointment
         Me.rbOngoing = New System.Windows.Forms.RadioButton()
         Me.rbHistory = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtTitle = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvRecord = New System.Windows.Forms.DataGridView()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtTitle = New System.Windows.Forms.TextBox()
+        Me.rbCancel = New System.Windows.Forms.RadioButton()
         Me.gbSelection.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,6 +39,7 @@ Partial Class ViewAppointment
         '
         'gbSelection
         '
+        Me.gbSelection.Controls.Add(Me.rbCancel)
         Me.gbSelection.Controls.Add(Me.rbPending)
         Me.gbSelection.Controls.Add(Me.rbOngoing)
         Me.gbSelection.Controls.Add(Me.rbHistory)
@@ -45,7 +47,7 @@ Partial Class ViewAppointment
         Me.gbSelection.ForeColor = System.Drawing.Color.DarkGreen
         Me.gbSelection.Location = New System.Drawing.Point(39, 100)
         Me.gbSelection.Name = "gbSelection"
-        Me.gbSelection.Size = New System.Drawing.Size(645, 92)
+        Me.gbSelection.Size = New System.Drawing.Size(788, 92)
         Me.gbSelection.TabIndex = 0
         Me.gbSelection.TabStop = False
         Me.gbSelection.Text = "Selection"
@@ -53,23 +55,23 @@ Partial Class ViewAppointment
         'rbPending
         '
         Me.rbPending.AutoSize = True
-        Me.rbPending.Location = New System.Drawing.Point(430, 39)
+        Me.rbPending.Location = New System.Drawing.Point(406, 39)
         Me.rbPending.Name = "rbPending"
-        Me.rbPending.Size = New System.Drawing.Size(197, 20)
+        Me.rbPending.Size = New System.Drawing.Size(89, 20)
         Me.rbPending.TabIndex = 2
         Me.rbPending.TabStop = True
-        Me.rbPending.Text = "Pending Appointment"
+        Me.rbPending.Text = "Pending"
         Me.rbPending.UseVisualStyleBackColor = True
         '
         'rbOngoing
         '
         Me.rbOngoing.AutoSize = True
-        Me.rbOngoing.Location = New System.Drawing.Point(227, 39)
+        Me.rbOngoing.Location = New System.Drawing.Point(209, 39)
         Me.rbOngoing.Name = "rbOngoing"
-        Me.rbOngoing.Size = New System.Drawing.Size(197, 20)
+        Me.rbOngoing.Size = New System.Drawing.Size(89, 20)
         Me.rbOngoing.TabIndex = 1
         Me.rbOngoing.TabStop = True
-        Me.rbOngoing.Text = "Ongoing Appointment"
+        Me.rbOngoing.Text = "Ongoing"
         Me.rbOngoing.UseVisualStyleBackColor = True
         '
         'rbHistory
@@ -77,10 +79,10 @@ Partial Class ViewAppointment
         Me.rbHistory.AutoSize = True
         Me.rbHistory.Location = New System.Drawing.Point(24, 39)
         Me.rbHistory.Name = "rbHistory"
-        Me.rbHistory.Size = New System.Drawing.Size(197, 20)
+        Me.rbHistory.Size = New System.Drawing.Size(89, 20)
         Me.rbHistory.TabIndex = 0
         Me.rbHistory.TabStop = True
-        Me.rbHistory.Text = "Appointment History"
+        Me.rbHistory.Text = "History"
         Me.rbHistory.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -96,6 +98,22 @@ Partial Class ViewAppointment
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
+        '
+        'txtTitle
+        '
+        Me.txtTitle.Location = New System.Drawing.Point(191, 42)
+        Me.txtTitle.Name = "txtTitle"
+        Me.txtTitle.Size = New System.Drawing.Size(119, 26)
+        Me.txtTitle.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(161, 16)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Search by &Title :"
         '
         'dgvRecord
         '
@@ -116,21 +134,16 @@ Partial Class ViewAppointment
         Me.lblTitle.Text = "View Appointment Record"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label1
+        'rbCancel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 45)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(161, 16)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Search by &Title :"
-        '
-        'txtTitle
-        '
-        Me.txtTitle.Location = New System.Drawing.Point(191, 42)
-        Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.Size = New System.Drawing.Size(119, 26)
-        Me.txtTitle.TabIndex = 2
+        Me.rbCancel.AutoSize = True
+        Me.rbCancel.Location = New System.Drawing.Point(575, 39)
+        Me.rbCancel.Name = "rbCancel"
+        Me.rbCancel.Size = New System.Drawing.Size(80, 20)
+        Me.rbCancel.TabIndex = 3
+        Me.rbCancel.TabStop = True
+        Me.rbCancel.Text = "Cancel"
+        Me.rbCancel.UseVisualStyleBackColor = True
         '
         'ViewAppointment
         '
@@ -159,4 +172,5 @@ Partial Class ViewAppointment
     Friend WithEvents lblTitle As Label
     Friend WithEvents txtTitle As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents rbCancel As RadioButton
 End Class

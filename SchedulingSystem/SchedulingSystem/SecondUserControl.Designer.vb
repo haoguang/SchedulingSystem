@@ -63,7 +63,7 @@ Partial Class SecondUserControl
         Me.dtSelected.Location = New System.Drawing.Point(115, 52)
         Me.dtSelected.Name = "dtSelected"
         Me.dtSelected.Size = New System.Drawing.Size(200, 22)
-        Me.dtSelected.TabIndex = 10
+        Me.dtSelected.TabIndex = 2
         '
         'lblDate
         '
@@ -73,7 +73,7 @@ Partial Class SecondUserControl
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(95, 13)
         Me.lblDate.TabIndex = 9
-        Me.lblDate.Text = "Date :"
+        Me.lblDate.Text = "&Date :"
         Me.lblDate.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'lblName
@@ -92,7 +92,7 @@ Partial Class SecondUserControl
         Me.txtName.Location = New System.Drawing.Point(112, 16)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(100, 22)
-        Me.txtName.TabIndex = 7
+        Me.txtName.TabIndex = 1
         '
         'Button2
         '
@@ -108,14 +108,14 @@ Partial Class SecondUserControl
         Me.btnSearch.Location = New System.Drawing.Point(112, 96)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 23)
-        Me.btnSearch.TabIndex = 5
+        Me.btnSearch.TabIndex = 3
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'btnAppointment
         '
         Me.btnAppointment.Enabled = False
-        Me.btnAppointment.Location = New System.Drawing.Point(248, 255)
+        Me.btnAppointment.Location = New System.Drawing.Point(172, 255)
         Me.btnAppointment.Name = "btnAppointment"
         Me.btnAppointment.Size = New System.Drawing.Size(168, 28)
         Me.btnAppointment.TabIndex = 4
@@ -132,7 +132,7 @@ Partial Class SecondUserControl
         Me.gbTimetable.ForeColor = System.Drawing.Color.DarkGreen
         Me.gbTimetable.Location = New System.Drawing.Point(86, 277)
         Me.gbTimetable.Name = "gbTimetable"
-        Me.gbTimetable.Size = New System.Drawing.Size(605, 364)
+        Me.gbTimetable.Size = New System.Drawing.Size(571, 364)
         Me.gbTimetable.TabIndex = 5
         Me.gbTimetable.TabStop = False
         Me.gbTimetable.Text = "Timetable"
@@ -140,7 +140,7 @@ Partial Class SecondUserControl
         '
         'btnBack
         '
-        Me.btnBack.Location = New System.Drawing.Point(79, 255)
+        Me.btnBack.Location = New System.Drawing.Point(55, 255)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(75, 28)
         Me.btnBack.TabIndex = 7
@@ -149,7 +149,6 @@ Partial Class SecondUserControl
         '
         'lblInfo
         '
-        Me.lblInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblInfo.Location = New System.Drawing.Point(27, 34)
         Me.lblInfo.Name = "lblInfo"
         Me.lblInfo.Size = New System.Drawing.Size(510, 18)
@@ -160,7 +159,7 @@ Partial Class SecondUserControl
         Me.dgvTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTimetable.Location = New System.Drawing.Point(27, 74)
         Me.dgvTimetable.Name = "dgvTimetable"
-        Me.dgvTimetable.Size = New System.Drawing.Size(510, 150)
+        Me.dgvTimetable.Size = New System.Drawing.Size(365, 150)
         Me.dgvTimetable.TabIndex = 5
         '
         'lblTitle
@@ -182,7 +181,7 @@ Partial Class SecondUserControl
         Me.Controls.Add(Me.gbTimetable)
         Me.Controls.Add(Me.gbSearch)
         Me.Name = "SecondUserControl"
-        Me.Size = New System.Drawing.Size(972, 726)
+        Me.Size = New System.Drawing.Size(817, 726)
         Me.gbSearch.ResumeLayout(False)
         Me.gbSearch.PerformLayout()
         Me.gbTimetable.ResumeLayout(False)

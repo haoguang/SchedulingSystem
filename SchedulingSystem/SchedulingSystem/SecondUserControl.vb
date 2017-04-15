@@ -8,7 +8,10 @@ Public Class SecondUserControl
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Dim err As New StringBuilder
+        dgvTimetable.Rows.Clear()
+        dgvTimetable.Columns.Clear()
+
+        Dim Err As New StringBuilder
         Dim ctr As Control = Nothing
 
         Dim db As New ScheduleDBDataContext()
@@ -49,10 +52,10 @@ Public Class SecondUserControl
         Else
 
             Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
-                         Where m.Username = name And st.ScheduleStart.Value.Date = beforeDate.Date And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
+                         Where m.Username = name And st.ScheduleStart.Value.Date = beforeDate.Date And s.Status = "Active" And m.MemberID = p.MemberID And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
                          Select New With {
-                             .StartTime = Format(st.ScheduleStart, "HH: mm "),
-                             .EndTime = Format(st.ScheduleEnd, "HH: mm ")
+                             .StartTime = Format(st.ScheduleStart, "h: mm tt"),
+                             .EndTime = Format(st.ScheduleEnd, "h: mm tt")
                         }
 
             dgvTimetable.DataSource = record
@@ -63,7 +66,8 @@ Public Class SecondUserControl
             gbTimetable.Enabled = True
 
             If dgvTimetable.RowCount <= 0 Then
-                lblInfo.Text = name & "haven't create his schedule in " & dtSelected.Value.Date
+                lblInfo.Text = "All time are available for appointment."
+                dgvTimetable.Enabled = False
             Else
                 lblInfo.Text = name & "'s Schedule in " & dtSelected.Value.Date
 
@@ -76,6 +80,7 @@ Public Class SecondUserControl
             col.Name = "colWhateverName"
             col.DefaultCellStyle.NullValue = "N/A"
             dgvTimetable.Columns.Insert(2, col)
+            dgvTimetable.AutoResizeColumns()
         End If
 
 

@@ -22,6 +22,7 @@ Partial Class CreateAppointment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnConfirm = New System.Windows.Forms.Button()
         Me.gbGeneral = New System.Windows.Forms.GroupBox()
         Me.lblStartTitle = New System.Windows.Forms.Label()
@@ -36,7 +37,9 @@ Partial Class CreateAppointment
         Me.lblDescriptionTitle = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblTo = New System.Windows.Forms.Label()
+        Me.err = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gbGeneral.SuspendLayout()
+        CType(Me.err, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnConfirm
@@ -44,7 +47,7 @@ Partial Class CreateAppointment
         Me.btnConfirm.Location = New System.Drawing.Point(184, 323)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(101, 31)
-        Me.btnConfirm.TabIndex = 1
+        Me.btnConfirm.TabIndex = 6
         Me.btnConfirm.Text = "Confirm"
         Me.btnConfirm.UseVisualStyleBackColor = True
         '
@@ -60,6 +63,8 @@ Partial Class CreateAppointment
         Me.gbGeneral.Controls.Add(Me.lblTitle)
         Me.gbGeneral.Controls.Add(Me.txtTitle)
         Me.gbGeneral.Controls.Add(Me.lblDescriptionTitle)
+        Me.gbGeneral.Font = New System.Drawing.Font("NSimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbGeneral.ForeColor = System.Drawing.Color.DarkGreen
         Me.gbGeneral.Location = New System.Drawing.Point(17, 57)
         Me.gbGeneral.Name = "gbGeneral"
         Me.gbGeneral.Size = New System.Drawing.Size(383, 242)
@@ -75,7 +80,7 @@ Partial Class CreateAppointment
         Me.lblStartTitle.Name = "lblStartTitle"
         Me.lblStartTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblStartTitle.TabIndex = 0
-        Me.lblStartTitle.Text = "Appointment Start:"
+        Me.lblStartTitle.Text = "Appointment &Start:"
         Me.lblStartTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'lblEndTitle
@@ -86,7 +91,7 @@ Partial Class CreateAppointment
         Me.lblEndTitle.Name = "lblEndTitle"
         Me.lblEndTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblEndTitle.TabIndex = 2
-        Me.lblEndTitle.Text = "Duration :"
+        Me.lblEndTitle.Text = "Appointment &End :"
         Me.lblEndTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'scheStart
@@ -97,34 +102,34 @@ Partial Class CreateAppointment
         Me.scheStart.Location = New System.Drawing.Point(167, 20)
         Me.scheStart.Name = "scheStart"
         Me.scheStart.ShowUpDown = True
-        Me.scheStart.Size = New System.Drawing.Size(200, 20)
+        Me.scheStart.Size = New System.Drawing.Size(200, 26)
         Me.scheStart.TabIndex = 1
         '
         'txtVenue
         '
         Me.txtVenue.Location = New System.Drawing.Point(167, 184)
         Me.txtVenue.Name = "txtVenue"
-        Me.txtVenue.Size = New System.Drawing.Size(199, 20)
-        Me.txtVenue.TabIndex = 9
+        Me.txtVenue.Size = New System.Drawing.Size(199, 26)
+        Me.txtVenue.TabIndex = 5
         '
         'txtBoxDescription
         '
         Me.txtBoxDescription.Location = New System.Drawing.Point(167, 119)
         Me.txtBoxDescription.Name = "txtBoxDescription"
         Me.txtBoxDescription.Size = New System.Drawing.Size(199, 56)
-        Me.txtBoxDescription.TabIndex = 7
+        Me.txtBoxDescription.TabIndex = 4
         Me.txtBoxDescription.Text = ""
         '
         'scheEnd
         '
-        Me.scheEnd.CustomFormat = "hh:mm tt"
+        Me.scheEnd.CustomFormat = "dd/MM/yyyy hh:mm tt"
         Me.scheEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.scheEnd.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.scheEnd.Location = New System.Drawing.Point(167, 51)
         Me.scheEnd.Name = "scheEnd"
         Me.scheEnd.ShowUpDown = True
-        Me.scheEnd.Size = New System.Drawing.Size(200, 20)
-        Me.scheEnd.TabIndex = 3
+        Me.scheEnd.Size = New System.Drawing.Size(200, 26)
+        Me.scheEnd.TabIndex = 2
         '
         'lblVenueTitle
         '
@@ -134,7 +139,7 @@ Partial Class CreateAppointment
         Me.lblVenueTitle.Name = "lblVenueTitle"
         Me.lblVenueTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblVenueTitle.TabIndex = 8
-        Me.lblVenueTitle.Text = "Venue :"
+        Me.lblVenueTitle.Text = "&Venue :"
         Me.lblVenueTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'lblTitle
@@ -145,15 +150,15 @@ Partial Class CreateAppointment
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblTitle.TabIndex = 4
-        Me.lblTitle.Text = "Activity Title :"
+        Me.lblTitle.Text = "Activity &Title :"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtTitle
         '
         Me.txtTitle.Location = New System.Drawing.Point(167, 85)
         Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.Size = New System.Drawing.Size(199, 20)
-        Me.txtTitle.TabIndex = 5
+        Me.txtTitle.Size = New System.Drawing.Size(199, 26)
+        Me.txtTitle.TabIndex = 3
         '
         'lblDescriptionTitle
         '
@@ -163,7 +168,7 @@ Partial Class CreateAppointment
         Me.lblDescriptionTitle.Name = "lblDescriptionTitle"
         Me.lblDescriptionTitle.Size = New System.Drawing.Size(155, 13)
         Me.lblDescriptionTitle.TabIndex = 6
-        Me.lblDescriptionTitle.Text = "Description :"
+        Me.lblDescriptionTitle.Text = "&Description :"
         Me.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'btnCancel
@@ -171,7 +176,7 @@ Partial Class CreateAppointment
         Me.btnCancel.Location = New System.Drawing.Point(65, 323)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(101, 31)
-        Me.btnCancel.TabIndex = 9
+        Me.btnCancel.TabIndex = 7
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
@@ -186,10 +191,16 @@ Partial Class CreateAppointment
         Me.lblTo.TabIndex = 10
         Me.lblTo.Text = "To :"
         '
+        'err
+        '
+        Me.err.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.err.ContainerControl = Me
+        '
         'CreateAppointment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.ClientSize = New System.Drawing.Size(420, 390)
         Me.Controls.Add(Me.lblTo)
         Me.Controls.Add(Me.btnCancel)
@@ -200,6 +211,7 @@ Partial Class CreateAppointment
         Me.Text = "Appointment Form"
         Me.gbGeneral.ResumeLayout(False)
         Me.gbGeneral.PerformLayout()
+        CType(Me.err, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -218,4 +230,5 @@ Partial Class CreateAppointment
     Friend WithEvents lblDescriptionTitle As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents lblTo As Label
+    Friend WithEvents err As ErrorProvider
 End Class
