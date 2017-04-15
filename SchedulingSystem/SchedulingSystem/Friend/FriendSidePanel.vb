@@ -1,21 +1,34 @@
-﻿Public Class FriendSidePanel
+﻿Imports System.IO
+Public Class FriendSidePanel
     Private Sub FriendSidePanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim db As New ScheduleDBDataContext
-
         populateDGVF()
-
     End Sub
 
     Friend Sub populateDGVF()
-        Dim db As New ScheduleDBDataContext
 
+        Dim db As New ScheduleDBDataContext
+        Dim img As Image
+        Dim imgByte As Byte() = Nothing
+        Dim stream As MemoryStream
 
         Dim fl = From o In db.Friends, m In db.Members
-                 Where o.UserID = 100001 And o.FriendID = m.MemberID And o.Status <> "Pending"
-                 Select m.Username, m.MemberID, o.Status, m.Picture
+                 Where o.UserID = LoginSession.memberID And o.FriendID = m.MemberID And o.Status <> "Pending"
+                 Select m.Picture, m.Username, m.MemberID, o.Status
 
+        For Each p In fl
 
-        DGVF.DataSource = fl
+            If p.Picture IsNot Nothing Then
+                imgByte = CType(p.Picture.ToArray, Byte())
+                stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                img = Image.FromStream(stream)
+
+            Else
+                img = My.Resources.user_default
+            End If
+            DGVF.Rows.Add(img, p.Username, p.MemberID, p.Status)
+        Next
+
 
         If DGVF.RowCount = 0 Then
             MessageBox.Show("You currently have no friends" & vbNewLine &
@@ -23,7 +36,6 @@
             My.Forms.MainForm.ContentPanel.Controls.Clear()
             Dim UserCtrl3 As New SearchnewFriend
             My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl3)
-
         End If
     End Sub
 
@@ -33,7 +45,7 @@
 
         Dim fl = From o In db.Friends,
                      m In db.Members
-                 Where o.UserID = 100001 And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text) And Not o.Status = "Pending"
+                 Where o.UserID = LoginSession.memberID And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text) And Not o.Status = "Pending"
                  Select m.Username, m.MemberID, o.Status
         DGVF.DataSource = fl
     End Sub
@@ -47,7 +59,7 @@
     Private Sub DGVF_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVF.CellClick
         My.Forms.MainForm.ContentPanel.Controls.Clear()
         Dim UserCtrl4 As New ListFriend
-        UserCtrl4.friend_id = Integer.Parse(DGVF.CurrentRow.Cells(1).Value.ToString)
+        UserCtrl4.friend_id = Integer.Parse(DGVF.CurrentRow.Cells(2).Value.ToString)
         UserCtrl4.sideCtrl = Me
         My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl4)
     End Sub

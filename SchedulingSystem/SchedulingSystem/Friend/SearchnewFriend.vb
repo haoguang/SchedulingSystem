@@ -41,15 +41,15 @@
 
     Public Function CheckUserRelation(userid As Integer) As Boolean
         Dim db As New ScheduleDBDataContext
-        Return db.Friends.Any(Function(o) o.FriendID = userid And o.UserID = 100001)
+        Return db.Friends.Any(Function(o) o.FriendID = userid And o.UserID = LoginSession.memberID)
     End Function
 
     Public Function CheckUserIsPending(userid As Integer) As Boolean
         Dim db As New ScheduleDBDataContext
-        Return db.Friends.Any(Function(o) o.FriendID = userid And o.UserID = 100001 And o.Status = "Pending")
+        Return db.Friends.Any(Function(o) o.FriendID = userid And o.UserID = LoginSession.memberID And o.Status = "Pending")
     End Function
     Public Function isMe(userid As Integer) As Boolean
-        Return userid = 100001 'need to edit
+        Return userid = LoginSession.memberID 'need to edit
     End Function
 
     Private Sub btn_addfriend_Click(sender As Object, e As EventArgs) Handles btn_addfriend.Click
@@ -73,10 +73,10 @@
                 MessageBox.Show("You Are Not Allowed To Add Yourself")
             Else
                 Dim add_friend As New [Friend]
-                add_friend.UserID = 100001
+                add_friend.UserID = LoginSession.memberID
                 add_friend.FriendID = friend_id
                 add_friend.Status = "Pending"
-                add_friend.Inviter = 100001
+                add_friend.Inviter = LoginSession.memberID
 
                 db.Friends.InsertOnSubmit(add_friend)
                 db.SubmitChanges()
