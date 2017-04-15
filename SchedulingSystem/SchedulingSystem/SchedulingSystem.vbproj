@@ -145,6 +145,12 @@
     <Compile Include="Friend\ListFriend.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Friend\Monthly Friend Changes Report.Designer.vb">
+      <DependentUpon>Monthly Friend Changes Report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Friend\Monthly Friend Changes Report.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Friend\SearchnewFriend.Designer.vb">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
     </Compile>
@@ -178,6 +184,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Notification\FriendNotification.Designer.vb">
+      <DependentUpon>FriendNotification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\FriendNotification.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Notification\listNotification.Designer.vb">
       <DependentUpon>listNotification.vb</DependentUpon>
@@ -218,10 +230,22 @@
     <Compile Include="Schedule\RepeatationClass.vb" />
     <Compile Include="Schedule\RepeatationModule.vb" />
     <Compile Include="Schedule\ScheduleClass.vb" />
+    <Compile Include="Schedule\ScheduleDetailView.Designer.vb">
+      <DependentUpon>ScheduleDetailView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleDetailView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.Designer.vb">
       <DependentUpon>ScheduleSidePanel.vb</DependentUpon>
     </Compile>
     <Compile Include="Schedule\ScheduleSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Schedule\ScheduleViewPanel.Designer.vb">
+      <DependentUpon>ScheduleViewPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ScheduleViewPanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SecondUserControl.Designer.vb">
@@ -284,6 +308,9 @@
     <EmbeddedResource Include="Friend\ListFriend.resx">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Friend\Monthly Friend Changes Report.resx">
+      <DependentUpon>Monthly Friend Changes Report.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Friend\SearchnewFriend.resx">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
     </EmbeddedResource>
@@ -304,6 +331,15 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
+      <DependentUpon>ScheduleDetailView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule\ScheduleViewPanel.resx">
+      <DependentUpon>ScheduleViewPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification\FriendNotification.resx">
+      <DependentUpon>FriendNotification.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Notification\listNotification.resx">
       <DependentUpon>listNotification.vb</DependentUpon>
