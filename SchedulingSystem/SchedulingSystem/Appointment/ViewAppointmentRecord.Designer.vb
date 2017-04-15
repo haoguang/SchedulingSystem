@@ -38,6 +38,8 @@ Partial Class ViewAppointmentRecord
         Me.txtBoxDescription = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblOwner = New System.Windows.Forms.Label()
         Me.gbAppointment.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -63,6 +65,8 @@ Partial Class ViewAppointmentRecord
         '
         'gbAppointment
         '
+        Me.gbAppointment.Controls.Add(Me.lblOwner)
+        Me.gbAppointment.Controls.Add(Me.Label1)
         Me.gbAppointment.Controls.Add(Me.lblStartTime)
         Me.gbAppointment.Controls.Add(Me.Label11)
         Me.gbAppointment.Controls.Add(Me.btnClose)
@@ -82,7 +86,7 @@ Partial Class ViewAppointmentRecord
         Me.gbAppointment.ForeColor = System.Drawing.Color.DarkGreen
         Me.gbAppointment.Location = New System.Drawing.Point(31, 27)
         Me.gbAppointment.Name = "gbAppointment"
-        Me.gbAppointment.Size = New System.Drawing.Size(430, 411)
+        Me.gbAppointment.Size = New System.Drawing.Size(430, 461)
         Me.gbAppointment.TabIndex = 2
         Me.gbAppointment.TabStop = False
         Me.gbAppointment.Text = "Appointment Details"
@@ -109,7 +113,7 @@ Partial Class ViewAppointmentRecord
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(115, 376)
+        Me.btnClose.Location = New System.Drawing.Point(113, 413)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(164, 29)
         Me.btnClose.TabIndex = 16
@@ -120,7 +124,7 @@ Partial Class ViewAppointmentRecord
         '
         Me.lblPaticipant.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblPaticipant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblPaticipant.Location = New System.Drawing.Point(186, 326)
+        Me.lblPaticipant.Location = New System.Drawing.Point(186, 373)
         Me.lblPaticipant.Name = "lblPaticipant"
         Me.lblPaticipant.Size = New System.Drawing.Size(199, 23)
         Me.lblPaticipant.TabIndex = 15
@@ -156,7 +160,7 @@ Partial Class ViewAppointmentRecord
         '
         Me.Label6.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label6.Location = New System.Drawing.Point(6, 330)
+        Me.Label6.Location = New System.Drawing.Point(6, 377)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(159, 22)
         Me.Label6.TabIndex = 11
@@ -218,11 +222,31 @@ Partial Class ViewAppointmentRecord
         Me.Label2.Text = "End Time :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label1.Location = New System.Drawing.Point(6, 336)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(159, 22)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Owner :"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'lblOwner
+        '
+        Me.lblOwner.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblOwner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblOwner.Location = New System.Drawing.Point(186, 332)
+        Me.lblOwner.Name = "lblOwner"
+        Me.lblOwner.Size = New System.Drawing.Size(199, 23)
+        Me.lblOwner.TabIndex = 20
+        '
         'ViewAppointmentRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(493, 473)
+        Me.ClientSize = New System.Drawing.Size(493, 513)
         Me.Controls.Add(Me.gbAppointment)
         Me.MaximizeBox = False
         Me.Name = "ViewAppointmentRecord"
@@ -248,4 +272,6 @@ Partial Class ViewAppointmentRecord
     Friend WithEvents lblStartTime As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents btnClose As Button
+    Friend WithEvents lblOwner As Label
+    Friend WithEvents Label1 As Label
 End Class

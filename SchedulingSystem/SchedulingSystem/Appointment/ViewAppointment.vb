@@ -1,7 +1,6 @@
 ﻿Public Class ViewAppointment
 
 
-
     Private Sub ViewAppointment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         rbHistory.Checked = True
     End Sub
@@ -47,12 +46,11 @@
     Private Sub BindOngoingData()
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
         Dim currentDateTime As DateTime
-
+        Dim userid As Integer = LoginSession.memberID
         currentDateTime = DateTime.Now
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = userid And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
                          .Schedule_ID = s.ScheduleID,
                          .Start_DateTime = st.ScheduleStart,
@@ -68,13 +66,13 @@
     Private Sub BindPendingData()
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim userid As Integer = LoginSession.memberID
         Dim currentDateTime As DateTime
 
         currentDateTime = DateTime.Now
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Pending" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = userid And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Pending" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
                          .Schedule_ID = s.ScheduleID,
                          .Start_DateTime = st.ScheduleStart,
@@ -91,13 +89,13 @@
     Private Sub BindHistoryData()
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim userid As Integer = LoginSession.memberID
         Dim currentDateTime As Date
 
         currentDateTime = Date.Now
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = userid And s.Type = "Appointment" And s.Status = "Active" And st.ScheduleStart < currentDateTime And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
                          .Schedule_ID = s.ScheduleID,
                          .Start_DateTime = st.ScheduleStart,
@@ -114,13 +112,13 @@
     Private Sub BindCancelData()
         dgvRecord.DataSource = Nothing
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim userid As Integer = LoginSession.memberID
         Dim currentDateTime As Date
 
         currentDateTime = Date.Now
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And s.Status = "Cancel" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = userid And s.Type = "Appointment" And s.Status = "Cancel" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
                          .Schedule_ID = s.ScheduleID,
                          .Start_DateTime = st.ScheduleStart,
