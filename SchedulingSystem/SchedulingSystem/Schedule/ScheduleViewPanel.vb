@@ -1,11 +1,12 @@
 ﻿Public Class ScheduleViewPanel
     Friend scheduleTimeId As Integer
-    Friend prevCtrl As New Stack(Of Control)
+    Friend prevCtrl As New Stack(Of UserControl)
+    Private schedule As ScheduleClass
 
     Private Sub ScheduleViewPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblTitle.Text = "Schedule Detail"
 
-        Dim schedule As ScheduleClass = getSchedule()
+        schedule = getSchedule()
 
         Dim viewContent As New ScheduleDetailView
         viewContent.schedule = schedule
@@ -45,7 +46,10 @@
 
         If prevCtrl.Peek.GetType.ToString.Equals("SchedulingSystem.DayScheduleViewer") Then
             My.Forms.MainForm.ContentPanel.Controls.Clear()
-            My.Forms.MainForm.ContentPanel.Controls.Add(CType(prevCtrl.Pop, DayScheduleViewer))
+            prevCtrl.Pop()
+            Dim dayviewer As New DayScheduleViewer
+            dayviewer.displayDate = schedule.ScheduleStart.Date
+            My.Forms.MainForm.ContentPanel.Controls.Add(dayviewer)
         Else
             Me.DetailViewPanel.Controls.Clear()
             Me.DetailViewPanel.Controls.Add(prevCtrl.Pop)
