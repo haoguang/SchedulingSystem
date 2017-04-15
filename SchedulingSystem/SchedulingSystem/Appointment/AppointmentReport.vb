@@ -65,14 +65,43 @@ Public Class AppointmentReport
     End Sub
 
     Private Sub doc_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles doc.PrintPage
+        Dim month1 As String
+        If ddlMonth.Text = "1" Then
+            month1 = "January"
+        ElseIf ddlMonth.Text = "2" Then
+            month1 = "February"
+        ElseIf ddlMonth.Text = "3" Then
+            month1 = "March"
+        ElseIf ddlMonth.Text = "4" Then
+            month1 = "April"
+        ElseIf ddlMonth.Text = "5" Then
+            month1 = "May"
+        ElseIf ddlMonth.Text = "6" Then
+            month1 = "June"
+        ElseIf ddlMonth.Text = "7" Then
+            month1 = "July"
+        ElseIf ddlMonth.Text = "8" Then
+            month1 = "August"
+        ElseIf ddlMonth.Text = "9" Then
+            month1 = "September"
+        ElseIf ddlMonth.Text = "10" Then
+            month1 = "October"
+        ElseIf ddlMonth.Text = "11" Then
+            month1 = "November"
+        ElseIf ddlMonth.Text = "12" Then
+            month1 = "December"
+        End If
+
+
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
         Dim fontSubHeader As New Font("Calibri", 12)
         Dim fontBody As New Font("Consolas", 10)
 
-        Dim header As String = "Appointment Report"
+
+        Dim header As String = "Appointment Monthly Report"
         Dim subHeader As String = String.Format(
             "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine &
-            "Monthly Summary Report", DateTime.Now)
+            month1 & " Report", DateTime.Now)
 
         Dim body As New StringBuilder()
 
@@ -88,7 +117,7 @@ Public Class AppointmentReport
         Next
 
         body.AppendLine()
-        body.AppendFormat("{0,2} record(s)", cnt)
+        body.AppendFormat("{0,2} appointment record(s)", cnt)
 
         With e.Graphics
             .DrawImage(My.Resources.Appointment, 0, 0, 80, 100)
