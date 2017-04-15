@@ -61,6 +61,14 @@ Public Class UserLogin
                     LoginSession.nickname = m.Nickname
                     LoginSession.email = m.Email
 
+                    Dim l As New LoginRecord()
+                    l.SignInTime = DateTime.Now
+                    l.UserId = m.MemberID
+                    db.LoginRecords.InsertOnSubmit(l)
+                    db.SubmitChanges()
+
+
+
                     MessageBox.Show("Login Success.", "Congratulation")
                     MainForm.Show()
                     Me.Close()

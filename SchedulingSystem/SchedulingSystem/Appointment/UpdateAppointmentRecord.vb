@@ -6,6 +6,8 @@ Public Class UpdateAppointmentRecord
         scheStart.MinDate = DateTime.Now
         scheEnd.MinDate = scheStart.Value
         Dim db As New ScheduleDBDataContext()
+        Dim ownerName = From p In db.Participles, m In db.Members
+                        Where p.ScheduleID = StringIDPass And p.ParticiplesRole = "Owner" And p.MemberID = m.MemberID
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes, m In db.Members
                      Where s.ScheduleID = StringIDPass And p.ParticiplesRole = "Participle" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID And p.MemberID = m.MemberID
@@ -15,7 +17,7 @@ Public Class UpdateAppointmentRecord
                          s.Title,
                          s.Venue,
                          s.Description,
-                         m.Nickname
+                         m.Username
                          }
 
         scheStart.Text = record.FirstOrDefault.ScheduleStart.ToString
@@ -23,7 +25,8 @@ Public Class UpdateAppointmentRecord
         txtTitle.Text = record.FirstOrDefault.Title
         txtBoxDescription.Text = record.FirstOrDefault.Description
         txtVenue.Text = record.FirstOrDefault.Venue
-        lblPaticipant.Text = record.FirstOrDefault.Nickname
+        lblOwner.Text = ownerName.FirstOrDefault.m.Username
+        lblPaticipant.Text = record.FirstOrDefault.Username
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
@@ -60,7 +63,7 @@ Public Class UpdateAppointmentRecord
         p.Status = "Pending"
         db.SubmitChanges()
 
-        MessageBox.Show("The appointment record is updated", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.None)
+        MessageBox.Show("The appointment record is updated and a new appointment request is sent.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.None)
         Me.Close()
 
         'refresh table
@@ -123,7 +126,7 @@ Public Class UpdateAppointmentRecord
         Dim participle = lblPaticipant.Text
         Dim memberId As Integer
         Dim memId = From m In db.Members
-                    Where m.Nickname = participle
+                    Where m.Username = participle
 
         memberId = memId.FirstOrDefault.MemberID
 

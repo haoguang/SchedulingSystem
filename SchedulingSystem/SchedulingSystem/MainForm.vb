@@ -26,6 +26,7 @@
     Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
         Dim FriendSidePanel As New FriendSidePanel
         FriendSidePanel.Dock = DockStyle.Fill
+        ContentPanel.Controls.Clear()
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(FriendSidePanel)
     End Sub
@@ -57,4 +58,5 @@
         ContentPanel.Controls.Clear()
         ContentPanel.Controls.Add(listNotification)
     End Sub
+
 End Class

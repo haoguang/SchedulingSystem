@@ -25,14 +25,16 @@ Public Class SecondUserControl
             err.AppendLine("- Please enter [Name]")
             ctr = If(ctr, txtName)
         End If
+
+        Dim userid As Integer = LoginSession.memberID
         'check whether user is found himself
         Dim checkUser = From m In db.Members
                         Where m.Username = name
                         Select New With {
                             m.MemberID
                         }
-        If checkUser.FirstOrDefault.MemberID = DevelopmentVariables.UserID Then
-            err.AppendLine("- You cannot make appointment to yourself")
+        If checkUser.FirstOrDefault.MemberID = userid Then
+            Err.AppendLine("- You cannot make appointment to yourself")
             ctr = If(ctr, txtName)
         End If
 

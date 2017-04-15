@@ -102,6 +102,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Appointment\Appointment.vb" />
+    <Compile Include="Appointment\AppointmentReport.Designer.vb">
+      <DependentUpon>AppointmentReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\AppointmentReport.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Appointment\AppointmentSidePanel.Designer.vb">
       <DependentUpon>AppointmentSidePanel.vb</DependentUpon>
     </Compile>
@@ -314,6 +321,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Appointment\AppointmentReport.resx">
+      <DependentUpon>AppointmentReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Appointment\UpdateAppointment.resx">
       <DependentUpon>UpdateAppointment.vb</DependentUpon>
     </EmbeddedResource>
