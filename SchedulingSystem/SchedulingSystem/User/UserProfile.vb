@@ -30,12 +30,10 @@ Public Class UserProfile
                 picPicture.Image = img
 
                 Dim gender As String = m.Gender.First
-                Dim g = gender.ToCharArray()
 
-                'select gender
-                If g(0).Equals("M") Then
+                If gender.Equals("M") Then
                     radMale.Checked = True
-                ElseIf g(0).Equals("F") Then
+                ElseIf gender.Equals("F") Then
                     radFemale.Checked = True
                 Else
                     radNotSpecified.Checked = True
