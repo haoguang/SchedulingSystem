@@ -57,4 +57,5 @@
         ContentPanel.Controls.Clear()
         ContentPanel.Controls.Add(listNotification)
     End Sub
+
 End Class

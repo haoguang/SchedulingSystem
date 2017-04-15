@@ -140,6 +140,10 @@ Public Class UserProfile
         Try
             db.SubmitChanges()
             MessageBox.Show("Profile Updated.", "Congratulation")
+            LoginSession.nickname = nickname
+            LoginSession.email = txtEmail.Text
+            LoginSession.picture = picPicture.Image
+            Refresh()
 
         Catch ex As Exception
             MessageBox.Show("Fail to update.", "Error")
