@@ -30,11 +30,12 @@ Public Class UserProfile
                 picPicture.Image = img
 
                 Dim gender As String = m.Gender
+                Dim g = gender.ToCharArray()
 
                 'select gender
-                If gender.Equals("M") Then
+                If g(0).Equals("M") Then
                     radMale.Checked = True
-                ElseIf gender.Equals("F") Then
+                ElseIf g(0).Equals("F") Then
                     radFemale.Checked = True
                 Else
                     radNotSpecified.Checked = True
@@ -47,7 +48,6 @@ Public Class UserProfile
             Next
 
         End If
-
     End Sub
 
     Private Sub btnImage_Click(sender As Object, e As EventArgs) Handles btnImage.Click
@@ -146,5 +146,9 @@ Public Class UserProfile
             MessageBox.Show("Fail to update.", "Error")
         End Try
 
+    End Sub
+
+    Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
+        ChangePassword.ShowDialog()
     End Sub
 End Class

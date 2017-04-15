@@ -33,7 +33,6 @@
     End Sub
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
         btnUserInfo.pcbProfilePic.Image = LoginSession.picture
         btnUserInfo.lblName.Text = LoginSession.nickname
         btnUserInfo.lblUserEmail.Text = LoginSession.email

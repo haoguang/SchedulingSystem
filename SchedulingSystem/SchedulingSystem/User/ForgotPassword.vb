@@ -78,4 +78,10 @@ Public Class ForgotPassword
         End If
 
     End Sub
+
+    Private Sub ForgotPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtUsername.Text = ""
+        txtAnswer.Text = ""
+        cboQuestion.SelectedIndex = -1
+    End Sub
 End Class

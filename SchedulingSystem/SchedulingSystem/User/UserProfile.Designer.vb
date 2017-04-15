@@ -104,7 +104,7 @@ Partial Class UserProfile
         Me.GroupBox1.Controls.Add(Me.radNotSpecified)
         Me.GroupBox1.Controls.Add(Me.radFemale)
         Me.GroupBox1.Controls.Add(Me.radMale)
-        Me.GroupBox1.Location = New System.Drawing.Point(159, 81)
+        Me.GroupBox1.Location = New System.Drawing.Point(152, 81)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(223, 42)
         Me.GroupBox1.TabIndex = 6
@@ -233,6 +233,7 @@ Partial Class UserProfile
         '
         'UserProfile
         '
+        Me.AcceptButton = Me.btnUpdate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(423, 393)
