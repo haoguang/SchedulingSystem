@@ -29,7 +29,7 @@ Public Class UserProfile
                 img = Image.FromStream(stream)
                 picPicture.Image = img
 
-                Dim gender As String = m.Gender
+                Dim gender As String = m.Gender.First
                 Dim g = gender.ToCharArray()
 
                 'select gender
@@ -142,6 +142,7 @@ Public Class UserProfile
         Try
             db.SubmitChanges()
             MessageBox.Show("Profile Updated.", "Congratulation")
+
         Catch ex As Exception
             MessageBox.Show("Fail to update.", "Error")
         End Try

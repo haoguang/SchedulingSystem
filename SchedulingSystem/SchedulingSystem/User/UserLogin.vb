@@ -14,7 +14,6 @@ Public Class UserLogin
         'database
         Dim db As New ScheduleDBDataContext
         Dim member As Table(Of Member) = db.GetTable(Of Member)()
-
         Dim err As New StringBuilder()
         Dim ctr As Control = Nothing
 

@@ -112,7 +112,6 @@ Public Class Registration
         m.SecurityQuestion = cboQuestion.SelectedItem.ToString()
         m.SecurityAnswer = txtAnswer.Text
 
-
         'database
         Dim db As New ScheduleDBDataContext()
         Dim user As Table(Of Member) = db.GetTable(Of Member)()
