@@ -260,6 +260,12 @@
     <Compile Include="TestUserControl1.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="User\ForgotPassword.Designer.vb">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="User\LoginSession.vb" />
     <Compile Include="User\Registration.Designer.vb">
       <DependentUpon>Registration.vb</DependentUpon>
@@ -343,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notification\listNotification.resx">
       <DependentUpon>listNotification.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>
