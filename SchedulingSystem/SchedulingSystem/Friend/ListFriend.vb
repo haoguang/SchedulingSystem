@@ -39,6 +39,7 @@ Public Class ListFriend
         Dim a As [Friend] = db.Friends.FirstOrDefault(Function(o) o.UserID = Integer.Parse(lbl_ID.Text))
         a.Status = cbo_S.SelectedItem.ToString()
         db.SubmitChanges()
+
         sideCtrl.populateDGVF()
     End Sub
 
