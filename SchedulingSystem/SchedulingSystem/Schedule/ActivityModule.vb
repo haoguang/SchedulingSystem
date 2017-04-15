@@ -4,19 +4,33 @@
     Friend Const MINS_ONE_DAY As Integer = 1440
     Friend Const TOP_PADDING As Integer = 5
 
-    Friend Function calActivityHeight(startTime As DateTime, endTime As DateTime) As Double
-        Return (calTimeDiffInMin(startTime, endTime) / MINS_ONE_DAY) * MAX_HEIGHT
+    Friend Function calActivityHeight(startTime As DateTime, endTime As DateTime, requestDate As Date) As Double
+        Dim height As Double = (calTimeDiffInMin(startTime, endTime) / MINS_ONE_DAY) * MAX_HEIGHT
+
+        If requestDate.CompareTo(endTime.Date) < 0 Then
+            height = MAX_HEIGHT - calActivityPosition(startTime, endTime, requestDate)
+        ElseIf requestDate.CompareTo(startTime.Date) > 0
+            height = (calTimeDiffInMin(endTime.Date, endTime) / MINS_ONE_DAY) * MAX_HEIGHT
+        End If
+
+        Return height
     End Function
 
     Friend Function calTimeDiffInMin(startTime As DateTime, endTime As DateTime) As Double
         Return endTime.Subtract(startTime).TotalMinutes
     End Function
 
-    Friend Function calActivityPosition(startTime As DateTime) As Double
+    Friend Function calActivityPosition(startTime As DateTime, endTime As DateTime, requestDate As Date) As Double
         Dim time As TimeSpan = startTime.TimeOfDay
-        Return TOP_PADDING + (time.TotalMinutes / MINS_ONE_DAY * MAX_HEIGHT)
+        Dim position As Double = TOP_PADDING + (time.TotalMinutes / MINS_ONE_DAY * MAX_HEIGHT)
+
+        If requestDate.CompareTo(startTime.Date) > 0 Then
+            position = TOP_PADDING
+        End If
+        Return position
 
     End Function
+
 
     Friend Function IsOwner(ScheduleID As Integer) As Boolean
         Dim db As New ScheduleDBDataContext

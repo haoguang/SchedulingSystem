@@ -24,6 +24,7 @@ Partial Class ScheduleSidePanel
     Private Sub InitializeComponent()
         Me.btnMySchedule = New System.Windows.Forms.Button()
         Me.btnAddSchedule = New System.Windows.Forms.Button()
+        Me.mcrPicker = New System.Windows.Forms.MonthCalendar()
         Me.SuspendLayout()
         '
         'btnMySchedule
@@ -56,18 +57,30 @@ Partial Class ScheduleSidePanel
         Me.btnAddSchedule.Text = "Add Schedule"
         Me.btnAddSchedule.UseVisualStyleBackColor = False
         '
+        'mcrPicker
+        '
+        Me.mcrPicker.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.mcrPicker.Location = New System.Drawing.Point(28, 183)
+        Me.mcrPicker.MaxSelectionCount = 1
+        Me.mcrPicker.MinDate = New Date(2010, 1, 1, 0, 0, 0, 0)
+        Me.mcrPicker.Name = "mcrPicker"
+        Me.mcrPicker.TabIndex = 2
+        '
         'ScheduleSidePanel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.mcrPicker)
         Me.Controls.Add(Me.btnAddSchedule)
         Me.Controls.Add(Me.btnMySchedule)
         Me.Name = "ScheduleSidePanel"
-        Me.Size = New System.Drawing.Size(300, 313)
+        Me.Size = New System.Drawing.Size(300, 372)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents btnMySchedule As Button
     Friend WithEvents btnAddSchedule As Button
+    Friend WithEvents mcrPicker As MonthCalendar
 End Class
