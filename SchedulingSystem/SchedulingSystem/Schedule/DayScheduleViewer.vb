@@ -1,12 +1,16 @@
 ﻿Public Class DayScheduleViewer
     Dim arrTimeLabel(24) As Label
     Dim activityDisplayer As New ActivityControl
-
+    Friend displayDate As Date
 
     Private Sub HandleActivityControlClick(ByVal sender As Object, ByVal e As EventArgs)
         Dim activity As ActivityControl = DirectCast(sender, ActivityControl)
 
-        Console.WriteLine(activity.lblScheduleID.Text)
+        Dim scheduleView As New ScheduleViewPanel
+        scheduleView.scheduleTimeId = CInt(activity.lblScheduleID.Text)
+        scheduleView.prevCtrl.Push(Me)
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(scheduleView)
 
     End Sub
 
@@ -35,6 +39,10 @@
     End Sub
 
     Private Sub DayScheduleViewer_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        'displayDate = New Date(2017, 4, 15)
+
+        lblDate.Text = displayDate.ToLongDateString() & If(displayDate.Date.CompareTo(Date.Today.Date) = 0, " (Today)", "")
         populateTimeToPanel() 'Populate Time to time display panel
         populateSchedule()    'Populate schedule to time line
     End Sub
@@ -63,7 +71,8 @@
     Private Sub populateSchedule()
         Dim db As New ScheduleDBDataContext()
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
-                 Where s.ScheduleID = st.ScheduleID And st.ScheduleStart >= New DateTime(2017, 4, 15) And st.ScheduleStart <= New DateTime(2017, 4, 16) And
+                 Where s.ScheduleID = st.ScheduleID And ((st.ScheduleStart >= displayDate And st.ScheduleStart <= displayDate.AddDays(1)) Or
+                     (st.ScheduleEnd >= displayDate And st.ScheduleStart <= displayDate.AddDays(1))) And
                      p.ScheduleID = s.ScheduleID And p.MemberID = DevelopmentVariables.UserID And s.Status = "Active" And p.Status = "Attend"
 
         Dim activities(rs.Count) As ActivityControl
@@ -76,7 +85,7 @@
         Dim x As Integer = 0
 
         For Each item In rs
-            ScheduleID = item.s.ScheduleID
+            ScheduleID = item.st.ScheduleTimeId
             ScheduleTitle = item.s.Title
             ScheduleVenue = item.s.Venue
             ScheduleStart = CDate(item.st.ScheduleStart)
@@ -85,8 +94,8 @@
             activities(x) = New ActivityControl
 
             With activities(x)
-                .Location = New System.Drawing.Point(0, CInt(ActivityModule.calActivityPosition(ScheduleStart)))
-                .Height = CInt(ActivityModule.calActivityHeight(ScheduleStart, ScheduleEnd))
+                .Location = New System.Drawing.Point(0, CInt(ActivityModule.calActivityPosition(ScheduleStart, ScheduleEnd, displayDate)))
+                .Height = CInt(ActivityModule.calActivityHeight(ScheduleStart, ScheduleEnd, displayDate))
                 .lblStartTime.Text = ScheduleStart.ToShortTimeString
                 .lblTitle.Text = ScheduleTitle
                 .lblVenue.Text = ScheduleVenue
@@ -99,25 +108,21 @@
             x += 1
         Next
 
-
-
-        'for testing purpose only (need to delete)
-        Dim startTime As DateTime = New DateTime(DateTime.Parse("2017-4-1 00:00").ToBinary)
-        Dim endTime As DateTime = New DateTime(DateTime.Parse("2017-4-1 02:00").ToBinary)
-
-
-        With activityDisplayer
-            .Location = New System.Drawing.Point(0, CInt(ActivityModule.calActivityPosition(startTime)))
-            .Height = CInt(ActivityModule.calActivityHeight(startTime, endTime))
-            .lblStartTime.Text = startTime.ToShortTimeString
-            .lblTitle.Text = "I am a title"
-            .lblVenue.Text = "I am a place"
-            .Anchor = AnchorStyles.Left Or AnchorStyles.Right
-            .BackColor = Color.GreenYellow
-        End With
-
-        activityDisplayPanel.Controls.Add(activityDisplayer)
-        '(delete till here)
     End Sub
 
+    Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
+
+        Dim dayViewer As New DayScheduleViewer
+        dayViewer.displayDate = displayDate.AddDays(-1)
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(dayViewer)
+
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        Dim dayViewer As New DayScheduleViewer
+        dayViewer.displayDate = displayDate.AddDays(1)
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(dayViewer)
+    End Sub
 End Class

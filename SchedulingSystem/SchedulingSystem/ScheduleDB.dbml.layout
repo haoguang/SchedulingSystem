@@ -65,28 +65,28 @@
         <elementListCompartment Id="70cb8187-bb81-4cdb-94d1-743c2a0e5f26" absoluteBounds="11.265, 8.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.3125 : 7.75); (12.3125 : 6.14589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12.3125 : 7.75); (12.3125 : 6.14589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_Participle" />
       <nodes>
         <classShapeMoniker Id="cf3c35c3-f0e9-4e23-a174-f2be455b15c2" />
         <classShapeMoniker Id="25cdf7d9-62eb-4b89-b036-905781024420" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(13.25 : 8.28929768880208); (14.375 : 8.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(13.25 : 8.28929768880208); (14.375 : 8.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_LoginRecord" />
       <nodes>
         <classShapeMoniker Id="cf3c35c3-f0e9-4e23-a174-f2be455b15c2" />
         <classShapeMoniker Id="56033d9d-3a43-461a-88c8-3b4a5fbc6e33" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 9.48159912109375); (9.125 : 9.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.25 : 9.48159912109375); (9.125 : 9.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_Friend" />
       <nodes>
         <classShapeMoniker Id="cf3c35c3-f0e9-4e23-a174-f2be455b15c2" />
         <classShapeMoniker Id="fb4e4d38-48e0-46d8-8568-a8ce9405584e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 8.92829956054688); (9.125 : 8.92829956054688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.25 : 8.92829956054688); (9.125 : 8.92829956054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ScheduleDBDataContext/Member/Member_Friend1" />
       <nodes>
         <classShapeMoniker Id="cf3c35c3-f0e9-4e23-a174-f2be455b15c2" />

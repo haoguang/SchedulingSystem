@@ -1042,7 +1042,7 @@ Partial Public Class LoginRecord
 		OnCreated
 	End Sub
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LogId", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LogId", DbType:="Int NOT NULL", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
 	Public Property LogId() As Integer
 		Get
 			Return Me._LogId

@@ -1,5 +1,4 @@
 ﻿Imports System.Text
-Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Drawing.Imaging
 Imports System.Data.Linq
@@ -40,11 +39,11 @@ Public Class Registration
             ctr = If(ctr, mskNickname)
         End If
 
-        If radMale.Checked Then
+        If radMale.Checked = True Then
             gender = "M"
-        ElseIf radFemale.Checked Then
+        ElseIf radFemale.Checked = True Then
             gender = "F"
-        ElseIf radNotSpecified.Checked Then
+        ElseIf radNotSpecified.Checked = true Then
             gender = "N"
         Else
             err.AppendLine("- Please select gender.")
@@ -112,7 +111,6 @@ Public Class Registration
         m.Email = txtEmail.Text
         m.SecurityQuestion = cboQuestion.SelectedItem.ToString()
         m.SecurityAnswer = txtAnswer.Text
-
 
         'database
         Dim db As New ScheduleDBDataContext()

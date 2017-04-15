@@ -48,6 +48,7 @@
     'List of participle status
     Friend Shared ReadOnly PARTICIPLE_PENDING As String = "Pending"
     Friend Shared ReadOnly PARTICIPLE_ATTENT As String = "Attend"
+    Friend Shared ReadOnly PARTICIPLE_REJECT As String = "Reject"
 
 
 

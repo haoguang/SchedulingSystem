@@ -31,8 +31,6 @@ Partial Class ScheduleDetailView
         Me.gbReminder = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnAddParti = New System.Windows.Forms.PictureBox()
         Me.lblParticipleTitle = New System.Windows.Forms.Label()
         Me.dgvParticiples = New System.Windows.Forms.DataGridView()
@@ -54,6 +52,10 @@ Partial Class ScheduleDetailView
         Me.lblEnd = New System.Windows.Forms.Label()
         Me.lblStart = New System.Windows.Forms.Label()
         Me.lblStartTitle = New System.Windows.Forms.Label()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvParticiplePic = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvReminder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbReminder.SuspendLayout()
         CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,22 +151,6 @@ Partial Class ScheduleDetailView
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
-        'dgvParticipleName
-        '
-        Me.dgvParticipleName.FillWeight = 50.0!
-        Me.dgvParticipleName.HeaderText = "Participle Name"
-        Me.dgvParticipleName.Name = "dgvParticipleName"
-        Me.dgvParticipleName.ReadOnly = True
-        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvParticipleName.Width = 221
-        '
-        'dgvParticipleID
-        '
-        Me.dgvParticipleID.HeaderText = "Participle ID"
-        Me.dgvParticipleID.Name = "dgvParticipleID"
-        Me.dgvParticipleID.ReadOnly = True
-        Me.dgvParticipleID.Visible = False
-        '
         'btnAddParti
         '
         Me.btnAddParti.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
@@ -204,7 +190,7 @@ Partial Class ScheduleDetailView
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvParticiples.ColumnHeadersVisible = False
-        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticipleName})
+        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticiplePic, Me.dgvParticipleName})
         Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgvParticiples.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.dgvParticiples.Location = New System.Drawing.Point(3, 56)
@@ -426,11 +412,51 @@ Partial Class ScheduleDetailView
         Me.lblStartTitle.TabIndex = 0
         Me.lblStartTitle.Text = "Activity &Start :"
         '
+        'btnRemove
+        '
+        Me.btnRemove.BackColor = System.Drawing.Color.Silver
+        Me.btnRemove.CausesValidation = False
+        Me.btnRemove.FlatAppearance.BorderSize = 3
+        Me.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRemove.Font = New System.Drawing.Font("Gill Sans MT", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemove.ForeColor = System.Drawing.Color.Black
+        Me.btnRemove.Location = New System.Drawing.Point(434, 492)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(271, 37)
+        Me.btnRemove.TabIndex = 14
+        Me.btnRemove.Text = "&Remove"
+        Me.btnRemove.UseVisualStyleBackColor = False
+        '
+        'dgvParticipleID
+        '
+        Me.dgvParticipleID.HeaderText = "Participle ID"
+        Me.dgvParticipleID.Name = "dgvParticipleID"
+        Me.dgvParticipleID.ReadOnly = True
+        Me.dgvParticipleID.Visible = False
+        '
+        'dgvParticiplePic
+        '
+        Me.dgvParticiplePic.HeaderText = "Profile Picture"
+        Me.dgvParticiplePic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.dgvParticiplePic.Name = "dgvParticiplePic"
+        Me.dgvParticiplePic.ReadOnly = True
+        Me.dgvParticiplePic.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'dgvParticipleName
+        '
+        Me.dgvParticipleName.FillWeight = 50.0!
+        Me.dgvParticipleName.HeaderText = "Participle Name"
+        Me.dgvParticipleName.Name = "dgvParticipleName"
+        Me.dgvParticipleName.ReadOnly = True
+        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvParticipleName.Width = 221
+        '
         'ScheduleDetailView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.gbReminder)
+        Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.gbParticiple)
         Me.Controls.Add(Me.btnEdit)
@@ -464,8 +490,6 @@ Partial Class ScheduleDetailView
     Friend WithEvents btnAddParti As PictureBox
     Friend WithEvents lblParticipleTitle As Label
     Friend WithEvents dgvParticiples As DataGridView
-    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
-    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
     Friend WithEvents btnEdit As Button
     Friend WithEvents gbRepeat As GroupBox
     Friend WithEvents gbGeneral As GroupBox
@@ -483,4 +507,8 @@ Partial Class ScheduleDetailView
     Friend WithEvents lblAcTitle As Label
     Friend WithEvents lblEnd As Label
     Friend WithEvents lblStart As Label
+    Friend WithEvents btnRemove As Button
+    Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
+    Friend WithEvents dgvParticiplePic As DataGridViewImageColumn
+    Friend WithEvents dgvParticipleName As DataGridViewTextBoxColumn
 End Class

@@ -3,7 +3,8 @@ Imports System.Data.Linq
 Imports System.IO
 
 Public Class ActivityRegister
-    Private schedule As ScheduleClass
+    Friend schedule As ScheduleClass
+    Friend parentCtrl As ScheduleViewPanel
     Private repeat As RepeatationClass
 
 
@@ -171,7 +172,7 @@ Public Class ActivityRegister
         End If
 
         MessageBox.Show("Successfully added a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+        backToSchedule()
     End Sub
 
     Private Sub btnDoneEdit_MouseClick(sender As Object, e As EventArgs) ' Done button handler for edit schedule use
@@ -209,9 +210,14 @@ Public Class ActivityRegister
         End If
 
         MessageBox.Show("Successfully edited a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+        backToSchedule()
     End Sub
 
+    Private Sub backToSchedule()
+        Dim view As New DayScheduleViewer
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(view)
+    End Sub
 
     Private Sub populateParticiples()
         dgvParticiples.Rows.Clear()
@@ -312,12 +318,16 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub dgvParticiples_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseClick
+        Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
         If schedule Is Nothing Then
             'romove row only
-            dgvParticiples.Rows.RemoveAt(e.RowIndex)
+            If columnName = "dgvParticiplesRemove" Then
+                dgvParticiples.Rows.RemoveAt(e.RowIndex)
+            End If
+
         Else
 
-            Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
+
             If columnName = "dgvParticiplesRemove" Then
 
                 'preform operation
@@ -522,9 +532,9 @@ Public Class ActivityRegister
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         If schedule Is Nothing Then
-            'in process
+            backToSchedule()
         Else
-
+            parentCtrl.btnBack_MouseClick(Nothing, Nothing)
         End If
     End Sub
 End Class
