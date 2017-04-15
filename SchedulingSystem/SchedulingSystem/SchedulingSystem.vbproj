@@ -79,6 +79,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -144,6 +145,12 @@
     </Compile>
     <Compile Include="Friend\ListFriend.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Friend\Monthly Friend Changes Report.Designer.vb">
+      <DependentUpon>Monthly Friend Changes Report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Friend\Monthly Friend Changes Report.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Friend\SearchnewFriend.Designer.vb">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
@@ -262,6 +269,18 @@
     <Compile Include="TestUserControl1.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="User\ChangePassword.Designer.vb">
+      <DependentUpon>ChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\ChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\ForgotPassword.Designer.vb">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\ForgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="User\LoginSession.vb" />
     <Compile Include="User\Registration.Designer.vb">
       <DependentUpon>Registration.vb</DependentUpon>
@@ -310,6 +329,9 @@
     <EmbeddedResource Include="Friend\ListFriend.resx">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Friend\Monthly Friend Changes Report.resx">
+      <DependentUpon>Monthly Friend Changes Report.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Friend\SearchnewFriend.resx">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notification\listNotification.resx">
       <DependentUpon>listNotification.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ChangePassword.resx">
+      <DependentUpon>ChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>

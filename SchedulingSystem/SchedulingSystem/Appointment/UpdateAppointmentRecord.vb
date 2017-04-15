@@ -135,15 +135,15 @@ Public Class UpdateAppointmentRecord
             err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, memberId, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, memberId, StringIDPass) Then
             err.SetError(scheStart, Nothing)
             err.SetError(scheEnd, "The end date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, memberId, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator(scheStart.Value, memberId, StringIDPass) Then
             err.SetError(scheEnd, Nothing)
             err.SetError(scheStart, "The start date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, memberId, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, memberId, StringIDPass) Then
             err.SetError(scheStart, "There is schedule conflict between both times")
             err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True

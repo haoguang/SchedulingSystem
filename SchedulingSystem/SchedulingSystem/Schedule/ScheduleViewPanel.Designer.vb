@@ -23,9 +23,9 @@ Partial Class ScheduleViewPanel
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.HeaderPanel = New System.Windows.Forms.Panel()
-        Me.DetailViewPanel = New System.Windows.Forms.Panel()
-        Me.btnBack = New System.Windows.Forms.PictureBox()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.btnBack = New System.Windows.Forms.PictureBox()
+        Me.DetailViewPanel = New System.Windows.Forms.Panel()
         Me.HeaderPanel.SuspendLayout()
         CType(Me.btnBack, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -40,23 +40,6 @@ Partial Class ScheduleViewPanel
         Me.HeaderPanel.Size = New System.Drawing.Size(730, 50)
         Me.HeaderPanel.TabIndex = 0
         '
-        'DetailViewPanel
-        '
-        Me.DetailViewPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DetailViewPanel.Location = New System.Drawing.Point(0, 50)
-        Me.DetailViewPanel.Name = "DetailViewPanel"
-        Me.DetailViewPanel.Size = New System.Drawing.Size(730, 550)
-        Me.DetailViewPanel.TabIndex = 1
-        '
-        'btnBack
-        '
-        Me.btnBack.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnBack.Location = New System.Drawing.Point(0, 0)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(50, 50)
-        Me.btnBack.TabIndex = 0
-        Me.btnBack.TabStop = False
-        '
         'lblTitle
         '
         Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill
@@ -68,6 +51,25 @@ Partial Class ScheduleViewPanel
         Me.lblTitle.TabIndex = 1
         Me.lblTitle.Text = "Title"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btnBack
+        '
+        Me.btnBack.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnBack.Image = Global.SchedulingSystem.My.Resources.Resources.arrow_105_24
+        Me.btnBack.Location = New System.Drawing.Point(0, 0)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(50, 50)
+        Me.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.btnBack.TabIndex = 0
+        Me.btnBack.TabStop = False
+        '
+        'DetailViewPanel
+        '
+        Me.DetailViewPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DetailViewPanel.Location = New System.Drawing.Point(0, 50)
+        Me.DetailViewPanel.Name = "DetailViewPanel"
+        Me.DetailViewPanel.Size = New System.Drawing.Size(730, 550)
+        Me.DetailViewPanel.TabIndex = 1
         '
         'ScheduleViewPanel
         '

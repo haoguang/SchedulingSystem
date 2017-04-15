@@ -2,7 +2,7 @@
 
 Public Class ListFriend
     Friend friend_id As Integer
-    Friend user_id As Integer = 100001
+    Friend user_id As Integer = LoginSession.memberID
     Friend sideCtrl As FriendSidePanel
 
     Private Sub ListFriend_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -20,10 +20,17 @@ Public Class ListFriend
         lbl_H.Text = fl.FirstOrDefault.Hobby
         cbo_S.SelectedItem = fl.FirstOrDefault.Status
         For Each p In fl
-            imgByte = CType(p.Picture.ToArray, Byte())
-            stream = New MemoryStream(imgByte, 0, imgByte.Length)
-            img = Image.FromStream(stream)
-            PictureBox1.Image = img
+            If p.Picture IsNot Nothing Then
+                imgByte = CType(p.Picture.ToArray, Byte())
+                stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                img = Image.FromStream(stream)
+                PictureBox1.Image = img
+            Else
+                img = My.Resources.user_default
+                PictureBox1.Image = img
+
+            End If
+
         Next
     End Sub
 
