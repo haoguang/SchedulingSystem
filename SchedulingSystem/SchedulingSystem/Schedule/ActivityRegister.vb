@@ -540,9 +540,37 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
-        Dim minutes As String
+        Dim minutes As Integer
+        Dim scheStartDate As Date = scheStart.Value
+        Dim scheduleid As Integer = schedule.ScheduleID
+        Dim db As New ScheduleDBDataContext
 
+        Select Case cboMinBefore.SelectedIndex
+            Case 0
+                minutes = 10
+                scheStartDate = scheStartDate.AddMinutes(-10)
+            Case 1
+                minutes = 20
+                scheStartDate = scheStartDate.AddMinutes(-20)
+            Case 2
+                minutes = 30
+                scheStartDate = scheStartDate.AddMinutes(-30)
+            Case 3
+                minutes = 40
+                scheStartDate = scheStartDate.AddMinutes(-40)
+            Case 4
+                minutes = 50
+                scheStartDate = scheStartDate.AddMinutes(-50)
+            Case 5
+                minutes = 60
+                scheStartDate = scheStartDate.AddMinutes(-60)
+        End Select
 
+        'store reminder info
+        Dim r As New Reminder()
+        r.ScheduleID = scheduleid
+        r.MinutesBefore = minutes
+        r.ReminderDateTime = scheStartDate
 
     End Sub
 End Class
