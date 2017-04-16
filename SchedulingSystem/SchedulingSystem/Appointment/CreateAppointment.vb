@@ -1,4 +1,5 @@
-﻿Public Class CreateAppointment
+﻿Imports System.Data.Linq
+Public Class CreateAppointment
     Public Property StringUsername As String
     Private schedule As ScheduleClass
     Private Sub CreateAppointment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -44,7 +45,7 @@
     Private Sub AddSchedule()
         Dim s As New Schedule()
         s.RepeatDue = scheEnd.Value
-        's.RepeatBehavior = New Binary(BitConverter.GetBytes(RepeatationModule.REPEAT_NONE))
+        s.RepeatBehavior = New Binary(BitConverter.GetBytes(RepeatationModule.REPEAT_NONE))
         s.Title = txtTitle.Text
         s.Description = txtBoxDescription.Text
         s.Venue = txtVenue.Text
