@@ -38,6 +38,7 @@
 
     Private Sub btnDown_Click()
         umDropDownMenu.Visible = True
+        Refresh()
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
