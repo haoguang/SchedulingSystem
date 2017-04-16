@@ -12,7 +12,7 @@ Public Class TotalFriend
 
         Dim header As String = "Friend Listing"
         Dim subHeader As String = String.Format(
-        "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine & "Printed by ", DateTime.Now, LoginSession.username)
+        "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine & "Printed by {1,2}", DateTime.Now, LoginSession.username)
 
         Dim body As New StringBuilder()
 
