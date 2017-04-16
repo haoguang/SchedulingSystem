@@ -45,6 +45,7 @@ Public Class UserLogin
                     LoginSession.memberID = m.MemberID
                     LoginSession.username = m.Username
                     LoginSession.email = m.Email
+                    LoginSession.signInTime = DateTime.Now
 
                     'convert to image 
                     Dim img As Image
@@ -60,14 +61,6 @@ Public Class UserLogin
                     LoginSession.picture = img
                     LoginSession.nickname = m.Nickname
                     LoginSession.email = m.Email
-
-                    Dim l As New LoginRecord()
-                    l.SignInTime = DateTime.Now
-                    l.UserId = m.MemberID
-                    db.LoginRecords.InsertOnSubmit(l)
-                    db.SubmitChanges()
-
-
 
                     MessageBox.Show("Login Success.", "Congratulation")
                     MainForm.Show()

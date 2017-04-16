@@ -25,7 +25,6 @@ Partial Class AppointmentNotification
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblATitle = New System.Windows.Forms.Label()
         Me.lblDesc = New System.Windows.Forms.Label()
-        Me.lblADesc = New System.Windows.Forms.Label()
         Me.lblVenue = New System.Windows.Forms.Label()
         Me.lblAVenue = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
@@ -34,6 +33,7 @@ Partial Class AppointmentNotification
         Me.btnReject = New System.Windows.Forms.Button()
         Me.lblInviter = New System.Windows.Forms.Label()
         Me.lblAInviter = New System.Windows.Forms.Label()
+        Me.rtbDesc = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
         'lblTitle
@@ -64,19 +64,11 @@ Partial Class AppointmentNotification
         Me.lblDesc.TabIndex = 2
         Me.lblDesc.Text = "Description      : "
         '
-        'lblADesc
-        '
-        Me.lblADesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblADesc.Location = New System.Drawing.Point(155, 89)
-        Me.lblADesc.Name = "lblADesc"
-        Me.lblADesc.Size = New System.Drawing.Size(165, 15)
-        Me.lblADesc.TabIndex = 3
-        '
         'lblVenue
         '
         Me.lblVenue.AutoSize = True
         Me.lblVenue.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVenue.Location = New System.Drawing.Point(47, 124)
+        Me.lblVenue.Location = New System.Drawing.Point(47, 168)
         Me.lblVenue.Name = "lblVenue"
         Me.lblVenue.Size = New System.Drawing.Size(111, 15)
         Me.lblVenue.TabIndex = 4
@@ -85,7 +77,7 @@ Partial Class AppointmentNotification
         'lblAVenue
         '
         Me.lblAVenue.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAVenue.Location = New System.Drawing.Point(155, 124)
+        Me.lblAVenue.Location = New System.Drawing.Point(155, 168)
         Me.lblAVenue.Name = "lblAVenue"
         Me.lblAVenue.Size = New System.Drawing.Size(165, 15)
         Me.lblAVenue.TabIndex = 5
@@ -94,7 +86,7 @@ Partial Class AppointmentNotification
         '
         Me.lblDateTime.AutoSize = True
         Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateTime.Location = New System.Drawing.Point(47, 156)
+        Me.lblDateTime.Location = New System.Drawing.Point(47, 200)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.Size = New System.Drawing.Size(113, 15)
         Me.lblDateTime.TabIndex = 6
@@ -103,7 +95,7 @@ Partial Class AppointmentNotification
         'lblADateTime
         '
         Me.lblADateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblADateTime.Location = New System.Drawing.Point(155, 156)
+        Me.lblADateTime.Location = New System.Drawing.Point(155, 200)
         Me.lblADateTime.Name = "lblADateTime"
         Me.lblADateTime.Size = New System.Drawing.Size(165, 15)
         Me.lblADateTime.TabIndex = 7
@@ -111,7 +103,7 @@ Partial Class AppointmentNotification
         'btnAccept
         '
         Me.btnAccept.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAccept.Location = New System.Drawing.Point(83, 210)
+        Me.btnAccept.Location = New System.Drawing.Point(76, 244)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.Size = New System.Drawing.Size(75, 23)
         Me.btnAccept.TabIndex = 8
@@ -121,7 +113,7 @@ Partial Class AppointmentNotification
         'btnReject
         '
         Me.btnReject.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReject.Location = New System.Drawing.Point(197, 210)
+        Me.btnReject.Location = New System.Drawing.Point(190, 244)
         Me.btnReject.Name = "btnReject"
         Me.btnReject.Size = New System.Drawing.Size(75, 23)
         Me.btnReject.TabIndex = 9
@@ -145,11 +137,23 @@ Partial Class AppointmentNotification
         Me.lblAInviter.Size = New System.Drawing.Size(162, 19)
         Me.lblAInviter.TabIndex = 11
         '
+        'rtbDesc
+        '
+        Me.rtbDesc.BackColor = System.Drawing.SystemColors.Control
+        Me.rtbDesc.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.rtbDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rtbDesc.Location = New System.Drawing.Point(166, 89)
+        Me.rtbDesc.Name = "rtbDesc"
+        Me.rtbDesc.Size = New System.Drawing.Size(154, 76)
+        Me.rtbDesc.TabIndex = 12
+        Me.rtbDesc.Text = ""
+        '
         'AppointmentNotification
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(347, 245)
+        Me.ClientSize = New System.Drawing.Size(347, 284)
+        Me.Controls.Add(Me.rtbDesc)
         Me.Controls.Add(Me.lblAInviter)
         Me.Controls.Add(Me.lblInviter)
         Me.Controls.Add(Me.btnReject)
@@ -158,12 +162,11 @@ Partial Class AppointmentNotification
         Me.Controls.Add(Me.lblDateTime)
         Me.Controls.Add(Me.lblAVenue)
         Me.Controls.Add(Me.lblVenue)
-        Me.Controls.Add(Me.lblADesc)
         Me.Controls.Add(Me.lblDesc)
         Me.Controls.Add(Me.lblATitle)
         Me.Controls.Add(Me.lblTitle)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(363, 284)
+        Me.MaximumSize = New System.Drawing.Size(363, 323)
         Me.MinimumSize = New System.Drawing.Size(363, 284)
         Me.Name = "AppointmentNotification"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -176,7 +179,6 @@ Partial Class AppointmentNotification
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblATitle As Label
     Friend WithEvents lblDesc As Label
-    Friend WithEvents lblADesc As Label
     Friend WithEvents lblVenue As Label
     Friend WithEvents lblAVenue As Label
     Friend WithEvents lblDateTime As Label
@@ -185,4 +187,5 @@ Partial Class AppointmentNotification
     Friend WithEvents btnReject As Button
     Friend WithEvents lblInviter As Label
     Friend WithEvents lblAInviter As Label
+    Friend WithEvents rtbDesc As RichTextBox
 End Class

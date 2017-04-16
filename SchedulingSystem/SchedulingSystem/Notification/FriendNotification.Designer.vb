@@ -37,6 +37,7 @@ Partial Class FriendNotification
         Me.picUser.Location = New System.Drawing.Point(79, 12)
         Me.picUser.Name = "picUser"
         Me.picUser.Size = New System.Drawing.Size(127, 121)
+        Me.picUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picUser.TabIndex = 0
         Me.picUser.TabStop = False
         '
@@ -53,7 +54,7 @@ Partial Class FriendNotification
         'lblFriendName
         '
         Me.lblFriendName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFriendName.Location = New System.Drawing.Point(128, 145)
+        Me.lblFriendName.Location = New System.Drawing.Point(128, 152)
         Me.lblFriendName.Name = "lblFriendName"
         Me.lblFriendName.Size = New System.Drawing.Size(131, 22)
         Me.lblFriendName.TabIndex = 2
@@ -71,14 +72,15 @@ Partial Class FriendNotification
         'lblFriendHobby
         '
         Me.lblFriendHobby.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFriendHobby.Location = New System.Drawing.Point(128, 184)
+        Me.lblFriendHobby.Location = New System.Drawing.Point(128, 193)
         Me.lblFriendHobby.Name = "lblFriendHobby"
         Me.lblFriendHobby.Size = New System.Drawing.Size(131, 24)
         Me.lblFriendHobby.TabIndex = 4
         '
         'btnAccept
         '
-        Me.btnAccept.Location = New System.Drawing.Point(47, 239)
+        Me.btnAccept.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAccept.Location = New System.Drawing.Point(58, 239)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.Size = New System.Drawing.Size(75, 23)
         Me.btnAccept.TabIndex = 5
@@ -87,7 +89,8 @@ Partial Class FriendNotification
         '
         'btnReject
         '
-        Me.btnReject.Location = New System.Drawing.Point(148, 239)
+        Me.btnReject.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReject.Location = New System.Drawing.Point(159, 239)
         Me.btnReject.Name = "btnReject"
         Me.btnReject.Size = New System.Drawing.Size(75, 23)
         Me.btnReject.TabIndex = 6

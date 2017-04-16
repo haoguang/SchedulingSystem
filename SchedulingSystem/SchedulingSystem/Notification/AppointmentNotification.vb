@@ -34,7 +34,7 @@
 
         'display appointment detail
         lblATitle.Text = apmtDetail.Appointment(index).Title
-        lblADesc.Text = apmtDetail.Appointment(index).Description
+        rtbDesc.Text = apmtDetail.Appointment(index).Description
         lblAVenue.Text = apmtDetail.Appointment(index).Venue
         lblADateTime.Text = apmtDetail.Appointment(index).ScheduleTime
 
@@ -46,7 +46,6 @@
         status = ActivityModule.acceptAppointment(userId, id, Date.Parse(startDate), Date.Parse(endDate))
         If (status = True) Then
             MessageBox.Show("Appointment Accepted Succcesfully!")
-
             Me.Close()
         ElseIf (status = False) Then
             MessageBox.Show("Sorry, Appoinment Due Date is Over!")
