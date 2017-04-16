@@ -94,7 +94,7 @@ Partial Class FriendNotification
         Me.btnReject.Name = "btnReject"
         Me.btnReject.Size = New System.Drawing.Size(75, 23)
         Me.btnReject.TabIndex = 6
-        Me.btnReject.Text = "&Reject"
+        Me.btnReject.Text = "R&eject"
         Me.btnReject.UseVisualStyleBackColor = True
         '
         'FriendNotification
@@ -109,10 +109,12 @@ Partial Class FriendNotification
         Me.Controls.Add(Me.lblFriendName)
         Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.picUser)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(300, 313)
         Me.MinimumSize = New System.Drawing.Size(300, 313)
         Me.Name = "FriendNotification"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Friend Notification"
         CType(Me.picUser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

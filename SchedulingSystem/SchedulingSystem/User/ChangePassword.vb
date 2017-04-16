@@ -73,6 +73,7 @@ Public Class ChangePassword
     End Sub
 
     Private Sub ChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'clear
         txtConfirmPassword.Text = ""
         txtNewPassword.Text = ""
         txtOldPassword.Text = ""

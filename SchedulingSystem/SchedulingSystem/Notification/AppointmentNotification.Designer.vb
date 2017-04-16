@@ -117,7 +117,7 @@ Partial Class AppointmentNotification
         Me.btnReject.Name = "btnReject"
         Me.btnReject.Size = New System.Drawing.Size(75, 23)
         Me.btnReject.TabIndex = 9
-        Me.btnReject.Text = "&Reject"
+        Me.btnReject.Text = "R&eject"
         Me.btnReject.UseVisualStyleBackColor = True
         '
         'lblInviter
@@ -142,7 +142,7 @@ Partial Class AppointmentNotification
         Me.rtbDesc.BackColor = System.Drawing.SystemColors.Control
         Me.rtbDesc.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rtbDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtbDesc.Location = New System.Drawing.Point(166, 89)
+        Me.rtbDesc.Location = New System.Drawing.Point(158, 89)
         Me.rtbDesc.Name = "rtbDesc"
         Me.rtbDesc.Size = New System.Drawing.Size(154, 76)
         Me.rtbDesc.TabIndex = 12
@@ -165,6 +165,7 @@ Partial Class AppointmentNotification
         Me.Controls.Add(Me.lblDesc)
         Me.Controls.Add(Me.lblATitle)
         Me.Controls.Add(Me.lblTitle)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(363, 323)
         Me.MinimumSize = New System.Drawing.Size(363, 284)
