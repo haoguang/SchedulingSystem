@@ -520,6 +520,7 @@
     <None Include="Resources\logout-32.png" />
     <None Include="Resources\report.png" />
     <None Include="Resources\user-default.png" />
+    <Content Include="Resources\logo.png" />
     <None Include="Resources\reportBackground.png" />
     <None Include="Resources\time-12-48.png" />
     <Content Include="ScheduleDB.mdf">
