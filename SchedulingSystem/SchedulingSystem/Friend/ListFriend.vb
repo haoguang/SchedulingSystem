@@ -19,6 +19,7 @@ Public Class ListFriend
         lbl_Oc.Text = fl.FirstOrDefault.Occupation
         lbl_H.Text = fl.FirstOrDefault.Hobby
         cbo_S.SelectedItem = fl.FirstOrDefault.Status
+
         For Each p In fl
             If p.Picture IsNot Nothing Then
                 imgByte = CType(p.Picture.ToArray, Byte())

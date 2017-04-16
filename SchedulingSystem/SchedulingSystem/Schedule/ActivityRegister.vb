@@ -545,8 +545,9 @@ Public Class ActivityRegister
     Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
         Dim minutes As Integer
         Dim scheStartDate As Date = scheStart.Value
-        'Dim scheduleid As Integer = schedule.ScheduleID ' you willl not get schedule id unless, it is editing the schedule
         Dim db As New ScheduleDBDataContext
+        Dim currentDateTime As DateTime
+        currentDateTime = DateTime.Now
 
         Select Case cboMinBefore.SelectedIndex
             Case 0
@@ -569,6 +570,10 @@ Public Class ActivityRegister
                 scheStartDate = scheStartDate.AddMinutes(-60)
         End Select
 
+        dgvReminder.ColumnCount = 1
+        dgvReminder.Columns(0).Name = "DateTime"
+        dgvReminder.Rows.Add(New String() {scheStartDate.ToString})
+
         If schedule Is Nothing Then
             'for create schedule
 
@@ -577,22 +582,47 @@ Public Class ActivityRegister
 
 
         Else ' For edit schedule
-            'store reminder info
+
+            'store data
             Dim r As New Reminder()
             r.ScheduleID = schedule.ScheduleID ' so it need to be put it here
             r.MinutesBefore = minutes
             r.ReminderDateTime = scheStartDate
 
             ' 1.insert into database
-            ' 2.create a function to refresh the data grid view and call it here
+            db.Reminders.InsertOnSubmit(r)
+            db.SubmitChanges()
 
-            'I recommend you to double click the data grid view row to delete the reminder, so you need cell mouse double click
-            ' still same just but this if else statement for create and edit schedule
+            ' 2.create a function to refresh the data grid view and call it here
+            getReminder()
 
         End If
 
+    End Sub
 
+    Public Sub getReminder()
+        Dim db As New ScheduleDBDataContext
 
+        dgvReminder.DataSource = Nothing
 
+        Dim record = From rm In db.Reminders, s In db.Schedules
+                     Where s.ScheduleID = schedule.ScheduleID And rm.ScheduleID = s.ScheduleID
+                     Select New With {
+                         .Schedule_ID = s.ScheduleID,
+                         .Title = s.Title,
+                         .Reminder_DateTime = rm.ReminderDateTime
+                         }
+        dgvReminder.DataSource = record
+    End Sub
+
+    Private Sub dgvReminder_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReminder.CellDoubleClick
+        If dgvReminder.SelectedRows.Count > 0 Then
+            'you may want to add a confirmation message, and if the user confirms delete
+            If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
+                dgvReminder.Rows.Remove(dgvReminder.SelectedRows(0))
+            Else
+                MessageBox.Show("Record didn't delete!")
+            End If
+        End If
     End Sub
 End Class
