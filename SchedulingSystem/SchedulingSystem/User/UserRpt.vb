@@ -3,15 +3,17 @@ Imports System.Text
 
 Public Class UserRpt
     Private Sub doc_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles doc.PrintPage
+        'print report
+        'font
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
         Dim fontSubHeader As New Font("Calibri", 12)
         Dim fontBody As New Font("Consolas", 10)
-
+        'header
         Dim header As String = "Login Report"
         Dim subHeader As String = String.Format(
             "Printed on {0:yyyy-MMMM-dd hh:mm:ss tt}" & vbNewLine, DateTime.Now
             )
-
+        'body
         Dim body As New StringBuilder()
         body.AppendLine("No        Sign In Date            Sign Out Date")
         body.AppendLine("--    ---------------------  ---------------------")
@@ -40,6 +42,7 @@ Public Class UserRpt
     End Sub
 
     Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
+        'clear label and listbox
         lstLoginRecord.Items.Clear()
         lblRecord.Text = ""
 
@@ -63,7 +66,7 @@ Public Class UserRpt
             ctr.Focus()
             Return
         End If
-
+        'define month and year
         Dim month As String = cboMonth.SelectedItem.ToString
         Dim year As String = cboYear.SelectedItem.ToString
 
@@ -96,7 +99,7 @@ Public Class UserRpt
 
         Dim mth As Integer = Integer.Parse(month)
         Dim yr As Integer = Integer.Parse(year)
-
+        'database
         Dim db As New ScheduleDBDataContext()
         Dim login As Table(Of LoginRecord) = db.GetTable(Of LoginRecord)()
         'get login details
