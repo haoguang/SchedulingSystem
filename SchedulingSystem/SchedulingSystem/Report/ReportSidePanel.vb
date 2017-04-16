@@ -20,5 +20,8 @@
 
     Private Sub btnScheduleReport_Click(sender As Object, e As EventArgs) Handles btnScheduleReport.Click
         ' summon schedule report ui
+        Dim scheduleReport As New ScheduleReport
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(scheduleReport)
     End Sub
 End Class
