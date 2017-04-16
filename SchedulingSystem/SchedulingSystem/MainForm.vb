@@ -80,4 +80,8 @@
     Private Sub tmrClock_Tick(sender As Object, e As EventArgs) Handles tmrClock.Tick
         lblClock.Text = DateTime.Now.ToLongTimeString
     End Sub
+
+    Private Sub btnUserInfo_Load(sender As Object, e As EventArgs) Handles btnUserInfo.Load
+
+    End Sub
 End Class
