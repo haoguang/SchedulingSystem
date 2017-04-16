@@ -46,6 +46,7 @@
         status = ActivityModule.acceptAppointment(userId, id, Date.Parse(startDate), Date.Parse(endDate))
         If (status = True) Then
             MessageBox.Show("Appointment Accepted Succcesfully!")
+
             Me.Close()
         ElseIf (status = False) Then
             MessageBox.Show("Sorry, Appoinment Due Date is Over!")

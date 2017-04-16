@@ -13,7 +13,7 @@ Public Class listNotification
         currentDateTime = DateTime.Now
 
         Dim friendQuery = From f In db.Friends, m In db.Members
-                          Where f.UserID = userId And f.Status = "Pending" And f.Inviter = m.MemberID
+                          Where f.FriendID = userId And f.Status = "Pending" And f.Inviter = m.MemberID
                           Select m.MemberID, m.Username, m.Hobby, m.Picture
 
         Dim appointmentQuery = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
@@ -32,8 +32,9 @@ Public Class listNotification
                 apmtDetail.Appointment(count).Description = s.Description
                 count += 1
             Next
-            'if friend request exist
-        ElseIf friendQuery.Count > 0 Then
+        End If
+        'if friend request exist
+        If friendQuery.Count > 0 Then
             For Each m In friendQuery
                 lstFNotification.Items.Add(String.Format("{0} sent you a friend request.", m.Username))
                 apmtDetail.Inviter(count) = New InviterDetail
