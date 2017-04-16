@@ -69,6 +69,7 @@
 
     Private Sub btnNotification_Click(sender As Object, e As EventArgs) Handles btnNotification.Click
         Dim listNotification As New listNotification
+        SideContentPanel.Controls.Clear()
         ContentPanel.Controls.Clear()
         ContentPanel.Controls.Add(listNotification)
     End Sub
