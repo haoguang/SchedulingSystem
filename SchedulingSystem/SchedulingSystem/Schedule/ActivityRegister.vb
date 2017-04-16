@@ -64,6 +64,8 @@ Public Class ActivityRegister
         populateDataToControls() 'insert data to all control
 
         populateParticiples() 'insert data to grid view
+
+        getReminder() ' insert reminder data to grid view
     End Sub
 
     Private Sub activityCreateMode() 'called when control is used to create schedule
@@ -570,16 +572,12 @@ Public Class ActivityRegister
                 scheStartDate = scheStartDate.AddMinutes(-60)
         End Select
 
-        dgvReminder.ColumnCount = 1
-        dgvReminder.Columns(0).Name = "DateTime"
-        dgvReminder.Rows.Add(New String() {scheStartDate.ToString})
-
         If schedule Is Nothing Then
             'for create schedule
-
-            ' add row to datagrid view
-            ' I will help you do this 
-
+            dgvReminder.ColumnCount = 2
+            dgvReminder.Columns(0).Name = "DateTime"
+            dgvReminder.Columns(1).Name = "Minutes Before"
+            dgvReminder.Rows.Add(New String() {scheStartDate.ToString}, minutes)
 
         Else ' For edit schedule
 
@@ -601,6 +599,7 @@ Public Class ActivityRegister
     End Sub
 
     Public Sub getReminder()
+
         Dim db As New ScheduleDBDataContext
 
         dgvReminder.DataSource = Nothing
@@ -608,9 +607,9 @@ Public Class ActivityRegister
         Dim record = From rm In db.Reminders, s In db.Schedules
                      Where s.ScheduleID = schedule.ScheduleID And rm.ScheduleID = s.ScheduleID
                      Select New With {
-                         .Schedule_ID = s.ScheduleID,
-                         .Title = s.Title,
-                         .Reminder_DateTime = rm.ReminderDateTime
+                         .ReminderID = rm.ReminderID,
+                         .Reminder_DateTime = rm.ReminderDateTime,
+                         .MinuteBefore = rm.MinutesBefore
                          }
         dgvReminder.DataSource = record
     End Sub
