@@ -154,4 +154,42 @@ Public Class UserProfile
     Private Sub btnChange_Click(sender As Object, e As EventArgs) Handles btnChange.Click
         ChangePassword.ShowDialog()
     End Sub
+
+    Private Sub doc_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles doc.PrintPage
+        'Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
+        'Dim fontSubHeader As New Font("Calibri", 12)
+        'Dim fontBody As New Font("Consolas", 10)
+
+        'Dim header As String = "Login Report"
+        'Dim subHeader As String = String.Format(
+        '    "Printed on {0:yyyy-MMMM-dd hh:mm:ss tt}" & vbNewLine &
+        '    "Prepared by Lee", DateTime.Now
+        '    )
+
+        'Dim body As New StringBuilder()
+        'body.AppendLine("No   Sign In Date     Sign Out Date")
+        'body.AppendLine("--  ---------------  ----------------")
+
+        'Dim cnt As Integer = 0
+        'Dim parts() As String
+        'For Each item In lstStudent.Items
+        '    cnt += 1
+        '    parts = CStr(item).Split(CChar(vbTab))
+        '    body.AppendFormat("{0,2}  {1,10}  {2,-30}" & vbNewLine, cnt, parts(0), parts(1))
+        'Next
+        'body.AppendLine()
+        'body.AppendFormat("{0,2} record(s)", cnt)
+
+        'With e.Graphics
+        '    .DrawImage(My.Resources.Erika, 0, 0, 80, 100)
+        '    .DrawString(header, fontHeader, Brushes.Purple, 100, 0)
+        '    .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)
+        '    .DrawString(body.ToString(), fontBody, Brushes.Black, 0, 120)
+        'End With
+    End Sub
+
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        dlgPreview.Document = doc
+        dlgPreview.ShowDialog(Me)
+    End Sub
 End Class
