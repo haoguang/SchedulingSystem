@@ -44,7 +44,9 @@ Partial Class CreateAppointment
         '
         'btnConfirm
         '
-        Me.btnConfirm.Location = New System.Drawing.Point(184, 323)
+        Me.btnConfirm.Font = New System.Drawing.Font("NSimSun", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirm.ForeColor = System.Drawing.Color.DarkGreen
+        Me.btnConfirm.Location = New System.Drawing.Point(209, 323)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(101, 31)
         Me.btnConfirm.TabIndex = 6
@@ -156,7 +158,7 @@ Partial Class CreateAppointment
         'txtTitle
         '
         Me.txtTitle.Location = New System.Drawing.Point(167, 85)
-        Me.txtTitle.MaxLength = 15
+        Me.txtTitle.MaxLength = 20
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(199, 26)
         Me.txtTitle.TabIndex = 3
@@ -174,6 +176,8 @@ Partial Class CreateAppointment
         '
         'btnCancel
         '
+        Me.btnCancel.Font = New System.Drawing.Font("NSimSun", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.DarkGreen
         Me.btnCancel.Location = New System.Drawing.Point(65, 323)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(101, 31)

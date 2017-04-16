@@ -51,7 +51,7 @@ Partial Class UpdateAppointment
         Me.gbOngoing.ForeColor = System.Drawing.Color.DarkGreen
         Me.gbOngoing.Location = New System.Drawing.Point(38, 86)
         Me.gbOngoing.Name = "gbOngoing"
-        Me.gbOngoing.Size = New System.Drawing.Size(812, 315)
+        Me.gbOngoing.Size = New System.Drawing.Size(830, 315)
         Me.gbOngoing.TabIndex = 4
         Me.gbOngoing.TabStop = False
         Me.gbOngoing.Text = "Ongoing Appointment"
@@ -80,7 +80,7 @@ Partial Class UpdateAppointment
         Me.dgvRecord.Location = New System.Drawing.Point(24, 74)
         Me.dgvRecord.Name = "dgvRecord"
         Me.dgvRecord.ReadOnly = True
-        Me.dgvRecord.Size = New System.Drawing.Size(666, 200)
+        Me.dgvRecord.Size = New System.Drawing.Size(709, 200)
         Me.dgvRecord.TabIndex = 0
         '
         'UpdateAppointment

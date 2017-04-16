@@ -105,7 +105,7 @@ Partial Class ViewAppointment
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
         Me.GroupBox1.Location = New System.Drawing.Point(39, 218)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(766, 282)
+        Me.GroupBox1.Size = New System.Drawing.Size(833, 282)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
@@ -131,7 +131,7 @@ Partial Class ViewAppointment
         Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRecord.Location = New System.Drawing.Point(24, 83)
         Me.dgvRecord.Name = "dgvRecord"
-        Me.dgvRecord.Size = New System.Drawing.Size(656, 150)
+        Me.dgvRecord.Size = New System.Drawing.Size(729, 150)
         Me.dgvRecord.TabIndex = 0
         '
         'lblTitle

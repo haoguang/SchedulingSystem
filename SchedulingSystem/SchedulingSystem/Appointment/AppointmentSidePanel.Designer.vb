@@ -39,7 +39,7 @@ Partial Class AppointmentSidePanel
         Me.btnMySchedule.Name = "btnMySchedule"
         Me.btnMySchedule.Size = New System.Drawing.Size(300, 62)
         Me.btnMySchedule.TabIndex = 1
-        Me.btnMySchedule.Text = "Make Appointment"
+        Me.btnMySchedule.Text = "Create Appointment"
         Me.btnMySchedule.UseVisualStyleBackColor = False
         '
         'btnView

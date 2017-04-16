@@ -103,7 +103,7 @@ Partial Class UpdateAppointmentRecord
         'txtTitle
         '
         Me.txtTitle.Location = New System.Drawing.Point(186, 121)
-        Me.txtTitle.MaxLength = 15
+        Me.txtTitle.MaxLength = 20
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(199, 26)
         Me.txtTitle.TabIndex = 3
