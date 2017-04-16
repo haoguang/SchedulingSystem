@@ -53,6 +53,10 @@
         AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
         tmrClock.Start()
 
+        'Dim trd As Threading.Thread = New Threading.Thread(AddressOf getReminder)
+        'trd.IsBackground = True
+        'trd.Start()
+
         Dim SideContent As New ScheduleSidePanel
         SideContent.Dock = DockStyle.Fill
         SideContentPanel.Controls.Clear()
@@ -95,13 +99,24 @@
 
     End Sub
 
-    Private Sub getReminder()
-        Dim db As New ScheduleDBDataContext
-        Dim currentDateTime As DateTime
-        currentDateTime = DateTime.Now
+    'Private Sub getReminder()
+    '    Dim db As New ScheduleDBDataContext
+    '    Dim time As String
+    '    Dim currentDateTime As DateTime
+    '    currentDateTime = DateTime.Now
 
-        Dim ReminderDate = From rm In db.Reminders
-                           Where CDate(rm.ReminderDateTime).Date = CDate(currentDateTime).Date
-                           Select rm.ReminderDateTime
-    End Sub
+    '    Dim ReminderDate = From rm In db.Reminders, s In db.Schedules
+    '                       Where CDate(rm.ReminderDateTime).Date = CDate(currentDateTime).Date And rm.ScheduleID = s.ScheduleID
+    '                       Select rm.ReminderDateTime, s.Title, rm.MinutesBefore
+
+    '    For Each r In ReminderDate
+    '        time = CDate(r.ReminderDateTime).ToLongTimeString
+    '        Dim msg As String = r.MinutesBefore & " minutes before " & r.Title & " start"
+    '        If (tmrClock.ToString = time) Then
+    '            MsgBox(msg)
+    '        End If
+    '    Next
+
+    '    Threading.Thread.Sleep(1000)
+    'End Sub
 End Class

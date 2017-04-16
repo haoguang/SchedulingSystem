@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MainForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
@@ -33,10 +33,10 @@ Partial Class MainForm
         Me.SidePanel = New System.Windows.Forms.Panel()
         Me.SideContentPanel = New System.Windows.Forms.Panel()
         Me.TimeSidePanel = New System.Windows.Forms.Panel()
+        Me.pbxClock = New System.Windows.Forms.PictureBox()
         Me.lblClock = New System.Windows.Forms.Label()
         Me.ContentPanel = New System.Windows.Forms.Panel()
         Me.tmrClock = New System.Windows.Forms.Timer(Me.components)
-        Me.pbxClock = New System.Windows.Forms.PictureBox()
         Me.umDropDownMenu = New SchedulingSystem.UserMenu()
         Me.btnUserInfo = New SchedulingSystem.UserButton()
         Me.HeaderPanel.SuspendLayout()
@@ -187,6 +187,15 @@ Partial Class MainForm
         Me.TimeSidePanel.Size = New System.Drawing.Size(300, 64)
         Me.TimeSidePanel.TabIndex = 0
         '
+        'pbxClock
+        '
+        Me.pbxClock.Image = Global.SchedulingSystem.My.Resources.Resources.time_12_48
+        Me.pbxClock.Location = New System.Drawing.Point(42, 9)
+        Me.pbxClock.Name = "pbxClock"
+        Me.pbxClock.Size = New System.Drawing.Size(48, 48)
+        Me.pbxClock.TabIndex = 1
+        Me.pbxClock.TabStop = False
+        '
         'lblClock
         '
         Me.lblClock.AutoSize = True
@@ -210,15 +219,6 @@ Partial Class MainForm
         '
         'tmrClock
         '
-        '
-        'pbxClock
-        '
-        Me.pbxClock.Image = Global.SchedulingSystem.My.Resources.Resources.time_12_48
-        Me.pbxClock.Location = New System.Drawing.Point(42, 9)
-        Me.pbxClock.Name = "pbxClock"
-        Me.pbxClock.Size = New System.Drawing.Size(48, 48)
-        Me.pbxClock.TabIndex = 1
-        Me.pbxClock.TabStop = False
         '
         'umDropDownMenu
         '
