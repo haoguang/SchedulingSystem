@@ -2,7 +2,7 @@
 
 Imports System.Text
 
-Public Class Monthly_Friend_Changes_Report
+Public Class TotalFriend
 
     Private Sub doc_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles doc.PrintPage
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
@@ -16,15 +16,14 @@ Public Class Monthly_Friend_Changes_Report
 
         Dim body As New StringBuilder()
 
-        body.AppendLine("Username   ID     Status")
-        body.AppendLine("--------   ---    ------")
+        body.AppendLine("Status                                                     No of Friend")
+        body.AppendLine("-------------                                              ------------")
         body.AppendLine()
         Dim cnt As Integer
         Dim db As New ScheduleDBDataContext
-
         Dim fl = From f In db.Friends
                  Where
-                 CLng(f.UserID) = 100006
+                 CLng(f.UserID) = LoginSession.memberID
                  Group f By f.Status Into g = Group
                  Select
                     Status,
@@ -32,11 +31,12 @@ Public Class Monthly_Friend_Changes_Report
         cnt += 1
         For Each i In fl
             body.AppendLine()
-            body.AppendLine()
-            body.AppendFormat("{0,0} {1,2}" & vbNewLine, i.Status, i.NoOfUser)
+            body.AppendFormat("{0,12} {1,50}" & vbNewLine, i.Status, i.NoOfUser)
+            cnt += 1
         Next
         body.AppendLine()
-        body.AppendFormat("{0,2} record(s)", cnt)
+        body.AppendLine()
+        body.AppendFormat("{0,2} Total Number of record(s)", cnt)
         With e.Graphics
             .DrawString(header, fontHeader, Brushes.Purple, 100, 0)
             .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)

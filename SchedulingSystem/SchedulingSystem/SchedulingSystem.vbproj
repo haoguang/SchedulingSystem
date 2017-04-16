@@ -152,12 +152,6 @@
     <Compile Include="Friend\ListFriend.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Friend\Monthly Friend Changes Report.Designer.vb">
-      <DependentUpon>Monthly Friend Changes Report.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Friend\Monthly Friend Changes Report.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Friend\SearchnewFriend.Designer.vb">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
     </Compile>
@@ -168,6 +162,12 @@
       <DependentUpon>FriendSidePanel.vb</DependentUpon>
     </Compile>
     <Compile Include="Friend\FriendSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Friend\TotalFriend .Designer.vb">
+      <DependentUpon>TotalFriend .vb</DependentUpon>
+    </Compile>
+    <Compile Include="Friend\TotalFriend .vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MainForm.vb">
@@ -363,9 +363,6 @@
     <EmbeddedResource Include="Friend\ListFriend.resx">
       <DependentUpon>ListFriend.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Friend\Monthly Friend Changes Report.resx">
-      <DependentUpon>Monthly Friend Changes Report.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Friend\SearchnewFriend.resx">
       <DependentUpon>SearchnewFriend.vb</DependentUpon>
     </EmbeddedResource>
@@ -377,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Appointment\CreateAppointment.resx">
       <DependentUpon>CreateAppointment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Friend\TotalFriend .resx">
+      <DependentUpon>TotalFriend .vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
