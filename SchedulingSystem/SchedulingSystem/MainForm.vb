@@ -14,6 +14,12 @@
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(AppointmentSideContent)
 
+        Dim CreateAppointmentCtrl As New SecondUserControl
+
+
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(CreateAppointmentCtrl)
+
     End Sub
 
     Private Sub ContentPanel_MouseEnter(sender As Object, e As EventArgs) Handles ContentPanel.MouseEnter

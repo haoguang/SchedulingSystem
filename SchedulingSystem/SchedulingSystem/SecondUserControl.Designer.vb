@@ -159,7 +159,7 @@ Partial Class SecondUserControl
         Me.dgvTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTimetable.Location = New System.Drawing.Point(27, 74)
         Me.dgvTimetable.Name = "dgvTimetable"
-        Me.dgvTimetable.Size = New System.Drawing.Size(365, 150)
+        Me.dgvTimetable.Size = New System.Drawing.Size(334, 150)
         Me.dgvTimetable.TabIndex = 5
         '
         'lblTitle

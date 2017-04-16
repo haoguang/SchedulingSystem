@@ -22,10 +22,4 @@
         My.Forms.MainForm.ContentPanel.Controls.Add(UpdateAppointmentCtrl)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim AppointmentReportCtrl As New AppointmentReport
-
-        My.Forms.MainForm.ContentPanel.Controls.Clear()
-        My.Forms.MainForm.ContentPanel.Controls.Add(AppointmentReportCtrl)
-    End Sub
 End Class
