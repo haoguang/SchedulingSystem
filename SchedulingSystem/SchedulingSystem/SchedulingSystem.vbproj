@@ -213,6 +213,12 @@
     <Compile Include="Notification\listNotification.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Notification\noticeReport.Designer.vb">
+      <DependentUpon>noticeReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\noticeReport.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Report\ReportPage.Designer.vb">
       <DependentUpon>ReportPage.vb</DependentUpon>
     </Compile>
@@ -389,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notification\AppointmentNotification.resx">
       <DependentUpon>AppointmentNotification.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification\noticeReport.resx">
+      <DependentUpon>noticeReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportPage.resx">
       <DependentUpon>ReportPage.vb</DependentUpon>
