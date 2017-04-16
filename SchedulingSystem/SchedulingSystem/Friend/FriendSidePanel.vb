@@ -34,14 +34,27 @@ Public Class FriendSidePanel
     End Sub
 
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
-
+        DGVF.Rows.Clear()
         Dim db As New ScheduleDBDataContext
-
+        Dim img As Image
+        Dim imgByte As Byte() = Nothing
+        Dim stream As MemoryStream
         Dim fl = From o In db.Friends,
                      m In db.Members
                  Where o.UserID = LoginSession.memberID And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text) And Not o.Status = "Pending"
-                 Select m.Username, m.MemberID, o.Status
-        DGVF.DataSource = fl
+                 Select m.Picture, m.Username, m.MemberID, o.Status
+        For Each p In fl
+            If p.Picture IsNot Nothing Then
+                imgByte = CType(p.Picture.ToArray, Byte())
+                Stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                img = Image.FromStream(Stream)
+            Else
+                img = My.Resources.user_default
+            End If
+
+            DGVF.Rows.Add(img, p.Username, p.MemberID, p.Status)
+        Next
+
     End Sub
 
     Private Sub btnFriend_Click(sender As Object, e As EventArgs) Handles btnFriend.Click
@@ -60,7 +73,6 @@ Public Class FriendSidePanel
 
     Private Sub btnFriend_MouseDown(sender As Object, e As MouseEventArgs) Handles btnFriend.MouseDown
         btnFriend.BackgroundImage = My.Resources.add_user_pressed
-
     End Sub
 
     Private Sub btnFriend_MouseEnterAndMouseUp(sender As Object, e As EventArgs) Handles btnFriend.MouseEnter, btnFriend.MouseUp
