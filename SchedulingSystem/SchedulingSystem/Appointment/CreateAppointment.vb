@@ -79,6 +79,7 @@
     End Sub
 
     Private Sub addOwner()
+        Dim userid As Integer = LoginSession.memberID
         Dim db As New ScheduleDBDataContext()
         Dim record = From s In db.Schedules
                      Order By s.ScheduleID
@@ -93,7 +94,7 @@
 
         Dim p As New Participle
         p.ScheduleID = scheduleID
-        p.MemberID = DevelopmentVariables.UserID
+        p.MemberID = userid
         p.ParticiplesRole = "Owner"
         p.Status = "Attend"
         p.GenerateDate = DateTime.Now

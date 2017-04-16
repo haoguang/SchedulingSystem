@@ -23,13 +23,13 @@
 
     Private Sub BindData()
         Dim db As New ScheduleDBDataContext()
-        Dim memberId As Integer = DevelopmentVariables.UserID
+        Dim userid As Integer = LoginSession.memberID
         Dim currentDateTime As DateTime
 
         currentDateTime = DateTime.Now
 
         Dim record = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
-                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = memberId And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
+                     Where s.Title.Contains(txtTitle.Text) And p.MemberID = userid And s.Type = "Appointment" And st.ScheduleStart > currentDateTime And s.Status = "Active" And s.ScheduleID = p.ScheduleID And st.ScheduleID = s.ScheduleID
                      Select New With {
                          .Schedule_ID = s.ScheduleID,
                          .Start_DateTime = st.ScheduleStart,

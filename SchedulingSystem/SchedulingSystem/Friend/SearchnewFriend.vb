@@ -1,8 +1,6 @@
 ﻿Public Class SearchnewFriend
     Dim db As New ScheduleDBDataContext
 
-
-
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
         Dim choosenType = 0
         If R_ID.Checked = False And R_Name.Checked = False And R_Hobby.Checked = True Then
