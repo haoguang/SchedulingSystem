@@ -1,11 +1,16 @@
 ﻿Public Class AppointmentNotification
     Public index As Integer
     Dim userId As Integer = LoginSession.memberID
-    Dim id As Integer = apmtDetail.Appointment(index).ScheduleID
+
     Dim startDate, endDate As String
+
+    Private Sub AppointmentNotification_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.Close()
+    End Sub
 
     Private Sub AppointmentNotification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim db As New ScheduleDBDataContext()
+        Dim id As Integer = apmtDetail.Appointment(index).ScheduleID
 
         'get Schedule startDateTime, endDateTime
         Dim scheduleTimes = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
@@ -43,6 +48,7 @@
 
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
         Dim status As Boolean
+        Dim id As Integer = apmtDetail.Appointment(index).ScheduleID
         status = ActivityModule.acceptAppointment(userId, id, Date.Parse(startDate), Date.Parse(endDate))
         If (status = True) Then
             MessageBox.Show("Appointment Accepted Succcesfully!")
@@ -54,6 +60,7 @@
     End Sub
 
     Private Sub btnReject_Click(sender As Object, e As EventArgs) Handles btnReject.Click
+        Dim id As Integer = apmtDetail.Appointment(index).ScheduleID
         ActivityModule.declineAppoinment(id)
         MessageBox.Show("Appointment Rejected Succcesfully!")
         Me.Close()

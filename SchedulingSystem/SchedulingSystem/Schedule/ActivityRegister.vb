@@ -21,6 +21,7 @@ Public Class ActivityRegister
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'initializeScheduleForDevelopment() 'to test adding *******************************
 
+        cboMinBefore.SelectedIndex = -1
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
         cboActivityType.SelectedIndex = 0
         cboBehavior.Items.AddRange(RepeatationModule.getRepeatStringArray())
@@ -536,5 +537,12 @@ Public Class ActivityRegister
         Else
             parentCtrl.btnBack_MouseClick(Nothing, Nothing)
         End If
+    End Sub
+
+    Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
+        Dim minutes As String
+
+
+
     End Sub
 End Class
