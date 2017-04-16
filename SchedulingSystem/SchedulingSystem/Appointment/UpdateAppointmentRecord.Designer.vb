@@ -24,6 +24,8 @@ Partial Class UpdateAppointmentRecord
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.gbAppointment = New System.Windows.Forms.GroupBox()
+        Me.lblOwner = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtVenue = New System.Windows.Forms.TextBox()
         Me.txtTitle = New System.Windows.Forms.TextBox()
         Me.scheEnd = New System.Windows.Forms.DateTimePicker()
@@ -40,8 +42,6 @@ Partial Class UpdateAppointmentRecord
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.err = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblOwner = New System.Windows.Forms.Label()
         Me.gbAppointment.SuspendLayout()
         CType(Me.err, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,6 +73,26 @@ Partial Class UpdateAppointmentRecord
         Me.gbAppointment.TabStop = False
         Me.gbAppointment.Text = "Appointment Details"
         '
+        'lblOwner
+        '
+        Me.lblOwner.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblOwner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblOwner.Location = New System.Drawing.Point(185, 288)
+        Me.lblOwner.Name = "lblOwner"
+        Me.lblOwner.Size = New System.Drawing.Size(199, 23)
+        Me.lblOwner.TabIndex = 17
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.DarkGreen
+        Me.Label1.Location = New System.Drawing.Point(6, 292)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(159, 22)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Owner :"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
         'txtVenue
         '
         Me.txtVenue.Location = New System.Drawing.Point(187, 233)
@@ -83,6 +103,7 @@ Partial Class UpdateAppointmentRecord
         'txtTitle
         '
         Me.txtTitle.Location = New System.Drawing.Point(186, 121)
+        Me.txtTitle.MaxLength = 15
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(199, 26)
         Me.txtTitle.TabIndex = 3
@@ -227,26 +248,6 @@ Partial Class UpdateAppointmentRecord
         '
         Me.err.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.err.ContainerControl = Me
-        '
-        'Label1
-        '
-        Me.Label1.Font = New System.Drawing.Font("NSimSun", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label1.Location = New System.Drawing.Point(6, 292)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(159, 22)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Owner :"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'lblOwner
-        '
-        Me.lblOwner.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblOwner.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblOwner.Location = New System.Drawing.Point(185, 288)
-        Me.lblOwner.Name = "lblOwner"
-        Me.lblOwner.Size = New System.Drawing.Size(199, 23)
-        Me.lblOwner.TabIndex = 17
         '
         'UpdateAppointmentRecord
         '

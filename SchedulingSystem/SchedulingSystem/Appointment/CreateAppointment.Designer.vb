@@ -156,6 +156,7 @@ Partial Class CreateAppointment
         'txtTitle
         '
         Me.txtTitle.Location = New System.Drawing.Point(167, 85)
+        Me.txtTitle.MaxLength = 15
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(199, 26)
         Me.txtTitle.TabIndex = 3

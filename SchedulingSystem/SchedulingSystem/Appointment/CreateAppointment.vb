@@ -43,8 +43,8 @@
 
     Private Sub AddSchedule()
         Dim s As New Schedule()
-        s.RepeatDue = Nothing
-        s.RepeatBehavior = Nothing
+        s.RepeatDue = scheEnd.Value
+        's.RepeatBehavior = New Binary(BitConverter.GetBytes(RepeatationModule.REPEAT_NONE))
         s.Title = txtTitle.Text
         s.Description = txtBoxDescription.Text
         s.Venue = txtVenue.Text
@@ -73,7 +73,7 @@
         st.ScheduleID = scheduleID
         st.ScheduleStart = scheStart.Value
         st.ScheduleEnd = scheEnd.Value
-        st.InitialTime = Nothing
+        st.InitialTime = True
         db.ScheduleTimes.InsertOnSubmit(st)
         db.SubmitChanges()
     End Sub
