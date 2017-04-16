@@ -37,9 +37,10 @@ Partial Class ScheduleReport
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Location = New System.Drawing.Point(27, 26)
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(27, 18)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(245, 13)
+        Me.lblTitle.Size = New System.Drawing.Size(391, 18)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "Schedule Report : The busiest times in for a month"
         '
