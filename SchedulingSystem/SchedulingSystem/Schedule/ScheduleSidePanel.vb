@@ -7,6 +7,7 @@
 
     Private Sub btnMySchedule_Click(sender As Object, e As EventArgs) Handles btnMySchedule.Click
         Dim UserCtrl As New DayScheduleViewer
+        UserCtrl.displayDate = mcrPicker.SelectionRange.Start().Date
         My.Forms.MainForm.ContentPanel.Controls.Clear()
         My.Forms.MainForm.ContentPanel.Controls.Add(UserCtrl)
     End Sub

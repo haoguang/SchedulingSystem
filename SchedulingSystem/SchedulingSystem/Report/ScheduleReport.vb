@@ -10,7 +10,7 @@ Public Class ScheduleReport
 
         Dim rs = From st In db.ScheduleTimes Join s In db.Schedules On s.ScheduleID Equals st.ScheduleID
                  Join p In db.Participles On s.ScheduleID Equals p.ScheduleID
-                 Where CLng(p.MemberID) = 100001 And
+                 Where CLng(p.MemberID) = LoginSession.memberID And
                     CLng(st.ScheduleStart.Value.Month) = month And
                     CLng(st.ScheduleStart.Value.Year) = year
                  Group st By Column1 = CType(st.ScheduleStart.Value.Hour, Integer?)
