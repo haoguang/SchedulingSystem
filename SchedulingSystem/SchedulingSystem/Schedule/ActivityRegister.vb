@@ -571,7 +571,8 @@ Public Class ActivityRegister
         End Select
 
         dgvReminder.ColumnCount = 1
-        dgvReminder.Columns(0).Name = "DateTime"
+        'dgvReminder.Columns(0).Name = "Reminder_ID"
+        dgvReminder.Columns(0).Name = "Reminder_DateTime"
         dgvReminder.Rows.Add(New String() {scheStartDate.ToString})
 
         If schedule Is Nothing Then
@@ -608,18 +609,27 @@ Public Class ActivityRegister
         Dim record = From rm In db.Reminders, s In db.Schedules
                      Where s.ScheduleID = schedule.ScheduleID And rm.ScheduleID = s.ScheduleID
                      Select New With {
-                         .Schedule_ID = s.ScheduleID,
-                         .Title = s.Title,
+                         .Reminder_ID = rm.ReminderID,
                          .Reminder_DateTime = rm.ReminderDateTime
                          }
+
         dgvReminder.DataSource = record
     End Sub
 
     Private Sub dgvReminder_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReminder.CellDoubleClick
+        Dim db As New ScheduleDBDataContext
+
+
         If dgvReminder.SelectedRows.Count > 0 Then
             'you may want to add a confirmation message, and if the user confirms delete
             If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
                 dgvReminder.Rows.Remove(dgvReminder.SelectedRows(0))
+
+                Dim delete As Reminder = db.Reminders.FirstOrDefault(Function(o) o.ReminderID = CInt(dgvReminder.Rows(e.RowIndex).Cells("Reminder_ID").Value))
+                db.Reminders.DeleteOnSubmit(delete)
+                db.SubmitChanges()
+
+                getReminder()
             Else
                 MessageBox.Show("Record didn't delete!")
             End If

@@ -24,6 +24,9 @@
 
     Private Sub btnNotificationReport_Click(sender As Object, e As EventArgs) Handles btnNotificationReport.Click
         ' summon notification report ui
+        Dim NoticeReportctrl As New noticeReport
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(NoticeReportctrl)
     End Sub
 
     Private Sub btnScheduleReport_Click(sender As Object, e As EventArgs) Handles btnScheduleReport.Click

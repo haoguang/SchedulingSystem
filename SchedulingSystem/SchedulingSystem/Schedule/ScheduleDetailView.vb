@@ -33,6 +33,7 @@ Public Class ScheduleDetailView
 
             populateDataToControl()
             settingdgvColumn()
+            'getReminder()
         End If
     End Sub
 
@@ -210,4 +211,5 @@ Public Class ScheduleDetailView
 
         End If
     End Sub
+
 End Class

@@ -96,4 +96,14 @@
     Private Sub btnUserInfo_Load(sender As Object, e As EventArgs) Handles btnUserInfo.Load
 
     End Sub
+
+    Private Sub getReminder()
+        Dim db As New ScheduleDBDataContext
+        Dim currentDateTime As DateTime
+        currentDateTime = DateTime.Now
+
+        Dim ReminderDate = From rm In db.Reminders
+                           Where CDate(rm.ReminderDateTime).Date = CDate(currentDateTime).Date
+                           Select rm.ReminderDateTime
+    End Sub
 End Class
