@@ -1,7 +1,8 @@
-﻿Public Class FriendNotification
+﻿Imports System.IO
+Public Class FriendNotification
     Public Findex As Integer
     Private Sub FriendNotification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'lblATitle.Text = apmtDetail.Appointment(index).Title
+
         picUser.Image = apmtDetail.Inviter(Findex).Picture
         lblFriendName.Text = apmtDetail.Inviter(Findex).UserName
         lblFriendHobby.Text = apmtDetail.Inviter(Findex).Hobby

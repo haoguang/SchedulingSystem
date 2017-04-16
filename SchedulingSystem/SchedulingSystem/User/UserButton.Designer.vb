@@ -70,7 +70,7 @@ Partial Class UserButton
         Me.pcbProfilePic.ErrorImage = CType(resources.GetObject("pcbProfilePic.ErrorImage"), System.Drawing.Image)
         Me.pcbProfilePic.Location = New System.Drawing.Point(0, 0)
         Me.pcbProfilePic.Name = "pcbProfilePic"
-        Me.pcbProfilePic.Padding = New System.Windows.Forms.Padding(10, 10, 10, 10)
+        Me.pcbProfilePic.Padding = New System.Windows.Forms.Padding(10)
         Me.pcbProfilePic.Size = New System.Drawing.Size(69, 69)
         Me.pcbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pcbProfilePic.TabIndex = 0
