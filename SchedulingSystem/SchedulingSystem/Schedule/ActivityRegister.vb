@@ -543,7 +543,54 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
-        Dim minutes As String
+        Dim minutes As Integer
+        Dim scheStartDate As Date = scheStart.Value
+        'Dim scheduleid As Integer = schedule.ScheduleID ' you willl not get schedule id unless, it is editing the schedule
+        Dim db As New ScheduleDBDataContext
+
+        Select Case cboMinBefore.SelectedIndex
+            Case 0
+                minutes = 10
+                scheStartDate = scheStartDate.AddMinutes(-10)
+            Case 1
+                minutes = 20
+                scheStartDate = scheStartDate.AddMinutes(-20)
+            Case 2
+                minutes = 30
+                scheStartDate = scheStartDate.AddMinutes(-30)
+            Case 3
+                minutes = 40
+                scheStartDate = scheStartDate.AddMinutes(-40)
+            Case 4
+                minutes = 50
+                scheStartDate = scheStartDate.AddMinutes(-50)
+            Case 5
+                minutes = 60
+                scheStartDate = scheStartDate.AddMinutes(-60)
+        End Select
+
+        If schedule Is Nothing Then
+            'for create schedule
+
+            ' add row to datagrid view
+            ' I will help you do this 
+
+
+        Else ' For edit schedule
+            'store reminder info
+            Dim r As New Reminder()
+            r.ScheduleID = schedule.ScheduleID ' so it need to be put it here
+            r.MinutesBefore = minutes
+            r.ReminderDateTime = scheStartDate
+
+            ' 1.insert into database
+            ' 2.create a function to refresh the data grid view and call it here
+
+            'I recommend you to double click the data grid view row to delete the reminder, so you need cell mouse double click
+            ' still same just but this if else statement for create and edit schedule
+
+        End If
+
 
 
 

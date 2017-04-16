@@ -214,7 +214,7 @@ Partial Class ListFriend
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbo_S.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbo_S.FormattingEnabled = True
-        Me.cbo_S.Items.AddRange(New Object() {"Friend", "Closer Friend", "Family", "Colleague"})
+        Me.cbo_S.Items.AddRange(New Object() {"Friend", "Close Friend", "Family", "Colleague"})
         Me.cbo_S.Location = New System.Drawing.Point(410, 323)
         Me.cbo_S.Name = "cbo_S"
         Me.cbo_S.Size = New System.Drawing.Size(314, 44)
