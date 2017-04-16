@@ -226,6 +226,12 @@
     <Compile Include="Report\ReportSidePanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Report\ScheduleReport.Designer.vb">
+      <DependentUpon>ScheduleReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ScheduleReport.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ScheduleDB.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -384,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportSidePanel.resx">
       <DependentUpon>ReportSidePanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ScheduleReport.resx">
+      <DependentUpon>ScheduleReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
       <DependentUpon>ScheduleDetailView.vb</DependentUpon>
