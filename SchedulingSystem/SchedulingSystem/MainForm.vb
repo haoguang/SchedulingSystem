@@ -71,4 +71,8 @@
         ContentPanel.Controls.Add(firstPage)
 
     End Sub
+
+    Private Sub btnUserInfo_Load(sender As Object, e As EventArgs) Handles btnUserInfo.Load
+
+    End Sub
 End Class
