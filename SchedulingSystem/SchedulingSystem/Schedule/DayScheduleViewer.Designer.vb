@@ -37,6 +37,7 @@ Partial Class DayScheduleViewer
         '
         'DateDisplayPanel
         '
+        Me.DateDisplayPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(134, Byte), Integer))
         Me.DateDisplayPanel.Controls.Add(Me.lblDate)
         Me.DateDisplayPanel.Controls.Add(Me.btnNext)
         Me.DateDisplayPanel.Controls.Add(Me.btnPrev)
@@ -49,6 +50,8 @@ Partial Class DayScheduleViewer
         'lblDate
         '
         Me.lblDate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblDate.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDate.ForeColor = System.Drawing.Color.White
         Me.lblDate.Location = New System.Drawing.Point(50, 0)
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(400, 50)
@@ -97,6 +100,7 @@ Partial Class DayScheduleViewer
         '
         'timeDisplayPanel
         '
+        Me.timeDisplayPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.timeDisplayPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.timeDisplayPanel.Location = New System.Drawing.Point(3, 3)
         Me.timeDisplayPanel.Name = "timeDisplayPanel"

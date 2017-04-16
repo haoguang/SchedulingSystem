@@ -216,6 +216,7 @@ Public Class ActivityRegister
 
     Private Sub backToSchedule()
         Dim view As New DayScheduleViewer
+        view.displayDate = scheStart.Value.Date
         My.Forms.MainForm.ContentPanel.Controls.Clear()
         My.Forms.MainForm.ContentPanel.Controls.Add(view)
     End Sub
@@ -384,9 +385,11 @@ Public Class ActivityRegister
         If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
             gbRepeat.Enabled = True
             gbParticiple.Enabled = False
+            btnAddParti.Image = My.Resources.add_user_pressed
         Else
             gbRepeat.Enabled = False
             gbParticiple.Enabled = True
+            btnAddParti.Image = My.Resources.add_user_32
         End If
     End Sub
 

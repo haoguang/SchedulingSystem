@@ -2,6 +2,7 @@
     Private Sub btnSchedule_Click(sender As Object, e As EventArgs) Handles btnSchedule.Click
 
         Dim SideContent As New ScheduleSidePanel
+        SideContent.Dock = DockStyle.Fill
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(SideContent)
     End Sub
@@ -45,6 +46,11 @@
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
         tmrClock.Start()
+
+        Dim SideContent As New ScheduleSidePanel
+        SideContent.Dock = DockStyle.Fill
+        SideContentPanel.Controls.Clear()
+        SideContentPanel.Controls.Add(SideContent)
     End Sub
 
     Private Sub umDropDownMenu_MouseLeave() Handles umDropDownMenu.MouseLeave

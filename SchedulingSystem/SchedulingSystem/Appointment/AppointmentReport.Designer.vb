@@ -132,6 +132,7 @@ Partial Class AppointmentReport
         '
         'lstRecord
         '
+        Me.lstRecord.Enabled = False
         Me.lstRecord.FormattingEnabled = True
         Me.lstRecord.Location = New System.Drawing.Point(53, 305)
         Me.lstRecord.Name = "lstRecord"
