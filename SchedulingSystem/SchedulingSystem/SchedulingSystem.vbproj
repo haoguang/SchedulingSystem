@@ -145,7 +145,6 @@
     <Compile Include="Appointment\ViewAppointmentRecord.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DevelopmentVariables.vb" />
     <Compile Include="Friend\Friend_module.vb" />
     <Compile Include="Friend\ListFriend.Designer.vb">
       <DependentUpon>ListFriend.vb</DependentUpon>
@@ -224,6 +223,12 @@
       <DependentUpon>ReportSidePanel.vb</DependentUpon>
     </Compile>
     <Compile Include="Report\ReportSidePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ScheduleReport.Designer.vb">
+      <DependentUpon>ScheduleReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ScheduleReport.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ScheduleDB.designer.vb">
@@ -332,6 +337,12 @@
     <Compile Include="User\UserButton.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="User\UserRpt.Designer.vb">
+      <DependentUpon>UserRpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserRpt.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Appointment\AppointmentReport.resx">
@@ -385,6 +396,9 @@
     <EmbeddedResource Include="Report\ReportSidePanel.resx">
       <DependentUpon>ReportSidePanel.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\ScheduleReport.resx">
+      <DependentUpon>ScheduleReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
       <DependentUpon>ScheduleDetailView.vb</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserProfile.resx">
       <DependentUpon>UserProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserRpt.resx">
+      <DependentUpon>UserRpt.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="ScheduleDB.dbml.layout">
       <DependentUpon>ScheduleDB.dbml</DependentUpon>
@@ -505,6 +522,7 @@
     <None Include="Resources\user-default.png" />
     <Content Include="Resources\logo.png" />
     <None Include="Resources\reportBackground.png" />
+    <None Include="Resources\time-12-48.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

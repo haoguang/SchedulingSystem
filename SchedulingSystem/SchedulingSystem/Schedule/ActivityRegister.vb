@@ -21,6 +21,7 @@ Public Class ActivityRegister
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'initializeScheduleForDevelopment() 'to test adding *******************************
 
+        cboMinBefore.SelectedIndex = -1
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
         cboActivityType.SelectedIndex = 0
         cboBehavior.Items.AddRange(RepeatationModule.getRepeatStringArray())
@@ -156,7 +157,7 @@ Public Class ActivityRegister
         Dim scheduleTime As New ScheduleTime With {.ScheduleID = scheduleid, .InitialTime = True, .ScheduleStart = startDate, .ScheduleEnd = endDate}
 
         Dim participle As New Participle With {.ScheduleID = scheduleid, .ParticiplesRole = ScheduleClass.OWNER, .Status = ScheduleClass.PARTICIPLE_ATTENT,
-            .MemberID = DevelopmentVariables.UserID, .GenerateDate = Date.Today}
+            .MemberID = LoginSession.memberID, .GenerateDate = Date.Today}
 
         db.ScheduleTimes.InsertOnSubmit(scheduleTime)
         db.Participles.InsertOnSubmit(participle)
@@ -215,6 +216,7 @@ Public Class ActivityRegister
 
     Private Sub backToSchedule()
         Dim view As New DayScheduleViewer
+        view.displayDate = scheStart.Value.Date
         My.Forms.MainForm.ContentPanel.Controls.Clear()
         My.Forms.MainForm.ContentPanel.Controls.Add(view)
     End Sub
@@ -383,9 +385,11 @@ Public Class ActivityRegister
         If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
             gbRepeat.Enabled = True
             gbParticiple.Enabled = False
+            btnAddParti.Image = My.Resources.add_user_pressed
         Else
             gbRepeat.Enabled = False
             gbParticiple.Enabled = True
+            btnAddParti.Image = My.Resources.add_user_32
         End If
     End Sub
 
@@ -492,15 +496,15 @@ Public Class ActivityRegister
             Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator(scheStart.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheEnd, Nothing)
             Err.SetError(scheStart, "The start date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, "There is schedule conflict between both times")
             Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True
@@ -536,5 +540,12 @@ Public Class ActivityRegister
         Else
             parentCtrl.btnBack_MouseClick(Nothing, Nothing)
         End If
+    End Sub
+
+    Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
+        Dim minutes As String
+
+
+
     End Sub
 End Class

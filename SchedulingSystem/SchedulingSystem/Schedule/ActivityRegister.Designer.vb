@@ -23,7 +23,7 @@ Partial Class ActivityRegister
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -55,7 +55,7 @@ Partial Class ActivityRegister
         Me.gbReminder = New System.Windows.Forms.GroupBox()
         Me.dgvReminder = New System.Windows.Forms.DataGridView()
         Me.btnAddReminder = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboMinBefore = New System.Windows.Forms.ComboBox()
         Me.lblMinBefore = New System.Windows.Forms.Label()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
@@ -320,8 +320,8 @@ Partial Class ActivityRegister
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -390,7 +390,7 @@ Partial Class ActivityRegister
         '
         Me.gbReminder.Controls.Add(Me.dgvReminder)
         Me.gbReminder.Controls.Add(Me.btnAddReminder)
-        Me.gbReminder.Controls.Add(Me.ComboBox1)
+        Me.gbReminder.Controls.Add(Me.cboMinBefore)
         Me.gbReminder.Controls.Add(Me.lblMinBefore)
         Me.gbReminder.Location = New System.Drawing.Point(19, 390)
         Me.gbReminder.Name = "gbReminder"
@@ -413,16 +413,18 @@ Partial Class ActivityRegister
         Me.btnAddReminder.Name = "btnAddReminder"
         Me.btnAddReminder.Size = New System.Drawing.Size(43, 23)
         Me.btnAddReminder.TabIndex = 5
-        Me.btnAddReminder.Text = "Button1"
+        Me.btnAddReminder.Text = "&Add"
         Me.btnAddReminder.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'cboMinBefore
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(167, 22)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(158, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.cboMinBefore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMinBefore.FormattingEnabled = True
+        Me.cboMinBefore.Items.AddRange(New Object() {"10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "1 hour"})
+        Me.cboMinBefore.Location = New System.Drawing.Point(167, 22)
+        Me.cboMinBefore.Name = "cboMinBefore"
+        Me.cboMinBefore.Size = New System.Drawing.Size(158, 21)
+        Me.cboMinBefore.TabIndex = 4
         '
         'lblMinBefore
         '
@@ -491,7 +493,7 @@ Partial Class ActivityRegister
     Friend WithEvents gbReminder As GroupBox
     Friend WithEvents dgvReminder As DataGridView
     Friend WithEvents btnAddReminder As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboMinBefore As ComboBox
     Friend WithEvents lblMinBefore As Label
     Friend WithEvents dgvParticipleID As DataGridViewTextBoxColumn
     Friend WithEvents dgvParticiplePic As DataGridViewImageColumn

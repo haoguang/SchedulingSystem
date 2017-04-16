@@ -73,6 +73,7 @@
                 Dim add_friend As New [Friend]
                 add_friend.UserID = LoginSession.memberID
                 add_friend.FriendID = friend_id
+                add_friend.RequestDate = Today.Date
                 add_friend.Status = "Pending"
                 add_friend.Inviter = LoginSession.memberID
 

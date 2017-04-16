@@ -73,7 +73,7 @@
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
                  Where s.ScheduleID = st.ScheduleID And ((st.ScheduleStart >= displayDate And st.ScheduleStart <= displayDate.AddDays(1)) Or
                      (st.ScheduleEnd >= displayDate And st.ScheduleStart <= displayDate.AddDays(1))) And
-                     p.ScheduleID = s.ScheduleID And p.MemberID = DevelopmentVariables.UserID And s.Status = "Active" And p.Status = "Attend"
+                     p.ScheduleID = s.ScheduleID And p.MemberID = LoginSession.memberID And s.Status = "Active" And p.Status = "Attend"
 
         Dim activities(rs.Count) As ActivityControl
 

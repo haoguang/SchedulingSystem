@@ -10,7 +10,7 @@ Public Class AddParticiple
         Dim db As New ScheduleDBDataContext()
 
         Dim friends = From f In db.Friends, m In db.Members
-                      Where f.UserID = DevelopmentVariables.UserID And
+                      Where f.UserID = LoginSession.memberID And
                           f.FriendID = m.MemberID And
                           f.Status <> "Pending" And
                           (m.Nickname.Contains(keyword) Or
@@ -41,7 +41,7 @@ Public Class AddParticiple
 
         Dim friends = From m In db.Members
                       Where (m.Nickname.Contains(Keyword) Or
-                          m.Username.Contains(Keyword)) And Not (m.MemberID = DevelopmentVariables.UserID)
+                          m.Username.Contains(Keyword)) And Not (m.MemberID = LoginSession.memberID)
                       Select m.Picture, m.MemberID, m.Nickname
 
         For Each i In friends
