@@ -39,6 +39,7 @@
 
     Private Sub btnDown_Click()
         umDropDownMenu.Visible = True
+        Refresh()
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -59,4 +60,15 @@
         ContentPanel.Controls.Add(listNotification)
     End Sub
 
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        Dim reportSidePanel As New ReportSidePanel
+        SideContentPanel.Controls.Clear()
+        SideContentPanel.Controls.Add(reportSidePanel)
+
+        Dim firstPage As New ReportPage
+        ContentPanel.Controls.Clear()
+        firstPage.Dock = DockStyle.Fill
+        ContentPanel.Controls.Add(firstPage)
+
+    End Sub
 End Class
