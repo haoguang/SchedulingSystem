@@ -141,6 +141,7 @@ Public Class UserProfile
         Try
             db.SubmitChanges()
             MessageBox.Show("Profile Updated.", "Congratulation")
+            'update module
             LoginSession.nickname = nickname
             LoginSession.email = txtEmail.Text
             LoginSession.picture = picPicture.Image
