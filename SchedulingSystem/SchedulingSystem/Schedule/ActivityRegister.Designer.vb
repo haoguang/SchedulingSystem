@@ -401,9 +401,15 @@ Partial Class ActivityRegister
         '
         'dgvReminder
         '
+        Me.dgvReminder.AllowUserToAddRows = False
+        Me.dgvReminder.AllowUserToDeleteRows = False
+        Me.dgvReminder.AllowUserToResizeColumns = False
+        Me.dgvReminder.AllowUserToResizeRows = False
         Me.dgvReminder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReminder.Location = New System.Drawing.Point(9, 60)
         Me.dgvReminder.Name = "dgvReminder"
+        Me.dgvReminder.ReadOnly = True
+        Me.dgvReminder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReminder.Size = New System.Drawing.Size(365, 86)
         Me.dgvReminder.TabIndex = 6
         '

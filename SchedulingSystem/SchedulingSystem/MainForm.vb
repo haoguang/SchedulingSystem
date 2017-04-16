@@ -57,6 +57,7 @@
         SideContent.Dock = DockStyle.Fill
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(SideContent)
+
     End Sub
 
     Private Sub umDropDownMenu_MouseLeave() Handles umDropDownMenu.MouseLeave
@@ -85,10 +86,6 @@
         ContentPanel.Controls.Add(firstPage)
 
     End Sub
-
-    Private Function myZero(ByVal value As Integer) As String
-        Return value.ToString().PadLeft(2, "0"c)
-    End Function
 
     Private Sub tmrClock_Tick(sender As Object, e As EventArgs) Handles tmrClock.Tick
         lblClock.Text = DateTime.Now.ToLongTimeString

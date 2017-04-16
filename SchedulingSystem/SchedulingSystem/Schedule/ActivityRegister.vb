@@ -8,25 +8,14 @@ Public Class ActivityRegister
     Private repeat As RepeatationClass
 
 
-    Private Sub initializeScheduleForDevelopment() '******************************************
-        Dim db As New ScheduleDBDataContext
-
-        Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = 5000005)
-        Dim st As ScheduleTime = db.ScheduleTimes.FirstOrDefault(Function(o) o.ScheduleID = 5000005 And o.InitialTime = True)
-
-        Dim thisSchedule As ScheduleClass = New ScheduleClass(s.ScheduleID, CDate(st.ScheduleStart), CDate(st.ScheduleEnd), CDate(s.RepeatDue), CByte(s.RepeatBehavior.ToArray().First()), s.Title, s.Description, s.Venue, s.Type, s.Status)
-        schedule = thisSchedule
-    End Sub
-
     Private Sub ActivityRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'initializeScheduleForDevelopment() 'to test adding *******************************
 
         cboMinBefore.SelectedIndex = -1
         cboActivityType.Items.AddRange(ScheduleClass.getTypeList())
         cboActivityType.SelectedIndex = 0
         cboBehavior.Items.AddRange(RepeatationModule.getRepeatStringArray())
         cboBehavior.SelectedIndex = 0
-
+        cboMinBefore.SelectedIndex = 0
         If schedule Is Nothing Then
 
             activityCreateMode()
@@ -64,6 +53,8 @@ Public Class ActivityRegister
         populateDataToControls() 'insert data to all control
 
         populateParticiples() 'insert data to grid view
+
+        getReminder() ' insert reminder data to grid view
     End Sub
 
     Private Sub activityCreateMode() 'called when control is used to create schedule
@@ -87,6 +78,11 @@ Public Class ActivityRegister
         btnAddParti.Visible = True
 
         settingdgvColumn() 'resize the column
+
+        'for create mode reminder initialize column
+        dgvReminder.ColumnCount = 2
+        dgvReminder.Columns(0).Name = "DateTime"
+        dgvReminder.Columns(1).Name = "Minutes Before"
     End Sub
 
     Private Sub populateDataToControls()
@@ -170,6 +166,18 @@ Public Class ActivityRegister
         If (repeatBehave <> RepeatationModule.REPEAT_NONE And repeat IsNot Nothing) Then
             repeat.scheduleID = scheduleid
             RepeatationModule.generateScheduleTimeRecord(repeat)
+        End If
+
+        If dgvReminder.RowCount > 0 Then
+            For Each i As DataGridViewRow In dgvReminder.Rows
+                Dim reminder As New Reminder With {.ScheduleID = scheduleid,
+                .ReminderDateTime = CType(i.Cells("DateTime").Value, DateTime),
+                .MinutesBefore = CInt(i.Cells("Minutes Before").Value)
+                }
+
+                db.Reminders.InsertOnSubmit(reminder)
+            Next
+            db.SubmitChanges()
         End If
 
         MessageBox.Show("Successfully added a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -544,7 +552,7 @@ Public Class ActivityRegister
 
     Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
         Dim minutes As Integer
-        Dim scheStartDate As Date = scheStart.Value
+        Dim scheStartDate As DateTime = scheStart.Value
         Dim db As New ScheduleDBDataContext
         Dim currentDateTime As DateTime
         currentDateTime = DateTime.Now
@@ -570,17 +578,10 @@ Public Class ActivityRegister
                 scheStartDate = scheStartDate.AddMinutes(-60)
         End Select
 
-        dgvReminder.ColumnCount = 1
-        'dgvReminder.Columns(0).Name = "Reminder_ID"
-        dgvReminder.Columns(0).Name = "Reminder_DateTime"
-        dgvReminder.Rows.Add(New String() {scheStartDate.ToString})
-
         If schedule Is Nothing Then
             'for create schedule
 
-            ' add row to datagrid view
-            ' I will help you do this 
-
+            dgvReminder.Rows.Add(scheStartDate, minutes)
 
         Else ' For edit schedule
 
@@ -602,6 +603,7 @@ Public Class ActivityRegister
     End Sub
 
     Public Sub getReminder()
+
         Dim db As New ScheduleDBDataContext
 
         dgvReminder.DataSource = Nothing
@@ -609,8 +611,9 @@ Public Class ActivityRegister
         Dim record = From rm In db.Reminders, s In db.Schedules
                      Where s.ScheduleID = schedule.ScheduleID And rm.ScheduleID = s.ScheduleID
                      Select New With {
-                         .Reminder_ID = rm.ReminderID,
-                         .Reminder_DateTime = rm.ReminderDateTime
+                         .ReminderID = rm.ReminderID,
+                         .Reminder_DateTime = rm.ReminderDateTime,
+                         .MinuteBefore = rm.MinutesBefore
                          }
 
         dgvReminder.DataSource = record
@@ -621,17 +624,20 @@ Public Class ActivityRegister
 
 
         If dgvReminder.SelectedRows.Count > 0 Then
-            'you may want to add a confirmation message, and if the user confirms delete
-            If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
-                dgvReminder.Rows.Remove(dgvReminder.SelectedRows(0))
-
-                Dim delete As Reminder = db.Reminders.FirstOrDefault(Function(o) o.ReminderID = CInt(dgvReminder.Rows(e.RowIndex).Cells("Reminder_ID").Value))
-                db.Reminders.DeleteOnSubmit(delete)
-                db.SubmitChanges()
-
-                getReminder()
+            If schedule Is Nothing Then
+                dgvReminder.Rows.RemoveAt(e.RowIndex)
             Else
-                MessageBox.Show("Record didn't delete!")
+                'you may want to add a confirmation message, and if the user confirms delete
+                If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
+
+                    Dim delete As Reminder = db.Reminders.FirstOrDefault(Function(o) o.ReminderID = CInt(dgvReminder.Rows(e.RowIndex).Cells("ReminderID").Value))
+                    db.Reminders.DeleteOnSubmit(delete)
+                    db.SubmitChanges()
+
+                    getReminder()
+                Else
+                    MessageBox.Show("Record didn't delete!")
+                End If
             End If
         End If
     End Sub
