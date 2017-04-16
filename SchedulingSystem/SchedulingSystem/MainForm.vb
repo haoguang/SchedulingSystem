@@ -59,4 +59,15 @@
         ContentPanel.Controls.Add(listNotification)
     End Sub
 
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        Dim reportSidePanel As New ReportSidePanel
+        SideContentPanel.Controls.Clear()
+        SideContentPanel.Controls.Add(reportSidePanel)
+
+        Dim firstPage As New ReportPage
+        ContentPanel.Controls.Clear()
+        firstPage.Dock = DockStyle.Fill
+        ContentPanel.Controls.Add(firstPage)
+
+    End Sub
 End Class
