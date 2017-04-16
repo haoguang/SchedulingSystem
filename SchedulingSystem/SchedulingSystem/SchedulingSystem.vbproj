@@ -207,10 +207,23 @@
     <Compile Include="Notification\FriendNotification.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Notification\InviterDetail.vb" />
     <Compile Include="Notification\listNotification.Designer.vb">
       <DependentUpon>listNotification.vb</DependentUpon>
     </Compile>
     <Compile Include="Notification\listNotification.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ReportPage.Designer.vb">
+      <DependentUpon>ReportPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Report\ReportSidePanel.Designer.vb">
+      <DependentUpon>ReportSidePanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportSidePanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ScheduleDB.designer.vb">
@@ -366,6 +379,12 @@
     <EmbeddedResource Include="Notification\AppointmentNotification.resx">
       <DependentUpon>AppointmentNotification.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportPage.resx">
+      <DependentUpon>ReportPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportSidePanel.resx">
+      <DependentUpon>ReportSidePanel.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Schedule\ScheduleDetailView.resx">
       <DependentUpon>ScheduleDetailView.vb</DependentUpon>
     </EmbeddedResource>
@@ -484,6 +503,7 @@
     <None Include="Resources\logout-32.png" />
     <None Include="Resources\report.png" />
     <None Include="Resources\user-default.png" />
+    <None Include="Resources\reportBackground.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

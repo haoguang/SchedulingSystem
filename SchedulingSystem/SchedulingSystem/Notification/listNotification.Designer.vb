@@ -35,7 +35,7 @@ Partial Class listNotification
         Me.lstANotification.ItemHeight = 18
         Me.lstANotification.Location = New System.Drawing.Point(16, 13)
         Me.lstANotification.Name = "lstANotification"
-        Me.lstANotification.Size = New System.Drawing.Size(405, 364)
+        Me.lstANotification.Size = New System.Drawing.Size(476, 364)
         Me.lstANotification.TabIndex = 0
         '
         'lblANoticeAvailable
@@ -47,7 +47,7 @@ Partial Class listNotification
         '
         'lblFNoticeAvailable
         '
-        Me.lblFNoticeAvailable.Location = New System.Drawing.Point(443, 392)
+        Me.lblFNoticeAvailable.Location = New System.Drawing.Point(518, 392)
         Me.lblFNoticeAvailable.Name = "lblFNoticeAvailable"
         Me.lblFNoticeAvailable.Size = New System.Drawing.Size(290, 23)
         Me.lblFNoticeAvailable.TabIndex = 2
@@ -57,9 +57,9 @@ Partial Class listNotification
         Me.lstFNotification.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstFNotification.FormattingEnabled = True
         Me.lstFNotification.ItemHeight = 18
-        Me.lstFNotification.Location = New System.Drawing.Point(446, 13)
+        Me.lstFNotification.Location = New System.Drawing.Point(521, 13)
         Me.lstFNotification.Name = "lstFNotification"
-        Me.lstFNotification.Size = New System.Drawing.Size(405, 364)
+        Me.lstFNotification.Size = New System.Drawing.Size(476, 364)
         Me.lstFNotification.TabIndex = 3
         '
         'listNotification
@@ -71,7 +71,7 @@ Partial Class listNotification
         Me.Controls.Add(Me.lblANoticeAvailable)
         Me.Controls.Add(Me.lstANotification)
         Me.Name = "listNotification"
-        Me.Size = New System.Drawing.Size(870, 433)
+        Me.Size = New System.Drawing.Size(1013, 433)
         Me.ResumeLayout(False)
 
     End Sub
