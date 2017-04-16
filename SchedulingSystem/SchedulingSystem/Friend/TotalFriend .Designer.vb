@@ -30,7 +30,7 @@ Partial Class TotalFriend
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(284, 223)
+        Me.btnPrint.Location = New System.Drawing.Point(251, 218)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(314, 34)
         Me.btnPrint.TabIndex = 4
@@ -47,6 +47,9 @@ Partial Class TotalFriend
         Me.dlgPreview.Icon = CType(resources.GetObject("dlgPreview.Icon"), System.Drawing.Icon)
         Me.dlgPreview.Name = "PrintPreviewDialog1"
         Me.dlgPreview.Visible = False
+        '
+        'doc
+        '
         '
         'TotalFriend
         '

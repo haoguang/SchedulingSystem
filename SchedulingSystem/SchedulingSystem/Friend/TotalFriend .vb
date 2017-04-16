@@ -36,7 +36,7 @@ Public Class TotalFriend
         Next
         body.AppendLine()
         body.AppendLine()
-        body.AppendFormat("{0,2} Total Number of record(s)", cnt)
+        body.AppendFormat("Total Number of record(s) = {0,2} ", cnt)
         With e.Graphics
             .DrawString(header, fontHeader, Brushes.Purple, 100, 0)
             .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)
