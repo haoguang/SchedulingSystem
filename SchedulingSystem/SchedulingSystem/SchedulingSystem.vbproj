@@ -145,7 +145,6 @@
     <Compile Include="Appointment\ViewAppointmentRecord.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DevelopmentVariables.vb" />
     <Compile Include="Friend\Friend_module.vb" />
     <Compile Include="Friend\ListFriend.Designer.vb">
       <DependentUpon>ListFriend.vb</DependentUpon>
@@ -513,6 +512,7 @@
     <None Include="Resources\report.png" />
     <None Include="Resources\user-default.png" />
     <None Include="Resources\reportBackground.png" />
+    <None Include="Resources\time-12-48.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

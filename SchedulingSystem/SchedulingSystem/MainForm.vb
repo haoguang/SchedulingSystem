@@ -44,6 +44,7 @@
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
+        tmrClock.Start()
     End Sub
 
     Private Sub umDropDownMenu_MouseLeave() Handles umDropDownMenu.MouseLeave
@@ -70,5 +71,13 @@
         firstPage.Dock = DockStyle.Fill
         ContentPanel.Controls.Add(firstPage)
 
+    End Sub
+
+    Private Function myZero(ByVal value As Integer) As String
+        Return value.ToString().PadLeft(2, "0"c)
+    End Function
+
+    Private Sub tmrClock_Tick(sender As Object, e As EventArgs) Handles tmrClock.Tick
+        lblClock.Text = DateTime.Now.ToLongTimeString
     End Sub
 End Class

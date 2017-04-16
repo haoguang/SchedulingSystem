@@ -22,9 +22,9 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.HeaderPanel = New System.Windows.Forms.Panel()
-        Me.btnUserInfo = New SchedulingSystem.UserButton()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnFriends = New System.Windows.Forms.Button()
         Me.btnNotification = New System.Windows.Forms.Button()
@@ -33,10 +33,16 @@ Partial Class MainForm
         Me.SidePanel = New System.Windows.Forms.Panel()
         Me.SideContentPanel = New System.Windows.Forms.Panel()
         Me.TimeSidePanel = New System.Windows.Forms.Panel()
+        Me.lblClock = New System.Windows.Forms.Label()
         Me.ContentPanel = New System.Windows.Forms.Panel()
+        Me.tmrClock = New System.Windows.Forms.Timer(Me.components)
+        Me.pbxClock = New System.Windows.Forms.PictureBox()
         Me.umDropDownMenu = New SchedulingSystem.UserMenu()
+        Me.btnUserInfo = New SchedulingSystem.UserButton()
         Me.HeaderPanel.SuspendLayout()
         Me.SidePanel.SuspendLayout()
+        Me.TimeSidePanel.SuspendLayout()
+        CType(Me.pbxClock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HeaderPanel
@@ -53,15 +59,6 @@ Partial Class MainForm
         Me.HeaderPanel.Name = "HeaderPanel"
         Me.HeaderPanel.Size = New System.Drawing.Size(1014, 69)
         Me.HeaderPanel.TabIndex = 0
-        '
-        'btnUserInfo
-        '
-        Me.btnUserInfo.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnUserInfo.Location = New System.Drawing.Point(779, 0)
-        Me.btnUserInfo.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnUserInfo.Name = "btnUserInfo"
-        Me.btnUserInfo.Size = New System.Drawing.Size(235, 69)
-        Me.btnUserInfo.TabIndex = 4
         '
         'btnReport
         '
@@ -182,11 +179,24 @@ Partial Class MainForm
         '
         'TimeSidePanel
         '
+        Me.TimeSidePanel.Controls.Add(Me.pbxClock)
+        Me.TimeSidePanel.Controls.Add(Me.lblClock)
         Me.TimeSidePanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.TimeSidePanel.Location = New System.Drawing.Point(0, 0)
         Me.TimeSidePanel.Name = "TimeSidePanel"
         Me.TimeSidePanel.Size = New System.Drawing.Size(300, 64)
         Me.TimeSidePanel.TabIndex = 0
+        '
+        'lblClock
+        '
+        Me.lblClock.AutoSize = True
+        Me.lblClock.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClock.ForeColor = System.Drawing.Color.Transparent
+        Me.lblClock.Location = New System.Drawing.Point(96, 18)
+        Me.lblClock.Name = "lblClock"
+        Me.lblClock.Size = New System.Drawing.Size(78, 29)
+        Me.lblClock.TabIndex = 0
+        Me.lblClock.Text = "Time"
         '
         'ContentPanel
         '
@@ -197,6 +207,18 @@ Partial Class MainForm
         Me.ContentPanel.Name = "ContentPanel"
         Me.ContentPanel.Size = New System.Drawing.Size(714, 533)
         Me.ContentPanel.TabIndex = 2
+        '
+        'tmrClock
+        '
+        '
+        'pbxClock
+        '
+        Me.pbxClock.Image = Global.SchedulingSystem.My.Resources.Resources.time_12_48
+        Me.pbxClock.Location = New System.Drawing.Point(42, 9)
+        Me.pbxClock.Name = "pbxClock"
+        Me.pbxClock.Size = New System.Drawing.Size(48, 48)
+        Me.pbxClock.TabIndex = 1
+        Me.pbxClock.TabStop = False
         '
         'umDropDownMenu
         '
@@ -209,6 +231,15 @@ Partial Class MainForm
         Me.umDropDownMenu.Size = New System.Drawing.Size(169, 120)
         Me.umDropDownMenu.TabIndex = 3
         Me.umDropDownMenu.Visible = False
+        '
+        'btnUserInfo
+        '
+        Me.btnUserInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnUserInfo.Location = New System.Drawing.Point(779, 0)
+        Me.btnUserInfo.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnUserInfo.Name = "btnUserInfo"
+        Me.btnUserInfo.Size = New System.Drawing.Size(235, 69)
+        Me.btnUserInfo.TabIndex = 4
         '
         'MainForm
         '
@@ -226,6 +257,9 @@ Partial Class MainForm
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.HeaderPanel.ResumeLayout(False)
         Me.SidePanel.ResumeLayout(False)
+        Me.TimeSidePanel.ResumeLayout(False)
+        Me.TimeSidePanel.PerformLayout()
+        CType(Me.pbxClock, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -241,4 +275,7 @@ Partial Class MainForm
     Friend WithEvents btnReport As Button
     Friend WithEvents btnUserInfo As UserButton
     Friend WithEvents umDropDownMenu As UserMenu
+    Friend WithEvents tmrClock As Timer
+    Friend WithEvents lblClock As Label
+    Friend WithEvents pbxClock As PictureBox
 End Class
