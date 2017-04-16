@@ -22,21 +22,23 @@ Partial Class FriendNotification
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picUser = New System.Windows.Forms.PictureBox()
         Me.lblName = New System.Windows.Forms.Label()
         Me.lblFriendName = New System.Windows.Forms.Label()
         Me.lblHobby = New System.Windows.Forms.Label()
         Me.lblFriendHobby = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnAccept = New System.Windows.Forms.Button()
+        Me.btnReject = New System.Windows.Forms.Button()
+        CType(Me.picUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PictureBox1
+        'picUser
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(79, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(127, 121)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.picUser.Location = New System.Drawing.Point(79, 12)
+        Me.picUser.Name = "picUser"
+        Me.picUser.Size = New System.Drawing.Size(127, 121)
+        Me.picUser.TabIndex = 0
+        Me.picUser.TabStop = False
         '
         'lblName
         '
@@ -74,28 +76,52 @@ Partial Class FriendNotification
         Me.lblFriendHobby.Size = New System.Drawing.Size(131, 24)
         Me.lblFriendHobby.TabIndex = 4
         '
+        'btnAccept
+        '
+        Me.btnAccept.Location = New System.Drawing.Point(47, 239)
+        Me.btnAccept.Name = "btnAccept"
+        Me.btnAccept.Size = New System.Drawing.Size(75, 23)
+        Me.btnAccept.TabIndex = 5
+        Me.btnAccept.Text = "&Accept"
+        Me.btnAccept.UseVisualStyleBackColor = True
+        '
+        'btnReject
+        '
+        Me.btnReject.Location = New System.Drawing.Point(148, 239)
+        Me.btnReject.Name = "btnReject"
+        Me.btnReject.Size = New System.Drawing.Size(75, 23)
+        Me.btnReject.TabIndex = 6
+        Me.btnReject.Text = "&Reject"
+        Me.btnReject.UseVisualStyleBackColor = True
+        '
         'FriendNotification
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(284, 274)
+        Me.Controls.Add(Me.btnReject)
+        Me.Controls.Add(Me.btnAccept)
         Me.Controls.Add(Me.lblFriendHobby)
         Me.Controls.Add(Me.lblHobby)
         Me.Controls.Add(Me.lblFriendName)
         Me.Controls.Add(Me.lblName)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.picUser)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(300, 313)
+        Me.MinimumSize = New System.Drawing.Size(300, 313)
         Me.Name = "FriendNotification"
         Me.Text = "Friend Notification"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picUser, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents picUser As PictureBox
     Friend WithEvents lblName As Label
     Friend WithEvents lblFriendName As Label
     Friend WithEvents lblHobby As Label
     Friend WithEvents lblFriendHobby As Label
+    Friend WithEvents btnAccept As Button
+    Friend WithEvents btnReject As Button
 End Class

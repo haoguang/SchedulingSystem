@@ -207,6 +207,7 @@
     <Compile Include="Notification\FriendNotification.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Notification\InviterDetail.vb" />
     <Compile Include="Notification\listNotification.Designer.vb">
       <DependentUpon>listNotification.vb</DependentUpon>
     </Compile>
