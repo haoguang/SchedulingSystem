@@ -27,6 +27,8 @@ Public Class ScheduleDetailView
                 btnAddParti.Enabled = False
                 btnAddParti.Visible = False
                 btnEdit.Enabled = False
+                btnEdit.BackColor = Color.LightSlateGray
+                btnEdit.ForeColor = Color.Gray
             End If
 
             populateDataToControl()

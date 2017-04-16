@@ -94,14 +94,14 @@ Public Class AppointmentReport
 
 
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
-        Dim fontSubHeader As New Font("Calibri", 12)
+        Dim fontSubHeader As New Font("Calibri", 14)
         Dim fontBody As New Font("Consolas", 10)
 
 
-        Dim header As String = "Appointment Monthly Report"
+        Dim header As String = "  Monthly Appointment Report"
         Dim subHeader As String = String.Format(
-            "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine &
-            month1 & " Report", DateTime.Now)
+            "    Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine &
+            "    " & month1 & " Report", DateTime.Now)
 
         Dim body As New StringBuilder()
 
@@ -120,7 +120,7 @@ Public Class AppointmentReport
         body.AppendFormat("{0,2} appointment record(s)", cnt)
 
         With e.Graphics
-            .DrawImage(My.Resources.Appointment, 0, 0, 80, 100)
+            .DrawImage(My.Resources.logo, 0, 0, 80, 100)
             .DrawString(header, fontHeader, Brushes.Purple, 98, 0)
             .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)
             .DrawString(body.ToString(), fontBody, Brushes.Black, 0, 120)

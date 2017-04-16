@@ -101,7 +101,7 @@
                 .lblVenue.Text = ScheduleVenue
                 .lblScheduleID.Text = ScheduleID.ToString
                 .Anchor = AnchorStyles.Left Or AnchorStyles.Right
-                .BackColor = Color.GreenYellow
+                .BackColor = Color.FromArgb(191, 255, 128)
             End With
             AddHandler activities(x).Click, AddressOf HandleActivityControlClick
             activityDisplayPanel.Controls.Add(activities(x))

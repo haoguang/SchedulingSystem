@@ -30,7 +30,11 @@ Partial Class ActivityControl
         '
         'lblStartTime
         '
-        Me.lblStartTime.Location = New System.Drawing.Point(-3, 13)
+        Me.lblStartTime.Enabled = False
+        Me.lblStartTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblStartTime.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.lblStartTime.ForeColor = System.Drawing.Color.Black
+        Me.lblStartTime.Location = New System.Drawing.Point(-3, 1)
         Me.lblStartTime.Name = "lblStartTime"
         Me.lblStartTime.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.lblStartTime.Size = New System.Drawing.Size(97, 23)
@@ -42,17 +46,25 @@ Partial Class ActivityControl
         '
         Me.lblTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTitle.Location = New System.Drawing.Point(100, 13)
+        Me.lblTitle.Enabled = False
+        Me.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblTitle.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.Black
+        Me.lblTitle.Location = New System.Drawing.Point(100, 1)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.lblTitle.Size = New System.Drawing.Size(138, 23)
+        Me.lblTitle.Size = New System.Drawing.Size(136, 23)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "Title"
         '
         'lblVenue
         '
         Me.lblVenue.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblVenue.Location = New System.Drawing.Point(303, 13)
+        Me.lblVenue.Enabled = False
+        Me.lblVenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblVenue.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.lblVenue.ForeColor = System.Drawing.Color.Black
+        Me.lblVenue.Location = New System.Drawing.Point(301, 1)
         Me.lblVenue.Name = "lblVenue"
         Me.lblVenue.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.lblVenue.Size = New System.Drawing.Size(97, 23)
@@ -64,7 +76,7 @@ Partial Class ActivityControl
         '
         Me.lblScheduleID.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblScheduleID.AutoSize = True
-        Me.lblScheduleID.Location = New System.Drawing.Point(244, 13)
+        Me.lblScheduleID.Location = New System.Drawing.Point(242, 13)
         Me.lblScheduleID.Name = "lblScheduleID"
         Me.lblScheduleID.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         Me.lblScheduleID.Size = New System.Drawing.Size(18, 18)
@@ -77,13 +89,14 @@ Partial Class ActivityControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.lblScheduleID)
         Me.Controls.Add(Me.lblVenue)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.lblStartTime)
         Me.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Name = "ActivityControl"
-        Me.Size = New System.Drawing.Size(400, 50)
+        Me.Size = New System.Drawing.Size(398, 48)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

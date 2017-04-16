@@ -32,6 +32,7 @@ Partial Class ScheduleViewPanel
         '
         'HeaderPanel
         '
+        Me.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(134, Byte), Integer))
         Me.HeaderPanel.Controls.Add(Me.lblTitle)
         Me.HeaderPanel.Controls.Add(Me.btnBack)
         Me.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top

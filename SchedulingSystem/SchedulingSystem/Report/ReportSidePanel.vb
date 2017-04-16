@@ -1,10 +1,18 @@
 ﻿Public Class ReportSidePanel
     Private Sub btnAppointmentReport_Click(sender As Object, e As EventArgs) Handles btnAppointmentReport.Click
         ' summon appointment report ui
+        Dim AppointmentReportCtrl As New AppointmentReport
+
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(AppointmentReportCtrl)
     End Sub
 
     Private Sub btnFriendReport_Click(sender As Object, e As EventArgs) Handles btnFriendReport.Click
-        ' summon friend report ui
+        'summon friend report ui
+        Dim friendreportctrl As New TotalFriend
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(friendreportctrl)
+
     End Sub
 
     Private Sub btnMemberReport_Click(sender As Object, e As EventArgs) Handles btnMemberReport.Click
