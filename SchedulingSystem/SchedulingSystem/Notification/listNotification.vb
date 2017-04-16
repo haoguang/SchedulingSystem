@@ -6,15 +6,31 @@ Public Class listNotification
 
     Private Sub listNotification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        getAppointmentData()
+        getFriendData()
+
+    End Sub
+
+    Private Sub lstANotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstANotification.MouseDoubleClick
+        index = lstANotification.SelectedIndex
+        AppointmentNotification.index = index
+        AppointmentNotification.ShowDialog()
+        getAppointmentData()
+
+    End Sub
+
+    Private Sub lstFNotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstFNotification.MouseDoubleClick
+        index = lstFNotification.SelectedIndex
+        FriendNotification.Findex = index
+        FriendNotification.ShowDialog()
+        getFriendData()
+    End Sub
+
+    Public Sub getAppointmentData()
         Dim db As New ScheduleDBDataContext()
         Dim count As Integer = 0
-        Dim currentDateTime As DateTime
 
-        currentDateTime = DateTime.Now
-
-        Dim friendQuery = From f In db.Friends, m In db.Members
-                          Where f.FriendID = userId And f.Status = "Pending" And f.Inviter = m.MemberID
-                          Select m.MemberID, m.Username, m.Hobby, m.Picture
+        lstANotification.Items.Clear()
 
         Dim appointmentQuery = From p In db.Participles, s In db.Schedules, st In db.ScheduleTimes
                                Where p.MemberID = userId And p.Status = "Pending" And p.ScheduleID = s.ScheduleID And s.ScheduleID = st.ScheduleID
@@ -33,6 +49,21 @@ Public Class listNotification
                 count += 1
             Next
         End If
+        'get number of notification available
+        lblANoticeAvailable.Text = appointmentQuery.Count & " Appointment Notification"
+
+    End Sub
+
+    Public Sub getFriendData()
+        Dim db As New ScheduleDBDataContext()
+        Dim count As Integer = 0
+
+        lstFNotification.Items.Clear()
+
+        Dim friendQuery = From f In db.Friends, m In db.Members
+                          Where f.FriendID = userId And f.Status = "Pending" And f.Inviter = m.MemberID
+                          Select m.MemberID, m.Username, m.Hobby, m.Picture
+
         'if friend request exist
         If friendQuery.Count > 0 Then
             For Each m In friendQuery
@@ -58,22 +89,7 @@ Public Class listNotification
         End If
 
         'get number of notification available
-        lblANoticeAvailable.Text = appointmentQuery.Count & " Appointment Notification"
         lblFNoticeAvailable.Text = friendQuery.Count & " Friend Notification"
-
-    End Sub
-
-    Private Sub lstANotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstANotification.MouseDoubleClick
-        index = lstANotification.SelectedIndex
-        AppointmentNotification.index = index
-        AppointmentNotification.ShowDialog()
-
-    End Sub
-
-    Private Sub lstFNotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstFNotification.MouseDoubleClick
-        index = lstANotification.SelectedIndex
-        FriendNotification.Findex = index
-        FriendNotification.ShowDialog()
     End Sub
 
 End Class
