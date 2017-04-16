@@ -22,7 +22,6 @@ Partial Class UserProfile
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserProfile))
         Me.picPicture = New System.Windows.Forms.PictureBox()
         Me.btnImage = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -44,9 +43,8 @@ Partial Class UserProfile
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnChange = New System.Windows.Forms.Button()
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
-        Me.btnReport = New System.Windows.Forms.Button()
-        Me.doc = New System.Drawing.Printing.PrintDocument()
-        Me.dlgPreview = New System.Windows.Forms.PrintPreviewDialog()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblDateJoined = New System.Windows.Forms.Label()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -204,7 +202,7 @@ Partial Class UserProfile
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(44, 13)
         Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Hobby :"
+        Me.Label6.Text = "&Hobby :"
         '
         'txtHobby
         '
@@ -215,19 +213,19 @@ Partial Class UserProfile
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(131, 301)
+        Me.btnUpdate.Location = New System.Drawing.Point(150, 317)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(92, 23)
-        Me.btnUpdate.TabIndex = 15
+        Me.btnUpdate.TabIndex = 17
         Me.btnUpdate.Text = "&Update Profile"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'btnChange
         '
-        Me.btnChange.Location = New System.Drawing.Point(229, 301)
+        Me.btnChange.Location = New System.Drawing.Point(268, 317)
         Me.btnChange.Name = "btnChange"
         Me.btnChange.Size = New System.Drawing.Size(98, 23)
-        Me.btnChange.TabIndex = 16
+        Me.btnChange.TabIndex = 18
         Me.btnChange.Text = "&ChangePassword"
         Me.btnChange.UseVisualStyleBackColor = True
         '
@@ -235,37 +233,31 @@ Partial Class UserProfile
         '
         Me.ofdBrowse.FileName = "OpenFileDialog1"
         '
-        'btnReport
+        'Label7
         '
-        Me.btnReport.Location = New System.Drawing.Point(333, 301)
-        Me.btnReport.Name = "btnReport"
-        Me.btnReport.Size = New System.Drawing.Size(75, 23)
-        Me.btnReport.TabIndex = 17
-        Me.btnReport.Text = "&Report"
-        Me.btnReport.UseVisualStyleBackColor = True
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(147, 288)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 13)
+        Me.Label7.TabIndex = 15
+        Me.Label7.Text = "Date Joined :"
         '
-        'doc
+        'lblDateJoined
         '
-        Me.doc.OriginAtMargins = True
-        '
-        'dlgPreview
-        '
-        Me.dlgPreview.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.dlgPreview.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.dlgPreview.ClientSize = New System.Drawing.Size(400, 300)
-        Me.dlgPreview.Enabled = True
-        Me.dlgPreview.Icon = CType(resources.GetObject("dlgPreview.Icon"), System.Drawing.Icon)
-        Me.dlgPreview.Name = "dlgPreview"
-        Me.dlgPreview.UseAntiAlias = True
-        Me.dlgPreview.Visible = False
+        Me.lblDateJoined.AutoSize = True
+        Me.lblDateJoined.Location = New System.Drawing.Point(226, 288)
+        Me.lblDateJoined.Name = "lblDateJoined"
+        Me.lblDateJoined.Size = New System.Drawing.Size(0, 13)
+        Me.lblDateJoined.TabIndex = 16
         '
         'UserProfile
         '
         Me.AcceptButton = Me.btnUpdate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(423, 393)
-        Me.Controls.Add(Me.btnReport)
+        Me.ClientSize = New System.Drawing.Size(423, 362)
+        Me.Controls.Add(Me.lblDateJoined)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btnChange)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.txtHobby)
@@ -315,7 +307,6 @@ Partial Class UserProfile
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnChange As Button
     Friend WithEvents ofdBrowse As OpenFileDialog
-    Friend WithEvents btnReport As Button
-    Friend WithEvents doc As Printing.PrintDocument
-    Friend WithEvents dlgPreview As PrintPreviewDialog
+    Friend WithEvents Label7 As Label
+    Friend WithEvents lblDateJoined As Label
 End Class

@@ -157,7 +157,7 @@ Public Class ActivityRegister
         Dim scheduleTime As New ScheduleTime With {.ScheduleID = scheduleid, .InitialTime = True, .ScheduleStart = startDate, .ScheduleEnd = endDate}
 
         Dim participle As New Participle With {.ScheduleID = scheduleid, .ParticiplesRole = ScheduleClass.OWNER, .Status = ScheduleClass.PARTICIPLE_ATTENT,
-            .MemberID = DevelopmentVariables.UserID, .GenerateDate = Date.Today}
+            .MemberID = LoginSession.memberID, .GenerateDate = Date.Today}
 
         db.ScheduleTimes.InsertOnSubmit(scheduleTime)
         db.Participles.InsertOnSubmit(participle)
@@ -493,15 +493,15 @@ Public Class ActivityRegister
             Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator(scheEnd.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, Nothing)
             Err.SetError(scheEnd, "The end date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator(scheStart.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator(scheStart.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheEnd, Nothing)
             Err.SetError(scheStart, "The start date is having conflict with other schedule")
             e.Cancel = True
-        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, DevelopmentVariables.UserID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
+        ElseIf ActivityModule.dateValidator2(scheStart.Value, scheEnd.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, "There is schedule conflict between both times")
             Err.SetError(scheEnd, "There is schedule conflict between both times")
             e.Cancel = True
