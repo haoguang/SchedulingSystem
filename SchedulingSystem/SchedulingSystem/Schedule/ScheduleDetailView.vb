@@ -5,6 +5,9 @@ Public Class ScheduleDetailView
     Friend parentCtrl As ScheduleViewPanel
 
     Private Sub ScheduleDetailView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        cboMinBefore.SelectedIndex = 0
+
         If schedule IsNot Nothing Then
 
             If ActivityModule.IsOwner(schedule.ScheduleID) Then
