@@ -23,6 +23,7 @@ Partial Class ViewAppointment
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.gbSelection = New System.Windows.Forms.GroupBox()
+        Me.rbCancel = New System.Windows.Forms.RadioButton()
         Me.rbPending = New System.Windows.Forms.RadioButton()
         Me.rbOngoing = New System.Windows.Forms.RadioButton()
         Me.rbHistory = New System.Windows.Forms.RadioButton()
@@ -31,7 +32,6 @@ Partial Class ViewAppointment
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvRecord = New System.Windows.Forms.DataGridView()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.rbCancel = New System.Windows.Forms.RadioButton()
         Me.gbSelection.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,6 +51,17 @@ Partial Class ViewAppointment
         Me.gbSelection.TabIndex = 0
         Me.gbSelection.TabStop = False
         Me.gbSelection.Text = "Selection"
+        '
+        'rbCancel
+        '
+        Me.rbCancel.AutoSize = True
+        Me.rbCancel.Location = New System.Drawing.Point(575, 39)
+        Me.rbCancel.Name = "rbCancel"
+        Me.rbCancel.Size = New System.Drawing.Size(80, 20)
+        Me.rbCancel.TabIndex = 3
+        Me.rbCancel.TabStop = True
+        Me.rbCancel.Text = "Cancel"
+        Me.rbCancel.UseVisualStyleBackColor = True
         '
         'rbPending
         '
@@ -94,7 +105,7 @@ Partial Class ViewAppointment
         Me.GroupBox1.ForeColor = System.Drawing.Color.DarkGreen
         Me.GroupBox1.Location = New System.Drawing.Point(39, 218)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(807, 282)
+        Me.GroupBox1.Size = New System.Drawing.Size(766, 282)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Record"
@@ -120,7 +131,7 @@ Partial Class ViewAppointment
         Me.dgvRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRecord.Location = New System.Drawing.Point(24, 83)
         Me.dgvRecord.Name = "dgvRecord"
-        Me.dgvRecord.Size = New System.Drawing.Size(764, 150)
+        Me.dgvRecord.Size = New System.Drawing.Size(656, 150)
         Me.dgvRecord.TabIndex = 0
         '
         'lblTitle
@@ -133,17 +144,6 @@ Partial Class ViewAppointment
         Me.lblTitle.TabIndex = 2
         Me.lblTitle.Text = "View Appointment Record"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'rbCancel
-        '
-        Me.rbCancel.AutoSize = True
-        Me.rbCancel.Location = New System.Drawing.Point(575, 39)
-        Me.rbCancel.Name = "rbCancel"
-        Me.rbCancel.Size = New System.Drawing.Size(80, 20)
-        Me.rbCancel.TabIndex = 3
-        Me.rbCancel.TabStop = True
-        Me.rbCancel.Text = "Cancel"
-        Me.rbCancel.UseVisualStyleBackColor = True
         '
         'ViewAppointment
         '

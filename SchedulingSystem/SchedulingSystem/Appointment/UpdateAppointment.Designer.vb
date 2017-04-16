@@ -80,7 +80,7 @@ Partial Class UpdateAppointment
         Me.dgvRecord.Location = New System.Drawing.Point(24, 74)
         Me.dgvRecord.Name = "dgvRecord"
         Me.dgvRecord.ReadOnly = True
-        Me.dgvRecord.Size = New System.Drawing.Size(735, 200)
+        Me.dgvRecord.Size = New System.Drawing.Size(666, 200)
         Me.dgvRecord.TabIndex = 0
         '
         'UpdateAppointment
