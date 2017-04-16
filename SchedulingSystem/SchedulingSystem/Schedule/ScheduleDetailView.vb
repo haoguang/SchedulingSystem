@@ -257,7 +257,7 @@ Public Class ScheduleDetailView
 
         ' 2.create a function to refresh the data grid view and call it here
         getReminder()
-
+        AlarmClass.updateReminder()
     End Sub
 
     Public Sub getReminder()
@@ -288,6 +288,7 @@ Public Class ScheduleDetailView
                 db.SubmitChanges()
 
                 getReminder()
+                AlarmClass.updateReminder()
             Else
                 MessageBox.Show("Record didn't delete!")
             End If

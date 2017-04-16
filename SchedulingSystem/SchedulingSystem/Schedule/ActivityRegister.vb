@@ -16,6 +16,11 @@ Public Class ActivityRegister
         cboBehavior.Items.AddRange(RepeatationModule.getRepeatStringArray())
         cboBehavior.SelectedIndex = 0
         cboMinBefore.SelectedIndex = 0
+
+        ' set initial value
+        scheStart.Value = New DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0)
+        scheEnd.Value = New DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0)
+
         If schedule Is Nothing Then
 
             activityCreateMode()
@@ -178,6 +183,7 @@ Public Class ActivityRegister
                 db.Reminders.InsertOnSubmit(reminder)
             Next
             db.SubmitChanges()
+            AlarmClass.updateReminder()
         End If
 
         MessageBox.Show("Successfully added a schedule", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -379,15 +385,10 @@ Public Class ActivityRegister
     Private Sub scheEnd_ValueChanged(sender As Object, e As EventArgs) Handles scheEnd.ValueChanged
         'To make sure that due date is atleast same as end date
         scheRepeatDue.MinDate = scheEnd.Value.Date
-        scheStart.MaxDate = scheEnd.Value
         scheRepeatDue.Value = scheEnd.Value
 
-
     End Sub
 
-    Private Sub scheStart_ValueChanged(sender As Object, e As EventArgs) Handles scheStart.ValueChanged
-        scheEnd.MinDate = scheStart.Value
-    End Sub
 
     Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
         If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
@@ -635,6 +636,7 @@ Public Class ActivityRegister
                     db.SubmitChanges()
 
                     getReminder()
+                    AlarmClass.updateReminder()
                 Else
                     MessageBox.Show("Record didn't delete!")
                 End If
