@@ -105,8 +105,8 @@ Public Class AppointmentReport
 
         Dim body As New StringBuilder()
 
-        body.AppendLine("No  Date        Start Time End Time  Title")
-        body.AppendLine("--  ----------  ---------- --------  ---------")
+        body.AppendLine("No  Date        Start Time End Time Title")
+        body.AppendLine("--  ----------  ---------- -------- ----------------")
 
         Dim cnt As Integer = 0
         Dim parts() As String

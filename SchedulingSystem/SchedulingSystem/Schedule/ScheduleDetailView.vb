@@ -244,16 +244,16 @@ Public Class ScheduleDetailView
 
         'store data
         Dim r As New Reminder()
-            r.ScheduleID = schedule.ScheduleID ' so it need to be put it here
-            r.MinutesBefore = minutes
-            r.ReminderDateTime = scheStartDate
+        r.ScheduleID = schedule.ScheduleID ' so it need to be put it here
+        r.MinutesBefore = minutes
+        r.ReminderDateTime = scheStartDate
 
-            ' 1.insert into database
-            db.Reminders.InsertOnSubmit(r)
-            db.SubmitChanges()
+        ' 1.insert into database
+        db.Reminders.InsertOnSubmit(r)
+        db.SubmitChanges()
 
-            ' 2.create a function to refresh the data grid view and call it here
-            getReminder()
+        ' 2.create a function to refresh the data grid view and call it here
+        getReminder()
 
     End Sub
 
@@ -290,4 +290,5 @@ Public Class ScheduleDetailView
             End If
         End If
     End Sub
+
 End Class

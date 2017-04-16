@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ScheduleDetailView
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,9 @@ Partial Class ScheduleDetailView
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvReminder = New System.Windows.Forms.DataGridView()
         Me.btnAddReminder = New System.Windows.Forms.Button()
         Me.lblMinBefore = New System.Windows.Forms.Label()
@@ -137,6 +137,7 @@ Partial Class ScheduleDetailView
         '
         'cboMinBefore
         '
+        Me.cboMinBefore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMinBefore.FormattingEnabled = True
         Me.cboMinBefore.Items.AddRange(New Object() {"10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "1 hour"})
         Me.cboMinBefore.Location = New System.Drawing.Point(167, 22)
@@ -192,8 +193,8 @@ Partial Class ScheduleDetailView
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing

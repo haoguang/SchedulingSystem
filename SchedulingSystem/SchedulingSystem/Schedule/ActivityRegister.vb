@@ -142,8 +142,8 @@ Public Class ActivityRegister
 
         Dim db As New ScheduleDBDataContext
 
-        Dim schedule As New Schedule With {.Title = title, .Description = description,
-            .Venue = venue, .Type = type, .RepeatBehavior = New Binary(BitConverter.GetBytes(repeatBehave)), .RepeatDue = repeatDue}
+        Dim schedule As New Schedule With {.title = title, .description = description,
+            .venue = venue, .type = type, .RepeatBehavior = New Binary(BitConverter.GetBytes(repeatBehave)), .repeatDue = repeatDue}
 
         If type.Equals(ScheduleClass.APPOINTMENT_TYPE) Then
             schedule.Status = ScheduleClass.PENDING_STATUS
@@ -156,9 +156,9 @@ Public Class ActivityRegister
 
         Dim scheduleid As Integer = schedule.ScheduleID
 
-        Dim scheduleTime As New ScheduleTime With {.ScheduleID = scheduleid, .InitialTime = True, .ScheduleStart = startDate, .ScheduleEnd = endDate}
+        Dim scheduleTime As New ScheduleTime With {.scheduleid = scheduleid, .InitialTime = True, .ScheduleStart = startDate, .ScheduleEnd = endDate}
 
-        Dim participle As New Participle With {.ScheduleID = scheduleid, .ParticiplesRole = ScheduleClass.OWNER, .Status = ScheduleClass.PARTICIPLE_ATTENT,
+        Dim participle As New Participle With {.scheduleid = scheduleid, .ParticiplesRole = ScheduleClass.OWNER, .Status = ScheduleClass.PARTICIPLE_ATTENT,
             .MemberID = LoginSession.memberID, .GenerateDate = Date.Today}
 
         db.ScheduleTimes.InsertOnSubmit(scheduleTime)
@@ -572,6 +572,11 @@ Public Class ActivityRegister
                 scheStartDate = scheStartDate.AddMinutes(-60)
         End Select
 
+        dgvReminder.ColumnCount = 1
+        'dgvReminder.Columns(0).Name = "Reminder_ID"
+        dgvReminder.Columns(0).Name = "Reminder_DateTime"
+        dgvReminder.Rows.Add(New String() {scheStartDate.ToString})
+
         If schedule Is Nothing Then
             'for create schedule
             dgvReminder.ColumnCount = 2
@@ -611,14 +616,24 @@ Public Class ActivityRegister
                          .Reminder_DateTime = rm.ReminderDateTime,
                          .MinuteBefore = rm.MinutesBefore
                          }
+
         dgvReminder.DataSource = record
     End Sub
 
     Private Sub dgvReminder_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReminder.CellDoubleClick
+        Dim db As New ScheduleDBDataContext
+
+
         If dgvReminder.SelectedRows.Count > 0 Then
             'you may want to add a confirmation message, and if the user confirms delete
             If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
                 dgvReminder.Rows.Remove(dgvReminder.SelectedRows(0))
+
+                Dim delete As Reminder = db.Reminders.FirstOrDefault(Function(o) o.ReminderID = CInt(dgvReminder.Rows(e.RowIndex).Cells("Reminder_ID").Value))
+                db.Reminders.DeleteOnSubmit(delete)
+                db.SubmitChanges()
+
+                getReminder()
             Else
                 MessageBox.Show("Record didn't delete!")
             End If

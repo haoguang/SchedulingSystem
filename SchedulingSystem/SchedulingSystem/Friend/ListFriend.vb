@@ -49,11 +49,16 @@ Public Class ListFriend
         Dim UserCtrl3 As New ListFriend
         Dim FriendSidePanel As New FriendSidePanel
 
-        Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = user_id)
-        db.Friends.DeleteOnSubmit(btn_delete)
-        db.SubmitChanges()
-        sideCtrl.populateDGVF()
-        My.Forms.MainForm.ContentPanel.Controls.Clear()
+
+        Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = friend_id And o.Member1.MemberID = o.UserID)
+        Dim Result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+
+        If Result = MsgBoxResult.Ok Then
+            db.Friends.DeleteOnSubmit(btn_delete)
+            db.SubmitChanges()
+            sideCtrl.populateDGVF()
+            My.Forms.MainForm.ContentPanel.Controls.Clear()
+        End If
     End Sub
 
 End Class
