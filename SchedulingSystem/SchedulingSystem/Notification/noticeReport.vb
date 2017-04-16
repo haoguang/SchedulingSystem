@@ -4,6 +4,16 @@ Imports System.Data.Linq
 Public Class noticeReport
     Dim userId As Integer = LoginSession.memberID
 
+    Private Sub noticeReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim currentDateTime As DateTime
+        currentDateTime = DateTime.Now
+        Dim year As Integer = CDate(currentDateTime).Year
+
+        For index = 0 To 2
+            cboYear.Items.Add(year - index)
+        Next index
+    End Sub
+
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         'clear listbox
         lstNotice.Items.Clear()
@@ -86,15 +96,15 @@ Public Class noticeReport
         If appointmentQuery.Count > 0 Then
             If appointmentQuery1.Count > 0 Then 'decline 
                 If appointmentQuery2.Count > 0 Then 'attend
-                    lstNotice.Items.Add("Appointment" & vbTab & appointmentQuery.Count & vbTab & appointmentQuery2.Count & vbTab & appointmentQuery1.Count)
+                    lstNotice.Items.Add(String.Format("{0, 15}  {1, 20}  {2,30}  {3,30}", "Appointment", appointmentQuery.Count, appointmentQuery2.Count, appointmentQuery1.Count))
                 Else
-                    lstNotice.Items.Add("Appointment" & vbTab & appointmentQuery.Count & vbTab & "N/A" & vbTab & appointmentQuery1.Count)
+                    lstNotice.Items.Add(String.Format("{0, 15}  {1, 20}  {2,30}  {3,30}", "Appointment", appointmentQuery.Count, "N/A", appointmentQuery1.Count))
                 End If
             Else
-                lstNotice.Items.Add("Appointment" & vbTab & appointmentQuery.Count & vbTab & appointmentQuery2.Count & vbTab & "N/A")
+                lstNotice.Items.Add(String.Format("{0, 15}  {1, 20}  {2,30}  {3,30}", "Appointment", appointmentQuery.Count, appointmentQuery2.Count, "N/A"))
             End If
         Else
-            lstNotice.Items.Add("Appointment" & vbTab & "N/A" & vbTab & "N/A" & vbTab & "N/A")
+            lstNotice.Items.Add(String.Format("{0, 15}  {1, 20}  {2,30}  {3,30}", "Appointment", "N/A", "N/A", "N/A"))
         End If
 
 
@@ -116,15 +126,17 @@ Public Class noticeReport
         If friendQuery.Count > 0 Then
             If friendQuery1.Count > 0 Then 'Friend
                 If friendQuery2.Count > 0 Then 'CloseFriend
-                    lstNotice.Items.Add("Appointment" & vbTab & friendQuery.Count & vbTab & friendQuery1.Count & vbTab & friendQuery2.Count)
+                    lstFriend.Items.Add(String.Format("{0, 15}  {1, 25}  {2,25}  {3,25}", "Friend", friendQuery.Count, friendQuery1.Count, friendQuery2.Count))
                 Else
-                    lstNotice.Items.Add("Appointment" & vbTab & friendQuery.Count & vbTab & "N/A" & vbTab & friendQuery2.Count)
+                    lstFriend.Items.Add(String.Format("{0, 15}  {1, 25}  {2,25}  {3,25}", "Friend", friendQuery.Count, "N/A", friendQuery2.Count))
                 End If
             Else
-                lstNotice.Items.Add("Appointment" & vbTab & friendQuery.Count & vbTab & friendQuery1.Count & vbTab & "N/A")
+                lstFriend.Items.Add(String.Format("{0, 15}  {1, 25}  {2,25}  {3,25}", "Friend", friendQuery.Count, friendQuery1.Count, "N/A"))
             End If
         Else
-            lstNotice.Items.Add("Appointment" & vbTab & "N/A" & vbTab & "N/A" & vbTab & "N/A")
+            lstFriend.Items.Add(String.Format("{0, 15}  {1, 25}  {2,25}  {3,25}", "Friend", "N/A", "N/A", "N/A"))
         End If
     End Sub
+
+
 End Class
