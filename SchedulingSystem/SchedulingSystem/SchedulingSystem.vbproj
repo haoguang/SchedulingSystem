@@ -485,6 +485,7 @@
     <None Include="Resources\logout-32.png" />
     <None Include="Resources\report.png" />
     <None Include="Resources\user-default.png" />
+    <Content Include="Resources\logo.png" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
