@@ -21,6 +21,7 @@ Public Class TotalFriend
         body.AppendLine()
         Dim cnt As Integer
         Dim db As New ScheduleDBDataContext
+
         Dim fl = From f In db.Friends
                  Where
                  CLng(f.UserID) = LoginSession.memberID
@@ -28,7 +29,6 @@ Public Class TotalFriend
                  Select
                     Status,
                     NoOfUser = CType(g.Count(Function(p) p.Status <> Nothing), Int64?)
-        cnt += 1
         For Each i In fl
             body.AppendLine()
             body.AppendFormat("{0,12} {1,50}" & vbNewLine, i.Status, i.NoOfUser)
