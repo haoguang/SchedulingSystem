@@ -2,6 +2,7 @@
 Public Class SecondUserControl
     Private Sub btnAppointment_Click(sender As Object, e As EventArgs) Handles btnAppointment.Click
         Dim formDialog As New CreateAppointment()
+        formDialog.selectedDate = dtSelected.Value
         formDialog.StringUsername = txtName.Text
         formDialog.ShowDialog()
 

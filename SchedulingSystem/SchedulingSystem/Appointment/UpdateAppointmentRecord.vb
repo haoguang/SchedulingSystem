@@ -90,6 +90,12 @@ Public Class UpdateAppointmentRecord
             Me.Close()
 
         End If
+
+        'refresh table
+        Dim UpdateAppointmentCtrl As New UpdateAppointment
+
+        My.Forms.MainForm.ContentPanel.Controls.Clear()
+        My.Forms.MainForm.ContentPanel.Controls.Add(UpdateAppointmentCtrl)
     End Sub
 
 
