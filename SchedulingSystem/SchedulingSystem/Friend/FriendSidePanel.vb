@@ -35,6 +35,7 @@ Public Class FriendSidePanel
 
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
         DGVF.Rows.Clear()
+        'DGVF.Rows.Clear()
         Dim db As New ScheduleDBDataContext
         Dim img As Image
         Dim imgByte As Byte() = Nothing
@@ -43,16 +44,23 @@ Public Class FriendSidePanel
                      m In db.Members
                  Where o.UserID = LoginSession.memberID And o.FriendID = m.MemberID And m.Username.StartsWith(txtsearch.Text) And Not o.Status = "Pending"
                  Select m.Picture, m.Username, m.MemberID, o.Status
+
+        'DGVF.Rows.Clear()
         For Each p In fl
+
+            'imgByte = Nothing
             If p.Picture IsNot Nothing Then
                 imgByte = CType(p.Picture.ToArray, Byte())
-                Stream = New MemoryStream(imgByte, 0, imgByte.Length)
-                img = Image.FromStream(Stream)
+                stream = New MemoryStream(imgByte, 0, imgByte.Length)
+                img = Image.FromStream(stream)
+                'DGVF.Rows.Add(img, p.Username, p.MemberID, p.Status)
             Else
                 img = My.Resources.user_default
+                'DGVF.Rows.Add(img, p.Username, p.MemberID, p.Status)
             End If
-
+            'imgByte = Nothing
             DGVF.Rows.Add(img, p.Username, p.MemberID, p.Status)
+
         Next
 
     End Sub
