@@ -166,7 +166,8 @@ Public Class noticeReport
 
         Dim parts() As String
         Dim count As Integer
-        'count = 0
+        'bodyInput.AppendLine()
+        bodyInput.AppendLine()
         For Each item In lstNotice.Items
             count += 1
             parts = CStr(item).Split(CChar(vbTab))
@@ -175,7 +176,10 @@ Public Class noticeReport
         body.AppendLine()
         body.AppendLine("  Type                       Receive         Friend             CloseFriend")
         body.AppendLine("  --------------             --------        ---------          -----------")
-        'count = 0
+        bodyInput2.AppendLine()
+        bodyInput2.AppendLine()
+        ' bodyInput2.AppendLine()
+
         For Each item In lstFriend.Items
             count += 1
             parts = CStr(item).Split(CChar(vbTab))
@@ -187,8 +191,8 @@ Public Class noticeReport
             .DrawString(header, fontHeader, Brushes.Purple, 250, 50) 'change last 2 digit to set text alignment
             .DrawString(subHeader, fontSubHeader, Brushes.Black, 250, 90)
             .DrawString(body.ToString(), fontBody, Brushes.Black, 50, 170)
-            .DrawString(bodyInput.ToString(), fontBody, Brushes.Black, 48, 240)
-            .DrawString(bodyInput2.ToString(), fontBody, Brushes.Black, 5, 320)
+            .DrawString(bodyInput.ToString(), fontBody, Brushes.Black, 48, 260)
+            .DrawString(bodyInput2.ToString(), fontBody, Brushes.Black, 5, 340)
         End With
     End Sub
 
