@@ -22,6 +22,7 @@ Partial Class noticeReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(noticeReport))
         Me.lblMthY = New System.Windows.Forms.Label()
         Me.cboMonth = New System.Windows.Forms.ComboBox()
         Me.cboYear = New System.Windows.Forms.ComboBox()
@@ -36,6 +37,9 @@ Partial Class noticeReport
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.docNotice = New System.Drawing.Printing.PrintDocument()
+        Me.dlgNoticePreview = New System.Windows.Forms.PrintPreviewDialog()
+        Me.btnPrint = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lblMthY
@@ -183,10 +187,34 @@ Partial Class noticeReport
         Me.Label8.Text = "Type"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'docNotice
+        '
+        '
+        'dlgNoticePreview
+        '
+        Me.dlgNoticePreview.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.dlgNoticePreview.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.dlgNoticePreview.ClientSize = New System.Drawing.Size(400, 300)
+        Me.dlgNoticePreview.Enabled = True
+        Me.dlgNoticePreview.Icon = CType(resources.GetObject("dlgNoticePreview.Icon"), System.Drawing.Icon)
+        Me.dlgNoticePreview.Name = "dlgNoticePreview"
+        Me.dlgNoticePreview.Visible = False
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.Location = New System.Drawing.Point(387, 212)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrint.TabIndex = 14
+        Me.btnPrint.Text = "&Print"
+        Me.btnPrint.UseVisualStyleBackColor = True
+        '
         'noticeReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.lstFriend)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label6)
@@ -202,7 +230,7 @@ Partial Class noticeReport
         Me.Controls.Add(Me.cboMonth)
         Me.Controls.Add(Me.lblMthY)
         Me.Name = "noticeReport"
-        Me.Size = New System.Drawing.Size(491, 235)
+        Me.Size = New System.Drawing.Size(491, 258)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -222,4 +250,7 @@ Partial Class noticeReport
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents docNotice As Printing.PrintDocument
+    Friend WithEvents dlgNoticePreview As PrintPreviewDialog
+    Friend WithEvents btnPrint As Button
 End Class
