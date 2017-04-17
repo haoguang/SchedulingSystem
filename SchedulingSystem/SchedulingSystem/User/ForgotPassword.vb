@@ -60,11 +60,16 @@ Public Class ForgotPassword
                         mail.To.Add(m.Email)
                         mail.IsBodyHtml = True
                         Dim st As New StringBuilder
-                        st.AppendLine("Your password is: " + m.Password)
+                        Dim temp As String = GetRandomString(10)
+                        Dim updateMember = (From mem In db.Members
+                                            Where mem.Username = txtUsername.Text).ToList()(0)
+                        updateMember.Password = temp
+                        db.SubmitChanges()
+                        st.AppendLine("Your temperory password is: " + temp + ". Please change your password after this.")
 
                         mail.Body = st.ToString()
                         smtp.Send(mail)
-                        MsgBox("Your password has been sent to your email.")
+                        MsgBox("Your temperory password has been sent to your email.")
                         Me.Close()
                     Catch ex As Exception
                         MsgBox(ex.ToString)
@@ -74,10 +79,21 @@ Public Class ForgotPassword
                 End If
             Next
         Else
-        MessageBox.Show("Username does not exist.")
+            MessageBox.Show("Username does not exist.")
         End If
 
     End Sub
+
+    Public Function GetRandomString(ByVal iLength As Integer) As String
+        Dim sResult As String = ""
+        Dim rdm As New Random()
+
+        For i As Integer = 1 To iLength
+            sResult &= ChrW(rdm.Next(32, 126))
+        Next
+
+        Return sResult
+    End Function
 
     Private Sub ForgotPassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'clear 

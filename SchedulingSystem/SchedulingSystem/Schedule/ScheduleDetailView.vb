@@ -5,6 +5,9 @@ Public Class ScheduleDetailView
     Friend parentCtrl As ScheduleViewPanel
 
     Private Sub ScheduleDetailView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        cboMinBefore.SelectedIndex = 0
+
         If schedule IsNot Nothing Then
 
             If ActivityModule.IsOwner(schedule.ScheduleID) Then
@@ -33,6 +36,7 @@ Public Class ScheduleDetailView
 
             populateDataToControl()
             settingdgvColumn()
+            getReminder()
         End If
     End Sub
 
@@ -210,4 +214,85 @@ Public Class ScheduleDetailView
 
         End If
     End Sub
+
+    Private Sub btnAddReminder_Click(sender As Object, e As EventArgs) Handles btnAddReminder.Click
+        Dim minutes As Integer
+        Dim scheStartDate As DateTime = schedule.ScheduleStart
+        Dim db As New ScheduleDBDataContext
+        Dim currentDateTime As DateTime
+        currentDateTime = DateTime.Now
+
+        Select Case cboMinBefore.SelectedIndex
+            Case 0
+                minutes = 10
+                scheStartDate = scheStartDate.AddMinutes(-10)
+            Case 1
+                minutes = 20
+                scheStartDate = scheStartDate.AddMinutes(-20)
+            Case 2
+                minutes = 30
+                scheStartDate = scheStartDate.AddMinutes(-30)
+            Case 3
+                minutes = 40
+                scheStartDate = scheStartDate.AddMinutes(-40)
+            Case 4
+                minutes = 50
+                scheStartDate = scheStartDate.AddMinutes(-50)
+            Case 5
+                minutes = 60
+                scheStartDate = scheStartDate.AddMinutes(-60)
+        End Select
+
+
+
+        'store data
+        Dim r As New Reminder()
+        r.ScheduleID = schedule.ScheduleID ' so it need to be put it here
+        r.MinutesBefore = minutes
+        r.ReminderDateTime = scheStartDate
+
+        ' 1.insert into database
+        db.Reminders.InsertOnSubmit(r)
+        db.SubmitChanges()
+
+        ' 2.create a function to refresh the data grid view and call it here
+        getReminder()
+        AlarmClass.updateReminder()
+    End Sub
+
+    Public Sub getReminder()
+
+        Dim db As New ScheduleDBDataContext
+
+        dgvReminder.DataSource = Nothing
+
+        Dim record = From rm In db.Reminders, s In db.Schedules
+                     Where s.ScheduleID = schedule.ScheduleID And rm.ScheduleID = s.ScheduleID
+                     Select New With {
+                         .ReminderID = rm.ReminderID,
+                         .Reminder_DateTime = rm.ReminderDateTime,
+                         .MinuteBefore = rm.MinutesBefore
+                         }
+        dgvReminder.DataSource = record
+    End Sub
+
+    Private Sub dgvReminder_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReminder.CellDoubleClick
+        Dim db As New ScheduleDBDataContext
+
+        If dgvReminder.SelectedRows.Count > 0 Then
+            'you may want to add a confirmation message, and if the user confirms delete
+            If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
+                Dim r As Reminder = db.Reminders.FirstOrDefault(Function(o) o.ReminderID = CInt(dgvReminder.Rows(e.RowIndex).Cells("ReminderID").Value))
+
+                db.Reminders.DeleteOnSubmit(r)
+                db.SubmitChanges()
+
+                getReminder()
+                AlarmClass.updateReminder()
+            Else
+                MessageBox.Show("Record didn't delete!")
+            End If
+        End If
+    End Sub
+
 End Class

@@ -23,7 +23,7 @@ Partial Class ActivityRegister
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -320,8 +320,8 @@ Partial Class ActivityRegister
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -401,9 +401,15 @@ Partial Class ActivityRegister
         '
         'dgvReminder
         '
+        Me.dgvReminder.AllowUserToAddRows = False
+        Me.dgvReminder.AllowUserToDeleteRows = False
+        Me.dgvReminder.AllowUserToResizeColumns = False
+        Me.dgvReminder.AllowUserToResizeRows = False
         Me.dgvReminder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReminder.Location = New System.Drawing.Point(9, 60)
         Me.dgvReminder.Name = "dgvReminder"
+        Me.dgvReminder.ReadOnly = True
+        Me.dgvReminder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReminder.Size = New System.Drawing.Size(365, 86)
         Me.dgvReminder.TabIndex = 6
         '

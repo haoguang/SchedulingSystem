@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ScheduleDetailView
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,23 @@ Partial Class ScheduleDetailView
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvReminder = New System.Windows.Forms.DataGridView()
         Me.btnAddReminder = New System.Windows.Forms.Button()
         Me.lblMinBefore = New System.Windows.Forms.Label()
         Me.lblRepeatDueTitle = New System.Windows.Forms.Label()
         Me.lblRepeatBehaveTitle = New System.Windows.Forms.Label()
         Me.gbReminder = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboMinBefore = New System.Windows.Forms.ComboBox()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnAddParti = New System.Windows.Forms.PictureBox()
         Me.lblParticipleTitle = New System.Windows.Forms.Label()
         Me.dgvParticiples = New System.Windows.Forms.DataGridView()
+        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvParticiplePic = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbParticiple = New System.Windows.Forms.GroupBox()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
@@ -53,9 +56,6 @@ Partial Class ScheduleDetailView
         Me.lblStart = New System.Windows.Forms.Label()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.btnRemove = New System.Windows.Forms.Button()
-        Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvParticiplePic = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvReminder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbReminder.SuspendLayout()
         CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,9 +67,16 @@ Partial Class ScheduleDetailView
         '
         'dgvReminder
         '
+        Me.dgvReminder.AllowUserToAddRows = False
+        Me.dgvReminder.AllowUserToDeleteRows = False
+        Me.dgvReminder.AllowUserToResizeColumns = False
+        Me.dgvReminder.AllowUserToResizeRows = False
         Me.dgvReminder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReminder.Location = New System.Drawing.Point(9, 60)
+        Me.dgvReminder.MultiSelect = False
         Me.dgvReminder.Name = "dgvReminder"
+        Me.dgvReminder.ReadOnly = True
+        Me.dgvReminder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReminder.Size = New System.Drawing.Size(365, 86)
         Me.dgvReminder.TabIndex = 6
         '
@@ -79,7 +86,7 @@ Partial Class ScheduleDetailView
         Me.btnAddReminder.Name = "btnAddReminder"
         Me.btnAddReminder.Size = New System.Drawing.Size(43, 23)
         Me.btnAddReminder.TabIndex = 5
-        Me.btnAddReminder.Text = "Button1"
+        Me.btnAddReminder.Text = "&Add"
         Me.btnAddReminder.UseVisualStyleBackColor = True
         '
         'lblMinBefore
@@ -119,7 +126,7 @@ Partial Class ScheduleDetailView
         '
         Me.gbReminder.Controls.Add(Me.dgvReminder)
         Me.gbReminder.Controls.Add(Me.btnAddReminder)
-        Me.gbReminder.Controls.Add(Me.ComboBox1)
+        Me.gbReminder.Controls.Add(Me.cboMinBefore)
         Me.gbReminder.Controls.Add(Me.lblMinBefore)
         Me.gbReminder.Location = New System.Drawing.Point(23, 383)
         Me.gbReminder.Name = "gbReminder"
@@ -128,13 +135,15 @@ Partial Class ScheduleDetailView
         Me.gbReminder.TabStop = False
         Me.gbReminder.Text = "Reminder"
         '
-        'ComboBox1
+        'cboMinBefore
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(167, 22)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(158, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.cboMinBefore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMinBefore.FormattingEnabled = True
+        Me.cboMinBefore.Items.AddRange(New Object() {"10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "1 hour"})
+        Me.cboMinBefore.Location = New System.Drawing.Point(167, 22)
+        Me.cboMinBefore.Name = "cboMinBefore"
+        Me.cboMinBefore.Size = New System.Drawing.Size(158, 21)
+        Me.cboMinBefore.TabIndex = 4
         '
         'btnCancel
         '
@@ -184,8 +193,8 @@ Partial Class ScheduleDetailView
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -206,6 +215,30 @@ Partial Class ScheduleDetailView
         Me.dgvParticiples.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvParticiples.Size = New System.Drawing.Size(271, 312)
         Me.dgvParticiples.TabIndex = 0
+        '
+        'dgvParticipleID
+        '
+        Me.dgvParticipleID.HeaderText = "Participle ID"
+        Me.dgvParticipleID.Name = "dgvParticipleID"
+        Me.dgvParticipleID.ReadOnly = True
+        Me.dgvParticipleID.Visible = False
+        '
+        'dgvParticiplePic
+        '
+        Me.dgvParticiplePic.HeaderText = "Profile Picture"
+        Me.dgvParticiplePic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.dgvParticiplePic.Name = "dgvParticiplePic"
+        Me.dgvParticiplePic.ReadOnly = True
+        Me.dgvParticiplePic.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'dgvParticipleName
+        '
+        Me.dgvParticipleName.FillWeight = 50.0!
+        Me.dgvParticipleName.HeaderText = "Participle Name"
+        Me.dgvParticipleName.Name = "dgvParticipleName"
+        Me.dgvParticipleName.ReadOnly = True
+        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvParticipleName.Width = 221
         '
         'gbParticiple
         '
@@ -427,30 +460,6 @@ Partial Class ScheduleDetailView
         Me.btnRemove.Text = "&Remove"
         Me.btnRemove.UseVisualStyleBackColor = False
         '
-        'dgvParticipleID
-        '
-        Me.dgvParticipleID.HeaderText = "Participle ID"
-        Me.dgvParticipleID.Name = "dgvParticipleID"
-        Me.dgvParticipleID.ReadOnly = True
-        Me.dgvParticipleID.Visible = False
-        '
-        'dgvParticiplePic
-        '
-        Me.dgvParticiplePic.HeaderText = "Profile Picture"
-        Me.dgvParticiplePic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
-        Me.dgvParticiplePic.Name = "dgvParticiplePic"
-        Me.dgvParticiplePic.ReadOnly = True
-        Me.dgvParticiplePic.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'dgvParticipleName
-        '
-        Me.dgvParticipleName.FillWeight = 50.0!
-        Me.dgvParticipleName.HeaderText = "Participle Name"
-        Me.dgvParticipleName.Name = "dgvParticipleName"
-        Me.dgvParticipleName.ReadOnly = True
-        Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvParticipleName.Width = 221
-        '
         'ScheduleDetailView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -484,7 +493,7 @@ Partial Class ScheduleDetailView
     Friend WithEvents lblRepeatDueTitle As Label
     Friend WithEvents lblRepeatBehaveTitle As Label
     Friend WithEvents gbReminder As GroupBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboMinBefore As ComboBox
     Friend WithEvents btnCancel As Button
     Friend WithEvents gbParticiple As GroupBox
     Friend WithEvents btnAddParti As PictureBox

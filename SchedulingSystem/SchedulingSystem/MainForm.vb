@@ -51,12 +51,19 @@
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
+        AlarmClass.updateReminder() ' get reminder
+        AlarmClass.nextDate = Date.Now.Date
         tmrClock.Start()
+
+        'Dim trd As Threading.Thread = New Threading.Thread(AddressOf getReminder)
+        'trd.IsBackground = True
+        'trd.Start()
 
         Dim SideContent As New ScheduleSidePanel
         SideContent.Dock = DockStyle.Fill
         SideContentPanel.Controls.Clear()
         SideContentPanel.Controls.Add(SideContent)
+
     End Sub
 
     Private Sub umDropDownMenu_MouseLeave() Handles umDropDownMenu.MouseLeave
@@ -86,15 +93,46 @@
 
     End Sub
 
-    Private Function myZero(ByVal value As Integer) As String
-        Return value.ToString().PadLeft(2, "0"c)
-    End Function
-
     Private Sub tmrClock_Tick(sender As Object, e As EventArgs) Handles tmrClock.Tick
         lblClock.Text = DateTime.Now.ToLongTimeString
+
+        If AlarmClass.reminders.Count > 0 Then
+            If lblClock.Text.Equals(CDate(AlarmClass.reminders.Peek.ReminderDateTime).ToLongTimeString()) Then
+                Dim reminder As Reminder = AlarmClass.reminders.Pop()
+                AlarmClass.triggerAlarm(CInt(reminder.ScheduleID), CInt(reminder.MinutesBefore))
+            End If
+        End If
+
+
+        If Date.Now.Date.Equals(AlarmClass.nextDate) Then
+            AlarmClass.nextDate = Date.Now.Date
+            AlarmClass.updateReminder()
+        End If
+
     End Sub
 
     Private Sub btnUserInfo_Load(sender As Object, e As EventArgs) Handles btnUserInfo.Load
 
     End Sub
+
+    'Private Sub getReminder()
+    '    Dim db As New ScheduleDBDataContext
+    '    Dim time As String
+    '    Dim currentDateTime As DateTime
+    '    currentDateTime = DateTime.Now
+
+    '    Dim ReminderDate = From rm In db.Reminders, s In db.Schedules
+    '                       Where CDate(rm.ReminderDateTime).Date = CDate(currentDateTime).Date And rm.ScheduleID = s.ScheduleID
+    '                       Select rm.ReminderDateTime, s.Title, rm.MinutesBefore
+
+    '    For Each r In ReminderDate
+    '        time = CDate(r.ReminderDateTime).ToLongTimeString
+    '        Dim msg As String = r.MinutesBefore & " minutes before " & r.Title & " start"
+    '        If (tmrClock.ToString = time) Then
+    '            MsgBox(msg)
+    '        End If
+    '    Next
+
+    '    Threading.Thread.Sleep(1000)
+    'End Sub
 End Class
