@@ -144,7 +144,7 @@ Public Class noticeReport
         'font
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
         Dim fontSubHeader As New Font("Calibri", 12)
-        Dim fontBody As New Font("Consolas", 10)
+        Dim fontBody As New Font("Consolas", 12)
         'header
         Dim header As String = "Notification Report"
         Dim subHeader As String = String.Format(
@@ -155,6 +155,8 @@ Public Class noticeReport
         Dim body As New StringBuilder()
         Dim bodyInput As New StringBuilder()
         Dim bodyInput2 As New StringBuilder()
+        body.AppendLine()
+        body.AppendLine()
         body.AppendLine()
         body.AppendLine()
         body.AppendLine("  Type                      Receive          Accepted           Rejected")
@@ -181,9 +183,9 @@ Public Class noticeReport
         Next
 
         With e.Graphics
-            .DrawImage(LoginSession.picture, 50, 50, 80, 100)  'change 1st 2 digit to set image position
-            .DrawString(header, fontHeader, Brushes.Purple, 150, 50) 'change 1st 2 digit to set text alignment
-            .DrawString(subHeader, fontSubHeader, Brushes.Black, 150, 90)
+            .DrawImage(My.Resources.logo, 80, 50, 150, 130)  'change 1st 2 digit to set image position 
+            .DrawString(header, fontHeader, Brushes.Purple, 250, 50) 'change last 2 digit to set text alignment
+            .DrawString(subHeader, fontSubHeader, Brushes.Black, 250, 90)
             .DrawString(body.ToString(), fontBody, Brushes.Black, 50, 170)
             .DrawString(bodyInput.ToString(), fontBody, Brushes.Black, 48, 240)
             .DrawString(bodyInput2.ToString(), fontBody, Brushes.Black, 5, 320)
