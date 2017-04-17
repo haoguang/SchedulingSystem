@@ -16,7 +16,7 @@ Public Class UserRpt
         'body
         Dim body As New StringBuilder()
         body.AppendLine("No        Sign In Date            Sign Out Date")
-        body.AppendLine("--    ---------------------  ---------------------")
+        body.AppendLine("--   ----------------------  ----------------------")
 
         Dim parts() As String
         Dim count As Integer
@@ -112,7 +112,13 @@ Public Class UserRpt
         If query.Count > 0 Then
             For Each l In query
                 cnt += 1
-                lstLoginRecord.Items.Add(cnt & vbTab & l.SignInTime & vbTab & l.SignOutTime)
+                Dim signInDate As String
+                Dim signOutDate As String
+
+                signInDate = Format(l.SignInTime, "MM/dd/yyyy hh:mm:ss tt")
+                signOutDate = Format(l.SignOutTime, "MM/dd/yyyy hh:mm:ss tt")
+
+                lstLoginRecord.Items.Add(cnt & vbTab & signInDate & vbTab & signOutDate)
             Next
         End If
         lblRecord.Text = cnt & " record(s)."

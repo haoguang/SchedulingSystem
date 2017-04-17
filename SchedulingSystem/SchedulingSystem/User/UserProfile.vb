@@ -19,7 +19,7 @@ Public Class UserProfile
         If query.Count > 0 Then
             For Each m In query
                 lblUsername.Text = m.Username
-                mskNickname.Text = m.Nickname
+                txtNickname.Text = m.Nickname
                 'display image
                 Dim img As Image
                 Dim imgByte As Byte() = Nothing
@@ -35,8 +35,6 @@ Public Class UserProfile
                     radMale.Checked = True
                 ElseIf gender.Equals("F") Then
                     radFemale.Checked = True
-                Else
-                    radNotSpecified.Checked = True
                 End If
 
                 mskContact.Text = m.ContactNo
@@ -78,23 +76,20 @@ Public Class UserProfile
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Dim err As New StringBuilder()
         Dim ctr As Control = Nothing
-        Dim nickname As String = If(mskNickname.MaskCompleted, mskNickname.Text, "")
+        Dim nickname As String = txtNickname.Text
         Dim contact As String = If(mskContact.MaskCompleted, mskContact.Text, "")
         Dim gender As String
 
         'Validation
         If nickname = "" Then
             err.AppendLine("- Please enter nickname.")
-            ctr = If(ctr, mskNickname)
+            ctr = If(ctr, txtNickname)
         End If
 
         If radMale.Checked Then
             gender = "M"
         ElseIf radFemale.Checked Then
             gender = "F"
-        ElseIf radNotSpecified.Checked Then
-            gender = "N"
-
         End If
 
         If contact = "" Then

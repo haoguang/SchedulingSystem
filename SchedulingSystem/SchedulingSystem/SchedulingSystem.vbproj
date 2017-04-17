@@ -320,6 +320,12 @@
     <Compile Include="User\Registration.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="User\SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="User\UserLogin.Designer.vb">
       <DependentUpon>UserLogin.vb</DependentUpon>
     </Compile>
@@ -429,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>

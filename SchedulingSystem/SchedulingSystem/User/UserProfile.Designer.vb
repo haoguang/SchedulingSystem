@@ -27,9 +27,7 @@ Partial Class UserProfile
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.mskNickname = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.radNotSpecified = New System.Windows.Forms.RadioButton()
         Me.radFemale = New System.Windows.Forms.RadioButton()
         Me.radMale = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -45,6 +43,7 @@ Partial Class UserProfile
         Me.ofdBrowse = New System.Windows.Forms.OpenFileDialog()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblDateJoined = New System.Windows.Forms.Label()
+        Me.txtNickname = New System.Windows.Forms.TextBox()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -93,41 +92,21 @@ Partial Class UserProfile
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "&Nickname :"
         '
-        'mskNickname
-        '
-        Me.mskNickname.Location = New System.Drawing.Point(226, 55)
-        Me.mskNickname.Mask = "????????????????????"
-        Me.mskNickname.Name = "mskNickname"
-        Me.mskNickname.Size = New System.Drawing.Size(100, 20)
-        Me.mskNickname.TabIndex = 5
-        '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.radNotSpecified)
         Me.GroupBox1.Controls.Add(Me.radFemale)
         Me.GroupBox1.Controls.Add(Me.radMale)
         Me.GroupBox1.Location = New System.Drawing.Point(152, 81)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(223, 42)
+        Me.GroupBox1.Size = New System.Drawing.Size(174, 42)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gender"
         '
-        'radNotSpecified
-        '
-        Me.radNotSpecified.AutoSize = True
-        Me.radNotSpecified.Location = New System.Drawing.Point(125, 19)
-        Me.radNotSpecified.Name = "radNotSpecified"
-        Me.radNotSpecified.Size = New System.Drawing.Size(89, 17)
-        Me.radNotSpecified.TabIndex = 3
-        Me.radNotSpecified.TabStop = True
-        Me.radNotSpecified.Text = "&Not Specified"
-        Me.radNotSpecified.UseVisualStyleBackColor = True
-        '
         'radFemale
         '
         Me.radFemale.AutoSize = True
-        Me.radFemale.Location = New System.Drawing.Point(60, 19)
+        Me.radFemale.Location = New System.Drawing.Point(84, 19)
         Me.radFemale.Name = "radFemale"
         Me.radFemale.Size = New System.Drawing.Size(59, 17)
         Me.radFemale.TabIndex = 2
@@ -138,7 +117,7 @@ Partial Class UserProfile
         'radMale
         '
         Me.radMale.AutoSize = True
-        Me.radMale.Location = New System.Drawing.Point(6, 19)
+        Me.radMale.Location = New System.Drawing.Point(30, 19)
         Me.radMale.Name = "radMale"
         Me.radMale.Size = New System.Drawing.Size(48, 17)
         Me.radMale.TabIndex = 1
@@ -250,12 +229,20 @@ Partial Class UserProfile
         Me.lblDateJoined.Size = New System.Drawing.Size(0, 13)
         Me.lblDateJoined.TabIndex = 16
         '
+        'txtNickname
+        '
+        Me.txtNickname.Location = New System.Drawing.Point(226, 55)
+        Me.txtNickname.Name = "txtNickname"
+        Me.txtNickname.Size = New System.Drawing.Size(100, 20)
+        Me.txtNickname.TabIndex = 19
+        '
         'UserProfile
         '
         Me.AcceptButton = Me.btnUpdate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(423, 362)
+        Me.Controls.Add(Me.txtNickname)
         Me.Controls.Add(Me.lblDateJoined)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btnChange)
@@ -269,7 +256,6 @@ Partial Class UserProfile
         Me.Controls.Add(Me.mskContact)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.mskNickname)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.Label1)
@@ -291,9 +277,7 @@ Partial Class UserProfile
     Friend WithEvents Label1 As Label
     Friend WithEvents lblUsername As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents mskNickname As MaskedTextBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents radNotSpecified As RadioButton
     Friend WithEvents radFemale As RadioButton
     Friend WithEvents radMale As RadioButton
     Friend WithEvents Label4 As Label
@@ -309,4 +293,5 @@ Partial Class UserProfile
     Friend WithEvents ofdBrowse As OpenFileDialog
     Friend WithEvents Label7 As Label
     Friend WithEvents lblDateJoined As Label
+    Friend WithEvents txtNickname As TextBox
 End Class
