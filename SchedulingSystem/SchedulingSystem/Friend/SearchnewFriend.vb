@@ -15,18 +15,72 @@
         Dim sf As IQueryable
         Select Case choosenType
             Case 1
+                sf = (
+                    From m In db.Members Where m.MemberID.ToString.StartsWith((txtsearch.Text))
+                    Select m.MemberID, m.Username, m.Hobby
+                        ).Except(
+                                From m In db.Members
+                                From f In (
+                                (From f0 In db.Friends
+                                 Where
+                                        CLng(f0.UserID) = LoginSession.memberID
+                                 Select New With {
+                                            f0.FriendID
+                                         }))
+                                Where
+                                                f.FriendID = m.MemberID Or
+                                                 CLng(m.MemberID) = LoginSession.memberID
+                                Select
+                                                MemberID = m.MemberID, Username = m.Username, Hobby = m.Hobby
+                                   )
 
-                sf = From m In db.Members
-                     Where m.MemberID.ToString.StartsWith((txtsearch.Text))
-                     Select m.MemberID, m.Username, m.Hobby
+            'sf = From m In db.Members
+            '     Where m.MemberID.ToString.StartsWith((txtsearch.Text))
+            '     Select m.MemberID, m.Username, m.Hobby
             Case 2
-                sf = From m In db.Members
-                     Where m.Username.ToString.StartsWith((txtsearch.Text))
-                     Select m.MemberID, m.Username, m.Hobby
+                sf = (
+                    From m In db.Members Where m.Username.ToString.StartsWith((txtsearch.Text))
+                    Select m.MemberID, m.Username, m.Hobby
+                        ).Except(
+                                From m In db.Members
+                                From f In (
+                                (From f0 In db.Friends
+                                 Where
+                                        CLng(f0.UserID) = LoginSession.memberID
+                                 Select New With {
+                                            f0.FriendID
+                                         }))
+                                Where
+                                                f.FriendID = m.MemberID Or
+                                                 CLng(m.MemberID) = LoginSession.memberID
+                                Select
+                                                MemberID = m.MemberID, Username = m.Username, Hobby = m.Hobby
+                                   )
+            'sf = From m In db.Members
+            '     Where m.Username.ToString.StartsWith((txtsearch.Text))
+            '     Select m.MemberID, m.Username, m.Hobby
             Case 3
-                sf = From m In db.Members
-                     Where m.Hobby.ToString.StartsWith((txtsearch.Text))
-                     Select m.MemberID, m.Username, m.Hobby
+                sf = (
+                    From m In db.Members Where m.Hobby.ToString.StartsWith((txtsearch.Text))
+                    Select m.MemberID, m.Username, m.Hobby
+                        ).Except(
+                                From m In db.Members
+                                From f In (
+                                (From f0 In db.Friends
+                                 Where
+                                        CLng(f0.UserID) = LoginSession.memberID
+                                 Select New With {
+                                            f0.FriendID
+                                         }))
+                                Where
+                                                f.FriendID = m.MemberID Or
+                                                 CLng(m.MemberID) = LoginSession.memberID
+                                Select
+                                                MemberID = m.MemberID, Username = m.Username, Hobby = m.Hobby
+                                   )
+            'sf = From m In db.Members
+            '     Where m.Hobby.ToString.StartsWith((txtsearch.Text))
+            '     Select m.MemberID, m.Username, m.Hobby
             Case Else
                 MessageBox.Show("Please choose a Radio Button")
         End Select
