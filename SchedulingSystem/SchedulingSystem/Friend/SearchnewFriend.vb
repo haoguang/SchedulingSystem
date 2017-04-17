@@ -1,5 +1,10 @@
-﻿Public Class SearchnewFriend
+﻿Imports System.IO
+
+Public Class SearchnewFriend
     Dim db As New ScheduleDBDataContext
+    Dim img As Image
+    Dim imgByte As Byte() = Nothing
+    Dim stream As MemoryStream
 
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
         Dim choosenType = 0
@@ -78,9 +83,9 @@
                                 Select
                                                 MemberID = m.MemberID, Username = m.Username, Hobby = m.Hobby
                                    )
-            'sf = From m In db.Members
-            '     Where m.Hobby.ToString.StartsWith((txtsearch.Text))
-            '     Select m.MemberID, m.Username, m.Hobby
+                'sf = From m In db.Members
+                '     Where m.Hobby.ToString.StartsWith((txtsearch.Text))
+                '     Select m.MemberID, m.Username, m.Hobby
             Case Else
                 MessageBox.Show("Please choose a Radio Button")
         End Select

@@ -8,7 +8,7 @@ Public Class Registration
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         Dim err As New StringBuilder()
         Dim ctr As Control = Nothing
-        Dim nickname As String = If(mskNickname.MaskCompleted, mskNickname.Text, "")
+        Dim nickname As String = txtNickname.Text
         Dim contact As String = If(mskContactNumber.MaskCompleted, mskContactNumber.Text, "")
         Dim gender As String
         Dim question As String
@@ -36,15 +36,13 @@ Public Class Registration
 
         If nickname = "" Then
             err.AppendLine("- Please enter nickname.")
-            ctr = If(ctr, mskNickname)
+            ctr = If(ctr, txtNickname)
         End If
 
         If radMale.Checked = True Then
             gender = "M"
         ElseIf radFemale.Checked = True Then
             gender = "F"
-        ElseIf radNotSpecified.Checked = true Then
-            gender = "N"
         Else
             err.AppendLine("- Please select gender.")
             ctr = If(ctr, radMale)
@@ -171,10 +169,9 @@ Public Class Registration
         txtHobby.Text = ""
         txtOccupation.Text = ""
         mskContactNumber.Text = ""
-        mskNickname.Text = ""
+        txtNickname.Text = ""
         radMale.Checked = False
         radFemale.Checked = False
-        radNotSpecified.Checked = False
         picPicture.Image = Nothing
     End Sub
 End Class

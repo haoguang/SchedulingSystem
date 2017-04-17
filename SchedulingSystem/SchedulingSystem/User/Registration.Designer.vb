@@ -38,9 +38,7 @@ Partial Class Registration
         Me.btnPicture = New System.Windows.Forms.Button()
         Me.picPicture = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.mskNickname = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.radNotSpecified = New System.Windows.Forms.RadioButton()
         Me.radFemale = New System.Windows.Forms.RadioButton()
         Me.radMale = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -53,6 +51,7 @@ Partial Class Registration
         Me.cboQuestion = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtAnswer = New System.Windows.Forms.TextBox()
+        Me.txtNickname = New System.Windows.Forms.TextBox()
         CType(Me.picPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -192,36 +191,16 @@ Partial Class Registration
         Me.Label8.TabIndex = 6
         Me.Label8.Text = "&Nickname :"
         '
-        'mskNickname
-        '
-        Me.mskNickname.Location = New System.Drawing.Point(125, 105)
-        Me.mskNickname.Mask = "????????????????????"
-        Me.mskNickname.Name = "mskNickname"
-        Me.mskNickname.Size = New System.Drawing.Size(100, 20)
-        Me.mskNickname.TabIndex = 7
-        '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.radNotSpecified)
         Me.GroupBox1.Controls.Add(Me.radFemale)
         Me.GroupBox1.Controls.Add(Me.radMale)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 131)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(351, 45)
+        Me.GroupBox1.Size = New System.Drawing.Size(246, 45)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
-        '
-        'radNotSpecified
-        '
-        Me.radNotSpecified.AutoSize = True
-        Me.radNotSpecified.Location = New System.Drawing.Point(232, 18)
-        Me.radNotSpecified.Name = "radNotSpecified"
-        Me.radNotSpecified.Size = New System.Drawing.Size(89, 17)
-        Me.radNotSpecified.TabIndex = 12
-        Me.radNotSpecified.TabStop = True
-        Me.radNotSpecified.Text = "Not &Specified"
-        Me.radNotSpecified.UseVisualStyleBackColor = True
         '
         'radFemale
         '
@@ -275,7 +254,7 @@ Partial Class Registration
         Me.btnRegister.Location = New System.Drawing.Point(125, 511)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(75, 23)
-        Me.btnRegister.TabIndex = 23
+        Me.btnRegister.TabIndex = 27
         Me.btnRegister.Text = "&Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
@@ -288,7 +267,7 @@ Partial Class Registration
         Me.btnClear.Location = New System.Drawing.Point(206, 511)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 23)
-        Me.btnClear.TabIndex = 24
+        Me.btnClear.TabIndex = 28
         Me.btnClear.Text = "C&lear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
@@ -298,7 +277,7 @@ Partial Class Registration
         Me.Label11.Location = New System.Drawing.Point(13, 443)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 13)
-        Me.Label11.TabIndex = 25
+        Me.Label11.TabIndex = 23
         Me.Label11.Text = "Security &Question :"
         '
         'cboQuestion
@@ -309,7 +288,7 @@ Partial Class Registration
         Me.cboQuestion.Location = New System.Drawing.Point(125, 440)
         Me.cboQuestion.Name = "cboQuestion"
         Me.cboQuestion.Size = New System.Drawing.Size(196, 21)
-        Me.cboQuestion.TabIndex = 26
+        Me.cboQuestion.TabIndex = 24
         '
         'Label12
         '
@@ -317,7 +296,7 @@ Partial Class Registration
         Me.Label12.Location = New System.Drawing.Point(19, 478)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(89, 13)
-        Me.Label12.TabIndex = 27
+        Me.Label12.TabIndex = 25
         Me.Label12.Text = "Security &Answer :"
         '
         'txtAnswer
@@ -325,14 +304,22 @@ Partial Class Registration
         Me.txtAnswer.Location = New System.Drawing.Point(125, 475)
         Me.txtAnswer.Name = "txtAnswer"
         Me.txtAnswer.Size = New System.Drawing.Size(100, 20)
-        Me.txtAnswer.TabIndex = 28
+        Me.txtAnswer.TabIndex = 26
+        '
+        'txtNickname
+        '
+        Me.txtNickname.Location = New System.Drawing.Point(125, 105)
+        Me.txtNickname.Name = "txtNickname"
+        Me.txtNickname.Size = New System.Drawing.Size(100, 20)
+        Me.txtNickname.TabIndex = 7
         '
         'Registration
         '
         Me.AcceptButton = Me.btnRegister
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(392, 544)
+        Me.ClientSize = New System.Drawing.Size(339, 544)
+        Me.Controls.Add(Me.txtNickname)
         Me.Controls.Add(Me.txtAnswer)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.cboQuestion)
@@ -342,7 +329,6 @@ Partial Class Registration
         Me.Controls.Add(Me.txtHobby)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.mskNickname)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.picPicture)
         Me.Controls.Add(Me.btnPicture)
@@ -386,9 +372,7 @@ Partial Class Registration
     Friend WithEvents btnPicture As Button
     Friend WithEvents picPicture As PictureBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents mskNickname As MaskedTextBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents radNotSpecified As RadioButton
     Friend WithEvents radFemale As RadioButton
     Friend WithEvents radMale As RadioButton
     Friend WithEvents Label10 As Label
@@ -401,4 +385,5 @@ Partial Class Registration
     Friend WithEvents cboQuestion As ComboBox
     Friend WithEvents Label12 As Label
     Friend WithEvents txtAnswer As TextBox
+    Friend WithEvents txtNickname As TextBox
 End Class
