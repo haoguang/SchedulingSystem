@@ -251,6 +251,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property SoftMusic() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("SoftMusic", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property time_12_48() As System.Drawing.Bitmap

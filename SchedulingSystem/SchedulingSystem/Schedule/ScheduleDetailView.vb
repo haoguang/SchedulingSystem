@@ -52,9 +52,9 @@ Public Class ScheduleDetailView
 
 
         If schedule.Type = ScheduleClass.PERSONAL_TYPE Then
-            gbParticiple.Enabled = False
+            gbParticipant.Enabled = False
         Else
-            gbParticiple.Enabled = True
+            gbParticipant.Enabled = True
             populateParticiples()
         End If
     End Sub
@@ -128,6 +128,13 @@ Public Class ScheduleDetailView
             End If
 
             db.SubmitChanges()
+
+            Dim dayViewer As New DayScheduleViewer
+            dayViewer.displayDate = Date.Now.Date
+            My.Forms.MainForm.ContentPanel.Controls.Clear()
+            My.Forms.MainForm.ContentPanel.Controls.Add(dayViewer)
+
+
         End If
     End Sub
 
