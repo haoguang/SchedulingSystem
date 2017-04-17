@@ -36,12 +36,18 @@ Public Class ListFriend
     End Sub
 
     Private Sub btn_update_Click(sender As Object, e As EventArgs) Handles btn_update.Click
-        Dim db As New ScheduleDBDataContext()
-        Dim a As [Friend] = db.Friends.FirstOrDefault(Function(o) o.UserID = Integer.Parse(lbl_ID.Text))
-        a.Status = cbo_S.SelectedItem.ToString()
-        db.SubmitChanges()
+        Dim Result = MessageBox.Show("Are you sure you want to update Status?", "Confirm Update", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
 
-        sideCtrl.populateDGVF()
+        If Result = MsgBoxResult.Ok Then
+            Dim db As New ScheduleDBDataContext()
+            Dim a As [Friend] = db.Friends.FirstOrDefault(Function(o) o.UserID = Integer.Parse(lbl_ID.Text))
+            a.Status = cbo_S.SelectedItem.ToString()
+            db.SubmitChanges()
+
+            sideCtrl.populateDGVF()
+            MessageBox.Show(" Update Sucessfully")
+
+        End If
     End Sub
 
     Private Sub btn_del_Click(sender As Object, e As EventArgs) Handles btn_del.Click
@@ -51,7 +57,7 @@ Public Class ListFriend
 
 
         Dim btn_delete As [Friend] = db.Friends.FirstOrDefault(Function(o) o.FriendID = friend_id And o.Member1.MemberID = o.UserID)
-        Dim Result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+        Dim Result = MessageBox.Show("Are you sure you want to delete this Friend?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
 
         If Result = MsgBoxResult.Ok Then
             db.Friends.DeleteOnSubmit(btn_delete)
