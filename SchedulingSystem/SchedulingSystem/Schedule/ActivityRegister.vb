@@ -626,7 +626,11 @@ Public Class ActivityRegister
 
         If dgvReminder.SelectedRows.Count > 0 Then
             If schedule Is Nothing Then
-                dgvReminder.Rows.RemoveAt(e.RowIndex)
+                If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then
+                    dgvReminder.Rows.RemoveAt(e.RowIndex)
+                Else
+                    MessageBox.Show("Record didn't delete!")
+                End If
             Else
                 'you may want to add a confirmation message, and if the user confirms delete
                 If MessageBox.Show("Record will be Delete.", "Confirm Record Deletion", MessageBoxButtons.YesNo) = MsgBoxResult.Yes Then

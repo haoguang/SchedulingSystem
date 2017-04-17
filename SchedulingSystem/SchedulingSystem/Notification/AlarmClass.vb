@@ -29,7 +29,7 @@
 
             Dim s As Schedule = db.Schedules.FirstOrDefault(Function(o) o.ScheduleID = scheduleID)
 
-            Dim message As String = "You have the following activity after [" & minutes & "]:" & vbNewLine &
+            Dim message As String = "You have the following activity after [" & minutes & "minutes]:" & vbNewLine &
             "Activity Title : " & s.Title & vbNewLine &
             "Venue : " & s.Venue
             x = MessageBox.Show(message, "Reminder", MessageBoxButtons.OK, MessageBoxIcon.Warning)
