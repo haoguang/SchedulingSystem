@@ -293,7 +293,6 @@ Public Class ScheduleDetailView
 
                 db.Reminders.DeleteOnSubmit(r)
                 db.SubmitChanges()
-
                 getReminder()
                 AlarmClass.updateReminder()
             Else
