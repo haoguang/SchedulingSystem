@@ -53,6 +53,12 @@ Public Class ActivityRegister
             btnAddParti.Visible = False
         End If
 
+        If schedule.ScheduleStart.CompareTo(DateTime.Now) < 0 Then
+            gbReminder.Enabled = False
+        Else
+            gbReminder.Enabled = True
+        End If
+
         settingdgvColumn() 'resize the column
 
         populateDataToControls() 'insert data to all control

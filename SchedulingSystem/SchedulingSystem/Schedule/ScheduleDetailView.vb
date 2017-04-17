@@ -34,6 +34,12 @@ Public Class ScheduleDetailView
                 btnEdit.ForeColor = Color.Gray
             End If
 
+            If schedule.ScheduleStart.CompareTo(DateTime.Now) < 0 Then
+                gbReminder.Enabled = False
+            Else
+                gbReminder.Enabled = True
+            End If
+
             populateDataToControl()
             settingdgvColumn()
             getReminder()
@@ -125,6 +131,13 @@ Public Class ScheduleDetailView
             Else
                 Dim p As Participle = db.Participles.FirstOrDefault(Function(o) o.ScheduleID = schedule.ScheduleID)
                 p.Status = ScheduleClass.PARTICIPLE_REJECT
+            End If
+
+            Dim rs = From r In db.Reminders
+                     Where r.ScheduleID = schedule.ScheduleID
+
+            If rs.Count > 0 Then
+                db.Reminders.DeleteAllOnSubmit(rs)
             End If
 
             db.SubmitChanges()

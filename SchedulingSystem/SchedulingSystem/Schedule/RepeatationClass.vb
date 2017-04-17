@@ -16,7 +16,7 @@ Public Class RepeatationClass
     Public Function generateDateArray(repeatBehavior As Byte, repeatDue As Date) As String ' return true when date duplicated in the db
 
         Dim tempDate As DateTime = initialStartDate
-        Dim errorStr As New StringBuilder("Conflict occur on the dates :" & vbNewLine)
+        Dim errorStr As New StringBuilder("There are activities occupied on following the times :" & vbNewLine)
         Dim isConflict As Boolean = False
 
         Do While tempDate.Date.CompareTo(repeatDue.Date) < 0
