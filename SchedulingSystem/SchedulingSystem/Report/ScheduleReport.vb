@@ -40,9 +40,11 @@ Public Class ScheduleReport
             lblNoRecord.Show()
         End If
 
-        dgvTime.DataPropertyName = "TimeInvolve"
-        dgvTaskRate.DataPropertyName = "BusyRate"
-        dgvScheduleReport.DataSource = rs
+        dgvScheduleReport.Rows.Clear()
+
+        For Each item In rs
+            dgvScheduleReport.Rows.Add(String.Format("{0}:00", item.TimeInvolve), item.BusyRate)
+        Next
 
         chtBusyTime.DataSource = rs
 
@@ -108,7 +110,7 @@ Public Class ScheduleReport
         Dim cnt As Integer = 0
         For Each item As DataGridViewRow In dgvScheduleReport.Rows
             cnt += 1
-            body.AppendFormat("{0,2}   {1,8}:00   {2,13}" & vbNewLine, cnt, item.Cells(0).Value, item.Cells(1).Value)
+            body.AppendFormat("{0,2}   {1,11}   {2,13}" & vbNewLine, cnt, item.Cells(0).Value, item.Cells(1).Value)
         Next
 
         body.AppendLine()
@@ -120,7 +122,7 @@ Public Class ScheduleReport
             .DrawString(body.ToString, fontbody, Brushes.Black, 20, 120)
         End With
 
-        Dim myRec As New System.Drawing.Rectangle(400, 120, 300, 300)
+        Dim myRec As New System.Drawing.Rectangle(350, 120, 450, 450)
         chtBusyTime.Printing.PrintPaint(e.Graphics, myRec)
     End Sub
 

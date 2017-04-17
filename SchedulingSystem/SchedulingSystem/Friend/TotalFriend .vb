@@ -16,8 +16,8 @@ Public Class TotalFriend
 
         Dim body As New StringBuilder()
 
-        body.AppendLine("Status                                                     No of Friend")
-        body.AppendLine("-------------                                              ------------")
+        body.AppendLine("Status                  No of Friend")
+        body.AppendLine("-------------           ------------")
         body.AppendLine()
         Dim cnt As Integer
         Dim db As New ScheduleDBDataContext
@@ -28,11 +28,11 @@ Public Class TotalFriend
                  Select
                     Status,
                     NoOfUser = CType(g.Count(Function(p) p.Status <> Nothing), Int64?)
-        cnt += 1
+
         For Each i In fl
             body.AppendLine()
-            body.AppendFormat("{0,12} {1,50}" & vbNewLine, i.Status, i.NoOfUser)
-            cnt += 1
+            body.AppendFormat("{0,-12} {1,16}" & vbNewLine, i.Status, i.NoOfUser)
+            cnt = CInt(cnt + i.NoOfUser)
         Next
         body.AppendLine()
         body.AppendLine()
@@ -40,7 +40,7 @@ Public Class TotalFriend
         With e.Graphics
             .DrawString(header, fontHeader, Brushes.Purple, 100, 0)
             .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)
-            .DrawString(body.ToString(), fontBody, Brushes.Black, 0, 120)
+            .DrawString(body.ToString(), fontBody, Brushes.Black, 100, 120)
         End With
     End Sub
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click

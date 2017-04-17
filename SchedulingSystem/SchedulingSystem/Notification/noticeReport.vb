@@ -4,9 +4,20 @@ Imports System.Data.Linq
 Public Class noticeReport
     Dim userId As Integer = LoginSession.memberID
 
+    Private Sub noticeReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim currentDateTime As DateTime
+        currentDateTime = DateTime.Now
+        Dim year As Integer = CDate(currentDateTime).Year
+
+        For index = 0 To 2
+            cboYear.Items.Add(year - index)
+        Next index
+    End Sub
+
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         'clear listbox
         lstNotice.Items.Clear()
+        lstFriend.Items.Clear()
 
         Dim err As New StringBuilder()
         Dim ctr As Control = Nothing
@@ -86,15 +97,15 @@ Public Class noticeReport
         If appointmentQuery.Count > 0 Then
             If appointmentQuery1.Count > 0 Then 'decline 
                 If appointmentQuery2.Count > 0 Then 'attend
-                    lstNotice.Items.Add("Appointment" & vbTab & appointmentQuery.Count & vbTab & appointmentQuery2.Count & vbTab & appointmentQuery1.Count)
+                    lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Appointment" & vbTab, appointmentQuery.Count & vbTab, appointmentQuery2.Count & vbTab, appointmentQuery1.Count))
                 Else
-                    lstNotice.Items.Add("Appointment" & vbTab & appointmentQuery.Count & vbTab & "N/A" & vbTab & appointmentQuery1.Count)
+                    lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Appointment" & vbTab, appointmentQuery.Count & vbTab, "0" & vbTab, appointmentQuery1.Count))
                 End If
             Else
-                lstNotice.Items.Add("Appointment" & vbTab & appointmentQuery.Count & vbTab & appointmentQuery2.Count & vbTab & "N/A")
+                lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Appointment" & vbTab, appointmentQuery.Count & vbTab, appointmentQuery2.Count & vbTab, "0"))
             End If
         Else
-            lstNotice.Items.Add("Appointment" & vbTab & "N/A" & vbTab & "N/A" & vbTab & "N/A")
+            lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,14}  {3,13}", "Appointment" & vbTab, "N/A" & vbTab, "N/A" & vbTab, "N/A"))
         End If
 
 
@@ -116,15 +127,77 @@ Public Class noticeReport
         If friendQuery.Count > 0 Then
             If friendQuery1.Count > 0 Then 'Friend
                 If friendQuery2.Count > 0 Then 'CloseFriend
-                    lstNotice.Items.Add("Appointment" & vbTab & friendQuery.Count & vbTab & friendQuery1.Count & vbTab & friendQuery2.Count)
+                    lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Friend" & vbTab, friendQuery.Count & vbTab, friendQuery1.Count & vbTab, friendQuery2.Count))
                 Else
-                    lstNotice.Items.Add("Appointment" & vbTab & friendQuery.Count & vbTab & "N/A" & vbTab & friendQuery2.Count)
+                    lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Friend" & vbTab, friendQuery.Count & vbTab, "0" & vbTab, friendQuery2.Count))
                 End If
             Else
-                lstNotice.Items.Add("Appointment" & vbTab & friendQuery.Count & vbTab & friendQuery1.Count & vbTab & "N/A")
+                lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Friend" & vbTab, friendQuery.Count & vbTab, friendQuery1.Count & vbTab, "0"))
             End If
         Else
-            lstNotice.Items.Add("Appointment" & vbTab & "N/A" & vbTab & "N/A" & vbTab & "N/A")
+            lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,14}  {3,13}", "Friend" & vbTab, "N/A" & vbTab, "N/A" & vbTab, "N/A"))
         End If
+    End Sub
+
+    Private Sub docNotice_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles docNotice.PrintPage
+        'print report
+        'font
+        Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold)
+        Dim fontSubHeader As New Font("Calibri", 12)
+        Dim fontBody As New Font("Consolas", 12)
+        'header
+        Dim header As String = "Notification Report"
+        Dim subHeader As String = String.Format(
+            "Printed on {0:yyyy-MMMM-dd hh:mm:ss tt}" & vbNewLine &
+            "Printed by {1}", DateTime.Now, LoginSession.nickname
+            )
+        'body
+        Dim body As New StringBuilder()
+        Dim bodyInput As New StringBuilder()
+        Dim bodyInput2 As New StringBuilder()
+        body.AppendLine()
+        body.AppendLine()
+        body.AppendLine()
+        body.AppendLine()
+        body.AppendLine("  Type                      Receive          Accepted           Rejected")
+        body.AppendLine("  --------------            --------         ---------          ---------")
+        body.AppendLine()
+        body.AppendLine()
+
+        Dim parts() As String
+        Dim count As Integer
+        'bodyInput.AppendLine()
+        bodyInput.AppendLine()
+        For Each item In lstNotice.Items
+            count += 1
+            parts = CStr(item).Split(CChar(vbTab))
+            bodyInput.AppendFormat("{0,0}  {1,0}  {2,0}  {3,0}" & vbNewLine, parts(0), parts(1), parts(2), parts(3))
+        Next
+        body.AppendLine()
+        body.AppendLine("  Type                       Receive         Friend             CloseFriend")
+        body.AppendLine("  --------------             --------        ---------          -----------")
+        bodyInput2.AppendLine()
+        bodyInput2.AppendLine()
+        ' bodyInput2.AppendLine()
+
+        For Each item In lstFriend.Items
+            count += 1
+            parts = CStr(item).Split(CChar(vbTab))
+            bodyInput2.AppendFormat("{0,0}  {1,0}  {2,0}  {3,18}" & vbNewLine, parts(0) & vbTab & vbTab, parts(1), parts(2) & vbTab, parts(3))
+        Next
+
+        With e.Graphics
+            .DrawImage(My.Resources.logo, 80, 50, 150, 130)  'change 1st 2 digit to set image position 
+            .DrawString(header, fontHeader, Brushes.Purple, 250, 50) 'change last 2 digit to set text alignment
+            .DrawString(subHeader, fontSubHeader, Brushes.Black, 250, 90)
+            .DrawString(body.ToString(), fontBody, Brushes.Black, 50, 170)
+            .DrawString(bodyInput.ToString(), fontBody, Brushes.Black, 48, 260)
+            .DrawString(bodyInput2.ToString(), fontBody, Brushes.Black, 5, 340)
+        End With
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        dlgNoticePreview.Document = docNotice
+        dlgNoticePreview.ShowDialog(Me)
     End Sub
 End Class

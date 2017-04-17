@@ -17,11 +17,12 @@ Public Class AddParticiple
                           m.Username.Contains(keyword))
                       Select m.Picture, m.MemberID, m.Nickname
 
-        For Each i In friends
-            Dim ProPic As Image
-            Dim imgByte As Byte() = Nothing
+        Dim ProPic As Image
+        Dim imgByte As Byte() = Nothing
 
-            Dim stream As MemoryStream
+        Dim stream As MemoryStream
+        For Each i In friends
+
             If i.Picture IsNot Nothing Then
                 imgByte = CType(i.Picture.ToArray, Byte())
                 stream = New MemoryStream(imgByte, 0, imgByte.Length)
@@ -43,12 +44,12 @@ Public Class AddParticiple
                       Where (m.Nickname.Contains(Keyword) Or
                           m.Username.Contains(Keyword)) And Not (m.MemberID = LoginSession.memberID)
                       Select m.Picture, m.MemberID, m.Nickname
+        Dim ProPic As Image
+        Dim imgByte As Byte() = Nothing
+        Dim stream As MemoryStream
 
         For Each i In friends
-            Dim ProPic As Image
-            Dim imgByte As Byte() = Nothing
 
-            Dim stream As MemoryStream
             If i.Picture IsNot Nothing Then
                 imgByte = CType(i.Picture.ToArray, Byte())
                 stream = New MemoryStream(imgByte, 0, imgByte.Length)

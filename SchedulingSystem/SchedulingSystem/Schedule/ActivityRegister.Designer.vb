@@ -43,10 +43,10 @@ Partial Class ActivityRegister
         Me.gbGeneral = New System.Windows.Forms.GroupBox()
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
         Me.btnDone = New System.Windows.Forms.Button()
-        Me.gbParticiple = New System.Windows.Forms.GroupBox()
+        Me.gbParticipant = New System.Windows.Forms.GroupBox()
         Me.btnAddParti = New System.Windows.Forms.PictureBox()
-        Me.lblParticipleTitle = New System.Windows.Forms.Label()
-        Me.dgvParticiples = New System.Windows.Forms.DataGridView()
+        Me.lblParticipantTitle = New System.Windows.Forms.Label()
+        Me.dgvParticipants = New System.Windows.Forms.DataGridView()
         Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvParticiplePic = New System.Windows.Forms.DataGridViewImageColumn()
         Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,9 +59,9 @@ Partial Class ActivityRegister
         Me.lblMinBefore = New System.Windows.Forms.Label()
         Me.gbGeneral.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
-        Me.gbParticiple.SuspendLayout()
+        Me.gbParticipant.SuspendLayout()
         CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvParticipants, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Err, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbReminder.SuspendLayout()
         CType(Me.dgvReminder, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,9 +74,9 @@ Partial Class ActivityRegister
         Me.lblStartTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblStartTitle.Location = New System.Drawing.Point(6, 26)
         Me.lblStartTitle.Name = "lblStartTitle"
-        Me.lblStartTitle.Size = New System.Drawing.Size(135, 13)
+        Me.lblStartTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblStartTitle.TabIndex = 0
-        Me.lblStartTitle.Text = "Activity &Start :"
+        Me.lblStartTitle.Text = "Activity &Start   :"
         '
         'scheStart
         '
@@ -96,9 +96,9 @@ Partial Class ActivityRegister
         Me.lblEndTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblEndTitle.Location = New System.Drawing.Point(6, 57)
         Me.lblEndTitle.Name = "lblEndTitle"
-        Me.lblEndTitle.Size = New System.Drawing.Size(119, 13)
+        Me.lblEndTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblEndTitle.TabIndex = 2
-        Me.lblEndTitle.Text = "Activity &End :"
+        Me.lblEndTitle.Text = "Activity &End     :"
         '
         'lblRepeatDueTitle
         '
@@ -107,9 +107,9 @@ Partial Class ActivityRegister
         Me.lblRepeatDueTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblRepeatDueTitle.Location = New System.Drawing.Point(6, 25)
         Me.lblRepeatDueTitle.Name = "lblRepeatDueTitle"
-        Me.lblRepeatDueTitle.Size = New System.Drawing.Size(143, 13)
+        Me.lblRepeatDueTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblRepeatDueTitle.TabIndex = 0
-        Me.lblRepeatDueTitle.Text = "Re&peatation Due :"
+        Me.lblRepeatDueTitle.Text = "Re&peatition Due  :"
         '
         'lblRepeatBehaveTitle
         '
@@ -129,9 +129,9 @@ Partial Class ActivityRegister
         Me.lblTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblTitle.Location = New System.Drawing.Point(6, 88)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(135, 13)
+        Me.lblTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblTitle.TabIndex = 4
-        Me.lblTitle.Text = "Activity &Title :"
+        Me.lblTitle.Text = "Activity &Title   :"
         '
         'lblDescriptionTitle
         '
@@ -140,9 +140,9 @@ Partial Class ActivityRegister
         Me.lblDescriptionTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblDescriptionTitle.Location = New System.Drawing.Point(6, 119)
         Me.lblDescriptionTitle.Name = "lblDescriptionTitle"
-        Me.lblDescriptionTitle.Size = New System.Drawing.Size(111, 13)
+        Me.lblDescriptionTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblDescriptionTitle.TabIndex = 6
-        Me.lblDescriptionTitle.Text = "Descriptio&n :"
+        Me.lblDescriptionTitle.Text = "Descriptio&n      :"
         '
         'lblVenueTitle
         '
@@ -151,9 +151,9 @@ Partial Class ActivityRegister
         Me.lblVenueTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblVenueTitle.Location = New System.Drawing.Point(6, 187)
         Me.lblVenueTitle.Name = "lblVenueTitle"
-        Me.lblVenueTitle.Size = New System.Drawing.Size(63, 13)
+        Me.lblVenueTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblVenueTitle.TabIndex = 8
-        Me.lblVenueTitle.Text = "&Venue :"
+        Me.lblVenueTitle.Text = "&Venue            :"
         '
         'lblTypeTitle
         '
@@ -162,9 +162,9 @@ Partial Class ActivityRegister
         Me.lblTypeTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblTypeTitle.Location = New System.Drawing.Point(6, 223)
         Me.lblTypeTitle.Name = "lblTypeTitle"
-        Me.lblTypeTitle.Size = New System.Drawing.Size(127, 13)
+        Me.lblTypeTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblTypeTitle.TabIndex = 10
-        Me.lblTypeTitle.Text = "&Activity Type :"
+        Me.lblTypeTitle.Text = "&Activity Type    :"
         '
         'scheEnd
         '
@@ -259,7 +259,7 @@ Partial Class ActivityRegister
         Me.gbRepeat.Size = New System.Drawing.Size(402, 95)
         Me.gbRepeat.TabIndex = 8
         Me.gbRepeat.TabStop = False
-        Me.gbRepeat.Text = "Repeatation"
+        Me.gbRepeat.Text = "Repeatition"
         '
         'btnDone
         '
@@ -275,17 +275,17 @@ Partial Class ActivityRegister
         Me.btnDone.Text = "&Done"
         Me.btnDone.UseVisualStyleBackColor = False
         '
-        'gbParticiple
+        'gbParticipant
         '
-        Me.gbParticiple.Controls.Add(Me.btnAddParti)
-        Me.gbParticiple.Controls.Add(Me.lblParticipleTitle)
-        Me.gbParticiple.Controls.Add(Me.dgvParticiples)
-        Me.gbParticiple.Location = New System.Drawing.Point(437, 13)
-        Me.gbParticiple.Name = "gbParticiple"
-        Me.gbParticiple.Size = New System.Drawing.Size(277, 371)
-        Me.gbParticiple.TabIndex = 10
-        Me.gbParticiple.TabStop = False
-        Me.gbParticiple.Text = "Participles"
+        Me.gbParticipant.Controls.Add(Me.btnAddParti)
+        Me.gbParticipant.Controls.Add(Me.lblParticipantTitle)
+        Me.gbParticipant.Controls.Add(Me.dgvParticipants)
+        Me.gbParticipant.Location = New System.Drawing.Point(437, 13)
+        Me.gbParticipant.Name = "gbParticipant"
+        Me.gbParticipant.Size = New System.Drawing.Size(277, 371)
+        Me.gbParticipant.TabIndex = 10
+        Me.gbParticipant.TabStop = False
+        Me.gbParticipant.Text = "Participants"
         '
         'btnAddParti
         '
@@ -300,48 +300,48 @@ Partial Class ActivityRegister
         Me.btnAddParti.TabIndex = 2
         Me.btnAddParti.TabStop = False
         '
-        'lblParticipleTitle
+        'lblParticipantTitle
         '
-        Me.lblParticipleTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.lblParticipleTitle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblParticipleTitle.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblParticipleTitle.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblParticipleTitle.Location = New System.Drawing.Point(3, 16)
-        Me.lblParticipleTitle.Name = "lblParticipleTitle"
-        Me.lblParticipleTitle.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.lblParticipleTitle.Size = New System.Drawing.Size(271, 40)
-        Me.lblParticipleTitle.TabIndex = 1
-        Me.lblParticipleTitle.Text = "Participle Names"
-        Me.lblParticipleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblParticipantTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.lblParticipantTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblParticipantTitle.Font = New System.Drawing.Font("Trebuchet MS", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblParticipantTitle.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblParticipantTitle.Location = New System.Drawing.Point(3, 16)
+        Me.lblParticipantTitle.Name = "lblParticipantTitle"
+        Me.lblParticipantTitle.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.lblParticipantTitle.Size = New System.Drawing.Size(271, 40)
+        Me.lblParticipantTitle.TabIndex = 1
+        Me.lblParticipantTitle.Text = "Participant Names"
+        Me.lblParticipantTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'dgvParticiples
+        'dgvParticipants
         '
-        Me.dgvParticiples.AllowUserToAddRows = False
-        Me.dgvParticiples.AllowUserToDeleteRows = False
-        Me.dgvParticiples.AllowUserToResizeColumns = False
-        Me.dgvParticiples.AllowUserToResizeRows = False
+        Me.dgvParticipants.AllowUserToAddRows = False
+        Me.dgvParticipants.AllowUserToDeleteRows = False
+        Me.dgvParticipants.AllowUserToResizeColumns = False
+        Me.dgvParticipants.AllowUserToResizeRows = False
         DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
-        Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvParticiples.ColumnHeadersVisible = False
-        Me.dgvParticiples.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticiplePic, Me.dgvParticipleName})
-        Me.dgvParticiples.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.dgvParticiples.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.dgvParticiples.Location = New System.Drawing.Point(3, 56)
-        Me.dgvParticiples.MultiSelect = False
-        Me.dgvParticiples.Name = "dgvParticiples"
-        Me.dgvParticiples.ReadOnly = True
-        Me.dgvParticiples.RowHeadersVisible = False
-        Me.dgvParticiples.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvParticiples.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvParticiples.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        Me.dgvParticiples.RowTemplate.Height = 60
-        Me.dgvParticiples.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvParticiples.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvParticiples.Size = New System.Drawing.Size(271, 312)
-        Me.dgvParticiples.TabIndex = 0
+        Me.dgvParticipants.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvParticipants.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
+        Me.dgvParticipants.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.dgvParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvParticipants.ColumnHeadersVisible = False
+        Me.dgvParticipants.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvParticipleID, Me.dgvParticiplePic, Me.dgvParticipleName})
+        Me.dgvParticipants.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.dgvParticipants.GridColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.dgvParticipants.Location = New System.Drawing.Point(3, 56)
+        Me.dgvParticipants.MultiSelect = False
+        Me.dgvParticipants.Name = "dgvParticipants"
+        Me.dgvParticipants.ReadOnly = True
+        Me.dgvParticipants.RowHeadersVisible = False
+        Me.dgvParticipants.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvParticipants.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvParticipants.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        Me.dgvParticipants.RowTemplate.Height = 60
+        Me.dgvParticipants.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvParticipants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvParticipants.Size = New System.Drawing.Size(271, 312)
+        Me.dgvParticipants.TabIndex = 0
         '
         'dgvParticipleID
         '
@@ -401,9 +401,15 @@ Partial Class ActivityRegister
         '
         'dgvReminder
         '
+        Me.dgvReminder.AllowUserToAddRows = False
+        Me.dgvReminder.AllowUserToDeleteRows = False
+        Me.dgvReminder.AllowUserToResizeColumns = False
+        Me.dgvReminder.AllowUserToResizeRows = False
         Me.dgvReminder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReminder.Location = New System.Drawing.Point(9, 60)
         Me.dgvReminder.Name = "dgvReminder"
+        Me.dgvReminder.ReadOnly = True
+        Me.dgvReminder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReminder.Size = New System.Drawing.Size(365, 86)
         Me.dgvReminder.TabIndex = 6
         '
@@ -433,9 +439,9 @@ Partial Class ActivityRegister
         Me.lblMinBefore.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblMinBefore.Location = New System.Drawing.Point(6, 25)
         Me.lblMinBefore.Name = "lblMinBefore"
-        Me.lblMinBefore.Size = New System.Drawing.Size(135, 13)
+        Me.lblMinBefore.Size = New System.Drawing.Size(151, 13)
         Me.lblMinBefore.TabIndex = 3
-        Me.lblMinBefore.Text = "&Minutes Before :"
+        Me.lblMinBefore.Text = "&Minutes Before   :"
         '
         'ActivityRegister
         '
@@ -443,7 +449,7 @@ Partial Class ActivityRegister
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.Controls.Add(Me.gbReminder)
-        Me.Controls.Add(Me.gbParticiple)
+        Me.Controls.Add(Me.gbParticipant)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.gbRepeat)
@@ -454,9 +460,9 @@ Partial Class ActivityRegister
         Me.gbGeneral.PerformLayout()
         Me.gbRepeat.ResumeLayout(False)
         Me.gbRepeat.PerformLayout()
-        Me.gbParticiple.ResumeLayout(False)
+        Me.gbParticipant.ResumeLayout(False)
         CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvParticipants, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Err, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbReminder.ResumeLayout(False)
         Me.gbReminder.PerformLayout()
@@ -484,10 +490,10 @@ Partial Class ActivityRegister
     Friend WithEvents gbGeneral As GroupBox
     Friend WithEvents gbRepeat As GroupBox
     Friend WithEvents btnDone As Button
-    Friend WithEvents gbParticiple As GroupBox
-    Friend WithEvents dgvParticiples As DataGridView
+    Friend WithEvents gbParticipant As GroupBox
+    Friend WithEvents dgvParticipants As DataGridView
     Friend WithEvents btnAddParti As PictureBox
-    Friend WithEvents lblParticipleTitle As Label
+    Friend WithEvents lblParticipantTitle As Label
     Friend WithEvents btnCancel As Button
     Friend WithEvents Err As ErrorProvider
     Friend WithEvents gbReminder As GroupBox

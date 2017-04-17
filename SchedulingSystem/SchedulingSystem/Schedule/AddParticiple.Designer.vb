@@ -31,15 +31,15 @@ Partial Class AddParticiple
         Me.txtSearchFriend = New System.Windows.Forms.TextBox()
         Me.tbpPublic = New System.Windows.Forms.TabPage()
         Me.dgvPublic = New System.Windows.Forms.DataGridView()
+        Me.dgvPublicUserID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvPublicUserPicture = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.dgvPublicName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvPublicAddButton = New System.Windows.Forms.DataGridViewImageColumn()
         Me.txtSearchPublic = New System.Windows.Forms.TextBox()
         Me.dgvAddUsersID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvAddUsersProPic = New System.Windows.Forms.DataGridViewImageColumn()
         Me.dgvAddUsersName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvAddUsersButton = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.dgvPublicUserID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvPublicUserPicture = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.dgvPublicName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvPublicAddButton = New System.Windows.Forms.DataGridViewImageColumn()
         Me.tbcParticipleAdd.SuspendLayout()
         Me.tbpFriend.SuspendLayout()
         CType(Me.dgvAddUsers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +65,7 @@ Partial Class AddParticiple
         Me.tbpFriend.Controls.Add(Me.txtSearchFriend)
         Me.tbpFriend.Location = New System.Drawing.Point(4, 29)
         Me.tbpFriend.Name = "tbpFriend"
-        Me.tbpFriend.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.tbpFriend.Padding = New System.Windows.Forms.Padding(3)
         Me.tbpFriend.Size = New System.Drawing.Size(290, 293)
         Me.tbpFriend.TabIndex = 0
         Me.tbpFriend.Text = "Friend"
@@ -115,7 +115,7 @@ Partial Class AddParticiple
         Me.tbpPublic.Controls.Add(Me.txtSearchPublic)
         Me.tbpPublic.Location = New System.Drawing.Point(4, 29)
         Me.tbpPublic.Name = "tbpPublic"
-        Me.tbpPublic.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.tbpPublic.Padding = New System.Windows.Forms.Padding(3)
         Me.tbpPublic.Size = New System.Drawing.Size(290, 293)
         Me.tbpPublic.TabIndex = 1
         Me.tbpPublic.Text = "Public"
@@ -151,40 +151,6 @@ Partial Class AddParticiple
         Me.dgvPublic.Size = New System.Drawing.Size(284, 267)
         Me.dgvPublic.TabIndex = 2
         '
-        'txtSearchPublic
-        '
-        Me.txtSearchPublic.Dock = System.Windows.Forms.DockStyle.Top
-        Me.txtSearchPublic.Location = New System.Drawing.Point(3, 3)
-        Me.txtSearchPublic.Name = "txtSearchPublic"
-        Me.txtSearchPublic.Size = New System.Drawing.Size(284, 20)
-        Me.txtSearchPublic.TabIndex = 0
-        '
-        'dgvAddUsersID
-        '
-        Me.dgvAddUsersID.HeaderText = "User ID"
-        Me.dgvAddUsersID.Name = "dgvAddUsersID"
-        Me.dgvAddUsersID.ReadOnly = True
-        Me.dgvAddUsersID.Visible = False
-        '
-        'dgvAddUsersProPic
-        '
-        Me.dgvAddUsersProPic.HeaderText = "Profile Picture"
-        Me.dgvAddUsersProPic.Name = "dgvAddUsersProPic"
-        Me.dgvAddUsersProPic.ReadOnly = True
-        Me.dgvAddUsersProPic.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'dgvAddUsersName
-        '
-        Me.dgvAddUsersName.HeaderText = "Name"
-        Me.dgvAddUsersName.Name = "dgvAddUsersName"
-        Me.dgvAddUsersName.ReadOnly = True
-        '
-        'dgvAddUsersButton
-        '
-        Me.dgvAddUsersButton.HeaderText = "Add User"
-        Me.dgvAddUsersButton.Name = "dgvAddUsersButton"
-        Me.dgvAddUsersButton.ReadOnly = True
-        '
         'dgvPublicUserID
         '
         Me.dgvPublicUserID.HeaderText = "User ID"
@@ -211,6 +177,41 @@ Partial Class AddParticiple
         Me.dgvPublicAddButton.Name = "dgvPublicAddButton"
         Me.dgvPublicAddButton.ReadOnly = True
         '
+        'txtSearchPublic
+        '
+        Me.txtSearchPublic.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtSearchPublic.Location = New System.Drawing.Point(3, 3)
+        Me.txtSearchPublic.Name = "txtSearchPublic"
+        Me.txtSearchPublic.Size = New System.Drawing.Size(284, 20)
+        Me.txtSearchPublic.TabIndex = 0
+        '
+        'dgvAddUsersID
+        '
+        Me.dgvAddUsersID.HeaderText = "User ID"
+        Me.dgvAddUsersID.Name = "dgvAddUsersID"
+        Me.dgvAddUsersID.ReadOnly = True
+        Me.dgvAddUsersID.Visible = False
+        '
+        'dgvAddUsersProPic
+        '
+        Me.dgvAddUsersProPic.HeaderText = "Profile Picture"
+        Me.dgvAddUsersProPic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.dgvAddUsersProPic.Name = "dgvAddUsersProPic"
+        Me.dgvAddUsersProPic.ReadOnly = True
+        Me.dgvAddUsersProPic.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'dgvAddUsersName
+        '
+        Me.dgvAddUsersName.HeaderText = "Name"
+        Me.dgvAddUsersName.Name = "dgvAddUsersName"
+        Me.dgvAddUsersName.ReadOnly = True
+        '
+        'dgvAddUsersButton
+        '
+        Me.dgvAddUsersButton.HeaderText = "Add User"
+        Me.dgvAddUsersButton.Name = "dgvAddUsersButton"
+        Me.dgvAddUsersButton.ReadOnly = True
+        '
         'AddParticiple
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -223,7 +224,7 @@ Partial Class AddParticiple
         Me.MinimizeBox = False
         Me.Name = "AddParticiple"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AddParticiple"
+        Me.Text = "Add Participant"
         Me.tbcParticipleAdd.ResumeLayout(False)
         Me.tbpFriend.ResumeLayout(False)
         Me.tbpFriend.PerformLayout()
@@ -242,12 +243,12 @@ Partial Class AddParticiple
     Friend WithEvents dgvAddUsers As DataGridView
     Friend WithEvents txtSearchPublic As TextBox
     Friend WithEvents dgvPublic As DataGridView
-    Friend WithEvents dgvAddUsersID As DataGridViewTextBoxColumn
-    Friend WithEvents dgvAddUsersProPic As DataGridViewImageColumn
-    Friend WithEvents dgvAddUsersName As DataGridViewTextBoxColumn
-    Friend WithEvents dgvAddUsersButton As DataGridViewImageColumn
     Friend WithEvents dgvPublicUserID As DataGridViewTextBoxColumn
     Friend WithEvents dgvPublicUserPicture As DataGridViewImageColumn
     Friend WithEvents dgvPublicName As DataGridViewTextBoxColumn
     Friend WithEvents dgvPublicAddButton As DataGridViewImageColumn
+    Friend WithEvents dgvAddUsersID As DataGridViewTextBoxColumn
+    Friend WithEvents dgvAddUsersProPic As DataGridViewImageColumn
+    Friend WithEvents dgvAddUsersName As DataGridViewTextBoxColumn
+    Friend WithEvents dgvAddUsersButton As DataGridViewImageColumn
 End Class

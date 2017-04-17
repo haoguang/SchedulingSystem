@@ -192,6 +192,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Notification\AlarmClass.vb" />
     <Compile Include="Notification\apmtDetail.vb" />
     <Compile Include="Notification\ApmtNoticeDetail.vb" />
     <Compile Include="Notification\AppointmentNotification.Designer.vb">
@@ -319,6 +320,12 @@
     <Compile Include="User\Registration.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="User\SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="User\SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="User\UserLogin.Designer.vb">
       <DependentUpon>UserLogin.vb</DependentUpon>
     </Compile>
@@ -429,6 +436,9 @@
     <EmbeddedResource Include="User\Registration.resx">
       <DependentUpon>Registration.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User\SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\UserButton.resx">
       <DependentUpon>UserButton.vb</DependentUpon>
     </EmbeddedResource>
@@ -532,6 +542,7 @@
     <Content Include="Resources\logo.png" />
     <None Include="Resources\reportBackground.png" />
     <None Include="Resources\time-12-48.png" />
+    <None Include="Resources\SoftMusic.wav" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

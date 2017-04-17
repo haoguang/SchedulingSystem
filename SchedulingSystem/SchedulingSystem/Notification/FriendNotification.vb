@@ -8,7 +8,9 @@ Public Class FriendNotification
     End Sub
 
     Private Sub FriendNotification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim friendID As Integer = apmtDetail.Inviter(Findex).MemberID 'MemberID that request to do friend
+
+
+        Dim friendID As Integer = apmtDetail.Inviter(Findex).MemberID   'MemberID that request to do friend
 
         picUser.Image = apmtDetail.Inviter(Findex).Picture
         lblFriendName.Text = apmtDetail.Inviter(Findex).UserName

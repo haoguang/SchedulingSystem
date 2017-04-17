@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class listNotification
-    Public index As Integer = 0
+    Public index As Integer
     Dim userId As Integer = LoginSession.memberID
 
     Private Sub listNotification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -34,6 +34,7 @@ Public Class listNotification
 
         'if friend request exist
         If friendQuery.Count > 0 Then
+            count = 0
             For Each m In friendQuery
                 lstFNotification.Items.Add(String.Format("{0} sent you a friend request.", m.Username))
                 apmtDetail.Inviter(count) = New InviterDetail
@@ -63,18 +64,26 @@ Public Class listNotification
     End Sub
 
     Private Sub lstANotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstANotification.MouseDoubleClick
-        index = lstANotification.SelectedIndex
-        AppointmentNotification.index = index
-        AppointmentNotification.ShowDialog()
-        getAppointmentData()
-
+        If lstANotification.SelectedIndex = -1 Then
+            'do nothing
+        Else
+            index = lstANotification.SelectedIndex
+            AppointmentNotification.index = index
+            AppointmentNotification.ShowDialog()
+            getAppointmentData()
+        End If
     End Sub
 
     Private Sub lstFNotification_MouseDoubleClick(sender As Object, e As EventArgs) Handles lstFNotification.MouseDoubleClick
-        index = lstFNotification.SelectedIndex
-        FriendNotification.Findex = index
-        FriendNotification.ShowDialog()
-        getFriendData()
+
+        If lstFNotification.SelectedIndex = -1 Then
+            'do nothing
+        Else
+            index = lstFNotification.SelectedIndex
+            FriendNotification.Findex = index
+            FriendNotification.ShowDialog()
+            getFriendData()
+        End If
     End Sub
 
     Public Sub getAppointmentData()
@@ -119,11 +128,7 @@ Public Class listNotification
         If friendQuery.Count > 0 Then
             For Each m In friendQuery
                 lstFNotification.Items.Add(String.Format("{0} sent you a friend request.", m.Username))
-                apmtDetail.Inviter(count) = New InviterDetail
-                apmtDetail.Inviter(count).UserName = m.Username
-                apmtDetail.Inviter(count).Hobby = m.Hobby
-                apmtDetail.Inviter(count).MemberID = m.MemberID
-                'convert to image 
+                'convert to image
                 Dim img As Image
                 Dim imgByte As Byte() = Nothing
                 Dim stream As MemoryStream
@@ -134,6 +139,11 @@ Public Class listNotification
                 Else
                     img = My.Resources.user_default
                 End If
+
+                apmtDetail.Inviter(count) = New InviterDetail
+                apmtDetail.Inviter(count).MemberID = m.MemberID
+                apmtDetail.Inviter(count).UserName = m.Username
+                apmtDetail.Inviter(count).Hobby = m.Hobby
                 apmtDetail.Inviter(count).Picture = img
                 count += 1
             Next
