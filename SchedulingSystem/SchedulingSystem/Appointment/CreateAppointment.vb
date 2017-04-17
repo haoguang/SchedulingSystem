@@ -1,12 +1,15 @@
 ﻿Imports System.Data.Linq
 Public Class CreateAppointment
     Public Property StringUsername As String
+    Public Property selectedDate As DateTime
     Private schedule As ScheduleClass
     Private Sub CreateAppointment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblTo.Text = "To : " & StringUsername
 
         scheStart.MinDate = DateTime.Now.AddHours(2)
         scheEnd.MinDate = scheStart.Value
+        scheStart.Value = selectedDate
+        scheEnd.Value = selectedDate
     End Sub
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
