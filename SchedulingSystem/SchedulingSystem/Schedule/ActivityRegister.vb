@@ -44,7 +44,7 @@ Public Class ActivityRegister
                 .HeaderText = "Remove"
                 .ToolTipText = "Remore this participle"
             End With
-            dgvParticiples.Columns.Insert(3, iconColumn)
+            dgvParticipants.Columns.Insert(3, iconColumn)
             btnAddParti.Enabled = True
             btnAddParti.Visible = True
         Else
@@ -78,7 +78,7 @@ Public Class ActivityRegister
             .HeaderText = "Remove"
             .ToolTipText = "Remore this participle"
         End With
-        dgvParticiples.Columns.Insert(3, iconColumn)
+        dgvParticipants.Columns.Insert(3, iconColumn)
         btnAddParti.Enabled = True
         btnAddParti.Visible = True
 
@@ -164,7 +164,7 @@ Public Class ActivityRegister
         db.Participles.InsertOnSubmit(participle)
         db.SubmitChanges()
 
-        If dgvParticiples.RowCount > 0 And gbParticiple.Enabled Then
+        If dgvParticipants.RowCount > 0 And gbParticipant.Enabled Then
             insertParticipleToDB(scheduleid)
         End If
 
@@ -236,7 +236,7 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub populateParticiples()
-        dgvParticiples.Rows.Clear()
+        dgvParticipants.Rows.Clear()
         Dim db As New ScheduleDBDataContext()
         Dim rs = From p In db.Participles, m In db.Members
                  Where m.MemberID = p.MemberID And p.ScheduleID = schedule.ScheduleID And
@@ -256,7 +256,7 @@ Public Class ActivityRegister
                 ProPic = My.Resources.user_default
             End If
 
-            dgvParticiples.Rows.Add(i.MemberID, ProPic, i.Nickname)
+            dgvParticipants.Rows.Add(i.MemberID, ProPic, i.Nickname)
         Next
 
     End Sub
@@ -274,16 +274,16 @@ Public Class ActivityRegister
     End Sub
 
     Private Sub settingdgvColumn()
-        Dim dgvWidth As Double = dgvParticiples.Width
+        Dim dgvWidth As Double = dgvParticipants.Width
 
-        If dgvParticiples.Columns("dgvParticiplesRemove") Is Nothing Then
-            dgvParticiples.Columns("dgvParticiplePic").Width = dgvParticiples.RowTemplate.Height
-            dgvParticiples.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticiples.Columns("dgvParticiplePic").Width)
+        If dgvParticipants.Columns("dgvParticiplesRemove") Is Nothing Then
+            dgvParticipants.Columns("dgvParticiplePic").Width = dgvParticipants.RowTemplate.Height
+            dgvParticipants.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticipants.Columns("dgvParticiplePic").Width)
         Else
 
-            dgvParticiples.Columns("dgvParticiplePic").Width = dgvParticiples.RowTemplate.Height
-            dgvParticiples.Columns("dgvParticiplesRemove").Width = dgvParticiples.RowTemplate.Height
-            dgvParticiples.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticiples.Columns("dgvParticiplesRemove").Width - dgvParticiples.Columns("dgvParticiplePic").Width)
+            dgvParticipants.Columns("dgvParticiplePic").Width = dgvParticipants.RowTemplate.Height
+            dgvParticipants.Columns("dgvParticiplesRemove").Width = dgvParticipants.RowTemplate.Height
+            dgvParticipants.Columns("dgvParticipleName").Width = CInt(dgvWidth - dgvParticipants.Columns("dgvParticiplesRemove").Width - dgvParticipants.Columns("dgvParticiplePic").Width)
         End If
 
 
@@ -295,7 +295,7 @@ Public Class ActivityRegister
         If schedule Is Nothing Then
 
             participleAdd.ScheduleID = -1
-            participleAdd.participleList = dgvParticiples
+            participleAdd.participleList = dgvParticipants
 
         Else
             participleAdd.ScheduleID = schedule.ScheduleID
@@ -306,39 +306,39 @@ Public Class ActivityRegister
     End Sub
 
 
-    Private Sub dgvParticiples_MouseEnterAndMouseUp(sender As Object, e As DataGridViewCellEventArgs) Handles dgvParticiples.CellMouseEnter
-        If dgvParticiples.Columns("dgvParticiplesRemove") IsNot Nothing Then
-            Dim cellImage As DataGridViewImageCell = CType(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
+    Private Sub dgvParticiples_MouseEnterAndMouseUp(sender As Object, e As DataGridViewCellEventArgs) Handles dgvParticipants.CellMouseEnter
+        If dgvParticipants.Columns("dgvParticiplesRemove") IsNot Nothing Then
+            Dim cellImage As DataGridViewImageCell = CType(dgvParticipants.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
             cellImage.Value = My.Resources.x_mark_3_24
         End If
 
-        dgvParticiples.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(0, 179, 134)
+        dgvParticipants.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(0, 179, 134)
 
     End Sub
 
-    Private Sub dgvParticiples_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseUp
-        If dgvParticiples.Columns("dgvParticiplesRemove") IsNot Nothing Then
-            Dim cellImage As DataGridViewImageCell = CType(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
+    Private Sub dgvParticiples_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticipants.CellMouseUp
+        If dgvParticipants.Columns("dgvParticiplesRemove") IsNot Nothing Then
+            Dim cellImage As DataGridViewImageCell = CType(dgvParticipants.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
             cellImage.Value = My.Resources.x_mark_3_24
         End If
-        dgvParticiples.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(0, 179, 134)
+        dgvParticipants.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(0, 179, 134)
     End Sub
 
-    Private Sub dgvParticiples_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgvParticiples.CellMouseLeave
-        If dgvParticiples.Columns("dgvParticiplesRemove") IsNot Nothing Then
-            Dim cellImage As DataGridViewImageCell = CType(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
+    Private Sub dgvParticiples_CellMouseLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgvParticipants.CellMouseLeave
+        If dgvParticipants.Columns("dgvParticiplesRemove") IsNot Nothing Then
+            Dim cellImage As DataGridViewImageCell = CType(dgvParticipants.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
             cellImage.Value = My.Resources.transparent
         End If
-        dgvParticiples.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(192, 255, 192)
+        dgvParticipants.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(192, 255, 192)
 
     End Sub
 
-    Private Sub dgvParticiples_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseClick
-        Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
+    Private Sub dgvParticiples_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticipants.CellMouseClick
+        Dim columnName As String = dgvParticipants.Columns(e.ColumnIndex).Name
         If schedule Is Nothing Then
             'romove row only
             If columnName = "dgvParticiplesRemove" Then
-                dgvParticiples.Rows.RemoveAt(e.RowIndex)
+                dgvParticipants.Rows.RemoveAt(e.RowIndex)
             End If
 
         Else
@@ -350,7 +350,7 @@ Public Class ActivityRegister
                 If vbYes = MsgBox("Are you sure you want to remove this participle?", vbYesNo, "Warning") Then
                     Dim db As New ScheduleDBDataContext()
 
-                    Dim p As Participle = db.Participles.FirstOrDefault(Function(o) o.ScheduleID = schedule.ScheduleID And o.MemberID = CInt(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticipleID").Value))
+                    Dim p As Participle = db.Participles.FirstOrDefault(Function(o) o.ScheduleID = schedule.ScheduleID And o.MemberID = CInt(dgvParticipants.Rows(e.RowIndex).Cells("dgvParticipleID").Value))
 
                     If p Is Nothing Then
                         MsgBox("The record of the user fail to retrieved", vbOKOnly, "Error")
@@ -370,13 +370,13 @@ Public Class ActivityRegister
 
     End Sub
 
-    Private Sub dgvParticiples_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticiples.CellMouseDown
+    Private Sub dgvParticiples_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvParticipants.CellMouseDown
 
-        dgvParticiples.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(179, 255, 236)
+        dgvParticipants.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.FromArgb(179, 255, 236)
 
-        Dim columnName As String = dgvParticiples.Columns(e.ColumnIndex).Name
+        Dim columnName As String = dgvParticipants.Columns(e.ColumnIndex).Name
         If columnName = "dgvParticiplesRemove" Then
-            Dim cellImage As DataGridViewImageCell = CType(dgvParticiples.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
+            Dim cellImage As DataGridViewImageCell = CType(dgvParticipants.Rows(e.RowIndex).Cells("dgvParticiplesRemove"), DataGridViewImageCell)
             cellImage.Value = My.Resources.x_mark_3_Pressed
         End If
 
@@ -393,11 +393,11 @@ Public Class ActivityRegister
     Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
         If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
             gbRepeat.Enabled = True
-            gbParticiple.Enabled = False
+            gbParticipant.Enabled = False
             btnAddParti.Image = My.Resources.add_user_pressed
         Else
             gbRepeat.Enabled = False
-            gbParticiple.Enabled = True
+            gbParticipant.Enabled = True
             btnAddParti.Image = My.Resources.add_user_32
         End If
     End Sub
@@ -428,7 +428,7 @@ Public Class ActivityRegister
         Dim db As New ScheduleDBDataContext
         Dim participle As Participle
 
-        For Each row As DataGridViewRow In dgvParticiples.Rows
+        For Each row As DataGridViewRow In dgvParticipants.Rows
             participle = New Participle
             With participle
                 .ScheduleID = scheduleid
@@ -532,13 +532,13 @@ Public Class ActivityRegister
         End If
     End Sub
 
-    Private Sub dgvParticiples_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dgvParticiples.Validating
+    Private Sub dgvParticiples_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dgvParticipants.Validating
         If Not (cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE)) Then
-            If dgvParticiples.RowCount < 1 Then
-                Err.SetError(gbParticiple, cboActivityType.SelectedItem.ToString & " need to be atleast invite 1 person")
+            If dgvParticipants.RowCount < 1 Then
+                Err.SetError(gbParticipant, cboActivityType.SelectedItem.ToString & " need to be atleast invite 1 person")
                 e.Cancel = True
             Else
-                Err.SetError(gbParticiple, Nothing)
+                Err.SetError(gbParticipant, Nothing)
             End If
         End If
     End Sub
@@ -598,7 +598,7 @@ Public Class ActivityRegister
 
             ' 2.create a function to refresh the data grid view and call it here
             getReminder()
-
+            AlarmClass.updateReminder()
         End If
 
     End Sub
@@ -643,4 +643,5 @@ Public Class ActivityRegister
             End If
         End If
     End Sub
+
 End Class

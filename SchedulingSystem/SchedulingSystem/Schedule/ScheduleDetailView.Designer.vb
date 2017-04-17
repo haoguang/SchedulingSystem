@@ -22,7 +22,7 @@ Partial Class ScheduleDetailView
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvReminder = New System.Windows.Forms.DataGridView()
         Me.btnAddReminder = New System.Windows.Forms.Button()
         Me.lblMinBefore = New System.Windows.Forms.Label()
@@ -37,7 +37,7 @@ Partial Class ScheduleDetailView
         Me.dgvParticipleID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvParticiplePic = New System.Windows.Forms.DataGridViewImageColumn()
         Me.dgvParticipleName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.gbParticiple = New System.Windows.Forms.GroupBox()
+        Me.gbParticipant = New System.Windows.Forms.GroupBox()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.gbRepeat = New System.Windows.Forms.GroupBox()
         Me.lblRepeatBehave = New System.Windows.Forms.Label()
@@ -60,7 +60,7 @@ Partial Class ScheduleDetailView
         Me.gbReminder.SuspendLayout()
         CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbParticiple.SuspendLayout()
+        Me.gbParticipant.SuspendLayout()
         Me.gbRepeat.SuspendLayout()
         Me.gbGeneral.SuspendLayout()
         Me.SuspendLayout()
@@ -82,7 +82,7 @@ Partial Class ScheduleDetailView
         '
         'btnAddReminder
         '
-        Me.btnAddReminder.Location = New System.Drawing.Point(331, 20)
+        Me.btnAddReminder.Location = New System.Drawing.Point(322, 20)
         Me.btnAddReminder.Name = "btnAddReminder"
         Me.btnAddReminder.Size = New System.Drawing.Size(43, 23)
         Me.btnAddReminder.TabIndex = 5
@@ -96,9 +96,9 @@ Partial Class ScheduleDetailView
         Me.lblMinBefore.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblMinBefore.Location = New System.Drawing.Point(6, 25)
         Me.lblMinBefore.Name = "lblMinBefore"
-        Me.lblMinBefore.Size = New System.Drawing.Size(135, 13)
+        Me.lblMinBefore.Size = New System.Drawing.Size(151, 13)
         Me.lblMinBefore.TabIndex = 3
-        Me.lblMinBefore.Text = "&Minutes Before :"
+        Me.lblMinBefore.Text = "&Minutes Before   :"
         '
         'lblRepeatDueTitle
         '
@@ -107,9 +107,9 @@ Partial Class ScheduleDetailView
         Me.lblRepeatDueTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblRepeatDueTitle.Location = New System.Drawing.Point(6, 25)
         Me.lblRepeatDueTitle.Name = "lblRepeatDueTitle"
-        Me.lblRepeatDueTitle.Size = New System.Drawing.Size(143, 13)
+        Me.lblRepeatDueTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblRepeatDueTitle.TabIndex = 0
-        Me.lblRepeatDueTitle.Text = "Re&peatation Due :"
+        Me.lblRepeatDueTitle.Text = "Re&peatition Due  :"
         '
         'lblRepeatBehaveTitle
         '
@@ -140,7 +140,7 @@ Partial Class ScheduleDetailView
         Me.cboMinBefore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMinBefore.FormattingEnabled = True
         Me.cboMinBefore.Items.AddRange(New Object() {"10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "1 hour"})
-        Me.cboMinBefore.Location = New System.Drawing.Point(167, 22)
+        Me.cboMinBefore.Location = New System.Drawing.Point(158, 22)
         Me.cboMinBefore.Name = "cboMinBefore"
         Me.cboMinBefore.Size = New System.Drawing.Size(158, 21)
         Me.cboMinBefore.TabIndex = 4
@@ -184,7 +184,7 @@ Partial Class ScheduleDetailView
         Me.lblParticipleTitle.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
         Me.lblParticipleTitle.Size = New System.Drawing.Size(271, 40)
         Me.lblParticipleTitle.TabIndex = 1
-        Me.lblParticipleTitle.Text = "Participle Names"
+        Me.lblParticipleTitle.Text = "Participant Names"
         Me.lblParticipleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dgvParticiples
@@ -193,8 +193,8 @@ Partial Class ScheduleDetailView
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -240,17 +240,17 @@ Partial Class ScheduleDetailView
         Me.dgvParticipleName.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvParticipleName.Width = 221
         '
-        'gbParticiple
+        'gbParticipant
         '
-        Me.gbParticiple.Controls.Add(Me.btnAddParti)
-        Me.gbParticiple.Controls.Add(Me.lblParticipleTitle)
-        Me.gbParticiple.Controls.Add(Me.dgvParticiples)
-        Me.gbParticiple.Location = New System.Drawing.Point(434, 17)
-        Me.gbParticiple.Name = "gbParticiple"
-        Me.gbParticiple.Size = New System.Drawing.Size(277, 371)
-        Me.gbParticiple.TabIndex = 16
-        Me.gbParticiple.TabStop = False
-        Me.gbParticiple.Text = "Participles"
+        Me.gbParticipant.Controls.Add(Me.btnAddParti)
+        Me.gbParticipant.Controls.Add(Me.lblParticipleTitle)
+        Me.gbParticipant.Controls.Add(Me.dgvParticiples)
+        Me.gbParticipant.Location = New System.Drawing.Point(434, 17)
+        Me.gbParticipant.Name = "gbParticipant"
+        Me.gbParticipant.Size = New System.Drawing.Size(277, 371)
+        Me.gbParticipant.TabIndex = 16
+        Me.gbParticipant.TabStop = False
+        Me.gbParticipant.Text = "Participants"
         '
         'btnEdit
         '
@@ -277,7 +277,7 @@ Partial Class ScheduleDetailView
         Me.gbRepeat.Size = New System.Drawing.Size(402, 95)
         Me.gbRepeat.TabIndex = 13
         Me.gbRepeat.TabStop = False
-        Me.gbRepeat.Text = "Repeatation"
+        Me.gbRepeat.Text = "Repeatition"
         '
         'lblRepeatBehave
         '
@@ -296,7 +296,7 @@ Partial Class ScheduleDetailView
         Me.lblRepeatDue.Name = "lblRepeatDue"
         Me.lblRepeatDue.Size = New System.Drawing.Size(220, 23)
         Me.lblRepeatDue.TabIndex = 11
-        Me.lblRepeatDue.Text = "repeatation due"
+        Me.lblRepeatDue.Text = "repeatition due"
         Me.lblRepeatDue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblEndTitle
@@ -306,9 +306,9 @@ Partial Class ScheduleDetailView
         Me.lblEndTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblEndTitle.Location = New System.Drawing.Point(6, 57)
         Me.lblEndTitle.Name = "lblEndTitle"
-        Me.lblEndTitle.Size = New System.Drawing.Size(119, 13)
+        Me.lblEndTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblEndTitle.TabIndex = 2
-        Me.lblEndTitle.Text = "Activity &End :"
+        Me.lblEndTitle.Text = "Activity &End     :"
         '
         'lblTypeTitle
         '
@@ -317,9 +317,9 @@ Partial Class ScheduleDetailView
         Me.lblTypeTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblTypeTitle.Location = New System.Drawing.Point(6, 223)
         Me.lblTypeTitle.Name = "lblTypeTitle"
-        Me.lblTypeTitle.Size = New System.Drawing.Size(127, 13)
+        Me.lblTypeTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblTypeTitle.TabIndex = 10
-        Me.lblTypeTitle.Text = "&Activity Type :"
+        Me.lblTypeTitle.Text = "&Activity Type    :"
         '
         'lblVenueTitle
         '
@@ -328,9 +328,9 @@ Partial Class ScheduleDetailView
         Me.lblVenueTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblVenueTitle.Location = New System.Drawing.Point(6, 187)
         Me.lblVenueTitle.Name = "lblVenueTitle"
-        Me.lblVenueTitle.Size = New System.Drawing.Size(63, 13)
+        Me.lblVenueTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblVenueTitle.TabIndex = 8
-        Me.lblVenueTitle.Text = "&Venue :"
+        Me.lblVenueTitle.Text = "&Venue            :"
         '
         'lblTitle
         '
@@ -339,9 +339,9 @@ Partial Class ScheduleDetailView
         Me.lblTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblTitle.Location = New System.Drawing.Point(6, 88)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(135, 13)
+        Me.lblTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblTitle.TabIndex = 4
-        Me.lblTitle.Text = "Activity &Title :"
+        Me.lblTitle.Text = "Activity &Title   :"
         '
         'lblDescriptionTitle
         '
@@ -350,9 +350,9 @@ Partial Class ScheduleDetailView
         Me.lblDescriptionTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblDescriptionTitle.Location = New System.Drawing.Point(6, 119)
         Me.lblDescriptionTitle.Name = "lblDescriptionTitle"
-        Me.lblDescriptionTitle.Size = New System.Drawing.Size(111, 13)
+        Me.lblDescriptionTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblDescriptionTitle.TabIndex = 6
-        Me.lblDescriptionTitle.Text = "Descriptio&n :"
+        Me.lblDescriptionTitle.Text = "Descriptio&n      :"
         '
         'gbGeneral
         '
@@ -378,7 +378,7 @@ Partial Class ScheduleDetailView
         'lblActivityType
         '
         Me.lblActivityType.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblActivityType.Location = New System.Drawing.Point(146, 217)
+        Me.lblActivityType.Location = New System.Drawing.Point(154, 217)
         Me.lblActivityType.Name = "lblActivityType"
         Me.lblActivityType.Size = New System.Drawing.Size(220, 23)
         Me.lblActivityType.TabIndex = 11
@@ -388,7 +388,7 @@ Partial Class ScheduleDetailView
         'lblVenue
         '
         Me.lblVenue.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVenue.Location = New System.Drawing.Point(146, 181)
+        Me.lblVenue.Location = New System.Drawing.Point(154, 181)
         Me.lblVenue.Name = "lblVenue"
         Me.lblVenue.Size = New System.Drawing.Size(220, 23)
         Me.lblVenue.TabIndex = 11
@@ -398,16 +398,16 @@ Partial Class ScheduleDetailView
         'lblDesc
         '
         Me.lblDesc.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDesc.Location = New System.Drawing.Point(146, 113)
+        Me.lblDesc.Location = New System.Drawing.Point(154, 115)
         Me.lblDesc.Name = "lblDesc"
         Me.lblDesc.Size = New System.Drawing.Size(220, 68)
         Me.lblDesc.TabIndex = 11
-        Me.lblDesc.Text = "Description"
+        Me.lblDesc.Text = "Description "
         '
         'lblAcTitle
         '
         Me.lblAcTitle.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAcTitle.Location = New System.Drawing.Point(147, 82)
+        Me.lblAcTitle.Location = New System.Drawing.Point(154, 82)
         Me.lblAcTitle.Name = "lblAcTitle"
         Me.lblAcTitle.Size = New System.Drawing.Size(220, 23)
         Me.lblAcTitle.TabIndex = 11
@@ -417,7 +417,7 @@ Partial Class ScheduleDetailView
         'lblEnd
         '
         Me.lblEnd.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEnd.Location = New System.Drawing.Point(147, 51)
+        Me.lblEnd.Location = New System.Drawing.Point(154, 51)
         Me.lblEnd.Name = "lblEnd"
         Me.lblEnd.Size = New System.Drawing.Size(220, 23)
         Me.lblEnd.TabIndex = 11
@@ -427,7 +427,7 @@ Partial Class ScheduleDetailView
         'lblStart
         '
         Me.lblStart.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStart.Location = New System.Drawing.Point(147, 20)
+        Me.lblStart.Location = New System.Drawing.Point(154, 20)
         Me.lblStart.Name = "lblStart"
         Me.lblStart.Size = New System.Drawing.Size(220, 23)
         Me.lblStart.TabIndex = 11
@@ -441,9 +441,9 @@ Partial Class ScheduleDetailView
         Me.lblStartTitle.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblStartTitle.Location = New System.Drawing.Point(6, 26)
         Me.lblStartTitle.Name = "lblStartTitle"
-        Me.lblStartTitle.Size = New System.Drawing.Size(135, 13)
+        Me.lblStartTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblStartTitle.TabIndex = 0
-        Me.lblStartTitle.Text = "Activity &Start :"
+        Me.lblStartTitle.Text = "Activity &Start   :"
         '
         'btnRemove
         '
@@ -467,7 +467,7 @@ Partial Class ScheduleDetailView
         Me.Controls.Add(Me.gbReminder)
         Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.gbParticiple)
+        Me.Controls.Add(Me.gbParticipant)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.gbRepeat)
         Me.Controls.Add(Me.gbGeneral)
@@ -478,7 +478,7 @@ Partial Class ScheduleDetailView
         Me.gbReminder.PerformLayout()
         CType(Me.btnAddParti, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvParticiples, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbParticiple.ResumeLayout(False)
+        Me.gbParticipant.ResumeLayout(False)
         Me.gbRepeat.ResumeLayout(False)
         Me.gbRepeat.PerformLayout()
         Me.gbGeneral.ResumeLayout(False)
@@ -495,7 +495,7 @@ Partial Class ScheduleDetailView
     Friend WithEvents gbReminder As GroupBox
     Friend WithEvents cboMinBefore As ComboBox
     Friend WithEvents btnCancel As Button
-    Friend WithEvents gbParticiple As GroupBox
+    Friend WithEvents gbParticipant As GroupBox
     Friend WithEvents btnAddParti As PictureBox
     Friend WithEvents lblParticipleTitle As Label
     Friend WithEvents dgvParticiples As DataGridView

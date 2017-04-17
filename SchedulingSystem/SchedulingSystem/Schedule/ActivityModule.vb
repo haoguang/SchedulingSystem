@@ -45,8 +45,8 @@
 
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
                  Where p.MemberID = userID And p.ScheduleID = s.ScheduleID And
-                     s.ScheduleID = st.ScheduleID And st.ScheduleStart <= tempDate And
-                     s.Status = ScheduleClass.ACTIVE_STATUS And st.ScheduleEnd >= tempDate And
+                     s.ScheduleID = st.ScheduleID And st.ScheduleStart < tempDate And
+                     s.Status = ScheduleClass.ACTIVE_STATUS And st.ScheduleEnd > tempDate And
                      st.ScheduleID <> scheduleID
 
         Return rs.Count > 0
@@ -57,9 +57,9 @@
 
         Dim rs = From s In db.Schedules, st In db.ScheduleTimes, p In db.Participles
                  Where p.MemberID = userID And p.ScheduleID = s.ScheduleID And
-                     s.ScheduleID = st.ScheduleID And st.ScheduleStart >= tempDate And
+                     s.ScheduleID = st.ScheduleID And st.ScheduleStart > tempDate And
                      s.Status = ScheduleClass.ACTIVE_STATUS And
-                     st.ScheduleEnd <= tempDate2 And st.ScheduleID <> scheduleID
+                     st.ScheduleEnd < tempDate2 And st.ScheduleID <> scheduleID
 
         Return rs.Count > 0
     End Function

@@ -542,6 +542,7 @@
     <Content Include="Resources\logo.png" />
     <None Include="Resources\reportBackground.png" />
     <None Include="Resources\time-12-48.png" />
+    <None Include="Resources\SoftMusic.wav" />
     <Content Include="ScheduleDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

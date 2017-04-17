@@ -52,9 +52,8 @@
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         AddHandler btnUserInfo.btnMenuEvent, AddressOf btnDown_Click
         AlarmClass.updateReminder() ' get reminder
-        AlarmClass.nextDate = Date.Now.Date
+        AlarmClass.nextDate = Date.Now.AddDays(1).Date
         tmrClock.Start()
-
         'Dim trd As Threading.Thread = New Threading.Thread(AddressOf getReminder)
         'trd.IsBackground = True
         'trd.Start()
