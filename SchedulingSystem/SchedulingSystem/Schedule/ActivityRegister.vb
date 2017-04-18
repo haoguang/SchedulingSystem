@@ -70,8 +70,8 @@ Public Class ActivityRegister
 
     Private Sub activityCreateMode() 'called when control is used to create schedule
         ' limit date control min date
-        scheStart.MinDate = Date.Today
-        scheEnd.MinDate = Date.Today
+        scheStart.MinDate = Date.Now
+        scheEnd.MinDate = Date.Now
 
         AddHandler btnDone.MouseClick, AddressOf btnDoneCreate_MouseClick
 

@@ -22,7 +22,7 @@ Partial Class ScheduleDetailView
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvReminder = New System.Windows.Forms.DataGridView()
         Me.btnAddReminder = New System.Windows.Forms.Button()
         Me.lblMinBefore = New System.Windows.Forms.Label()
@@ -109,7 +109,7 @@ Partial Class ScheduleDetailView
         Me.lblRepeatDueTitle.Name = "lblRepeatDueTitle"
         Me.lblRepeatDueTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblRepeatDueTitle.TabIndex = 0
-        Me.lblRepeatDueTitle.Text = "Re&peatition Due  :"
+        Me.lblRepeatDueTitle.Text = "Re&petition Due   :"
         '
         'lblRepeatBehaveTitle
         '
@@ -193,8 +193,8 @@ Partial Class ScheduleDetailView
         Me.dgvParticiples.AllowUserToDeleteRows = False
         Me.dgvParticiples.AllowUserToResizeColumns = False
         Me.dgvParticiples.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticiples.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticiples.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticiples.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticiples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -277,7 +277,7 @@ Partial Class ScheduleDetailView
         Me.gbRepeat.Size = New System.Drawing.Size(402, 95)
         Me.gbRepeat.TabIndex = 13
         Me.gbRepeat.TabStop = False
-        Me.gbRepeat.Text = "Repeatition"
+        Me.gbRepeat.Text = "Repetition"
         '
         'lblRepeatBehave
         '
@@ -296,7 +296,7 @@ Partial Class ScheduleDetailView
         Me.lblRepeatDue.Name = "lblRepeatDue"
         Me.lblRepeatDue.Size = New System.Drawing.Size(220, 23)
         Me.lblRepeatDue.TabIndex = 11
-        Me.lblRepeatDue.Text = "repeatition due"
+        Me.lblRepeatDue.Text = "repetition due"
         Me.lblRepeatDue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblEndTitle
