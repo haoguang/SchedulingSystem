@@ -63,6 +63,17 @@ Public Class ActivityRegister
 
         populateDataToControls() 'insert data to all control
 
+        ' set enable participle if activity type is not personal
+        If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
+            gbRepeat.Enabled = True
+            gbParticipant.Enabled = False
+            btnAddParti.Image = My.Resources.add_user_pressed
+        Else
+            gbRepeat.Enabled = False
+            gbParticipant.Enabled = True
+            btnAddParti.Image = My.Resources.add_user_32
+        End If
+
         populateParticiples() 'insert data to grid view
 
         getReminder() ' insert reminder data to grid view
@@ -397,15 +408,18 @@ Public Class ActivityRegister
 
 
     Private Sub cboActivityType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboActivityType.SelectedIndexChanged
-        If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
-            gbRepeat.Enabled = True
-            gbParticipant.Enabled = False
-            btnAddParti.Image = My.Resources.add_user_pressed
-        Else
-            gbRepeat.Enabled = False
-            gbParticipant.Enabled = True
-            btnAddParti.Image = My.Resources.add_user_32
+        If schedule Is Nothing Then
+            If cboActivityType.SelectedItem.ToString.Equals(ScheduleClass.PERSONAL_TYPE) Then
+                gbRepeat.Enabled = True
+                gbParticipant.Enabled = False
+                btnAddParti.Image = My.Resources.add_user_pressed
+            Else
+                gbRepeat.Enabled = False
+                gbParticipant.Enabled = True
+                btnAddParti.Image = My.Resources.add_user_32
+            End If
         End If
+
     End Sub
 
     Private Sub generateRepeatDates()
@@ -510,6 +524,10 @@ Public Class ActivityRegister
         ElseIf DateDiff(DateInterval.Minute, scheStart.Value, scheEnd.Value) < 30 Then
             Err.SetError(scheStart, "The duration of the time must more than 30 minutes")
             Err.SetError(scheEnd, "The duration of the time must more than 30 minutes")
+            e.Cancel = True
+        ElseIf DateDiff(DateInterval.Hour, scheStart.Value, scheEnd.Value) > 20 Then
+            Err.SetError(scheStart, "The duration of the time cannot be more than 20 hours.")
+            Err.SetError(scheEnd, "The duration of the time cannot be more than 20 hours")
             e.Cancel = True
         ElseIf ActivityModule.dateValidator(scheEnd.Value, LoginSession.memberID, If(schedule Is Nothing, -1, schedule.ScheduleID)) Then
             Err.SetError(scheStart, Nothing)
