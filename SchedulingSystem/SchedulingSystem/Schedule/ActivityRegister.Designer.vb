@@ -23,7 +23,7 @@ Partial Class ActivityRegister
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lblStartTitle = New System.Windows.Forms.Label()
         Me.scheStart = New System.Windows.Forms.DateTimePicker()
         Me.lblEndTitle = New System.Windows.Forms.Label()
@@ -109,7 +109,7 @@ Partial Class ActivityRegister
         Me.lblRepeatDueTitle.Name = "lblRepeatDueTitle"
         Me.lblRepeatDueTitle.Size = New System.Drawing.Size(151, 13)
         Me.lblRepeatDueTitle.TabIndex = 0
-        Me.lblRepeatDueTitle.Text = "Re&peatition Due  :"
+        Me.lblRepeatDueTitle.Text = "Re&petition Due   :"
         '
         'lblRepeatBehaveTitle
         '
@@ -259,7 +259,7 @@ Partial Class ActivityRegister
         Me.gbRepeat.Size = New System.Drawing.Size(402, 95)
         Me.gbRepeat.TabIndex = 8
         Me.gbRepeat.TabStop = False
-        Me.gbRepeat.Text = "Repeatition"
+        Me.gbRepeat.Text = "Repetition"
         '
         'btnDone
         '
@@ -320,8 +320,8 @@ Partial Class ActivityRegister
         Me.dgvParticipants.AllowUserToDeleteRows = False
         Me.dgvParticipants.AllowUserToResizeColumns = False
         Me.dgvParticipants.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.dgvParticipants.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.dgvParticipants.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvParticipants.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(214, Byte), Integer))
         Me.dgvParticipants.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing

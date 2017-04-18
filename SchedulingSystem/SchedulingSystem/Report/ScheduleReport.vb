@@ -117,12 +117,13 @@ Public Class ScheduleReport
         body.AppendFormat("{0,2} record(s)", cnt)
 
         With e.Graphics
-            .DrawString(header, fontHeader, Brushes.Purple, 100, 0)
-            .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)
-            .DrawString(body.ToString, fontbody, Brushes.Black, 20, 120)
+            .DrawImage(My.Resources.logo, 50, 100, 100, 100)
+            .DrawString(header, fontHeader, Brushes.Purple, 150, 100)
+            .DrawString(subHeader, fontSubHeader, Brushes.Black, 150, 140)
+            .DrawString(body.ToString, fontbody, Brushes.Black, 60, 340)
         End With
 
-        Dim myRec As New System.Drawing.Rectangle(350, 120, 450, 450)
+        Dim myRec As New System.Drawing.Rectangle(350, 320, 450, 450)
         chtBusyTime.Printing.PrintPaint(e.Graphics, myRec)
     End Sub
 
