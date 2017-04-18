@@ -97,15 +97,15 @@ Public Class noticeReport
         If appointmentQuery.Count > 0 Then
             If appointmentQuery1.Count > 0 Then 'decline 
                 If appointmentQuery2.Count > 0 Then 'attend
-                    lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Appointment" & vbTab, appointmentQuery.Count & vbTab, appointmentQuery2.Count & vbTab, appointmentQuery1.Count))
+                    lstNotice.Items.Add("       Appointment" & vbTab & vbTab & appointmentQuery.Count.ToString("D2") & vbTab & vbTab & appointmentQuery2.Count.ToString("D2") & vbTab & vbTab & appointmentQuery1.Count.ToString("D2"))
                 Else
-                    lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Appointment" & vbTab, appointmentQuery.Count & vbTab, "0" & vbTab, appointmentQuery1.Count))
+                    lstNotice.Items.Add("       Appointment" & vbTab & vbTab & appointmentQuery.Count.ToString("D2") & vbTab & vbTab & "00" & vbTab & vbTab & appointmentQuery1.Count.ToString("D2"))
                 End If
             Else
-                lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Appointment" & vbTab, appointmentQuery.Count & vbTab, appointmentQuery2.Count & vbTab, "0"))
+                lstNotice.Items.Add("       Appointment" & vbTab & vbTab & appointmentQuery.Count.ToString("D2") & vbTab & vbTab & appointmentQuery2.Count.ToString("D2") & vbTab & vbTab & "00")
             End If
         Else
-            lstNotice.Items.Add(String.Format("{0, 15}  {1, 15}  {2,14}  {3,13}", "Appointment" & vbTab, "N/A" & vbTab, "N/A" & vbTab, "N/A"))
+            lstNotice.Items.Add("       Appointment" & vbTab & vbTab & "N\A" & vbTab & vbTab & "N\A" & vbTab & vbTab & "N\A")
         End If
 
 
@@ -127,16 +127,20 @@ Public Class noticeReport
         If friendQuery.Count > 0 Then
             If friendQuery1.Count > 0 Then 'Friend
                 If friendQuery2.Count > 0 Then 'CloseFriend
-                    lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Friend" & vbTab, friendQuery.Count & vbTab, friendQuery1.Count & vbTab, friendQuery2.Count))
+                    lstFriend.Items.Add("       Friend  " & vbTab & vbTab & friendQuery.Count.ToString("D2") & vbTab & vbTab & friendQuery1.Count.ToString("D2") & vbTab & vbTab & friendQuery2.Count.ToString("D2"))
                 Else
-                    lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Friend" & vbTab, friendQuery.Count & vbTab, "0" & vbTab, friendQuery2.Count))
+                    lstFriend.Items.Add("       Friend  " & vbTab & vbTab & friendQuery.Count.ToString("D2") & vbTab & vbTab & "00" & vbTab & vbTab & friendQuery2.Count.ToString("D2"))
                 End If
             Else
-                lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,15}  {3,14}", "Friend" & vbTab, friendQuery.Count & vbTab, friendQuery1.Count & vbTab, "0"))
+                lstFriend.Items.Add("       Friend  " & vbTab & vbTab & friendQuery.Count.ToString("D2") & vbTab & vbTab & friendQuery1.Count.ToString("D2") & vbTab & vbTab & "00")
             End If
         Else
-            lstFriend.Items.Add(String.Format("{0, 15}  {1, 15}  {2,14}  {3,13}", "Friend" & vbTab, "N/A" & vbTab, "N/A" & vbTab, "N/A"))
+            lstFriend.Items.Add("       Friend  " & vbTab & vbTab & "N\A" & vbTab & vbTab & "N\A" & vbTab & vbTab & "N\A")
         End If
+
+
+
+
     End Sub
 
     Private Sub docNotice_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles docNotice.PrintPage
@@ -159,8 +163,8 @@ Public Class noticeReport
         body.AppendLine()
         body.AppendLine()
         body.AppendLine()
-        body.AppendLine("   Type                      Receive           Accepted           Rejected")
-        body.AppendLine("   --------------            --------          ---------          ---------")
+        body.AppendLine("   Type              Receive    Accepted   Rejected")
+        body.AppendLine("   --------------    --------   --------   -----------")
         body.AppendLine()
         body.AppendLine()
 
@@ -170,20 +174,20 @@ Public Class noticeReport
         bodyInput.AppendLine()
         For Each item In lstNotice.Items
             count += 1
-            parts = CStr(item).Split(CChar(vbTab))
-            bodyInput.AppendFormat("{0,-8}  {1,-2}  {2,-2}  {3,-2}" & vbNewLine, parts(0), parts(1), parts(2), parts(3))
+            parts = CStr(item).Split(CChar(vbTab & vbTab))
+            bodyInput.AppendFormat("{0,14}  {1,13}  {2,9}  {3,12}" & vbNewLine, RemoveWhitespace(parts(0)), RemoveWhitespace(parts(2)), RemoveWhitespace(parts(4)), RemoveWhitespace(parts(6)))
         Next
         body.AppendLine()
-        body.AppendLine("   Type                      Receive           Friend            CloseFriend")
-        body.AppendLine("   --------------            --------          ---------         -----------")
+        body.AppendLine("   Type              Receive    Friend     CloseFriend")
+        body.AppendLine("   --------------    --------   --------   -----------")
         bodyInput2.AppendLine()
         bodyInput2.AppendLine()
         ' bodyInput2.AppendLine()
 
         For Each item In lstFriend.Items
             count += 1
-            parts = CStr(item).Split(CChar(vbTab))
-            bodyInput2.AppendFormat("{0,-17}  {1,-2}  {2,-2}  {3,-2}" & vbNewLine, parts(0), parts(1), parts(2), parts(3))
+            parts = CStr(item).Split(CChar(vbTab & vbTab))
+            bodyInput2.AppendFormat("{0,14}  {1,18}  {2,9}  {3,12}" & vbNewLine, RemoveWhitespace(parts(0)), RemoveWhitespace(parts(2)), RemoveWhitespace(parts(4)), RemoveWhitespace(parts(6)))
         Next
 
         With e.Graphics
@@ -200,4 +204,8 @@ Public Class noticeReport
         dlgNoticePreview.Document = docNotice
         dlgNoticePreview.ShowDialog(Me)
     End Sub
+
+    Function RemoveWhitespace(fullString As String) As String
+        Return New String(fullString.Where(Function(x) Not Char.IsWhiteSpace(x)).ToArray())
+    End Function
 End Class

@@ -89,7 +89,7 @@ Partial Class noticeReport
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(46, 77)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(100, 23)
+        Me.Label1.Size = New System.Drawing.Size(112, 23)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Type"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -98,7 +98,7 @@ Partial Class noticeReport
         '
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(143, 77)
+        Me.Label2.Location = New System.Drawing.Point(152, 77)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 23)
         Me.Label2.TabIndex = 5
@@ -109,9 +109,9 @@ Partial Class noticeReport
         '
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(237, 77)
+        Me.Label3.Location = New System.Drawing.Point(247, 77)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 23)
+        Me.Label3.Size = New System.Drawing.Size(97, 23)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Accepted"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -120,9 +120,9 @@ Partial Class noticeReport
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(334, 77)
+        Me.Label4.Location = New System.Drawing.Point(343, 77)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(100, 23)
+        Me.Label4.Size = New System.Drawing.Size(107, 23)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Rejected"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -132,7 +132,7 @@ Partial Class noticeReport
         Me.lstNotice.FormattingEnabled = True
         Me.lstNotice.Location = New System.Drawing.Point(46, 94)
         Me.lstNotice.Name = "lstNotice"
-        Me.lstNotice.Size = New System.Drawing.Size(388, 43)
+        Me.lstNotice.Size = New System.Drawing.Size(404, 43)
         Me.lstNotice.TabIndex = 8
         '
         'lstFriend
@@ -140,16 +140,16 @@ Partial Class noticeReport
         Me.lstFriend.FormattingEnabled = True
         Me.lstFriend.Location = New System.Drawing.Point(46, 153)
         Me.lstFriend.Name = "lstFriend"
-        Me.lstFriend.Size = New System.Drawing.Size(388, 43)
+        Me.lstFriend.Size = New System.Drawing.Size(404, 43)
         Me.lstFriend.TabIndex = 13
         '
         'Label5
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(334, 136)
+        Me.Label5.Location = New System.Drawing.Point(343, 136)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(100, 23)
+        Me.Label5.Size = New System.Drawing.Size(107, 23)
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "Close Friend"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -158,9 +158,9 @@ Partial Class noticeReport
         '
         Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(237, 136)
+        Me.Label6.Location = New System.Drawing.Point(247, 136)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(100, 23)
+        Me.Label6.Size = New System.Drawing.Size(97, 23)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Friend"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -169,7 +169,7 @@ Partial Class noticeReport
         '
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(143, 136)
+        Me.Label7.Location = New System.Drawing.Point(152, 136)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(100, 23)
         Me.Label7.TabIndex = 10
@@ -182,7 +182,7 @@ Partial Class noticeReport
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(46, 136)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(100, 23)
+        Me.Label8.Size = New System.Drawing.Size(112, 23)
         Me.Label8.TabIndex = 9
         Me.Label8.Text = "Type"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -230,7 +230,7 @@ Partial Class noticeReport
         Me.Controls.Add(Me.cboMonth)
         Me.Controls.Add(Me.lblMthY)
         Me.Name = "noticeReport"
-        Me.Size = New System.Drawing.Size(491, 258)
+        Me.Size = New System.Drawing.Size(485, 279)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
