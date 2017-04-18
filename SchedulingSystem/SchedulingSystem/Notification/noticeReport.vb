@@ -159,8 +159,8 @@ Public Class noticeReport
         body.AppendLine()
         body.AppendLine()
         body.AppendLine()
-        body.AppendLine("  Type                      Receive          Accepted           Rejected")
-        body.AppendLine("  --------------            --------         ---------          ---------")
+        body.AppendLine("   Type                      Receive           Accepted           Rejected")
+        body.AppendLine("   --------------            --------          ---------          ---------")
         body.AppendLine()
         body.AppendLine()
 
@@ -171,11 +171,11 @@ Public Class noticeReport
         For Each item In lstNotice.Items
             count += 1
             parts = CStr(item).Split(CChar(vbTab))
-            bodyInput.AppendFormat("{0,0}  {1,0}  {2,0}  {3,0}" & vbNewLine, parts(0), parts(1), parts(2), parts(3))
+            bodyInput.AppendFormat("{0,-8}  {1,-2}  {2,-2}  {3,-2}" & vbNewLine, parts(0), parts(1), parts(2), parts(3))
         Next
         body.AppendLine()
-        body.AppendLine("  Type                       Receive         Friend             CloseFriend")
-        body.AppendLine("  --------------             --------        ---------          -----------")
+        body.AppendLine("   Type                      Receive           Friend            CloseFriend")
+        body.AppendLine("   --------------            --------          ---------         -----------")
         bodyInput2.AppendLine()
         bodyInput2.AppendLine()
         ' bodyInput2.AppendLine()
@@ -183,7 +183,7 @@ Public Class noticeReport
         For Each item In lstFriend.Items
             count += 1
             parts = CStr(item).Split(CChar(vbTab))
-            bodyInput2.AppendFormat("{0,0}  {1,0}  {2,0}  {3,18}" & vbNewLine, parts(0) & vbTab & vbTab, parts(1), parts(2) & vbTab, parts(3))
+            bodyInput2.AppendFormat("{0,-17}  {1,-2}  {2,-2}  {3,-2}" & vbNewLine, parts(0), parts(1), parts(2), parts(3))
         Next
 
         With e.Graphics

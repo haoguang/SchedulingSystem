@@ -105,15 +105,15 @@ Public Class AppointmentReport
 
         Dim body As New StringBuilder()
 
-        body.AppendLine("No  Date        Start Time End Time Title")
-        body.AppendLine("--  ----------  ---------- -------- ----------------")
+        body.AppendLine("No  Date        Start Time End Time    Title")
+        body.AppendLine("--  ----------  ---------- ----------  ----------------")
 
         Dim cnt As Integer = 0
         Dim parts() As String
         For Each item In lstRecord.Items
             cnt += 1
             parts = CStr(item).Split(CChar(vbTab))
-            body.AppendFormat("{0,2}  {1,10}  {2,9} {3,9} {4, 4}" & vbNewLine, cnt, parts(0), parts(1), parts(2), parts(3))
+            body.AppendFormat("{0,2}  {1,10}  {2,10} {3,10}  {4, -30}" & vbNewLine, cnt, parts(0), parts(1), parts(2), parts(3))
         Next
 
         body.AppendLine()
